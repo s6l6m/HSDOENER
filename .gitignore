@@ -1,3 +1,18 @@
-# Godot 4+ specific ignores
+# --- Godot ---
+# Import-Dateien (werden automatisch generiert)
+*.import
+*.import/*
+
+# Godot-Editor Cache und temporäre Dateien
+.import/
+export.cfg
+export_presets.cfg
 .godot/
-/android/
+
+# Benutzerpfad (Savegames, Logs, etc.)
+# -> Diese werden im user:// Ordner abgelegt, nicht im Repo
+user://*
+
+# --- System-Dateien ---
+.DS_Store
+Thumbs.db
