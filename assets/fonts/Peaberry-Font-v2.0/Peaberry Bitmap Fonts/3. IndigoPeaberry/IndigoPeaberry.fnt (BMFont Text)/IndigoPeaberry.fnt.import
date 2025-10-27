@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://cx6vyktuup36e"
+valid=false
+
+[deps]
+
+source_file="res://assets/fonts/Peaberry-Font-v2.0/Peaberry Bitmap Fonts/3. IndigoPeaberry/IndigoPeaberry.fnt (BMFont Text)/IndigoPeaberry.fnt"
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2
