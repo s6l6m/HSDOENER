@@ -1,5 +1,1279 @@
-[gd_scene load_steps=2 format=3 uid="uid://do040dg4l71ch"]
+[gd_scene load_steps=419 format=3 uid="uid://do040dg4l71ch"]
 
 [ext_resource type="PackedScene" uid="uid://qoexj4ptqt8a" path="res://addons/maaacks_game_template/base/nodes/menus/options_menu/input/input_icon_mapper.tscn" id="1_7vieq"]
+[ext_resource type="Texture2D" uid="uid://bvchv64iofgck" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_0.svg" id="2_wgqyq"]
+[ext_resource type="Texture2D" uid="uid://cd2b3sxqod7bc" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_1.svg" id="3_btdj8"]
+[ext_resource type="Texture2D" uid="uid://dac1k52v7uxap" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_2.svg" id="4_lhkmw"]
+[ext_resource type="Texture2D" uid="uid://dppstcyydqr8h" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_3.svg" id="5_2qcww"]
+[ext_resource type="Texture2D" uid="uid://ps0oc2tpqyql" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_4.svg" id="6_3g5gv"]
+[ext_resource type="Texture2D" uid="uid://bgrifki7jckbd" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_5.svg" id="7_hldfm"]
+[ext_resource type="Texture2D" uid="uid://bunfogneq2up6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_6.svg" id="8_1cxpc"]
+[ext_resource type="Texture2D" uid="uid://dd78oenamu7ro" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_7.svg" id="9_6j1iv"]
+[ext_resource type="Texture2D" uid="uid://qkt8x2qteosw" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_8.svg" id="10_3pnvt"]
+[ext_resource type="Texture2D" uid="uid://bsi8p5176ysvw" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_9.svg" id="11_6dlrb"]
+[ext_resource type="Texture2D" uid="uid://ov8vjb7lg5mh" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_a.svg" id="12_818c7"]
+[ext_resource type="Texture2D" uid="uid://tiaislnmhjus" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_alt.svg" id="13_n7lr7"]
+[ext_resource type="Texture2D" uid="uid://b3pj7otwhwudg" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_any.svg" id="14_xq8kl"]
+[ext_resource type="Texture2D" uid="uid://b4pkho54am8gk" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_apostrophe.svg" id="15_1ql0t"]
+[ext_resource type="Texture2D" uid="uid://bpcel1m3x8k3j" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_down.svg" id="16_lx86x"]
+[ext_resource type="Texture2D" uid="uid://ckoq6ob6qm3jb" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_left.svg" id="17_0hhnu"]
+[ext_resource type="Texture2D" uid="uid://edmgaw1feg4l" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_right.svg" id="18_arkuj"]
+[ext_resource type="Texture2D" uid="uid://byemea5f7ddjd" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_up.svg" id="19_gt304"]
+[ext_resource type="Texture2D" uid="uid://dpodldmibh4xs" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows.svg" id="20_qvnj0"]
+[ext_resource type="Texture2D" uid="uid://gognjl5b3qkl" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_all.svg" id="21_pmrbx"]
+[ext_resource type="Texture2D" uid="uid://0xobsow5tq6y" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_down.svg" id="22_ahd1o"]
+[ext_resource type="Texture2D" uid="uid://swic5beum8bc" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_horizontal.svg" id="23_0j10t"]
+[ext_resource type="Texture2D" uid="uid://bnw7kfppk5ls6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_left.svg" id="24_pmiqd"]
+[ext_resource type="Texture2D" uid="uid://c0bjrvw2cqvpw" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_none.svg" id="25_llw5i"]
+[ext_resource type="Texture2D" uid="uid://b4u1jvbn4ek6m" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_right.svg" id="26_y5es4"]
+[ext_resource type="Texture2D" uid="uid://jop0axp7yax8" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_up.svg" id="27_mvjok"]
+[ext_resource type="Texture2D" uid="uid://y4inmy6qdyw4" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_vertical.svg" id="28_bkym3"]
+[ext_resource type="Texture2D" uid="uid://bsr2x5edki4w6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_asterisk.svg" id="29_hyevm"]
+[ext_resource type="Texture2D" uid="uid://dcqqn4spvr8yp" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_b.svg" id="30_fande"]
+[ext_resource type="Texture2D" uid="uid://b3dyk7wemlyu3" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_backspace.svg" id="31_76wfu"]
+[ext_resource type="Texture2D" uid="uid://buxy4uqpyt768" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_backspace_icon.svg" id="32_0j5cr"]
+[ext_resource type="Texture2D" uid="uid://dwx4p22y4fvf5" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_backspace_icon_alternative.svg" id="33_tdj7p"]
+[ext_resource type="Texture2D" uid="uid://bkpp5i3wbug4l" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_bracket_close.svg" id="34_80ts2"]
+[ext_resource type="Texture2D" uid="uid://b4pt18n22fsjs" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_bracket_greater.svg" id="35_g52m8"]
+[ext_resource type="Texture2D" uid="uid://d3up0rgfh0n7e" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_bracket_less.svg" id="36_k5vum"]
+[ext_resource type="Texture2D" uid="uid://de5ucpx88m2k" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_bracket_open.svg" id="37_dcyfm"]
+[ext_resource type="Texture2D" uid="uid://g40j4gu762e7" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_c.svg" id="38_p18vv"]
+[ext_resource type="Texture2D" uid="uid://wwashs6m8m8f" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_capslock.svg" id="39_ubnne"]
+[ext_resource type="Texture2D" uid="uid://dbqsv3kfyocnb" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_capslock_icon.svg" id="40_5hsy5"]
+[ext_resource type="Texture2D" uid="uid://bjd2t87bnjdkf" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_caret.svg" id="41_u8icm"]
+[ext_resource type="Texture2D" uid="uid://d1qv8hvtlv4qd" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_colon.svg" id="42_03u1g"]
+[ext_resource type="Texture2D" uid="uid://bbpw7khsv42xk" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_comma.svg" id="43_jqcaf"]
+[ext_resource type="Texture2D" uid="uid://clhk6oeuv4cyn" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_command.svg" id="44_0k5ai"]
+[ext_resource type="Texture2D" uid="uid://c8qje22vn76kn" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_ctrl.svg" id="45_gn7wk"]
+[ext_resource type="Texture2D" uid="uid://dmnnyx77ganc" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_d.svg" id="46_0enn3"]
+[ext_resource type="Texture2D" uid="uid://ciofw4yxid3i4" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_delete.svg" id="47_ohtta"]
+[ext_resource type="Texture2D" uid="uid://dmhb2pxtbk3hf" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_e.svg" id="48_fea5u"]
+[ext_resource type="Texture2D" uid="uid://dkmor36cglnqt" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_end.svg" id="49_0h2ya"]
+[ext_resource type="Texture2D" uid="uid://c2t56vj3houk6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_enter.svg" id="50_af5gs"]
+[ext_resource type="Texture2D" uid="uid://coxgkpxq2mpk8" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_equals.svg" id="51_c0mmb"]
+[ext_resource type="Texture2D" uid="uid://di7jbprurmk66" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_escape.svg" id="52_tiw8c"]
+[ext_resource type="Texture2D" uid="uid://yyx01fjwj40f" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_exclamation.svg" id="53_lquf2"]
+[ext_resource type="Texture2D" uid="uid://t1g4kv1d5iui" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f.svg" id="54_vbago"]
+[ext_resource type="Texture2D" uid="uid://cl67jrmboapha" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f1.svg" id="55_147ax"]
+[ext_resource type="Texture2D" uid="uid://crwnhcs2ogk4p" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f10.svg" id="56_mb461"]
+[ext_resource type="Texture2D" uid="uid://dwc4eaeyr6frr" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f11.svg" id="57_mdf04"]
+[ext_resource type="Texture2D" uid="uid://cg76ei0tr8hgr" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f12.svg" id="58_fqo7s"]
+[ext_resource type="Texture2D" uid="uid://dpoml7x4j27xf" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f2.svg" id="59_pk0p4"]
+[ext_resource type="Texture2D" uid="uid://djnbc3wmm1l6g" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f3.svg" id="60_fh6u4"]
+[ext_resource type="Texture2D" uid="uid://baqg4kymsa3df" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f4.svg" id="61_s6e62"]
+[ext_resource type="Texture2D" uid="uid://bjrqpr7qgdt2w" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f5.svg" id="62_yko8e"]
+[ext_resource type="Texture2D" uid="uid://df78j64txpuh6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f6.svg" id="63_lkwfg"]
+[ext_resource type="Texture2D" uid="uid://damqvefkb0wtd" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f7.svg" id="64_sbfam"]
+[ext_resource type="Texture2D" uid="uid://hmp6rxg5whna" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f8.svg" id="65_b77dr"]
+[ext_resource type="Texture2D" uid="uid://b2rild6x2nu6q" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f9.svg" id="66_om7yp"]
+[ext_resource type="Texture2D" uid="uid://161aihcv6e0w" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_function.svg" id="67_ov4dv"]
+[ext_resource type="Texture2D" uid="uid://btx0abnc4hvkq" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_g.svg" id="68_k32kv"]
+[ext_resource type="Texture2D" uid="uid://827tkvmw2g28" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_h.svg" id="69_anthc"]
+[ext_resource type="Texture2D" uid="uid://dt1ujf01p6pgm" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_home.svg" id="70_lm5th"]
+[ext_resource type="Texture2D" uid="uid://bi2o7eonecoix" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_i.svg" id="71_lxulv"]
+[ext_resource type="Texture2D" uid="uid://hpd321mb1bjp" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_insert.svg" id="72_yswr2"]
+[ext_resource type="Texture2D" uid="uid://b6qb3qx7fwhg4" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_j.svg" id="73_k0tas"]
+[ext_resource type="Texture2D" uid="uid://cke8rvr23p3gh" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_k.svg" id="74_r33kw"]
+[ext_resource type="Texture2D" uid="uid://bj1ctgjpfn4f1" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_l.svg" id="75_03hfd"]
+[ext_resource type="Texture2D" uid="uid://tnfoftyawjas" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_m.svg" id="76_g504p"]
+[ext_resource type="Texture2D" uid="uid://dn0rnyu8c64gy" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_minus.svg" id="77_g5o76"]
+[ext_resource type="Texture2D" uid="uid://buv1micnwjfj3" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_n.svg" id="78_y7uyg"]
+[ext_resource type="Texture2D" uid="uid://h3tp1r6mlife" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_numlock.svg" id="79_bqyjm"]
+[ext_resource type="Texture2D" uid="uid://bgnqxi6xn2eb2" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_numpad_enter.svg" id="80_mqay6"]
+[ext_resource type="Texture2D" uid="uid://cubtffs4yosps" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_numpad_plus.svg" id="81_gu7au"]
+[ext_resource type="Texture2D" uid="uid://cynfv30m7qees" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_o.svg" id="82_agv5a"]
+[ext_resource type="Texture2D" uid="uid://rhv5l3pj5y4c" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_option.svg" id="83_6qjf4"]
+[ext_resource type="Texture2D" uid="uid://d0y1ki378jxl4" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_p.svg" id="84_upehv"]
+[ext_resource type="Texture2D" uid="uid://dagmaoibig7ic" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_page_down.svg" id="85_x3nk0"]
+[ext_resource type="Texture2D" uid="uid://bg2g3kmast1hc" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_page_up.svg" id="86_wfyxb"]
+[ext_resource type="Texture2D" uid="uid://cbk63kijsc301" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_period.svg" id="87_i1scc"]
+[ext_resource type="Texture2D" uid="uid://hjpn54naarv7" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_plus.svg" id="88_sggud"]
+[ext_resource type="Texture2D" uid="uid://c2w72ne8r4ka0" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_printscreen.svg" id="89_7k5n7"]
+[ext_resource type="Texture2D" uid="uid://regnfoqiyq0t" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_q.svg" id="90_lj6gn"]
+[ext_resource type="Texture2D" uid="uid://beggnsr71lkh6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_question.svg" id="91_gf4x2"]
+[ext_resource type="Texture2D" uid="uid://74l5176bplo8" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_quote.svg" id="92_iyaev"]
+[ext_resource type="Texture2D" uid="uid://cr3m02qqeshyy" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_r.svg" id="93_75lew"]
+[ext_resource type="Texture2D" uid="uid://bmw0ju31fvtc0" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_return.svg" id="94_r14b7"]
+[ext_resource type="Texture2D" uid="uid://bky8cc3b7o2rm" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_s.svg" id="95_5x64k"]
+[ext_resource type="Texture2D" uid="uid://b44d5tr3jfcd" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_semicolon.svg" id="96_g18le"]
+[ext_resource type="Texture2D" uid="uid://br4iae103jpcy" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_shift.svg" id="97_khefn"]
+[ext_resource type="Texture2D" uid="uid://bhb74vum4ammt" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_shift_icon.svg" id="98_k1ucy"]
+[ext_resource type="Texture2D" uid="uid://cmait0bjnuo0k" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_slash_back.svg" id="99_aheq2"]
+[ext_resource type="Texture2D" uid="uid://m7r307cqvv28" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_slash_forward.svg" id="100_pxji8"]
+[ext_resource type="Texture2D" uid="uid://8rw1od3m1xku" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_space.svg" id="101_vj555"]
+[ext_resource type="Texture2D" uid="uid://bpve6abqxufhq" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_space_icon.svg" id="102_jud8f"]
+[ext_resource type="Texture2D" uid="uid://bgp820xbmxi3m" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_t.svg" id="103_jv0pg"]
+[ext_resource type="Texture2D" uid="uid://bc40bbi7j5e0i" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_tab.svg" id="104_uuvyc"]
+[ext_resource type="Texture2D" uid="uid://86uhcgcicfhh" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_tab_icon.svg" id="105_3uxf2"]
+[ext_resource type="Texture2D" uid="uid://bkape33kl1f1t" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_tab_icon_alternative.svg" id="106_uhfpd"]
+[ext_resource type="Texture2D" uid="uid://dwakk3pk15kqn" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_tilde.svg" id="107_0dh5l"]
+[ext_resource type="Texture2D" uid="uid://bcaq27l6ig2j7" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_u.svg" id="108_ga2hn"]
+[ext_resource type="Texture2D" uid="uid://4tvx6bqytox2" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_v.svg" id="109_st1lp"]
+[ext_resource type="Texture2D" uid="uid://br4m1u1t6u57q" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_w.svg" id="110_ttn6j"]
+[ext_resource type="Texture2D" uid="uid://bdl38wjqmi4da" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_win.svg" id="111_b6s5p"]
+[ext_resource type="Texture2D" uid="uid://cn7rd8bjpemlp" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_x.svg" id="112_53ako"]
+[ext_resource type="Texture2D" uid="uid://bp8tjcoafycn3" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_y.svg" id="113_eouho"]
+[ext_resource type="Texture2D" uid="uid://bm4qb5h1k7eay" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_z.svg" id="114_id7l8"]
+[ext_resource type="Texture2D" uid="uid://cgkbqtjnn23i5" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse.svg" id="115_ah2yg"]
+[ext_resource type="Texture2D" uid="uid://dw7u1fn10evfh" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_horizontal.svg" id="116_va5jt"]
+[ext_resource type="Texture2D" uid="uid://ctaed5bh06ias" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_left.svg" id="117_vwkq2"]
+[ext_resource type="Texture2D" uid="uid://dqae8qf0p2djf" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_move.svg" id="118_3pvsc"]
+[ext_resource type="Texture2D" uid="uid://3y7d5nm170xv" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_right.svg" id="119_8ay53"]
+[ext_resource type="Texture2D" uid="uid://b0ahfron4fw82" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_scroll.svg" id="120_g0fkk"]
+[ext_resource type="Texture2D" uid="uid://b17nxnp4btvlw" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_scroll_down.svg" id="121_k4exx"]
+[ext_resource type="Texture2D" uid="uid://drskpttjok5eo" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_scroll_up.svg" id="122_wwx7f"]
+[ext_resource type="Texture2D" uid="uid://bvb6g440bt4qe" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_scroll_vertical.svg" id="123_bjqbo"]
+[ext_resource type="Texture2D" uid="uid://cepoymj0c1qel" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_small.svg" id="124_lo3hv"]
+[ext_resource type="Texture2D" uid="uid://b3oiiehhfwgfe" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_vertical.svg" id="125_g3i6b"]
+[ext_resource type="Texture2D" uid="uid://o73w7wbf7p1j" path="res://assets/kenney_input-prompts/Generic/Vector/generic_button.svg" id="126_sjspr"]
+[ext_resource type="Texture2D" uid="uid://bd8pw8a0fxipu" path="res://assets/kenney_input-prompts/Generic/Vector/generic_button_circle.svg" id="127_bg40u"]
+[ext_resource type="Texture2D" uid="uid://bv0m6go6ca7jq" path="res://assets/kenney_input-prompts/Generic/Vector/generic_button_circle_fill.svg" id="128_sim0q"]
+[ext_resource type="Texture2D" uid="uid://cnr41uy8f8hcq" path="res://assets/kenney_input-prompts/Generic/Vector/generic_button_finger.svg" id="129_q6x7a"]
+[ext_resource type="Texture2D" uid="uid://clyixbmg2e0ga" path="res://assets/kenney_input-prompts/Generic/Vector/generic_button_finger_pressed.svg" id="130_ied5t"]
+[ext_resource type="Texture2D" uid="uid://by6i3tlo558ty" path="res://assets/kenney_input-prompts/Generic/Vector/generic_button_pressed.svg" id="131_jivjg"]
+[ext_resource type="Texture2D" uid="uid://blphjrgvs6u0i" path="res://assets/kenney_input-prompts/Generic/Vector/generic_button_square.svg" id="132_4ds5f"]
+[ext_resource type="Texture2D" uid="uid://4gk64yyi2sgg" path="res://assets/kenney_input-prompts/Generic/Vector/generic_button_square_fill.svg" id="133_wt7io"]
+[ext_resource type="Texture2D" uid="uid://c7odayfoakfjl" path="res://assets/kenney_input-prompts/Generic/Vector/generic_button_trigger_a.svg" id="134_t3tc8"]
+[ext_resource type="Texture2D" uid="uid://booi4xakymd4u" path="res://assets/kenney_input-prompts/Generic/Vector/generic_button_trigger_a_fill.svg" id="135_fnbk6"]
+[ext_resource type="Texture2D" uid="uid://da3dg7081cvif" path="res://assets/kenney_input-prompts/Generic/Vector/generic_button_trigger_b.svg" id="136_3ecoc"]
+[ext_resource type="Texture2D" uid="uid://d2rkq6hvllvay" path="res://assets/kenney_input-prompts/Generic/Vector/generic_button_trigger_b_fill.svg" id="137_lo0c3"]
+[ext_resource type="Texture2D" uid="uid://4st05fshubc1" path="res://assets/kenney_input-prompts/Generic/Vector/generic_button_trigger_c.svg" id="138_m1yhw"]
+[ext_resource type="Texture2D" uid="uid://cyvr8mgdk23ix" path="res://assets/kenney_input-prompts/Generic/Vector/generic_button_trigger_c_fill.svg" id="139_gpf8g"]
+[ext_resource type="Texture2D" uid="uid://kyaaul61fyse" path="res://assets/kenney_input-prompts/Generic/Vector/generic_joystick.svg" id="140_l4l0i"]
+[ext_resource type="Texture2D" uid="uid://qwx2oq4lxgu1" path="res://assets/kenney_input-prompts/Generic/Vector/generic_joystick_horizontal.svg" id="141_01mep"]
+[ext_resource type="Texture2D" uid="uid://8by2u0ramn1u" path="res://assets/kenney_input-prompts/Generic/Vector/generic_joystick_left.svg" id="142_3d7p8"]
+[ext_resource type="Texture2D" uid="uid://dajxuior6ny3g" path="res://assets/kenney_input-prompts/Generic/Vector/generic_joystick_red.svg" id="143_45oe8"]
+[ext_resource type="Texture2D" uid="uid://c0cedw8keyx8m" path="res://assets/kenney_input-prompts/Generic/Vector/generic_joystick_red_horizontal.svg" id="144_vt8xa"]
+[ext_resource type="Texture2D" uid="uid://bvxswi2o25bc" path="res://assets/kenney_input-prompts/Generic/Vector/generic_joystick_red_left.svg" id="145_8aap2"]
+[ext_resource type="Texture2D" uid="uid://c8gckx1xi7jdi" path="res://assets/kenney_input-prompts/Generic/Vector/generic_joystick_red_right.svg" id="146_wectp"]
+[ext_resource type="Texture2D" uid="uid://bpfw6b7ss67f0" path="res://assets/kenney_input-prompts/Generic/Vector/generic_joystick_right.svg" id="147_orwbu"]
+[ext_resource type="Texture2D" uid="uid://bh4p1bjd2qbq" path="res://assets/kenney_input-prompts/Generic/Vector/generic_stick.svg" id="148_qmjmn"]
+[ext_resource type="Texture2D" uid="uid://cxtpbyeecs1p" path="res://assets/kenney_input-prompts/Generic/Vector/generic_stick_down.svg" id="149_3j5fo"]
+[ext_resource type="Texture2D" uid="uid://yh7u03pua8ka" path="res://assets/kenney_input-prompts/Generic/Vector/generic_stick_horizontal.svg" id="150_81lor"]
+[ext_resource type="Texture2D" uid="uid://cjf2s067m1dpu" path="res://assets/kenney_input-prompts/Generic/Vector/generic_stick_left.svg" id="151_p433x"]
+[ext_resource type="Texture2D" uid="uid://cu2rrw6q2ulnq" path="res://assets/kenney_input-prompts/Generic/Vector/generic_stick_press.svg" id="152_kyjip"]
+[ext_resource type="Texture2D" uid="uid://lpovk8iosjhd" path="res://assets/kenney_input-prompts/Generic/Vector/generic_stick_right.svg" id="153_cdfh0"]
+[ext_resource type="Texture2D" uid="uid://cf82qslxgpdk0" path="res://assets/kenney_input-prompts/Generic/Vector/generic_stick_side.svg" id="154_d07ut"]
+[ext_resource type="Texture2D" uid="uid://52735c1h85nl" path="res://assets/kenney_input-prompts/Generic/Vector/generic_stick_up.svg" id="155_wyrpc"]
+[ext_resource type="Texture2D" uid="uid://hggj3gc3ebhy" path="res://assets/kenney_input-prompts/Generic/Vector/generic_stick_vertical.svg" id="156_8bn8c"]
+[ext_resource type="Texture2D" uid="uid://bg24s7vlcnhp5" path="res://assets/kenney_input-prompts/Xbox Series/Vector/controller_xbox360.svg" id="157_7ys5j"]
+[ext_resource type="Texture2D" uid="uid://bgs06syrxabic" path="res://assets/kenney_input-prompts/Xbox Series/Vector/controller_xbox_adaptive.svg" id="158_5gdyf"]
+[ext_resource type="Texture2D" uid="uid://b483sugop03y6" path="res://assets/kenney_input-prompts/Xbox Series/Vector/controller_xboxone.svg" id="159_ilpqn"]
+[ext_resource type="Texture2D" uid="uid://ca0f47wkb57tm" path="res://assets/kenney_input-prompts/Xbox Series/Vector/controller_xboxseries.svg" id="160_5dis7"]
+[ext_resource type="Texture2D" uid="uid://eiij7y6ra68k" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_a.svg" id="161_h02eh"]
+[ext_resource type="Texture2D" uid="uid://ccxrsosf3mee3" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_b.svg" id="162_xtp8s"]
+[ext_resource type="Texture2D" uid="uid://bmskwjm1oltbb" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_back.svg" id="163_ucr2t"]
+[ext_resource type="Texture2D" uid="uid://cxn2sphp4joc5" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_back_icon.svg" id="164_7v4fl"]
+[ext_resource type="Texture2D" uid="uid://q4lvwa7omjq8" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_menu.svg" id="165_kvxhs"]
+[ext_resource type="Texture2D" uid="uid://bt6ooeryy77wj" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_share.svg" id="166_mileg"]
+[ext_resource type="Texture2D" uid="uid://cw8t6xohptnpp" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_start.svg" id="167_xpjj5"]
+[ext_resource type="Texture2D" uid="uid://68nj3js72ar2" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_start_icon.svg" id="168_d5ehv"]
+[ext_resource type="Texture2D" uid="uid://dmuctg1te1ky0" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_view.svg" id="169_7opyp"]
+[ext_resource type="Texture2D" uid="uid://ca45cxja1omb0" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_x.svg" id="170_xfoav"]
+[ext_resource type="Texture2D" uid="uid://6jkw5per6cop" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_y.svg" id="171_wd6q7"]
+[ext_resource type="Texture2D" uid="uid://btc01pbv86itq" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad.svg" id="172_k07qt"]
+[ext_resource type="Texture2D" uid="uid://du0qowo220rdw" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_all.svg" id="173_51010"]
+[ext_resource type="Texture2D" uid="uid://c4kycxrsj2l8i" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_down.svg" id="174_ov730"]
+[ext_resource type="Texture2D" uid="uid://2vgbeyn41axp" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_horizontal.svg" id="175_dkr0h"]
+[ext_resource type="Texture2D" uid="uid://chtwhl8iuq71u" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_left.svg" id="176_8xwp0"]
+[ext_resource type="Texture2D" uid="uid://dy1l715ecv3lb" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_none.svg" id="177_d8bvo"]
+[ext_resource type="Texture2D" uid="uid://ci5d2x5p68n52" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_right.svg" id="178_efq4o"]
+[ext_resource type="Texture2D" uid="uid://dhyi6fcqw775o" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round.svg" id="179_m3okt"]
+[ext_resource type="Texture2D" uid="uid://du6tafjcvyuef" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round_all.svg" id="180_xjmi5"]
+[ext_resource type="Texture2D" uid="uid://c54ivistg2o6q" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round_down.svg" id="181_wyuo8"]
+[ext_resource type="Texture2D" uid="uid://cafbg3ro3gh1" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round_horizontal.svg" id="182_1xryu"]
+[ext_resource type="Texture2D" uid="uid://cwkeikousci8d" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round_left.svg" id="183_fuj2k"]
+[ext_resource type="Texture2D" uid="uid://cb6xafj3dacr1" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round_right.svg" id="184_ml83w"]
+[ext_resource type="Texture2D" uid="uid://kt46lcymyv2y" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round_up.svg" id="185_64vhp"]
+[ext_resource type="Texture2D" uid="uid://biuxraorput8x" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round_vertical.svg" id="186_rknt5"]
+[ext_resource type="Texture2D" uid="uid://byha1seostsl0" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_up.svg" id="187_3wxma"]
+[ext_resource type="Texture2D" uid="uid://flpng6ei2lnv" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_vertical.svg" id="188_yyxkb"]
+[ext_resource type="Texture2D" uid="uid://tem32s7jy8vg" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_guide.svg" id="189_u5o4p"]
+[ext_resource type="Texture2D" uid="uid://b5emjfw0447y0" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_lb.svg" id="190_hwshj"]
+[ext_resource type="Texture2D" uid="uid://vikvq1fxym0p" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_ls.svg" id="191_mx2cx"]
+[ext_resource type="Texture2D" uid="uid://c8bcwvh70jk2r" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_lt.svg" id="192_k40s2"]
+[ext_resource type="Texture2D" uid="uid://b2hj3ng8c76te" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_rb.svg" id="193_irkkk"]
+[ext_resource type="Texture2D" uid="uid://d14ifbgo55hyp" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_rs.svg" id="194_svuwu"]
+[ext_resource type="Texture2D" uid="uid://4o4jnur4rykk" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_rt.svg" id="195_t6mxp"]
+[ext_resource type="Texture2D" uid="uid://dlrw3gtdo13s0" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l.svg" id="196_kpplb"]
+[ext_resource type="Texture2D" uid="uid://dvaje5n1mh0ep" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l_down.svg" id="197_l2uiv"]
+[ext_resource type="Texture2D" uid="uid://x6quq24ok2q1" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l_horizontal.svg" id="198_2cve6"]
+[ext_resource type="Texture2D" uid="uid://1mkloq41pgcx" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l_left.svg" id="199_bdu33"]
+[ext_resource type="Texture2D" uid="uid://bodt47h565dyj" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l_press.svg" id="200_3nowk"]
+[ext_resource type="Texture2D" uid="uid://brks05hmdedip" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l_right.svg" id="201_jcwmb"]
+[ext_resource type="Texture2D" uid="uid://cayyalqt44ml6" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l_up.svg" id="202_m4al1"]
+[ext_resource type="Texture2D" uid="uid://b7gcrxeqmby4l" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l_vertical.svg" id="203_gc4ue"]
+[ext_resource type="Texture2D" uid="uid://bkx3gfwmnjsnl" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r.svg" id="204_efvl7"]
+[ext_resource type="Texture2D" uid="uid://6h4hfmk1ml1u" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r_down.svg" id="205_qr0ba"]
+[ext_resource type="Texture2D" uid="uid://bgwo2e5kvvp5i" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r_horizontal.svg" id="206_lyy3a"]
+[ext_resource type="Texture2D" uid="uid://cgghp7tkai8c6" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r_left.svg" id="207_rbgpa"]
+[ext_resource type="Texture2D" uid="uid://cy78qy178yr2o" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r_press.svg" id="208_vbq0b"]
+[ext_resource type="Texture2D" uid="uid://blk7kk6ecx75r" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r_right.svg" id="209_n4fea"]
+[ext_resource type="Texture2D" uid="uid://d0ktjq4rydh3k" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r_up.svg" id="210_tr4js"]
+[ext_resource type="Texture2D" uid="uid://djkw1wwlhpy1p" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r_vertical.svg" id="211_22qme"]
+[ext_resource type="Texture2D" uid="uid://cpdbixq252yml" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_side_l.svg" id="212_tmbv8"]
+[ext_resource type="Texture2D" uid="uid://d2x1ba5loihxu" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_side_r.svg" id="213_g43ba"]
+[ext_resource type="Texture2D" uid="uid://bvdqmum35of5a" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_top_l.svg" id="214_p2rhm"]
+[ext_resource type="Texture2D" uid="uid://bsc6rjo2xaqgr" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_top_r.svg" id="215_7qmqo"]
+[ext_resource type="Texture2D" uid="uid://d0shmo27vki11" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/controller_playstation1.svg" id="216_qudt0"]
+[ext_resource type="Texture2D" uid="uid://xr0fs8l2l1sm" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/controller_playstation2.svg" id="217_hc40j"]
+[ext_resource type="Texture2D" uid="uid://cl6d8kp4gm1uk" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/controller_playstation3.svg" id="218_5q80y"]
+[ext_resource type="Texture2D" uid="uid://bi571perx3ih" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/controller_playstation4.svg" id="219_yebg5"]
+[ext_resource type="Texture2D" uid="uid://vnloiaf1vx4g" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/controller_playstation5.svg" id="220_leeme"]
+[ext_resource type="Texture2D" uid="uid://b7qqytr7y3wxg" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation3_button_select.svg" id="221_lgofe"]
+[ext_resource type="Texture2D" uid="uid://c86nomydgu5l2" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation3_button_start.svg" id="222_a766y"]
+[ext_resource type="Texture2D" uid="uid://c87bpe16p68jn" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation4_button_options.svg" id="223_nibis"]
+[ext_resource type="Texture2D" uid="uid://dino6on412fec" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation4_button_share.svg" id="224_urys6"]
+[ext_resource type="Texture2D" uid="uid://cy3wqqygimpro" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation4_touchpad.svg" id="225_onrt2"]
+[ext_resource type="Texture2D" uid="uid://bt2fq1ssybk7d" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation4_touchpad_touch.svg" id="226_r2vl1"]
+[ext_resource type="Texture2D" uid="uid://dmxvmcrh0ku74" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation5_button_create.svg" id="227_fvoso"]
+[ext_resource type="Texture2D" uid="uid://ccneoa4f8e7vt" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation5_button_create_alternative.svg" id="228_1fi32"]
+[ext_resource type="Texture2D" uid="uid://whka38c6twpw" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation5_button_mute.svg" id="229_h2h3h"]
+[ext_resource type="Texture2D" uid="uid://ddnt1ac4odttm" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation5_button_options.svg" id="230_iwnuj"]
+[ext_resource type="Texture2D" uid="uid://hhkx3km5i8ob" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation5_button_options_alternative.svg" id="231_085c2"]
+[ext_resource type="Texture2D" uid="uid://ba4vywhju7ib7" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation5_touchpad.svg" id="232_q3d6f"]
+[ext_resource type="Texture2D" uid="uid://bd3enuvt8uq54" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation5_touchpad_touch.svg" id="233_rr15s"]
+[ext_resource type="Texture2D" uid="uid://3lx4eea7dhf6" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_button_analog.svg" id="234_8d6sg"]
+[ext_resource type="Texture2D" uid="uid://dtx4mc5tge8sd" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_button_circle.svg" id="235_na03y"]
+[ext_resource type="Texture2D" uid="uid://b4c7gvbv6s2ck" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_button_cross.svg" id="236_r8owg"]
+[ext_resource type="Texture2D" uid="uid://cxrjx6jiawkv5" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_button_l3.svg" id="237_wi55j"]
+[ext_resource type="Texture2D" uid="uid://dgqxf5jsolgn4" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_button_r3.svg" id="238_oc0lo"]
+[ext_resource type="Texture2D" uid="uid://nb7c0lnridd7" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_button_square.svg" id="239_wfghw"]
+[ext_resource type="Texture2D" uid="uid://1vob3p2xw0mu" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_button_triangle.svg" id="240_iljlm"]
+[ext_resource type="Texture2D" uid="uid://d10oj8ttcm8bw" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad.svg" id="241_cs7k6"]
+[ext_resource type="Texture2D" uid="uid://2oek8ph75m82" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_all.svg" id="242_5ocrh"]
+[ext_resource type="Texture2D" uid="uid://basimvbpn5o04" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_down.svg" id="243_nfk6g"]
+[ext_resource type="Texture2D" uid="uid://cl7xn07buhk1n" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_horizontal.svg" id="244_im0t6"]
+[ext_resource type="Texture2D" uid="uid://bmbhb8sk35f26" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_left.svg" id="245_vvld6"]
+[ext_resource type="Texture2D" uid="uid://cmoew5ylg7hg1" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_none.svg" id="246_hu4nf"]
+[ext_resource type="Texture2D" uid="uid://dochp65oxbgvt" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_right.svg" id="247_45gpd"]
+[ext_resource type="Texture2D" uid="uid://dqu70rgw8wrqu" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_up.svg" id="248_0gjx0"]
+[ext_resource type="Texture2D" uid="uid://c3qan8lohrea5" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_vertical.svg" id="249_ufxer"]
+[ext_resource type="Texture2D" uid="uid://bljs58y5pshto" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l.svg" id="250_o7lu6"]
+[ext_resource type="Texture2D" uid="uid://bem0obdx2752l" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l_down.svg" id="251_wx44r"]
+[ext_resource type="Texture2D" uid="uid://cokqxkbubhuhc" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l_horizontal.svg" id="252_8geum"]
+[ext_resource type="Texture2D" uid="uid://bhsdy6vyiiuuu" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l_left.svg" id="253_8liou"]
+[ext_resource type="Texture2D" uid="uid://c07wf172tnpb" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l_press.svg" id="254_pasq3"]
+[ext_resource type="Texture2D" uid="uid://ba42f08mgmimf" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l_right.svg" id="255_4m4c7"]
+[ext_resource type="Texture2D" uid="uid://dmnb8eviia1dw" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l_up.svg" id="256_pcnjo"]
+[ext_resource type="Texture2D" uid="uid://cdk6dtdj240u3" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l_vertical.svg" id="257_0o178"]
+[ext_resource type="Texture2D" uid="uid://bhby34y22m8yk" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r.svg" id="258_lsm1v"]
+[ext_resource type="Texture2D" uid="uid://p5uqhgknvejh" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r_down.svg" id="259_d0e0i"]
+[ext_resource type="Texture2D" uid="uid://blvpicmcino1c" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r_horizontal.svg" id="260_urmoo"]
+[ext_resource type="Texture2D" uid="uid://d0mkns70kpj50" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r_left.svg" id="261_54ydr"]
+[ext_resource type="Texture2D" uid="uid://cg87ngyp0dxxc" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r_press.svg" id="262_cjhdy"]
+[ext_resource type="Texture2D" uid="uid://bupc0xdeqmfvv" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r_right.svg" id="263_txm5p"]
+[ext_resource type="Texture2D" uid="uid://dedhp5d3ppeew" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r_up.svg" id="264_fow0e"]
+[ext_resource type="Texture2D" uid="uid://cf707domece3n" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r_vertical.svg" id="265_1f7s5"]
+[ext_resource type="Texture2D" uid="uid://c4jpg7hoxujy1" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_side_l.svg" id="266_l5o8u"]
+[ext_resource type="Texture2D" uid="uid://deeydkld1bgqu" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_side_r.svg" id="267_8o7at"]
+[ext_resource type="Texture2D" uid="uid://c5j0ndxql8hu4" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_top_l.svg" id="268_6k38o"]
+[ext_resource type="Texture2D" uid="uid://c84b0hrj2r3iq" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_top_r.svg" id="269_8qqc8"]
+[ext_resource type="Texture2D" uid="uid://ce01ilcursrke" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_l1.svg" id="270_hhsv2"]
+[ext_resource type="Texture2D" uid="uid://bckmen5422hfj" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_l1_alternative.svg" id="271_1j6h5"]
+[ext_resource type="Texture2D" uid="uid://cg42bq6e8kcej" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_l2.svg" id="272_m712h"]
+[ext_resource type="Texture2D" uid="uid://di1opf1vtdfau" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_l2_alternative.svg" id="273_khryy"]
+[ext_resource type="Texture2D" uid="uid://d0h6q6hahjj3j" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_r1.svg" id="274_ihwni"]
+[ext_resource type="Texture2D" uid="uid://5uk7blwo7a78" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_r1_alternative.svg" id="275_sexgb"]
+[ext_resource type="Texture2D" uid="uid://bt7pp8le0rta3" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_r2.svg" id="276_pp44u"]
+[ext_resource type="Texture2D" uid="uid://bvej18dsvswst" path="res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_r2_alternative.svg" id="277_yk1eb"]
+[ext_resource type="Texture2D" uid="uid://b562tee1f2ewn" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/controller_switch.svg" id="278_mp2qv"]
+[ext_resource type="Texture2D" uid="uid://dh0g2l38wp7e8" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/controller_switch_joycon_down.svg" id="279_q6sb3"]
+[ext_resource type="Texture2D" uid="uid://v77c4xs48t8n" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/controller_switch_joycon_up.svg" id="280_yeplc"]
+[ext_resource type="Texture2D" uid="uid://c5hugommowgfu" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/controller_switch_pro.svg" id="281_auyg1"]
+[ext_resource type="Texture2D" uid="uid://cfsjea83alm2p" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_a.svg" id="282_p5ixe"]
+[ext_resource type="Texture2D" uid="uid://cx54n84p05ygx" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_b.svg" id="283_580py"]
+[ext_resource type="Texture2D" uid="uid://dk76pujvv0k83" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_home.svg" id="284_8jlv7"]
+[ext_resource type="Texture2D" uid="uid://bj8yxwhumb3lq" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_l.svg" id="285_8nyjk"]
+[ext_resource type="Texture2D" uid="uid://bn6ynn8l6yf64" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_minus.svg" id="286_5020d"]
+[ext_resource type="Texture2D" uid="uid://dewt8wupr8o60" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_plus.svg" id="287_7qkuc"]
+[ext_resource type="Texture2D" uid="uid://tu7ctd8sm2ae" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_r.svg" id="288_cltf3"]
+[ext_resource type="Texture2D" uid="uid://e8whnnv1llt8" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_sl.svg" id="289_xxtp8"]
+[ext_resource type="Texture2D" uid="uid://bgc7dceio5e4p" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_sr.svg" id="290_kka5m"]
+[ext_resource type="Texture2D" uid="uid://b4g8m13gmb05b" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_sync.svg" id="291_2btvj"]
+[ext_resource type="Texture2D" uid="uid://bv0g6sbprtmqy" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_x.svg" id="292_pdbjn"]
+[ext_resource type="Texture2D" uid="uid://bckq4kfgnsdcg" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_y.svg" id="293_lvrp0"]
+[ext_resource type="Texture2D" uid="uid://cfsudsontwpch" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_zl.svg" id="294_h62od"]
+[ext_resource type="Texture2D" uid="uid://cetlsoqq676t5" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_zr.svg" id="295_x66rc"]
+[ext_resource type="Texture2D" uid="uid://dq4b5hcbauf05" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons.svg" id="296_46o4l"]
+[ext_resource type="Texture2D" uid="uid://dgchus3itr741" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_all.svg" id="297_7slk6"]
+[ext_resource type="Texture2D" uid="uid://d3ykqa7qpeyw3" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_down.svg" id="298_mqnm6"]
+[ext_resource type="Texture2D" uid="uid://db1ln4arje1yf" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_horizontal.svg" id="299_tbdw3"]
+[ext_resource type="Texture2D" uid="uid://bmm4hdn7sc14e" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_left.svg" id="300_3i7fq"]
+[ext_resource type="Texture2D" uid="uid://65op8jkrd4v4" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_none.svg" id="301_pyx8p"]
+[ext_resource type="Texture2D" uid="uid://fm2vardw71pa" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_right.svg" id="302_bbkb2"]
+[ext_resource type="Texture2D" uid="uid://4iatrfed4hix" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_up.svg" id="303_f6p2r"]
+[ext_resource type="Texture2D" uid="uid://p4avsb1cldi" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_vertical.svg" id="304_jbbju"]
+[ext_resource type="Texture2D" uid="uid://dnt247vypqen" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_down.svg" id="305_kdwin"]
+[ext_resource type="Texture2D" uid="uid://b4h52atvhbuu5" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad.svg" id="306_5k055"]
+[ext_resource type="Texture2D" uid="uid://c7bdwwevnfusj" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_all.svg" id="307_wkqk6"]
+[ext_resource type="Texture2D" uid="uid://7mj0ssavv2h4" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_down.svg" id="308_hof43"]
+[ext_resource type="Texture2D" uid="uid://cajbepymlhlgi" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_horizontal.svg" id="309_tdhk3"]
+[ext_resource type="Texture2D" uid="uid://5afafds370tq" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_left.svg" id="310_wsuiu"]
+[ext_resource type="Texture2D" uid="uid://c2ydj7kin22ee" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_none.svg" id="311_m68sf"]
+[ext_resource type="Texture2D" uid="uid://bb3qnljsfe3uc" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_right.svg" id="312_3t0ix"]
+[ext_resource type="Texture2D" uid="uid://bsvwpgrvbsbub" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_up.svg" id="313_lpaw1"]
+[ext_resource type="Texture2D" uid="uid://dn343qys3rw0l" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_vertical.svg" id="314_nmuaj"]
+[ext_resource type="Texture2D" uid="uid://dooe8lr065trq" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon.svg" id="315_6j0w2"]
+[ext_resource type="Texture2D" uid="uid://ddf1qmf6w5lll" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_left.svg" id="316_ogerv"]
+[ext_resource type="Texture2D" uid="uid://cmg24sst1hf3y" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_left_diagonal.svg" id="317_b0whr"]
+[ext_resource type="Texture2D" uid="uid://csjcj2aejc6hp" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_left_horizontal.svg" id="318_0mr2x"]
+[ext_resource type="Texture2D" uid="uid://clyoxd2ym5myu" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_left_rotate.svg" id="319_rxy5d"]
+[ext_resource type="Texture2D" uid="uid://b1laqbt2qsaby" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_left_vertical.svg" id="320_1068c"]
+[ext_resource type="Texture2D" uid="uid://c83v87ju50wmu" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_right.svg" id="321_2hbxq"]
+[ext_resource type="Texture2D" uid="uid://bq8sj0vp85182" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_right_diagonal.svg" id="322_1vyds"]
+[ext_resource type="Texture2D" uid="uid://dqi2sa2x2vmck" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_right_horizontal.svg" id="323_kkwl0"]
+[ext_resource type="Texture2D" uid="uid://co7coubere2wk" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_right_rotate.svg" id="324_kxo5x"]
+[ext_resource type="Texture2D" uid="uid://cytxj3mcq0qb7" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_right_vertical.svg" id="325_3px1o"]
+[ext_resource type="Texture2D" uid="uid://r7u84og6nux7" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_left.svg" id="326_v1kfi"]
+[ext_resource type="Texture2D" uid="uid://ddng0s1y2d5gh" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_right.svg" id="327_71g1w"]
+[ext_resource type="Texture2D" uid="uid://b34bsxrgxmi6r" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l.svg" id="328_xqy1x"]
+[ext_resource type="Texture2D" uid="uid://djyfqupd8250q" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l_down.svg" id="329_2whdb"]
+[ext_resource type="Texture2D" uid="uid://dkjf2hg58id8p" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l_horizontal.svg" id="330_f1jv5"]
+[ext_resource type="Texture2D" uid="uid://bc1dik61xpeo8" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l_left.svg" id="331_j031u"]
+[ext_resource type="Texture2D" uid="uid://dolyitjd86r8g" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l_press.svg" id="332_yj0il"]
+[ext_resource type="Texture2D" uid="uid://ctqchp87vtxac" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l_right.svg" id="333_jjj0q"]
+[ext_resource type="Texture2D" uid="uid://emk5bx5qytd1" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l_up.svg" id="334_eyl15"]
+[ext_resource type="Texture2D" uid="uid://d2svccwefpq73" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l_vertical.svg" id="335_swi74"]
+[ext_resource type="Texture2D" uid="uid://bwfiyjn25xf74" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r.svg" id="336_hwjno"]
+[ext_resource type="Texture2D" uid="uid://c0clt6jerearn" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r_down.svg" id="337_pv4vl"]
+[ext_resource type="Texture2D" uid="uid://c4p0vmnx1xu5v" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r_horizontal.svg" id="338_6tw51"]
+[ext_resource type="Texture2D" uid="uid://dcolvnlr2ih70" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r_left.svg" id="339_8vqfx"]
+[ext_resource type="Texture2D" uid="uid://bg5u76ktvaqlw" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r_press.svg" id="340_70m7o"]
+[ext_resource type="Texture2D" uid="uid://wk5jg2yadags" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r_right.svg" id="341_2aelc"]
+[ext_resource type="Texture2D" uid="uid://5o3d2qwiy2aw" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r_up.svg" id="342_fwjmb"]
+[ext_resource type="Texture2D" uid="uid://bbv62uhsga1oy" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r_vertical.svg" id="343_653oc"]
+[ext_resource type="Texture2D" uid="uid://b1tbctriiqog5" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_side_l.svg" id="344_u1wwp"]
+[ext_resource type="Texture2D" uid="uid://5pftlexpygsd" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_side_r.svg" id="345_17u7f"]
+[ext_resource type="Texture2D" uid="uid://b1hcqi42v0kgh" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_top_l.svg" id="346_dgvgw"]
+[ext_resource type="Texture2D" uid="uid://gdqkm7nt1pi1" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_top_r.svg" id="347_54827"]
+[ext_resource type="Texture2D" uid="uid://ci0xlvw1lidby" path="res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_up.svg" id="348_er7yg"]
+[ext_resource type="Texture2D" uid="uid://cjt2r0ye4rwln" path="res://assets/kenney_input-prompts/Steam Deck/Vector/controller_steamdeck.svg" id="349_42brl"]
+[ext_resource type="Texture2D" uid="uid://007ihhuegae" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_a.svg" id="350_uyakk"]
+[ext_resource type="Texture2D" uid="uid://cf6dioa85aivx" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_b.svg" id="351_pwh86"]
+[ext_resource type="Texture2D" uid="uid://bk41vgcs4heaq" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_guide.svg" id="352_44yit"]
+[ext_resource type="Texture2D" uid="uid://dikv0iqdd35kv" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_l1.svg" id="353_bnueh"]
+[ext_resource type="Texture2D" uid="uid://cqyn24njh14g4" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_l2.svg" id="354_lkft7"]
+[ext_resource type="Texture2D" uid="uid://cxa8tw8yvm0e6" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_l4.svg" id="355_nstoa"]
+[ext_resource type="Texture2D" uid="uid://7y6nixdfm477" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_l5.svg" id="356_decbp"]
+[ext_resource type="Texture2D" uid="uid://b30kq8oteury" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_options.svg" id="357_xgj0l"]
+[ext_resource type="Texture2D" uid="uid://cyrmy7ki54831" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_quickaccess.svg" id="358_2efw4"]
+[ext_resource type="Texture2D" uid="uid://r2os6naufv4a" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_r1.svg" id="359_622bw"]
+[ext_resource type="Texture2D" uid="uid://dydpnwrfax77x" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_r2.svg" id="360_fsuf6"]
+[ext_resource type="Texture2D" uid="uid://c6uf3ndrjuca1" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_r4.svg" id="361_e1sqt"]
+[ext_resource type="Texture2D" uid="uid://co3ww0f1aaoej" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_r5.svg" id="362_mmygo"]
+[ext_resource type="Texture2D" uid="uid://4dmyeeuikqgd" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_view.svg" id="363_ownsh"]
+[ext_resource type="Texture2D" uid="uid://culxcqdrfic2d" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_x.svg" id="364_bb340"]
+[ext_resource type="Texture2D" uid="uid://qu5re2v3lawu" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_y.svg" id="365_sndee"]
+[ext_resource type="Texture2D" uid="uid://qq0yv2bl7vgt" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad.svg" id="366_giy7q"]
+[ext_resource type="Texture2D" uid="uid://ci0s0yh211xof" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_all.svg" id="367_dfnyh"]
+[ext_resource type="Texture2D" uid="uid://cnadmb2dp50hr" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_down.svg" id="368_tc6p0"]
+[ext_resource type="Texture2D" uid="uid://cik4eyh6rysod" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_horizontal.svg" id="369_uledy"]
+[ext_resource type="Texture2D" uid="uid://db3uypq44o5f0" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_left.svg" id="370_mcujb"]
+[ext_resource type="Texture2D" uid="uid://gl5l7uqq4u4h" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_none.svg" id="371_dkyt8"]
+[ext_resource type="Texture2D" uid="uid://c1igsos5vypf3" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_right.svg" id="372_snqch"]
+[ext_resource type="Texture2D" uid="uid://rpk47rt0sbif" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_up.svg" id="373_oux5i"]
+[ext_resource type="Texture2D" uid="uid://cvb5vrmac47o6" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_vertical.svg" id="374_duiv2"]
+[ext_resource type="Texture2D" uid="uid://bq5wofr4akdui" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l.svg" id="375_crvyb"]
+[ext_resource type="Texture2D" uid="uid://bdipxe328c1k" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l_down.svg" id="376_whckm"]
+[ext_resource type="Texture2D" uid="uid://cfajuj47ydurb" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l_horizontal.svg" id="377_b6ksi"]
+[ext_resource type="Texture2D" uid="uid://fpdrnmhbiyv1" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l_left.svg" id="378_olymn"]
+[ext_resource type="Texture2D" uid="uid://lfm18g88v371" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l_press.svg" id="379_82mo5"]
+[ext_resource type="Texture2D" uid="uid://8c23ifwyvb3y" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l_right.svg" id="380_k3gh5"]
+[ext_resource type="Texture2D" uid="uid://d367u258bqlhj" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l_up.svg" id="381_j1v3j"]
+[ext_resource type="Texture2D" uid="uid://deafb80m6tlem" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l_vertical.svg" id="382_kfum8"]
+[ext_resource type="Texture2D" uid="uid://dopeeh8fsvbtl" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r.svg" id="383_l20ni"]
+[ext_resource type="Texture2D" uid="uid://b7f61gfsiwaqu" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r_down.svg" id="384_ucdvn"]
+[ext_resource type="Texture2D" uid="uid://cfg0m0yot20qh" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r_horizontal.svg" id="385_uu4if"]
+[ext_resource type="Texture2D" uid="uid://dw5osdheiagnj" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r_left.svg" id="386_nsfg4"]
+[ext_resource type="Texture2D" uid="uid://dk5anoxjgcx23" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r_press.svg" id="387_8255w"]
+[ext_resource type="Texture2D" uid="uid://bilk2mwd1tiaa" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r_right.svg" id="388_yg87s"]
+[ext_resource type="Texture2D" uid="uid://dej80oarc5o57" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r_up.svg" id="389_5q6oq"]
+[ext_resource type="Texture2D" uid="uid://chjsarm18mfcn" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r_vertical.svg" id="390_paojw"]
+[ext_resource type="Texture2D" uid="uid://bmqvqkgdi42vu" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_side_l.svg" id="391_eqaj3"]
+[ext_resource type="Texture2D" uid="uid://d0bqx5vkdmqus" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_side_r.svg" id="392_3jevk"]
+[ext_resource type="Texture2D" uid="uid://bu0s0pbu0ndlb" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_top_l.svg" id="393_wacj8"]
+[ext_resource type="Texture2D" uid="uid://3t3einubgci" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_top_r.svg" id="394_t7mvf"]
+[ext_resource type="Texture2D" uid="uid://bcjw4ebcds3vw" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad.svg" id="395_inqna"]
+[ext_resource type="Texture2D" uid="uid://dy4a0cjeo2mvm" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_all.svg" id="396_2u58o"]
+[ext_resource type="Texture2D" uid="uid://dwaanp3jnwkyv" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_down.svg" id="397_8fcre"]
+[ext_resource type="Texture2D" uid="uid://cs3fjqo6cwbe5" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_horizontal.svg" id="398_he3oo"]
+[ext_resource type="Texture2D" uid="uid://b5ls3otpx5nlr" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l.svg" id="399_2hjr7"]
+[ext_resource type="Texture2D" uid="uid://crhmy4eok30aa" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l_all.svg" id="400_po2wm"]
+[ext_resource type="Texture2D" uid="uid://byrnv0cfdjbqc" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l_down.svg" id="401_pkof2"]
+[ext_resource type="Texture2D" uid="uid://dgiunbsyvkn6m" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l_horizontal.svg" id="402_llpei"]
+[ext_resource type="Texture2D" uid="uid://blhurayukuqlr" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l_left.svg" id="403_3v6of"]
+[ext_resource type="Texture2D" uid="uid://bduqsvui7tnmt" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l_right.svg" id="404_kjs6o"]
+[ext_resource type="Texture2D" uid="uid://dmsyv1d3plc2f" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l_up.svg" id="405_uls5e"]
+[ext_resource type="Texture2D" uid="uid://b0y4fcqsku4nj" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l_vertical.svg" id="406_t6oka"]
+[ext_resource type="Texture2D" uid="uid://ci71o20muc7m2" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_left.svg" id="407_tva14"]
+[ext_resource type="Texture2D" uid="uid://br5fctd1wv8ts" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r.svg" id="408_vr8ek"]
+[ext_resource type="Texture2D" uid="uid://b80ii3cagoo1s" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r_all.svg" id="409_0wrv1"]
+[ext_resource type="Texture2D" uid="uid://c7l0m02wpcmn5" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r_down.svg" id="410_531lp"]
+[ext_resource type="Texture2D" uid="uid://x3ga6q8tyhcv" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r_horizontal.svg" id="411_e1br3"]
+[ext_resource type="Texture2D" uid="uid://c4amiehkalx5k" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r_left.svg" id="412_q40yi"]
+[ext_resource type="Texture2D" uid="uid://b7spl1sr26e2p" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r_right.svg" id="413_qac33"]
+[ext_resource type="Texture2D" uid="uid://cerpjoa1t2o3l" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r_up.svg" id="414_ewyog"]
+[ext_resource type="Texture2D" uid="uid://b2naj5521b724" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r_vertical.svg" id="415_3rqlp"]
+[ext_resource type="Texture2D" uid="uid://cp5e6kvtualbg" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_right.svg" id="416_f5pkl"]
+[ext_resource type="Texture2D" uid="uid://beus8vhwt8uci" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_up.svg" id="417_pr6p3"]
+[ext_resource type="Texture2D" uid="uid://dmehb883go3sp" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_vertical.svg" id="418_euhn1"]
 
 [node name="InputIconMapper" instance=ExtResource("1_7vieq")]
+replace_strings = {
+"Capslock": "Caps Lock",
+"Generic Stick": "Generic Left Stick",
+"Guide": "Home",
+"Slash Back": "Back Slash",
+"Slash Forward": "Slash",
+"Stick L": "Left Stick",
+"Stick R": "Right Stick",
+"Trigger L 1": "Left Shoulder",
+"Trigger L 2": "Left Trigger",
+"Trigger R 1": "Right Shoulder",
+"Trigger R 2": "Right Trigger"
+}
+filtered_strings = Array[String](["keyboard", "color", "button", "arrow"])
+matching_icons = {
+"0": ExtResource("2_wgqyq"),
+"1": ExtResource("3_btdj8"),
+"2": ExtResource("4_lhkmw"),
+"3": ExtResource("5_2qcww"),
+"4": ExtResource("6_3g5gv"),
+"5": ExtResource("7_hldfm"),
+"6": ExtResource("8_1cxpc"),
+"7": ExtResource("9_6j1iv"),
+"8": ExtResource("10_3pnvt"),
+"9": ExtResource("11_6dlrb"),
+"A": ExtResource("12_818c7"),
+"Alt": ExtResource("13_n7lr7"),
+"Any": ExtResource("14_xq8kl"),
+"Apostrophe": ExtResource("15_1ql0t"),
+"Arrows": ExtResource("20_qvnj0"),
+"Arrows All": ExtResource("21_pmrbx"),
+"Arrows Down": ExtResource("22_ahd1o"),
+"Arrows Horizontal": ExtResource("23_0j10t"),
+"Arrows Left": ExtResource("24_pmiqd"),
+"Arrows None": ExtResource("25_llw5i"),
+"Arrows Right": ExtResource("26_y5es4"),
+"Arrows Up": ExtResource("27_mvjok"),
+"Arrows Vertical": ExtResource("28_bkym3"),
+"Asterisk": ExtResource("29_hyevm"),
+"B": ExtResource("30_fande"),
+"Back Slash": ExtResource("99_aheq2"),
+"Backspace": ExtResource("31_76wfu"),
+"Backspace Icon": ExtResource("32_0j5cr"),
+"Backspace Icon Alternative": ExtResource("33_tdj7p"),
+"Bracket Close": ExtResource("34_80ts2"),
+"Bracket Greater": ExtResource("35_g52m8"),
+"Bracket Less": ExtResource("36_k5vum"),
+"Bracket Open": ExtResource("37_dcyfm"),
+"C": ExtResource("38_p18vv"),
+"Caps Lock": ExtResource("39_ubnne"),
+"Caps Lock Icon": ExtResource("40_5hsy5"),
+"Caret": ExtResource("41_u8icm"),
+"Colon": ExtResource("42_03u1g"),
+"Comma": ExtResource("43_jqcaf"),
+"Command": ExtResource("44_0k5ai"),
+"Controller Playstation 1": ExtResource("216_qudt0"),
+"Controller Playstation 2": ExtResource("217_hc40j"),
+"Controller Playstation 3": ExtResource("218_5q80y"),
+"Controller Playstation 4": ExtResource("219_yebg5"),
+"Controller Playstation 5": ExtResource("220_leeme"),
+"Controller Steamdeck": ExtResource("349_42brl"),
+"Controller Switch": ExtResource("278_mp2qv"),
+"Controller Switch Joycon Down": ExtResource("279_q6sb3"),
+"Controller Switch Joycon Up": ExtResource("280_yeplc"),
+"Controller Switch Pro": ExtResource("281_auyg1"),
+"Controller Xbox 360": ExtResource("157_7ys5j"),
+"Controller Xbox Adaptive": ExtResource("158_5gdyf"),
+"Controller Xboxone": ExtResource("159_ilpqn"),
+"Controller Xboxseries": ExtResource("160_5dis7"),
+"Ctrl": ExtResource("45_gn7wk"),
+"D": ExtResource("46_0enn3"),
+"Delete": ExtResource("47_ohtta"),
+"Down": ExtResource("16_lx86x"),
+"E": ExtResource("48_fea5u"),
+"End": ExtResource("49_0h2ya"),
+"Enter": ExtResource("50_af5gs"),
+"Equals": ExtResource("51_c0mmb"),
+"Escape": ExtResource("52_tiw8c"),
+"Exclamation": ExtResource("53_lquf2"),
+"F": ExtResource("54_vbago"),
+"F 1": ExtResource("55_147ax"),
+"F 10": ExtResource("56_mb461"),
+"F 11": ExtResource("57_mdf04"),
+"F 12": ExtResource("58_fqo7s"),
+"F 2": ExtResource("59_pk0p4"),
+"F 3": ExtResource("60_fh6u4"),
+"F 4": ExtResource("61_s6e62"),
+"F 5": ExtResource("62_yko8e"),
+"F 6": ExtResource("63_lkwfg"),
+"F 7": ExtResource("64_sbfam"),
+"F 8": ExtResource("65_b77dr"),
+"F 9": ExtResource("66_om7yp"),
+"Function": ExtResource("67_ov4dv"),
+"G": ExtResource("68_k32kv"),
+"Generic": ExtResource("126_sjspr"),
+"Generic Circle": ExtResource("127_bg40u"),
+"Generic Circle Fill": ExtResource("128_sim0q"),
+"Generic Finger": ExtResource("129_q6x7a"),
+"Generic Finger Pressed": ExtResource("130_ied5t"),
+"Generic Joystick": ExtResource("140_l4l0i"),
+"Generic Joystick Horizontal": ExtResource("141_01mep"),
+"Generic Joystick Left": ExtResource("142_3d7p8"),
+"Generic Joystick Red": ExtResource("143_45oe8"),
+"Generic Joystick Red Horizontal": ExtResource("144_vt8xa"),
+"Generic Joystick Red Left": ExtResource("145_8aap2"),
+"Generic Joystick Red Right": ExtResource("146_wectp"),
+"Generic Joystick Right": ExtResource("147_orwbu"),
+"Generic Left Stick": ExtResource("148_qmjmn"),
+"Generic Left Stick Down": ExtResource("149_3j5fo"),
+"Generic Left Stick Horizontal": ExtResource("150_81lor"),
+"Generic Left Stick Left": ExtResource("151_p433x"),
+"Generic Left Stick Press": ExtResource("152_kyjip"),
+"Generic Left Stick Right": ExtResource("153_cdfh0"),
+"Generic Left Stick Side": ExtResource("154_d07ut"),
+"Generic Left Stick Up": ExtResource("155_wyrpc"),
+"Generic Left Stick Vertical": ExtResource("156_8bn8c"),
+"Generic Pressed": ExtResource("131_jivjg"),
+"Generic Square": ExtResource("132_4ds5f"),
+"Generic Square Fill": ExtResource("133_wt7io"),
+"Generic Trigger A": ExtResource("134_t3tc8"),
+"Generic Trigger A Fill": ExtResource("135_fnbk6"),
+"Generic Trigger B": ExtResource("136_3ecoc"),
+"Generic Trigger B Fill": ExtResource("137_lo0c3"),
+"Generic Trigger C": ExtResource("138_m1yhw"),
+"Generic Trigger C Fill": ExtResource("139_gpf8g"),
+"H": ExtResource("69_anthc"),
+"Home": ExtResource("70_lm5th"),
+"I": ExtResource("71_lxulv"),
+"Insert": ExtResource("72_yswr2"),
+"J": ExtResource("73_k0tas"),
+"K": ExtResource("74_r33kw"),
+"L": ExtResource("75_03hfd"),
+"Left": ExtResource("17_0hhnu"),
+"M": ExtResource("76_g504p"),
+"Minus": ExtResource("77_g5o76"),
+"Mouse": ExtResource("115_ah2yg"),
+"Mouse Horizontal": ExtResource("116_va5jt"),
+"Mouse Left": ExtResource("117_vwkq2"),
+"Mouse Move": ExtResource("118_3pvsc"),
+"Mouse Right": ExtResource("119_8ay53"),
+"Mouse Scroll": ExtResource("120_g0fkk"),
+"Mouse Scroll Down": ExtResource("121_k4exx"),
+"Mouse Scroll Up": ExtResource("122_wwx7f"),
+"Mouse Scroll Vertical": ExtResource("123_bjqbo"),
+"Mouse Small": ExtResource("124_lo3hv"),
+"Mouse Vertical": ExtResource("125_g3i6b"),
+"N": ExtResource("78_y7uyg"),
+"Numlock": ExtResource("79_bqyjm"),
+"Numpad Enter": ExtResource("80_mqay6"),
+"Numpad Plus": ExtResource("81_gu7au"),
+"O": ExtResource("82_agv5a"),
+"Option": ExtResource("83_6qjf4"),
+"P": ExtResource("84_upehv"),
+"Page Down": ExtResource("85_x3nk0"),
+"Page Up": ExtResource("86_wfyxb"),
+"Period": ExtResource("87_i1scc"),
+"Playstation 3 Select": ExtResource("221_lgofe"),
+"Playstation 3 Start": ExtResource("222_a766y"),
+"Playstation 4 Options": ExtResource("223_nibis"),
+"Playstation 4 Share": ExtResource("224_urys6"),
+"Playstation 4 Touchpad": ExtResource("225_onrt2"),
+"Playstation 4 Touchpad Touch": ExtResource("226_r2vl1"),
+"Playstation 5 Create": ExtResource("227_fvoso"),
+"Playstation 5 Create Alternative": ExtResource("228_1fi32"),
+"Playstation 5 Mute": ExtResource("229_h2h3h"),
+"Playstation 5 Options": ExtResource("230_iwnuj"),
+"Playstation 5 Options Alternative": ExtResource("231_085c2"),
+"Playstation 5 Touchpad": ExtResource("232_q3d6f"),
+"Playstation 5 Touchpad Touch": ExtResource("233_rr15s"),
+"Playstation Analog": ExtResource("234_8d6sg"),
+"Playstation Circle": ExtResource("235_na03y"),
+"Playstation Cross": ExtResource("236_r8owg"),
+"Playstation Dpad": ExtResource("241_cs7k6"),
+"Playstation Dpad All": ExtResource("242_5ocrh"),
+"Playstation Dpad Down": ExtResource("243_nfk6g"),
+"Playstation Dpad Horizontal": ExtResource("244_im0t6"),
+"Playstation Dpad Left": ExtResource("245_vvld6"),
+"Playstation Dpad None": ExtResource("246_hu4nf"),
+"Playstation Dpad Right": ExtResource("247_45gpd"),
+"Playstation Dpad Up": ExtResource("248_0gjx0"),
+"Playstation Dpad Vertical": ExtResource("249_ufxer"),
+"Playstation L 3": ExtResource("237_wi55j"),
+"Playstation Left Shoulder": ExtResource("270_hhsv2"),
+"Playstation Left Shoulder Alternative": ExtResource("271_1j6h5"),
+"Playstation Left Stick": ExtResource("250_o7lu6"),
+"Playstation Left Stick Down": ExtResource("251_wx44r"),
+"Playstation Left Stick Horizontal": ExtResource("252_8geum"),
+"Playstation Left Stick Left": ExtResource("253_8liou"),
+"Playstation Left Stick Press": ExtResource("254_pasq3"),
+"Playstation Left Stick Right": ExtResource("255_4m4c7"),
+"Playstation Left Stick Up": ExtResource("256_pcnjo"),
+"Playstation Left Stick Vertical": ExtResource("257_0o178"),
+"Playstation Left Trigger": ExtResource("272_m712h"),
+"Playstation Left Trigger Alternative": ExtResource("273_khryy"),
+"Playstation R 3": ExtResource("238_oc0lo"),
+"Playstation Right Shoulder": ExtResource("274_ihwni"),
+"Playstation Right Shoulder Alternative": ExtResource("275_sexgb"),
+"Playstation Right Stick": ExtResource("258_lsm1v"),
+"Playstation Right Stick Down": ExtResource("259_d0e0i"),
+"Playstation Right Stick Horizontal": ExtResource("260_urmoo"),
+"Playstation Right Stick Left": ExtResource("261_54ydr"),
+"Playstation Right Stick Press": ExtResource("262_cjhdy"),
+"Playstation Right Stick Right": ExtResource("263_txm5p"),
+"Playstation Right Stick Up": ExtResource("264_fow0e"),
+"Playstation Right Stick Vertical": ExtResource("265_1f7s5"),
+"Playstation Right Trigger": ExtResource("276_pp44u"),
+"Playstation Right Trigger Alternative": ExtResource("277_yk1eb"),
+"Playstation Square": ExtResource("239_wfghw"),
+"Playstation Stick Side L": ExtResource("266_l5o8u"),
+"Playstation Stick Side R": ExtResource("267_8o7at"),
+"Playstation Stick Top L": ExtResource("268_6k38o"),
+"Playstation Stick Top R": ExtResource("269_8qqc8"),
+"Playstation Triangle": ExtResource("240_iljlm"),
+"Plus": ExtResource("88_sggud"),
+"Printscreen": ExtResource("89_7k5n7"),
+"Q": ExtResource("90_lj6gn"),
+"Question": ExtResource("91_gf4x2"),
+"Quote": ExtResource("92_iyaev"),
+"R": ExtResource("93_75lew"),
+"Return": ExtResource("94_r14b7"),
+"Right": ExtResource("18_arkuj"),
+"S": ExtResource("95_5x64k"),
+"Semicolon": ExtResource("96_g18le"),
+"Shift": ExtResource("97_khefn"),
+"Shift Icon": ExtResource("98_k1ucy"),
+"Slash": ExtResource("100_pxji8"),
+"Space": ExtResource("101_vj555"),
+"Space Icon": ExtResource("102_jud8f"),
+"Steamdeck A": ExtResource("350_uyakk"),
+"Steamdeck B": ExtResource("351_pwh86"),
+"Steamdeck Dpad": ExtResource("366_giy7q"),
+"Steamdeck Dpad All": ExtResource("367_dfnyh"),
+"Steamdeck Dpad Down": ExtResource("368_tc6p0"),
+"Steamdeck Dpad Horizontal": ExtResource("369_uledy"),
+"Steamdeck Dpad Left": ExtResource("370_mcujb"),
+"Steamdeck Dpad None": ExtResource("371_dkyt8"),
+"Steamdeck Dpad Right": ExtResource("372_snqch"),
+"Steamdeck Dpad Up": ExtResource("373_oux5i"),
+"Steamdeck Dpad Vertical": ExtResource("374_duiv2"),
+"Steamdeck Home": ExtResource("352_44yit"),
+"Steamdeck L 4": ExtResource("355_nstoa"),
+"Steamdeck L 5": ExtResource("356_decbp"),
+"Steamdeck Left Shoulder": ExtResource("353_bnueh"),
+"Steamdeck Left Stick": ExtResource("375_crvyb"),
+"Steamdeck Left Stick Down": ExtResource("376_whckm"),
+"Steamdeck Left Stick Horizontal": ExtResource("377_b6ksi"),
+"Steamdeck Left Stick Left": ExtResource("378_olymn"),
+"Steamdeck Left Stick Press": ExtResource("379_82mo5"),
+"Steamdeck Left Stick Right": ExtResource("380_k3gh5"),
+"Steamdeck Left Stick Up": ExtResource("381_j1v3j"),
+"Steamdeck Left Stick Vertical": ExtResource("382_kfum8"),
+"Steamdeck Left Trigger": ExtResource("354_lkft7"),
+"Steamdeck Options": ExtResource("357_xgj0l"),
+"Steamdeck Quickaccess": ExtResource("358_2efw4"),
+"Steamdeck R 4": ExtResource("361_e1sqt"),
+"Steamdeck R 5": ExtResource("362_mmygo"),
+"Steamdeck Right Shoulder": ExtResource("359_622bw"),
+"Steamdeck Right Stick": ExtResource("383_l20ni"),
+"Steamdeck Right Stick Down": ExtResource("384_ucdvn"),
+"Steamdeck Right Stick Horizontal": ExtResource("385_uu4if"),
+"Steamdeck Right Stick Left": ExtResource("386_nsfg4"),
+"Steamdeck Right Stick Press": ExtResource("387_8255w"),
+"Steamdeck Right Stick Right": ExtResource("388_yg87s"),
+"Steamdeck Right Stick Up": ExtResource("389_5q6oq"),
+"Steamdeck Right Stick Vertical": ExtResource("390_paojw"),
+"Steamdeck Right Trigger": ExtResource("360_fsuf6"),
+"Steamdeck Stick Side L": ExtResource("391_eqaj3"),
+"Steamdeck Stick Side R": ExtResource("392_3jevk"),
+"Steamdeck Stick Top L": ExtResource("393_wacj8"),
+"Steamdeck Stick Top R": ExtResource("394_t7mvf"),
+"Steamdeck Trackpad": ExtResource("395_inqna"),
+"Steamdeck Trackpad All": ExtResource("396_2u58o"),
+"Steamdeck Trackpad Down": ExtResource("397_8fcre"),
+"Steamdeck Trackpad Horizontal": ExtResource("398_he3oo"),
+"Steamdeck Trackpad L": ExtResource("399_2hjr7"),
+"Steamdeck Trackpad L All": ExtResource("400_po2wm"),
+"Steamdeck Trackpad L Down": ExtResource("401_pkof2"),
+"Steamdeck Trackpad L Horizontal": ExtResource("402_llpei"),
+"Steamdeck Trackpad L Left": ExtResource("403_3v6of"),
+"Steamdeck Trackpad L Right": ExtResource("404_kjs6o"),
+"Steamdeck Trackpad L Up": ExtResource("405_uls5e"),
+"Steamdeck Trackpad L Vertical": ExtResource("406_t6oka"),
+"Steamdeck Trackpad Left": ExtResource("407_tva14"),
+"Steamdeck Trackpad R": ExtResource("408_vr8ek"),
+"Steamdeck Trackpad R All": ExtResource("409_0wrv1"),
+"Steamdeck Trackpad R Down": ExtResource("410_531lp"),
+"Steamdeck Trackpad R Horizontal": ExtResource("411_e1br3"),
+"Steamdeck Trackpad R Left": ExtResource("412_q40yi"),
+"Steamdeck Trackpad R Right": ExtResource("413_qac33"),
+"Steamdeck Trackpad R Up": ExtResource("414_ewyog"),
+"Steamdeck Trackpad R Vertical": ExtResource("415_3rqlp"),
+"Steamdeck Trackpad Right": ExtResource("416_f5pkl"),
+"Steamdeck Trackpad Up": ExtResource("417_pr6p3"),
+"Steamdeck Trackpad Vertical": ExtResource("418_euhn1"),
+"Steamdeck View": ExtResource("363_ownsh"),
+"Steamdeck X": ExtResource("364_bb340"),
+"Steamdeck Y": ExtResource("365_sndee"),
+"Switch A": ExtResource("282_p5ixe"),
+"Switch B": ExtResource("283_580py"),
+"Switch Buttons": ExtResource("296_46o4l"),
+"Switch Buttons All": ExtResource("297_7slk6"),
+"Switch Buttons Down": ExtResource("298_mqnm6"),
+"Switch Buttons Horizontal": ExtResource("299_tbdw3"),
+"Switch Buttons Left": ExtResource("300_3i7fq"),
+"Switch Buttons None": ExtResource("301_pyx8p"),
+"Switch Buttons Right": ExtResource("302_bbkb2"),
+"Switch Buttons Up": ExtResource("303_f6p2r"),
+"Switch Buttons Vertical": ExtResource("304_jbbju"),
+"Switch Down": ExtResource("305_kdwin"),
+"Switch Dpad": ExtResource("306_5k055"),
+"Switch Dpad All": ExtResource("307_wkqk6"),
+"Switch Dpad Down": ExtResource("308_hof43"),
+"Switch Dpad Horizontal": ExtResource("309_tdhk3"),
+"Switch Dpad Left": ExtResource("310_wsuiu"),
+"Switch Dpad None": ExtResource("311_m68sf"),
+"Switch Dpad Right": ExtResource("312_3t0ix"),
+"Switch Dpad Up": ExtResource("313_lpaw1"),
+"Switch Dpad Vertical": ExtResource("314_nmuaj"),
+"Switch Home": ExtResource("284_8jlv7"),
+"Switch Joycon": ExtResource("315_6j0w2"),
+"Switch Joycon Left": ExtResource("316_ogerv"),
+"Switch Joycon Left Diagonal": ExtResource("317_b0whr"),
+"Switch Joycon Left Horizontal": ExtResource("318_0mr2x"),
+"Switch Joycon Left Rotate": ExtResource("319_rxy5d"),
+"Switch Joycon Left Vertical": ExtResource("320_1068c"),
+"Switch Joycon Right": ExtResource("321_2hbxq"),
+"Switch Joycon Right Diagonal": ExtResource("322_1vyds"),
+"Switch Joycon Right Horizontal": ExtResource("323_kkwl0"),
+"Switch Joycon Right Rotate": ExtResource("324_kxo5x"),
+"Switch Joycon Right Vertical": ExtResource("325_3px1o"),
+"Switch L": ExtResource("285_8nyjk"),
+"Switch Left": ExtResource("326_v1kfi"),
+"Switch Left Stick": ExtResource("328_xqy1x"),
+"Switch Left Stick Down": ExtResource("329_2whdb"),
+"Switch Left Stick Horizontal": ExtResource("330_f1jv5"),
+"Switch Left Stick Left": ExtResource("331_j031u"),
+"Switch Left Stick Press": ExtResource("332_yj0il"),
+"Switch Left Stick Right": ExtResource("333_jjj0q"),
+"Switch Left Stick Up": ExtResource("334_eyl15"),
+"Switch Left Stick Vertical": ExtResource("335_swi74"),
+"Switch Minus": ExtResource("286_5020d"),
+"Switch Plus": ExtResource("287_7qkuc"),
+"Switch R": ExtResource("288_cltf3"),
+"Switch Right": ExtResource("327_71g1w"),
+"Switch Right Stick": ExtResource("336_hwjno"),
+"Switch Right Stick Down": ExtResource("337_pv4vl"),
+"Switch Right Stick Horizontal": ExtResource("338_6tw51"),
+"Switch Right Stick Left": ExtResource("339_8vqfx"),
+"Switch Right Stick Press": ExtResource("340_70m7o"),
+"Switch Right Stick Right": ExtResource("341_2aelc"),
+"Switch Right Stick Up": ExtResource("342_fwjmb"),
+"Switch Right Stick Vertical": ExtResource("343_653oc"),
+"Switch Sl": ExtResource("289_xxtp8"),
+"Switch Sr": ExtResource("290_kka5m"),
+"Switch Stick Side L": ExtResource("344_u1wwp"),
+"Switch Stick Side R": ExtResource("345_17u7f"),
+"Switch Stick Top L": ExtResource("346_dgvgw"),
+"Switch Stick Top R": ExtResource("347_54827"),
+"Switch Sync": ExtResource("291_2btvj"),
+"Switch Up": ExtResource("348_er7yg"),
+"Switch X": ExtResource("292_pdbjn"),
+"Switch Y": ExtResource("293_lvrp0"),
+"Switch Zl": ExtResource("294_h62od"),
+"Switch Zr": ExtResource("295_x66rc"),
+"T": ExtResource("103_jv0pg"),
+"Tab": ExtResource("104_uuvyc"),
+"Tab Icon": ExtResource("105_3uxf2"),
+"Tab Icon Alternative": ExtResource("106_uhfpd"),
+"Tilde": ExtResource("107_0dh5l"),
+"U": ExtResource("108_ga2hn"),
+"Up": ExtResource("19_gt304"),
+"V": ExtResource("109_st1lp"),
+"W": ExtResource("110_ttn6j"),
+"Win": ExtResource("111_b6s5p"),
+"X": ExtResource("112_53ako"),
+"Xbox A": ExtResource("161_h02eh"),
+"Xbox B": ExtResource("162_xtp8s"),
+"Xbox Back": ExtResource("163_ucr2t"),
+"Xbox Back Icon": ExtResource("164_7v4fl"),
+"Xbox Dpad": ExtResource("172_k07qt"),
+"Xbox Dpad All": ExtResource("173_51010"),
+"Xbox Dpad Down": ExtResource("174_ov730"),
+"Xbox Dpad Horizontal": ExtResource("175_dkr0h"),
+"Xbox Dpad Left": ExtResource("176_8xwp0"),
+"Xbox Dpad None": ExtResource("177_d8bvo"),
+"Xbox Dpad Right": ExtResource("178_efq4o"),
+"Xbox Dpad Round": ExtResource("179_m3okt"),
+"Xbox Dpad Round All": ExtResource("180_xjmi5"),
+"Xbox Dpad Round Down": ExtResource("181_wyuo8"),
+"Xbox Dpad Round Horizontal": ExtResource("182_1xryu"),
+"Xbox Dpad Round Left": ExtResource("183_fuj2k"),
+"Xbox Dpad Round Right": ExtResource("184_ml83w"),
+"Xbox Dpad Round Up": ExtResource("185_64vhp"),
+"Xbox Dpad Round Vertical": ExtResource("186_rknt5"),
+"Xbox Dpad Up": ExtResource("187_3wxma"),
+"Xbox Dpad Vertical": ExtResource("188_yyxkb"),
+"Xbox Home": ExtResource("189_u5o4p"),
+"Xbox Left Shoulder": ExtResource("190_hwshj"),
+"Xbox Left Stick": ExtResource("196_kpplb"),
+"Xbox Left Stick Down": ExtResource("197_l2uiv"),
+"Xbox Left Stick Horizontal": ExtResource("198_2cve6"),
+"Xbox Left Stick Left": ExtResource("199_bdu33"),
+"Xbox Left Stick Press": ExtResource("200_3nowk"),
+"Xbox Left Stick Right": ExtResource("201_jcwmb"),
+"Xbox Left Stick Up": ExtResource("202_m4al1"),
+"Xbox Left Stick Vertical": ExtResource("203_gc4ue"),
+"Xbox Left Trigger": ExtResource("192_k40s2"),
+"Xbox Ls": ExtResource("191_mx2cx"),
+"Xbox Menu": ExtResource("165_kvxhs"),
+"Xbox Right Shoulder": ExtResource("193_irkkk"),
+"Xbox Right Stick": ExtResource("204_efvl7"),
+"Xbox Right Stick Down": ExtResource("205_qr0ba"),
+"Xbox Right Stick Horizontal": ExtResource("206_lyy3a"),
+"Xbox Right Stick Left": ExtResource("207_rbgpa"),
+"Xbox Right Stick Press": ExtResource("208_vbq0b"),
+"Xbox Right Stick Right": ExtResource("209_n4fea"),
+"Xbox Right Stick Up": ExtResource("210_tr4js"),
+"Xbox Right Stick Vertical": ExtResource("211_22qme"),
+"Xbox Right Trigger": ExtResource("195_t6mxp"),
+"Xbox Rs": ExtResource("194_svuwu"),
+"Xbox Share": ExtResource("166_mileg"),
+"Xbox Start": ExtResource("167_xpjj5"),
+"Xbox Start Icon": ExtResource("168_d5ehv"),
+"Xbox Stick Side L": ExtResource("212_tmbv8"),
+"Xbox Stick Side R": ExtResource("213_g43ba"),
+"Xbox Stick Top L": ExtResource("214_p2rhm"),
+"Xbox Stick Top R": ExtResource("215_7qmqo"),
+"Xbox View": ExtResource("169_7opyp"),
+"Xbox X": ExtResource("170_xfoav"),
+"Xbox Y": ExtResource("171_wd6q7"),
+"Y": ExtResource("113_eouho"),
+"Z": ExtResource("114_id7l8")
+}
+all_icons = {
+"controller_playstation1": ExtResource("216_qudt0"),
+"controller_playstation2": ExtResource("217_hc40j"),
+"controller_playstation3": ExtResource("218_5q80y"),
+"controller_playstation4": ExtResource("219_yebg5"),
+"controller_playstation5": ExtResource("220_leeme"),
+"controller_steamdeck": ExtResource("349_42brl"),
+"controller_switch": ExtResource("278_mp2qv"),
+"controller_switch_joycon_down": ExtResource("279_q6sb3"),
+"controller_switch_joycon_up": ExtResource("280_yeplc"),
+"controller_switch_pro": ExtResource("281_auyg1"),
+"controller_xbox360": ExtResource("157_7ys5j"),
+"controller_xbox_adaptive": ExtResource("158_5gdyf"),
+"controller_xboxone": ExtResource("159_ilpqn"),
+"controller_xboxseries": ExtResource("160_5dis7"),
+"generic_button": ExtResource("126_sjspr"),
+"generic_button_circle": ExtResource("127_bg40u"),
+"generic_button_circle_fill": ExtResource("128_sim0q"),
+"generic_button_finger": ExtResource("129_q6x7a"),
+"generic_button_finger_pressed": ExtResource("130_ied5t"),
+"generic_button_pressed": ExtResource("131_jivjg"),
+"generic_button_square": ExtResource("132_4ds5f"),
+"generic_button_square_fill": ExtResource("133_wt7io"),
+"generic_button_trigger_a": ExtResource("134_t3tc8"),
+"generic_button_trigger_a_fill": ExtResource("135_fnbk6"),
+"generic_button_trigger_b": ExtResource("136_3ecoc"),
+"generic_button_trigger_b_fill": ExtResource("137_lo0c3"),
+"generic_button_trigger_c": ExtResource("138_m1yhw"),
+"generic_button_trigger_c_fill": ExtResource("139_gpf8g"),
+"generic_joystick": ExtResource("140_l4l0i"),
+"generic_joystick_horizontal": ExtResource("141_01mep"),
+"generic_joystick_left": ExtResource("142_3d7p8"),
+"generic_joystick_red": ExtResource("143_45oe8"),
+"generic_joystick_red_horizontal": ExtResource("144_vt8xa"),
+"generic_joystick_red_left": ExtResource("145_8aap2"),
+"generic_joystick_red_right": ExtResource("146_wectp"),
+"generic_joystick_right": ExtResource("147_orwbu"),
+"generic_stick": ExtResource("148_qmjmn"),
+"generic_stick_down": ExtResource("149_3j5fo"),
+"generic_stick_horizontal": ExtResource("150_81lor"),
+"generic_stick_left": ExtResource("151_p433x"),
+"generic_stick_press": ExtResource("152_kyjip"),
+"generic_stick_right": ExtResource("153_cdfh0"),
+"generic_stick_side": ExtResource("154_d07ut"),
+"generic_stick_up": ExtResource("155_wyrpc"),
+"generic_stick_vertical": ExtResource("156_8bn8c"),
+"keyboard_0": ExtResource("2_wgqyq"),
+"keyboard_1": ExtResource("3_btdj8"),
+"keyboard_2": ExtResource("4_lhkmw"),
+"keyboard_3": ExtResource("5_2qcww"),
+"keyboard_4": ExtResource("6_3g5gv"),
+"keyboard_5": ExtResource("7_hldfm"),
+"keyboard_6": ExtResource("8_1cxpc"),
+"keyboard_7": ExtResource("9_6j1iv"),
+"keyboard_8": ExtResource("10_3pnvt"),
+"keyboard_9": ExtResource("11_6dlrb"),
+"keyboard_a": ExtResource("12_818c7"),
+"keyboard_alt": ExtResource("13_n7lr7"),
+"keyboard_any": ExtResource("14_xq8kl"),
+"keyboard_apostrophe": ExtResource("15_1ql0t"),
+"keyboard_arrow_down": ExtResource("16_lx86x"),
+"keyboard_arrow_left": ExtResource("17_0hhnu"),
+"keyboard_arrow_right": ExtResource("18_arkuj"),
+"keyboard_arrow_up": ExtResource("19_gt304"),
+"keyboard_arrows": ExtResource("20_qvnj0"),
+"keyboard_arrows_all": ExtResource("21_pmrbx"),
+"keyboard_arrows_down": ExtResource("22_ahd1o"),
+"keyboard_arrows_horizontal": ExtResource("23_0j10t"),
+"keyboard_arrows_left": ExtResource("24_pmiqd"),
+"keyboard_arrows_none": ExtResource("25_llw5i"),
+"keyboard_arrows_right": ExtResource("26_y5es4"),
+"keyboard_arrows_up": ExtResource("27_mvjok"),
+"keyboard_arrows_vertical": ExtResource("28_bkym3"),
+"keyboard_asterisk": ExtResource("29_hyevm"),
+"keyboard_b": ExtResource("30_fande"),
+"keyboard_backspace": ExtResource("31_76wfu"),
+"keyboard_backspace_icon": ExtResource("32_0j5cr"),
+"keyboard_backspace_icon_alternative": ExtResource("33_tdj7p"),
+"keyboard_bracket_close": ExtResource("34_80ts2"),
+"keyboard_bracket_greater": ExtResource("35_g52m8"),
+"keyboard_bracket_less": ExtResource("36_k5vum"),
+"keyboard_bracket_open": ExtResource("37_dcyfm"),
+"keyboard_c": ExtResource("38_p18vv"),
+"keyboard_capslock": ExtResource("39_ubnne"),
+"keyboard_capslock_icon": ExtResource("40_5hsy5"),
+"keyboard_caret": ExtResource("41_u8icm"),
+"keyboard_colon": ExtResource("42_03u1g"),
+"keyboard_comma": ExtResource("43_jqcaf"),
+"keyboard_command": ExtResource("44_0k5ai"),
+"keyboard_ctrl": ExtResource("45_gn7wk"),
+"keyboard_d": ExtResource("46_0enn3"),
+"keyboard_delete": ExtResource("47_ohtta"),
+"keyboard_e": ExtResource("48_fea5u"),
+"keyboard_end": ExtResource("49_0h2ya"),
+"keyboard_enter": ExtResource("50_af5gs"),
+"keyboard_equals": ExtResource("51_c0mmb"),
+"keyboard_escape": ExtResource("52_tiw8c"),
+"keyboard_exclamation": ExtResource("53_lquf2"),
+"keyboard_f": ExtResource("54_vbago"),
+"keyboard_f1": ExtResource("55_147ax"),
+"keyboard_f10": ExtResource("56_mb461"),
+"keyboard_f11": ExtResource("57_mdf04"),
+"keyboard_f12": ExtResource("58_fqo7s"),
+"keyboard_f2": ExtResource("59_pk0p4"),
+"keyboard_f3": ExtResource("60_fh6u4"),
+"keyboard_f4": ExtResource("61_s6e62"),
+"keyboard_f5": ExtResource("62_yko8e"),
+"keyboard_f6": ExtResource("63_lkwfg"),
+"keyboard_f7": ExtResource("64_sbfam"),
+"keyboard_f8": ExtResource("65_b77dr"),
+"keyboard_f9": ExtResource("66_om7yp"),
+"keyboard_function": ExtResource("67_ov4dv"),
+"keyboard_g": ExtResource("68_k32kv"),
+"keyboard_h": ExtResource("69_anthc"),
+"keyboard_home": ExtResource("70_lm5th"),
+"keyboard_i": ExtResource("71_lxulv"),
+"keyboard_insert": ExtResource("72_yswr2"),
+"keyboard_j": ExtResource("73_k0tas"),
+"keyboard_k": ExtResource("74_r33kw"),
+"keyboard_l": ExtResource("75_03hfd"),
+"keyboard_m": ExtResource("76_g504p"),
+"keyboard_minus": ExtResource("77_g5o76"),
+"keyboard_n": ExtResource("78_y7uyg"),
+"keyboard_numlock": ExtResource("79_bqyjm"),
+"keyboard_numpad_enter": ExtResource("80_mqay6"),
+"keyboard_numpad_plus": ExtResource("81_gu7au"),
+"keyboard_o": ExtResource("82_agv5a"),
+"keyboard_option": ExtResource("83_6qjf4"),
+"keyboard_p": ExtResource("84_upehv"),
+"keyboard_page_down": ExtResource("85_x3nk0"),
+"keyboard_page_up": ExtResource("86_wfyxb"),
+"keyboard_period": ExtResource("87_i1scc"),
+"keyboard_plus": ExtResource("88_sggud"),
+"keyboard_printscreen": ExtResource("89_7k5n7"),
+"keyboard_q": ExtResource("90_lj6gn"),
+"keyboard_question": ExtResource("91_gf4x2"),
+"keyboard_quote": ExtResource("92_iyaev"),
+"keyboard_r": ExtResource("93_75lew"),
+"keyboard_return": ExtResource("94_r14b7"),
+"keyboard_s": ExtResource("95_5x64k"),
+"keyboard_semicolon": ExtResource("96_g18le"),
+"keyboard_shift": ExtResource("97_khefn"),
+"keyboard_shift_icon": ExtResource("98_k1ucy"),
+"keyboard_slash_back": ExtResource("99_aheq2"),
+"keyboard_slash_forward": ExtResource("100_pxji8"),
+"keyboard_space": ExtResource("101_vj555"),
+"keyboard_space_icon": ExtResource("102_jud8f"),
+"keyboard_t": ExtResource("103_jv0pg"),
+"keyboard_tab": ExtResource("104_uuvyc"),
+"keyboard_tab_icon": ExtResource("105_3uxf2"),
+"keyboard_tab_icon_alternative": ExtResource("106_uhfpd"),
+"keyboard_tilde": ExtResource("107_0dh5l"),
+"keyboard_u": ExtResource("108_ga2hn"),
+"keyboard_v": ExtResource("109_st1lp"),
+"keyboard_w": ExtResource("110_ttn6j"),
+"keyboard_win": ExtResource("111_b6s5p"),
+"keyboard_x": ExtResource("112_53ako"),
+"keyboard_y": ExtResource("113_eouho"),
+"keyboard_z": ExtResource("114_id7l8"),
+"mouse": ExtResource("115_ah2yg"),
+"mouse_horizontal": ExtResource("116_va5jt"),
+"mouse_left": ExtResource("117_vwkq2"),
+"mouse_move": ExtResource("118_3pvsc"),
+"mouse_right": ExtResource("119_8ay53"),
+"mouse_scroll": ExtResource("120_g0fkk"),
+"mouse_scroll_down": ExtResource("121_k4exx"),
+"mouse_scroll_up": ExtResource("122_wwx7f"),
+"mouse_scroll_vertical": ExtResource("123_bjqbo"),
+"mouse_small": ExtResource("124_lo3hv"),
+"mouse_vertical": ExtResource("125_g3i6b"),
+"playstation3_button_select": ExtResource("221_lgofe"),
+"playstation3_button_start": ExtResource("222_a766y"),
+"playstation4_button_options": ExtResource("223_nibis"),
+"playstation4_button_share": ExtResource("224_urys6"),
+"playstation4_touchpad": ExtResource("225_onrt2"),
+"playstation4_touchpad_touch": ExtResource("226_r2vl1"),
+"playstation5_button_create": ExtResource("227_fvoso"),
+"playstation5_button_create_alternative": ExtResource("228_1fi32"),
+"playstation5_button_mute": ExtResource("229_h2h3h"),
+"playstation5_button_options": ExtResource("230_iwnuj"),
+"playstation5_button_options_alternative": ExtResource("231_085c2"),
+"playstation5_touchpad": ExtResource("232_q3d6f"),
+"playstation5_touchpad_touch": ExtResource("233_rr15s"),
+"playstation_button_analog": ExtResource("234_8d6sg"),
+"playstation_button_circle": ExtResource("235_na03y"),
+"playstation_button_cross": ExtResource("236_r8owg"),
+"playstation_button_l3": ExtResource("237_wi55j"),
+"playstation_button_r3": ExtResource("238_oc0lo"),
+"playstation_button_square": ExtResource("239_wfghw"),
+"playstation_button_triangle": ExtResource("240_iljlm"),
+"playstation_dpad": ExtResource("241_cs7k6"),
+"playstation_dpad_all": ExtResource("242_5ocrh"),
+"playstation_dpad_down": ExtResource("243_nfk6g"),
+"playstation_dpad_horizontal": ExtResource("244_im0t6"),
+"playstation_dpad_left": ExtResource("245_vvld6"),
+"playstation_dpad_none": ExtResource("246_hu4nf"),
+"playstation_dpad_right": ExtResource("247_45gpd"),
+"playstation_dpad_up": ExtResource("248_0gjx0"),
+"playstation_dpad_vertical": ExtResource("249_ufxer"),
+"playstation_stick_l": ExtResource("250_o7lu6"),
+"playstation_stick_l_down": ExtResource("251_wx44r"),
+"playstation_stick_l_horizontal": ExtResource("252_8geum"),
+"playstation_stick_l_left": ExtResource("253_8liou"),
+"playstation_stick_l_press": ExtResource("254_pasq3"),
+"playstation_stick_l_right": ExtResource("255_4m4c7"),
+"playstation_stick_l_up": ExtResource("256_pcnjo"),
+"playstation_stick_l_vertical": ExtResource("257_0o178"),
+"playstation_stick_r": ExtResource("258_lsm1v"),
+"playstation_stick_r_down": ExtResource("259_d0e0i"),
+"playstation_stick_r_horizontal": ExtResource("260_urmoo"),
+"playstation_stick_r_left": ExtResource("261_54ydr"),
+"playstation_stick_r_press": ExtResource("262_cjhdy"),
+"playstation_stick_r_right": ExtResource("263_txm5p"),
+"playstation_stick_r_up": ExtResource("264_fow0e"),
+"playstation_stick_r_vertical": ExtResource("265_1f7s5"),
+"playstation_stick_side_l": ExtResource("266_l5o8u"),
+"playstation_stick_side_r": ExtResource("267_8o7at"),
+"playstation_stick_top_l": ExtResource("268_6k38o"),
+"playstation_stick_top_r": ExtResource("269_8qqc8"),
+"playstation_trigger_l1": ExtResource("270_hhsv2"),
+"playstation_trigger_l1_alternative": ExtResource("271_1j6h5"),
+"playstation_trigger_l2": ExtResource("272_m712h"),
+"playstation_trigger_l2_alternative": ExtResource("273_khryy"),
+"playstation_trigger_r1": ExtResource("274_ihwni"),
+"playstation_trigger_r1_alternative": ExtResource("275_sexgb"),
+"playstation_trigger_r2": ExtResource("276_pp44u"),
+"playstation_trigger_r2_alternative": ExtResource("277_yk1eb"),
+"steamdeck_button_a": ExtResource("350_uyakk"),
+"steamdeck_button_b": ExtResource("351_pwh86"),
+"steamdeck_button_guide": ExtResource("352_44yit"),
+"steamdeck_button_l1": ExtResource("353_bnueh"),
+"steamdeck_button_l2": ExtResource("354_lkft7"),
+"steamdeck_button_l4": ExtResource("355_nstoa"),
+"steamdeck_button_l5": ExtResource("356_decbp"),
+"steamdeck_button_options": ExtResource("357_xgj0l"),
+"steamdeck_button_quickaccess": ExtResource("358_2efw4"),
+"steamdeck_button_r1": ExtResource("359_622bw"),
+"steamdeck_button_r2": ExtResource("360_fsuf6"),
+"steamdeck_button_r4": ExtResource("361_e1sqt"),
+"steamdeck_button_r5": ExtResource("362_mmygo"),
+"steamdeck_button_view": ExtResource("363_ownsh"),
+"steamdeck_button_x": ExtResource("364_bb340"),
+"steamdeck_button_y": ExtResource("365_sndee"),
+"steamdeck_dpad": ExtResource("366_giy7q"),
+"steamdeck_dpad_all": ExtResource("367_dfnyh"),
+"steamdeck_dpad_down": ExtResource("368_tc6p0"),
+"steamdeck_dpad_horizontal": ExtResource("369_uledy"),
+"steamdeck_dpad_left": ExtResource("370_mcujb"),
+"steamdeck_dpad_none": ExtResource("371_dkyt8"),
+"steamdeck_dpad_right": ExtResource("372_snqch"),
+"steamdeck_dpad_up": ExtResource("373_oux5i"),
+"steamdeck_dpad_vertical": ExtResource("374_duiv2"),
+"steamdeck_stick_l": ExtResource("375_crvyb"),
+"steamdeck_stick_l_down": ExtResource("376_whckm"),
+"steamdeck_stick_l_horizontal": ExtResource("377_b6ksi"),
+"steamdeck_stick_l_left": ExtResource("378_olymn"),
+"steamdeck_stick_l_press": ExtResource("379_82mo5"),
+"steamdeck_stick_l_right": ExtResource("380_k3gh5"),
+"steamdeck_stick_l_up": ExtResource("381_j1v3j"),
+"steamdeck_stick_l_vertical": ExtResource("382_kfum8"),
+"steamdeck_stick_r": ExtResource("383_l20ni"),
+"steamdeck_stick_r_down": ExtResource("384_ucdvn"),
+"steamdeck_stick_r_horizontal": ExtResource("385_uu4if"),
+"steamdeck_stick_r_left": ExtResource("386_nsfg4"),
+"steamdeck_stick_r_press": ExtResource("387_8255w"),
+"steamdeck_stick_r_right": ExtResource("388_yg87s"),
+"steamdeck_stick_r_up": ExtResource("389_5q6oq"),
+"steamdeck_stick_r_vertical": ExtResource("390_paojw"),
+"steamdeck_stick_side_l": ExtResource("391_eqaj3"),
+"steamdeck_stick_side_r": ExtResource("392_3jevk"),
+"steamdeck_stick_top_l": ExtResource("393_wacj8"),
+"steamdeck_stick_top_r": ExtResource("394_t7mvf"),
+"steamdeck_trackpad": ExtResource("395_inqna"),
+"steamdeck_trackpad_all": ExtResource("396_2u58o"),
+"steamdeck_trackpad_down": ExtResource("397_8fcre"),
+"steamdeck_trackpad_horizontal": ExtResource("398_he3oo"),
+"steamdeck_trackpad_l": ExtResource("399_2hjr7"),
+"steamdeck_trackpad_l_all": ExtResource("400_po2wm"),
+"steamdeck_trackpad_l_down": ExtResource("401_pkof2"),
+"steamdeck_trackpad_l_horizontal": ExtResource("402_llpei"),
+"steamdeck_trackpad_l_left": ExtResource("403_3v6of"),
+"steamdeck_trackpad_l_right": ExtResource("404_kjs6o"),
+"steamdeck_trackpad_l_up": ExtResource("405_uls5e"),
+"steamdeck_trackpad_l_vertical": ExtResource("406_t6oka"),
+"steamdeck_trackpad_left": ExtResource("407_tva14"),
+"steamdeck_trackpad_r": ExtResource("408_vr8ek"),
+"steamdeck_trackpad_r_all": ExtResource("409_0wrv1"),
+"steamdeck_trackpad_r_down": ExtResource("410_531lp"),
+"steamdeck_trackpad_r_horizontal": ExtResource("411_e1br3"),
+"steamdeck_trackpad_r_left": ExtResource("412_q40yi"),
+"steamdeck_trackpad_r_right": ExtResource("413_qac33"),
+"steamdeck_trackpad_r_up": ExtResource("414_ewyog"),
+"steamdeck_trackpad_r_vertical": ExtResource("415_3rqlp"),
+"steamdeck_trackpad_right": ExtResource("416_f5pkl"),
+"steamdeck_trackpad_up": ExtResource("417_pr6p3"),
+"steamdeck_trackpad_vertical": ExtResource("418_euhn1"),
+"switch_button_a": ExtResource("282_p5ixe"),
+"switch_button_b": ExtResource("283_580py"),
+"switch_button_home": ExtResource("284_8jlv7"),
+"switch_button_l": ExtResource("285_8nyjk"),
+"switch_button_minus": ExtResource("286_5020d"),
+"switch_button_plus": ExtResource("287_7qkuc"),
+"switch_button_r": ExtResource("288_cltf3"),
+"switch_button_sl": ExtResource("289_xxtp8"),
+"switch_button_sr": ExtResource("290_kka5m"),
+"switch_button_sync": ExtResource("291_2btvj"),
+"switch_button_x": ExtResource("292_pdbjn"),
+"switch_button_y": ExtResource("293_lvrp0"),
+"switch_button_zl": ExtResource("294_h62od"),
+"switch_button_zr": ExtResource("295_x66rc"),
+"switch_buttons": ExtResource("296_46o4l"),
+"switch_buttons_all": ExtResource("297_7slk6"),
+"switch_buttons_down": ExtResource("298_mqnm6"),
+"switch_buttons_horizontal": ExtResource("299_tbdw3"),
+"switch_buttons_left": ExtResource("300_3i7fq"),
+"switch_buttons_none": ExtResource("301_pyx8p"),
+"switch_buttons_right": ExtResource("302_bbkb2"),
+"switch_buttons_up": ExtResource("303_f6p2r"),
+"switch_buttons_vertical": ExtResource("304_jbbju"),
+"switch_down": ExtResource("305_kdwin"),
+"switch_dpad": ExtResource("306_5k055"),
+"switch_dpad_all": ExtResource("307_wkqk6"),
+"switch_dpad_down": ExtResource("308_hof43"),
+"switch_dpad_horizontal": ExtResource("309_tdhk3"),
+"switch_dpad_left": ExtResource("310_wsuiu"),
+"switch_dpad_none": ExtResource("311_m68sf"),
+"switch_dpad_right": ExtResource("312_3t0ix"),
+"switch_dpad_up": ExtResource("313_lpaw1"),
+"switch_dpad_vertical": ExtResource("314_nmuaj"),
+"switch_joycon": ExtResource("315_6j0w2"),
+"switch_joycon_left": ExtResource("316_ogerv"),
+"switch_joycon_left_diagonal": ExtResource("317_b0whr"),
+"switch_joycon_left_horizontal": ExtResource("318_0mr2x"),
+"switch_joycon_left_rotate": ExtResource("319_rxy5d"),
+"switch_joycon_left_vertical": ExtResource("320_1068c"),
+"switch_joycon_right": ExtResource("321_2hbxq"),
+"switch_joycon_right_diagonal": ExtResource("322_1vyds"),
+"switch_joycon_right_horizontal": ExtResource("323_kkwl0"),
+"switch_joycon_right_rotate": ExtResource("324_kxo5x"),
+"switch_joycon_right_vertical": ExtResource("325_3px1o"),
+"switch_left": ExtResource("326_v1kfi"),
+"switch_right": ExtResource("327_71g1w"),
+"switch_stick_l": ExtResource("328_xqy1x"),
+"switch_stick_l_down": ExtResource("329_2whdb"),
+"switch_stick_l_horizontal": ExtResource("330_f1jv5"),
+"switch_stick_l_left": ExtResource("331_j031u"),
+"switch_stick_l_press": ExtResource("332_yj0il"),
+"switch_stick_l_right": ExtResource("333_jjj0q"),
+"switch_stick_l_up": ExtResource("334_eyl15"),
+"switch_stick_l_vertical": ExtResource("335_swi74"),
+"switch_stick_r": ExtResource("336_hwjno"),
+"switch_stick_r_down": ExtResource("337_pv4vl"),
+"switch_stick_r_horizontal": ExtResource("338_6tw51"),
+"switch_stick_r_left": ExtResource("339_8vqfx"),
+"switch_stick_r_press": ExtResource("340_70m7o"),
+"switch_stick_r_right": ExtResource("341_2aelc"),
+"switch_stick_r_up": ExtResource("342_fwjmb"),
+"switch_stick_r_vertical": ExtResource("343_653oc"),
+"switch_stick_side_l": ExtResource("344_u1wwp"),
+"switch_stick_side_r": ExtResource("345_17u7f"),
+"switch_stick_top_l": ExtResource("346_dgvgw"),
+"switch_stick_top_r": ExtResource("347_54827"),
+"switch_up": ExtResource("348_er7yg"),
+"xbox_button_a": ExtResource("161_h02eh"),
+"xbox_button_b": ExtResource("162_xtp8s"),
+"xbox_button_back": ExtResource("163_ucr2t"),
+"xbox_button_back_icon": ExtResource("164_7v4fl"),
+"xbox_button_menu": ExtResource("165_kvxhs"),
+"xbox_button_share": ExtResource("166_mileg"),
+"xbox_button_start": ExtResource("167_xpjj5"),
+"xbox_button_start_icon": ExtResource("168_d5ehv"),
+"xbox_button_view": ExtResource("169_7opyp"),
+"xbox_button_x": ExtResource("170_xfoav"),
+"xbox_button_y": ExtResource("171_wd6q7"),
+"xbox_dpad": ExtResource("172_k07qt"),
+"xbox_dpad_all": ExtResource("173_51010"),
+"xbox_dpad_down": ExtResource("174_ov730"),
+"xbox_dpad_horizontal": ExtResource("175_dkr0h"),
+"xbox_dpad_left": ExtResource("176_8xwp0"),
+"xbox_dpad_none": ExtResource("177_d8bvo"),
+"xbox_dpad_right": ExtResource("178_efq4o"),
+"xbox_dpad_round": ExtResource("179_m3okt"),
+"xbox_dpad_round_all": ExtResource("180_xjmi5"),
+"xbox_dpad_round_down": ExtResource("181_wyuo8"),
+"xbox_dpad_round_horizontal": ExtResource("182_1xryu"),
+"xbox_dpad_round_left": ExtResource("183_fuj2k"),
+"xbox_dpad_round_right": ExtResource("184_ml83w"),
+"xbox_dpad_round_up": ExtResource("185_64vhp"),
+"xbox_dpad_round_vertical": ExtResource("186_rknt5"),
+"xbox_dpad_up": ExtResource("187_3wxma"),
+"xbox_dpad_vertical": ExtResource("188_yyxkb"),
+"xbox_guide": ExtResource("189_u5o4p"),
+"xbox_lb": ExtResource("190_hwshj"),
+"xbox_ls": ExtResource("191_mx2cx"),
+"xbox_lt": ExtResource("192_k40s2"),
+"xbox_rb": ExtResource("193_irkkk"),
+"xbox_rs": ExtResource("194_svuwu"),
+"xbox_rt": ExtResource("195_t6mxp"),
+"xbox_stick_l": ExtResource("196_kpplb"),
+"xbox_stick_l_down": ExtResource("197_l2uiv"),
+"xbox_stick_l_horizontal": ExtResource("198_2cve6"),
+"xbox_stick_l_left": ExtResource("199_bdu33"),
+"xbox_stick_l_press": ExtResource("200_3nowk"),
+"xbox_stick_l_right": ExtResource("201_jcwmb"),
+"xbox_stick_l_up": ExtResource("202_m4al1"),
+"xbox_stick_l_vertical": ExtResource("203_gc4ue"),
+"xbox_stick_r": ExtResource("204_efvl7"),
+"xbox_stick_r_down": ExtResource("205_qr0ba"),
+"xbox_stick_r_horizontal": ExtResource("206_lyy3a"),
+"xbox_stick_r_left": ExtResource("207_rbgpa"),
+"xbox_stick_r_press": ExtResource("208_vbq0b"),
+"xbox_stick_r_right": ExtResource("209_n4fea"),
+"xbox_stick_r_up": ExtResource("210_tr4js"),
+"xbox_stick_r_vertical": ExtResource("211_22qme"),
+"xbox_stick_side_l": ExtResource("212_tmbv8"),
+"xbox_stick_side_r": ExtResource("213_g43ba"),
+"xbox_stick_top_l": ExtResource("214_p2rhm"),
+"xbox_stick_top_r": ExtResource("215_7qmqo")
+}
+files = Array[String](["res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_0.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_1.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_2.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_3.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_4.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_5.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_6.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_7.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_8.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_9.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_a.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_alt.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_any.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_apostrophe.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_down.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_left.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_right.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_up.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_all.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_down.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_horizontal.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_left.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_none.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_right.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_up.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrows_vertical.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_asterisk.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_b.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_backspace.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_backspace_icon.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_backspace_icon_alternative.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_bracket_close.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_bracket_greater.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_bracket_less.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_bracket_open.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_c.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_capslock.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_capslock_icon.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_caret.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_colon.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_comma.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_command.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_ctrl.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_d.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_delete.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_e.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_end.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_enter.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_equals.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_escape.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_exclamation.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f1.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f10.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f11.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f12.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f2.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f3.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f4.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f5.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f6.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f7.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f8.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_f9.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_function.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_g.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_h.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_home.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_i.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_insert.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_j.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_k.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_l.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_m.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_minus.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_n.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_numlock.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_numpad_enter.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_numpad_plus.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_o.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_option.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_p.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_page_down.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_page_up.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_period.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_plus.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_printscreen.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_q.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_question.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_quote.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_r.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_return.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_s.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_semicolon.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_shift.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_shift_icon.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_slash_back.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_slash_forward.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_space.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_space_icon.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_t.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_tab.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_tab_icon.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_tab_icon_alternative.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_tilde.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_u.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_v.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_w.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_win.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_x.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_y.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_z.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_horizontal.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_left.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_move.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_right.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_scroll.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_scroll_down.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_scroll_up.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_scroll_vertical.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_small.svg", "res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_vertical.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_button.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_button_circle.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_button_circle_fill.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_button_finger.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_button_finger_pressed.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_button_pressed.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_button_square.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_button_square_fill.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_button_trigger_a.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_button_trigger_a_fill.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_button_trigger_b.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_button_trigger_b_fill.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_button_trigger_c.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_button_trigger_c_fill.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_joystick.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_joystick_horizontal.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_joystick_left.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_joystick_red.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_joystick_red_horizontal.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_joystick_red_left.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_joystick_red_right.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_joystick_right.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_stick.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_stick_down.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_stick_horizontal.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_stick_left.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_stick_press.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_stick_right.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_stick_side.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_stick_up.svg", "res://assets/kenney_input-prompts/Generic/Vector/generic_stick_vertical.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/controller_xbox360.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/controller_xbox_adaptive.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/controller_xboxone.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/controller_xboxseries.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_a.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_b.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_back.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_back_icon.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_menu.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_share.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_start.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_start_icon.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_view.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_x.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_y.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_all.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_down.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_horizontal.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_left.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_none.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_right.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round_all.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round_down.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round_horizontal.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round_left.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round_right.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round_up.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_round_vertical.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_up.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_dpad_vertical.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_guide.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_lb.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_ls.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_lt.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_rb.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_rs.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_rt.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l_down.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l_horizontal.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l_left.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l_press.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l_right.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l_up.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_l_vertical.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r_down.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r_horizontal.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r_left.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r_press.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r_right.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r_up.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_r_vertical.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_side_l.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_side_r.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_top_l.svg", "res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_stick_top_r.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/controller_playstation1.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/controller_playstation2.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/controller_playstation3.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/controller_playstation4.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/controller_playstation5.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation3_button_select.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation3_button_start.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation4_button_options.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation4_button_share.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation4_touchpad.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation4_touchpad_touch.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation5_button_create.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation5_button_create_alternative.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation5_button_mute.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation5_button_options.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation5_button_options_alternative.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation5_touchpad.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation5_touchpad_touch.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_button_analog.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_button_circle.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_button_cross.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_button_l3.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_button_r3.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_button_square.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_button_triangle.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_all.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_down.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_horizontal.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_left.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_none.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_right.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_up.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_dpad_vertical.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l_down.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l_horizontal.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l_left.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l_press.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l_right.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l_up.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_l_vertical.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r_down.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r_horizontal.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r_left.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r_press.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r_right.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r_up.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_r_vertical.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_side_l.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_side_r.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_top_l.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_stick_top_r.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_l1.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_l1_alternative.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_l2.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_l2_alternative.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_r1.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_r1_alternative.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_r2.svg", "res://assets/kenney_input-prompts/PlayStation Series/Vector/playstation_trigger_r2_alternative.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/controller_switch.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/controller_switch_joycon_down.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/controller_switch_joycon_up.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/controller_switch_pro.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_a.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_b.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_home.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_l.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_minus.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_plus.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_r.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_sl.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_sr.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_sync.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_x.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_y.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_zl.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_button_zr.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_all.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_down.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_horizontal.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_left.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_none.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_right.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_up.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_buttons_vertical.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_down.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_all.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_down.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_horizontal.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_left.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_none.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_right.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_up.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_dpad_vertical.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_left.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_left_diagonal.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_left_horizontal.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_left_rotate.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_left_vertical.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_right.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_right_diagonal.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_right_horizontal.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_right_rotate.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_joycon_right_vertical.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_left.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_right.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l_down.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l_horizontal.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l_left.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l_press.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l_right.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l_up.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_l_vertical.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r_down.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r_horizontal.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r_left.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r_press.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r_right.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r_up.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_r_vertical.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_side_l.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_side_r.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_top_l.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_stick_top_r.svg", "res://assets/kenney_input-prompts/Nintendo Switch/Vector/switch_up.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/controller_steamdeck.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_a.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_b.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_guide.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_l1.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_l2.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_l4.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_l5.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_options.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_quickaccess.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_r1.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_r2.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_r4.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_r5.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_view.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_x.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_button_y.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_all.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_down.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_horizontal.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_left.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_none.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_right.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_up.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_dpad_vertical.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l_down.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l_horizontal.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l_left.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l_press.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l_right.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l_up.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_l_vertical.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r_down.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r_horizontal.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r_left.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r_press.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r_right.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r_up.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_r_vertical.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_side_l.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_side_r.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_top_l.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_stick_top_r.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_all.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_down.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_horizontal.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l_all.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l_down.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l_horizontal.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l_left.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l_right.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l_up.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_l_vertical.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_left.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r_all.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r_down.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r_horizontal.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r_left.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r_right.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r_up.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_r_vertical.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_right.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_up.svg", "res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_vertical.svg"])
+directories = Array[String](["res://assets/kenney_input-prompts/Keyboard & Mouse/Vector", "res://assets/kenney_input-prompts/Generic/Vector", "res://assets/kenney_input-prompts/Xbox Series/Vector", "res://assets/kenney_input-prompts/PlayStation Series/Vector", "res://assets/kenney_input-prompts/Nintendo Switch/Vector", "res://assets/kenney_input-prompts/Steam Deck/Vector"])
+filter = "color"
+ends_with = ".svg"
+not_ends_with = "outline.svg"

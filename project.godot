@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Game Template"
+config/name="HSDöner"
+config/version="0.0.1"
 run/main_scene="res://scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.5")
 config/icon="res://icon.png"
@@ -33,6 +34,7 @@ enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
 
 [gui]
 
+theme/custom="res://resources/themes/lab.tres"
 common/drop_mouse_on_gui_input_disabled=true
 
 [input]
