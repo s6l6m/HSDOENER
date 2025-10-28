@@ -1,5 +1,7 @@
 [gd_resource type="Theme" load_steps=16 format=3 uid="uid://2p6glpubmhup"]
 
+[ext_resource type="FontFile" uid="uid://cftqrps0druak" path="res://assets/fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/Peaberry-Base.otf" id="1_034sy"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4b4gg"]
 content_margin_left = 12.0
 content_margin_right = 12.0
@@ -159,12 +161,8 @@ border_color = Color(0.121569, 0.176471, 0.211765, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 
-[sub_resource type="FontVariation" id="FontVariation_i860b"]
-spacing_top = 4
-spacing_bottom = 2
-
 [resource]
-default_font = SubResource("FontVariation_i860b")
+default_font = ExtResource("1_034sy")
 Button/styles/hover = SubResource("StyleBoxFlat_4b4gg")
 Button/styles/normal = SubResource("StyleBoxFlat_l51yu")
 Button/styles/pressed = SubResource("StyleBoxFlat_e7ejt")
