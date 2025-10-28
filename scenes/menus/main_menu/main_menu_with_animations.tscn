@@ -342,6 +342,9 @@ modulate = Color(1, 1, 1, 0)
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
 text = "HSDöner"
 
+[node name="SubTitleMargin" parent="MenuContainer" index="1"]
+visible = false
+
 [node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
 
@@ -349,6 +352,8 @@ modulate = Color(1, 1, 1, 0)
 modulate = Color(1, 1, 1, 0)
 
 [node name="MenuButtonsBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="0"]
+offset_left = -185.5
+offset_right = 185.5
 lock = true
 
 [node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1"]
@@ -362,6 +367,9 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Level Select"
+
+[node name="ExitButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="5"]
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 
 [node name="NewGameConfirmationDialog" type="ConfirmationDialog" parent="." index="7"]
 unique_name_in_owner = true
