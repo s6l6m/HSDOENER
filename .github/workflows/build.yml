@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  GODOT_VERSION: 4.5
+  GODOT_VERSION: 4.5.1
   EXPORT_NAME: HSDOENER
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
     name: Windows Export
     runs-on: ubuntu-24.04
     container:
-      image: barichello/godot-ci:4.5
+      image: barichello/godot-ci:4.5.1
     steps:
       - name: Checkout
         uses: actions/checkout@v5
