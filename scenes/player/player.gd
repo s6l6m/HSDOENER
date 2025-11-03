@@ -19,7 +19,6 @@ func _physics_process(delta):
 			direction.y += 1
 		if Input.is_action_pressed("move_up_p1"):
 			direction.y -= 1
-
 	# Steuerung für Player 2
 	elif player_number == 2:
 		if Input.is_action_pressed("move_right_p2"):
@@ -41,5 +40,6 @@ func _physics_process(delta):
 
 	var target_velocity = direction.normalized() * speed
 	velocity = velocity.lerp(target_velocity, (accel if direction != Vector2.ZERO else friction) * delta)
+
 
 	move_and_slide()
