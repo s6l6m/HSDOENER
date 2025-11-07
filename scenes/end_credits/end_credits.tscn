@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bllpw42ash32w"]
 
-[ext_resource type="PackedScene" path="res://scenes/credits/scrolling_credits.tscn" id="1_0sycx"]
-[ext_resource type="Script" path="res://scenes/end_credits/end_credits.gd" id="2_2v40y"]
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_bfvdl"]
-[ext_resource type="Script" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="4_1kqi1"]
+[ext_resource type="PackedScene" uid="uid://dgso5mcugyxoi" path="res://scenes/credits/scrolling_credits.tscn" id="1_0sycx"]
+[ext_resource type="Script" uid="uid://dq4h3mw80tiw0" path="res://scenes/end_credits/end_credits.gd" id="2_2v40y"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_bfvdl"]
+[ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="4_1kqi1"]
 
 [node name="EndCredits" instance=ExtResource("1_0sycx")]
 script = ExtResource("2_2v40y")
-main_menu_scene_path = ""
+main_menu_scene_path = "uid://cwk8r8hp26uae"
 force_mouse_mode_visible = false
 
 [node name="BackgroundMusicPlayer" parent="." index="0" instance=ExtResource("3_bfvdl")]
@@ -30,6 +30,57 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
+
+[node name="ScrollContainer" parent="." index="3"]
+scroll_vertical = 1665
+
+[node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
+text = "[font_size=48]Collaborators[/font_size]
+
+[font_size=32]Role[/font_size]
+Leonard Hackenberg
+Sebsastian Dronov
+Leon Erwig
+Salam Mokaid
+Salah Alhaji
+
+[font_size=48]Sourced[/font_size]
+[font_size=32]Asset Type[/font_size]
+[font_size=24]Use Case[/font_size]
+Author: [url=]Name[/url]  
+Source: [url=]Domain : webpage.html[/url]  
+License: [url=]License[/url]
+
+[font_size=24]Godot Engine Logo[/font_size]
+Author: Andrea Calabró  
+Source: [url=https://godotengine.org/press/]godotengine.org : press[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.txt]CC BY 4.0 International[/url] 
+
+[font_size=48]Tools[/font_size]
+[font_size=24]Godot[/font_size]
+[img=80]res:///assets/godot_engine_logo/logo_vertical_color_dark.png[/img]  
+Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
+Source: [url=https://godotengine.org/]godotengine.org[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
+
+[font_size=24]Godot Game Template[/font_size]
+[img=80]res:///assets/plugin_logo/logo.png[/img]  
+Author: [url=https://github.com/Maaack/Godot-Game-Template/graphs/contributors]Marek Belski and contributors[/url]  
+Source: [url=https://github.com/Maaack/Godot-Game-Template]github: Godot-Game-Template[/url] 
+License: [url=LICENSE.txt]MIT License[/url]  
+
+[font_size=24]Git[/font_size]
+[img=80]res:///assets/git_logo/Git-Logo-2Color.png[/img]  
+Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
+Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
+License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
+
+[font_size=48]Fonts[/font_size]
+[font_size=24]Peaberry Pixel Font[/font_size]
+[img=80]res:///assets/fonts/Peaberry-Font-v2.0/font-preview.png[/img]  
+Author: [url=https://emhuo.itch.io]emhuo[/url]  
+Source: [url=https://emhuo.itch.io/peaberry-pixel-font]Itch.io[/url] 
+"
 
 [node name="CenterContainer" type="CenterContainer" parent="." index="4"]
 layout_mode = 0

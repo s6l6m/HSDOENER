@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cwk8r8hp26uae"]
+[gd_scene load_steps=23 format=3 uid="uid://cwk8r8hp26uae"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/nodes/menus/main_menu/main_menu.tscn" id="1_sr523"]
 [ext_resource type="Script" uid="uid://bgudewayvmljn" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_ixa71"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://d2f3ohhuwhuox" path="res://scenes/menus/level_select_menu/level_select_menu.tscn" id="3_ixa71"]
 [ext_resource type="PackedScene" uid="uid://b4wb07bqbnqke" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_vsp5b"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_6xh1d"]
+[ext_resource type="PackedScene" uid="uid://cjfaitjwcf23h" path="res://scenes/ui/book.tscn" id="6_2k5l7"]
+[ext_resource type="AudioStream" uid="uid://bfq3ljd7vdg6x" path="res://resources/sounds/main_menu.mp3" id="6_vsp5b"]
+[ext_resource type="PackedScene" uid="uid://bn4a828drg1dp" path="res://scenes/ui/coin.tscn" id="8_6xh1d"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -333,30 +336,54 @@ tree_root = SubResource("AnimationNodeStateMachine_vikuh")
 anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
 
+[node name="BackgroundMusicPlayer" parent="." index="3"]
+stream = ExtResource("6_vsp5b")
+parameters/looping = false
+
 [node name="VersionContainer" parent="VersionMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
 
-[node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0"]
-text = "v0.0.1"
-
 [node name="TitleContainer" parent="MenuContainer/TitleMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
-
-[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
-text = "HSDöner"
 
 [node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
 
 [node name="SubTitleLabel" parent="MenuContainer/SubTitleMargin/SubTitleContainer" index="0"]
-text = "Einführung in GODOT"
+text = "Einführung in GODOT-Engine"
 
 [node name="MenuButtonsContainer" parent="MenuContainer/MenuButtonsMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
 
-[node name="MenuButtonsBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="0"]
-offset_left = -240.0
-offset_right = 240.0
+[node name="BoxContainer" type="BoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="book" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/BoxContainer" index="0" instance=ExtResource("6_2k5l7")]
+scale = Vector2(3.5257251, 3.6741495)
+animation = &"default"
+frame = 0
+frame_progress = 0.0
+
+[node name="Coin" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/BoxContainer" index="1" instance=ExtResource("8_6xh1d")]
+position = Vector2(-140, 2)
+scale = Vector2(9.0625, 7.8125)
+autoplay = "default"
+frame_progress = 0.63475585
+
+[node name="MenuButtonsBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="1"]
+offset_left = 15.0
+offset_top = -105.0
+offset_right = 211.0
+offset_bottom = 103.0
 lock = true
 
 [node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1"]
