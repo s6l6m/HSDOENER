@@ -54,4 +54,5 @@ animations = [{
 
 [node name="Coin" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_rov02")
-frame_progress = 0.22332017
+autoplay = "default"
+frame_progress = 0.9433199

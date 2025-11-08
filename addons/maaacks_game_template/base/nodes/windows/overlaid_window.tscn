@@ -5,6 +5,7 @@
 
 [node name="OverlaidWindow" instance=ExtResource("2_pmk27")]
 process_mode = 0
+theme_type_variation = &"MenuPanel"
 script = ExtResource("1_euyj1")
 pauses_game = false
 makes_mouse_visible = true

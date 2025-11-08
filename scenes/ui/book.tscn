@@ -156,6 +156,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7x4fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aqf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtfmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwe86")
+}],
+"loop": true,
+"name": &"opening-Loop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_kwu5f")
 }, {
 "duration": 1.0,
@@ -177,7 +194,5 @@ animations = [{
 
 [node name="book" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_sk4uk")
-animation = &"opening"
 autoplay = "default"
-frame = 3
 frame_progress = 1.0
