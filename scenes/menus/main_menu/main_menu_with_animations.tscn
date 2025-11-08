@@ -1,9 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://c78vtc8cg3qo8"]
+[gd_scene load_steps=27 format=3 uid="uid://cwk8r8hp26uae"]
 
-[ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/nodes/menus/main_menu/main_menu.tscn" id="1_rr1rn"]
-[ext_resource type="Script" uid="uid://dqwkxqvo2k8yo" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_sr523"]
-[ext_resource type="PackedScene" uid="uid://v3q2x6bbylw" path="res://scenes/overlaid_menus/main_menu_options_overlaid_menu.tscn" id="3_ixa71"]
-[ext_resource type="PackedScene" uid="uid://lwo04se8oqbv" path="res://scenes/overlaid_menus/main_menu_credits_overlaid_menu.tscn" id="4_2k5l7"]
+[ext_resource type="Script" uid="uid://bgudewayvmljn" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_ixa71"]
+[ext_resource type="PackedScene" uid="uid://bt6q1fcu5f1ov" path="res://scenes/windows/main_menu_options_window.tscn" id="3_2k5l7"]
+[ext_resource type="PackedScene" uid="uid://d2f3ohhuwhuox" path="res://scenes/menus/level_select_menu/level_select_menu.tscn" id="3_ixa71"]
+[ext_resource type="PackedScene" uid="uid://b4wb07bqbnqke" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_vsp5b"]
+[ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_6xh1d"]
+[ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_game_template/base/nodes/autoloads/ui_sound_controller/ui_sound_controller.gd" id="5_672y5"]
+[ext_resource type="PackedScene" uid="uid://cjfaitjwcf23h" path="res://scenes/ui/book.tscn" id="6_2k5l7"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="6_8dhfv"]
+[ext_resource type="AudioStream" uid="uid://bfq3ljd7vdg6x" path="res://resources/sounds/main_menu.mp3" id="6_vsp5b"]
+[ext_resource type="PackedScene" uid="uid://bn4a828drg1dp" path="res://scenes/ui/coin.tscn" id="8_6xh1d"]
+[ext_resource type="Script" uid="uid://dmkubt2nsnsbn" path="res://addons/maaacks_game_template/base/nodes/labels/config_version_label.gd" id="8_j8onx"]
+[ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/nodes/labels/config_name_label.gd" id="9_gwise"]
+[ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="12_r8ef7"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -25,7 +34,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MenuContainer/TitleMargin/TitleContainer:modulate")
+tracks/1/path = NodePath("PanelContainer/MenuContainer/TitleMargin/TitleContainer:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -37,7 +46,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MenuContainer/SubTitleMargin/SubTitleContainer:modulate")
+tracks/2/path = NodePath("PanelContainer/MenuContainer/SubTitleMargin/SubTitleContainer:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -49,7 +58,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MenuContainer/MenuButtonsMargin/MenuButtonsContainer:modulate")
+tracks/3/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -73,7 +82,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("VersionMargin/VersionContainer:modulate")
+tracks/5/path = NodePath("PanelContainer/VersionMargin/VersionContainer:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -89,7 +98,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MenuContainer/TitleMargin/TitleContainer:modulate")
+tracks/0/path = NodePath("PanelContainer/MenuContainer/TitleMargin/TitleContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -101,7 +110,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MenuContainer/SubTitleMargin/SubTitleContainer:modulate")
+tracks/1/path = NodePath("PanelContainer/MenuContainer/SubTitleMargin/SubTitleContainer:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -113,7 +122,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MenuContainer/MenuButtonsMargin/MenuButtonsContainer:modulate")
+tracks/2/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -137,7 +146,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MenuContainer:modulate")
+tracks/4/path = NodePath("PanelContainer/MenuContainer:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -149,7 +158,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("VersionMargin/VersionContainer:modulate")
+tracks/5/path = NodePath("PanelContainer/VersionMargin/VersionContainer:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -161,7 +170,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer:lock")
+tracks/6/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer:lock")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -177,7 +186,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MenuContainer:modulate")
+tracks/0/path = NodePath("PanelContainer/MenuContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -192,7 +201,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MenuContainer/TitleMargin/TitleContainer:modulate")
+tracks/0/path = NodePath("PanelContainer/MenuContainer/TitleMargin/TitleContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -204,7 +213,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MenuContainer/SubTitleMargin/SubTitleContainer:modulate")
+tracks/1/path = NodePath("PanelContainer/MenuContainer/SubTitleMargin/SubTitleContainer:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -216,7 +225,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MenuContainer/MenuButtonsMargin/MenuButtonsContainer:modulate")
+tracks/2/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -240,7 +249,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MenuContainer:modulate")
+tracks/4/path = NodePath("PanelContainer/MenuContainer:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -252,7 +261,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("VersionMargin/VersionContainer:modulate")
+tracks/5/path = NodePath("PanelContainer/VersionMargin/VersionContainer:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -264,7 +273,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer:lock")
+tracks/6/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer:lock")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -313,60 +322,228 @@ states/Start/position = Vector2(82, 123)
 transitions = ["Intro", "OpenMainMenu", SubResource("11"), "OpenMainMenu", "OpenSubMenu", SubResource("14"), "Start", "Intro", SubResource("AnimationNodeStateMachineTransition_j0orr"), "OpenSubMenu", "OpenMainMenu", SubResource("AnimationNodeStateMachineTransition_63dxc")]
 graph_offset = Vector2(-180.277, 49)
 
-[node name="MainMenu" instance=ExtResource("1_rr1rn")]
-script = ExtResource("2_sr523")
-level_select_packed_scene = null
-confirm_new_game = true
-options_packed_scene = ExtResource("3_ixa71")
-credits_packed_scene = ExtResource("4_2k5l7")
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ixa71")
+level_select_packed_scene = ExtResource("3_ixa71")
+game_scene_path = "uid://brs70jgc4xlem"
+options_packed_scene = ExtResource("3_2k5l7")
+credits_packed_scene = ExtResource("4_vsp5b")
 
-[node name="MenuAnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+[node name="UISoundController" type="Node" parent="."]
+script = ExtResource("5_672y5")
+
+[node name="MenuAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_2kqig")
 }
 
-[node name="MenuAnimationTree" type="AnimationTree" parent="." index="2"]
+[node name="MenuAnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_vikuh")
 anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
 
-[node name="VersionContainer" parent="VersionMargin" index="0"]
-modulate = Color(1, 1, 1, 0)
+[node name="BackgroundMusicPlayer" parent="." instance=ExtResource("6_8dhfv")]
+stream = ExtResource("6_vsp5b")
+parameters/looping = false
 
-[node name="TitleContainer" parent="MenuContainer/TitleMargin" index="0"]
-modulate = Color(1, 1, 1, 0)
+[node name="BackgroundTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
 
-[node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" index="0"]
-modulate = Color(1, 1, 1, 0)
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_type_variation = &"MenuPanel"
 
-[node name="MenuButtonsContainer" parent="MenuContainer/MenuButtonsMargin" index="0"]
-modulate = Color(1, 1, 1, 0)
+[node name="VersionMargin" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="MenuButtonsBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="0"]
+[node name="VersionContainer" type="Control" parent="PanelContainer/VersionMargin"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VersionLabel" type="Label" parent="PanelContainer/VersionMargin/VersionContainer"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "v0.0.1"
+horizontal_alignment = 2
+script = ExtResource("8_j8onx")
+
+[node name="MenuContainer" type="MarginContainer" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TitleMargin" type="MarginContainer" parent="PanelContainer/MenuContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 24
+
+[node name="TitleContainer" type="Control" parent="PanelContainer/MenuContainer/TitleMargin"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/MenuContainer/TitleMargin/TitleContainer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 67.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "HSDöner"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_gwise")
+
+[node name="SubTitleMargin" type="MarginContainer" parent="PanelContainer/MenuContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 92
+
+[node name="SubTitleContainer" type="Control" parent="PanelContainer/MenuContainer/SubTitleMargin"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SubTitleLabel" type="Label" parent="PanelContainer/MenuContainer/SubTitleMargin/SubTitleContainer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 34.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Einführung in GODOT-Engine"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButtonsMargin" type="MarginContainer" parent="PanelContainer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 136
+theme_override_constants/margin_bottom = 8
+
+[node name="MenuButtonsContainer" type="Control" parent="PanelContainer/MenuContainer/MenuButtonsMargin"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="book" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/BoxContainer" instance=ExtResource("6_2k5l7")]
+scale = Vector2(3.5257251, 3.6741495)
+animation = &"default"
+frame = 0
+frame_progress = 0.0
+
+[node name="Coin" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/BoxContainer" instance=ExtResource("8_6xh1d")]
+position = Vector2(-140, 2)
+scale = Vector2(9.0625, 7.8125)
+autoplay = "default"
+frame_progress = 0.63475585
+
+[node name="MenuButtonsBoxContainer" type="BoxContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -105.0
+offset_right = 211.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+alignment = 1
+vertical = true
+script = ExtResource("12_r8ef7")
 lock = true
 
-[node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1"]
+[node name="NewGameButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Game"
+
+[node name="ContinueGameButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Continue"
 
-[node name="LevelSelectButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="2"]
+[node name="LevelSelectButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Level Select"
 
-[node name="NewGameConfirmationDialog" type="ConfirmationDialog" parent="." index="7"]
+[node name="OptionsButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
-title = "Start a New Game?"
-initial_position = 1
-size = Vector2i(480, 158)
-dialog_text = "Are you sure you want to start a new game?
+layout_mode = 2
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Credits"
+
+[node name="ExitButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit"
+
+[node name="NewGameConfirmation" parent="." instance=ExtResource("5_6xh1d")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(420, 200)
+layout_mode = 1
+offset_left = -210.0
+offset_top = -100.0
+offset_right = 210.0
+offset_bottom = 100.0
+update_content = true
+text = "Are you sure you want to start a new game?
 
 All progress in the current game will be lost."
+title = "New Game"
 
-[node name="MouseFilter" type="Control" parent="." index="8"]
+[node name="MouseFilter" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -376,6 +553,10 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
-[connection signal="confirmed" from="NewGameConfirmationDialog" to="." method="_on_new_game_confirmation_dialog_confirmed"]
+[connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="confirmed" from="NewGameConfirmation" to="." method="_on_new_game_confirmation_confirmed"]

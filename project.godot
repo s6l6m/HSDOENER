@@ -11,10 +11,11 @@ config_version=5
 [application]
 
 config/name="HSDöner"
+config/description="Einstieg in GODOT-Engine"
 config/version="0.0.1"
 run/main_scene="res://scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.5")
-config/icon="res://icon.png"
+config/icon="uid://dkp8hxdd3751x"
 
 [autoload]
 
@@ -27,7 +28,6 @@ ProjectUISoundController="*res://addons/maaacks_game_template/base/nodes/autoloa
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
@@ -37,7 +37,8 @@ enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
 
 [gui]
 
-theme/custom="res://resources/themes/lab.tres"
+theme/custom="res://resources/themes/main.tres"
+theme/custom_font="uid://cftqrps0druak"
 common/drop_mouse_on_gui_input_disabled=true
 
 [input]

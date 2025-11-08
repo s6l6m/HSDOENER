@@ -10,8 +10,11 @@ height = 20.0
 script = ExtResource("1_wr5hl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
 texture = ExtResource("2_gfjak")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 11)
 shape = SubResource("CapsuleShape2D_gfjak")
