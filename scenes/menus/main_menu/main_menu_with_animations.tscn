@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_game_template/base/nodes/autoloads/ui_sound_controller/ui_sound_controller.gd" id="5_672y5"]
 [ext_resource type="PackedScene" uid="uid://cjfaitjwcf23h" path="res://scenes/ui/book.tscn" id="6_2k5l7"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="6_8dhfv"]
-[ext_resource type="AudioStream" uid="uid://bfq3ljd7vdg6x" path="res://resources/sounds/main_menu.mp3" id="6_vsp5b"]
+[ext_resource type="AudioStream" uid="uid://d1o4gp12l1dt1" path="res://resources/sounds/main_menu.mp3" id="6_vsp5b"]
 [ext_resource type="PackedScene" uid="uid://bn4a828drg1dp" path="res://scenes/ui/coin.tscn" id="8_6xh1d"]
 [ext_resource type="Script" uid="uid://dmkubt2nsnsbn" path="res://addons/maaacks_game_template/base/nodes/labels/config_version_label.gd" id="8_j8onx"]
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/nodes/labels/config_name_label.gd" id="9_gwise"]
@@ -91,10 +91,46 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/LeftPageContainer:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="6"]
 resource_name = "OpenMainMenu"
-length = 0.1
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -174,10 +210,70 @@ tracks/6/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuBut
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:animation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"closed", &"opening", &"default"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/LeftPageContainer:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="4"]
@@ -282,6 +378,66 @@ tracks/6/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:animation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"closed"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/LeftPageContainer:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2kqig"]
 _data = {
@@ -346,7 +502,7 @@ libraries = {
 [node name="MenuAnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_vikuh")
 anim_player = NodePath("../MenuAnimationPlayer")
-parameters/conditions/intro_done = false
+parameters/conditions/intro_done = true
 
 [node name="BackgroundMusicPlayer" parent="." instance=ExtResource("6_8dhfv")]
 stream = ExtResource("6_vsp5b")
@@ -449,9 +605,29 @@ theme_override_constants/margin_bottom = 8
 [node name="MenuButtonsContainer" type="Control" parent="PanelContainer/MenuContainer/MenuButtonsMargin"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="BoxContainer" type="BoxContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer"]
+[node name="Control" type="Control" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Book" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control" instance=ExtResource("6_2k5l7")]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(3.5, 3.5)
+animation = &"closed"
+frame = 0
+frame_progress = 0.0
+
+[node name="LeftPageContainer" type="VBoxContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -461,18 +637,10 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
 
-[node name="book" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/BoxContainer" instance=ExtResource("6_2k5l7")]
-scale = Vector2(3.5257251, 3.6741495)
-animation = &"default"
-frame = 0
-frame_progress = 0.0
-
-[node name="Coin" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/BoxContainer" instance=ExtResource("8_6xh1d")]
-position = Vector2(-140, 2)
-scale = Vector2(9.0625, 7.8125)
-autoplay = "default"
+[node name="Coin" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/LeftPageContainer" instance=ExtResource("8_6xh1d")]
+position = Vector2(-123, 1.0000038)
+scale = Vector2(10.1875, 10.1875)
 frame_progress = 0.63475585
 
 [node name="MenuButtonsBoxContainer" type="BoxContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer"]
@@ -483,10 +651,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 15.0
-offset_top = -105.0
-offset_right = 211.0
-offset_bottom = 103.0
+offset_left = 32.0
+offset_top = -82.0
+offset_right = 228.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4

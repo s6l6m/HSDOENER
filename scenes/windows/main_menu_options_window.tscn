@@ -15,7 +15,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_type_variation = &"MenuPanel"
 packed_scene = ExtResource("2_mljqd")
 update_content = true
 close_button_text = "Back"
