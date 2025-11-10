@@ -192,7 +192,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="book" type="AnimatedSprite2D"]
+[node name="Book" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_sk4uk")
 animation = &"previous"
 autoplay = "default"

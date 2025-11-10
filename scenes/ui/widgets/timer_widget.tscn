@@ -1,25 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://b86o4cdjxtmjg"]
+[gd_scene load_steps=3 format=3 uid="uid://b86o4cdjxtmjg"]
 
 [ext_resource type="Script" uid="uid://dskpcqd4jx57g" path="res://scenes/ui/widgets/timer_widget.gd" id="1_d28bw"]
+[ext_resource type="PackedScene" uid="uid://k4h5vb3ph15x" path="res://scenes/ui/sprites/clock.tscn" id="2_dwelr"]
 
-[node name="TimerWidget" type="Node2D"]
+[node name="TimerWidget" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_d28bw")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-offset_right = 76.0
-offset_bottom = 43.0
+layout_mode = 0
+offset_left = 3.0
+offset_right = 97.0
+offset_bottom = 30.0
 size_flags_horizontal = 0
-size_flags_vertical = 4
+size_flags_vertical = 0
+theme_type_variation = &"WidgetPanel"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
 layout_mode = 2
-
-[node name="TimeLabel" type="Label" parent="PanelContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Time:"
+size_flags_horizontal = 8
+theme_override_constants/separation = 0
 
 [node name="TimeDisplay" type="Label" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.6
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 8
+text = "00:00:00"
+vertical_alignment = 1
+
+[node name="Clock" parent="PanelContainer/HBoxContainer" instance=ExtResource("2_dwelr")]
+position = Vector2(-9, 8)
+scale = Vector2(0.06796264, 0.06796264)

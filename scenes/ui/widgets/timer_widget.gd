@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @export var time_node: Node
 @onready var time_display: Label = $PanelContainer/HBoxContainer/TimeDisplay

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://brs70jgc4xlem"]
+[gd_scene load_steps=16 format=3 uid="uid://brs70jgc4xlem"]
 
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="1_bmy5n"]
 [ext_resource type="PackedScene" uid="uid://8ooiy4l4sxal" path="res://scenes/windows/pause_menu_layer.tscn" id="2_7aihr"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://chh8t028j1fqp" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_ulq3g"]
 [ext_resource type="Script" uid="uid://fvak028mb5k0" path="res://scenes/game_scene/game_timer.gd" id="12_gpor5"]
 [ext_resource type="PackedScene" uid="uid://b86o4cdjxtmjg" path="res://scenes/ui/widgets/timer_widget.tscn" id="13_3re04"]
+[ext_resource type="PackedScene" uid="uid://1w46kse8u11v" path="res://scenes/ui/widgets/coin_widget.tscn" id="14_ascoc"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -72,8 +73,39 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 script = ExtResource("11_ulq3g")
 
-[node name="TimerWidget" parent="ViewportContainer/ConfigurableSubViewport" node_paths=PackedStringArray("time_node") instance=ExtResource("13_3re04")]
-time_node = NodePath("../../../GameTimer")
+[node name="UIContainer" type="Control" parent="ViewportContainer/ConfigurableSubViewport"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TimerWidget" parent="ViewportContainer/ConfigurableSubViewport/UIContainer" node_paths=PackedStringArray("time_node") instance=ExtResource("13_3re04")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -230.99988
+offset_top = 16.0
+offset_right = -230.99988
+offset_bottom = 16.0
+grow_horizontal = 0
+scale = Vector2(2.2799976, 2.2799976)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+time_node = NodePath("../../../../GameTimer")
+
+[node name="CoinWidget" parent="ViewportContainer/ConfigurableSubViewport/UIContainer" instance=ExtResource("14_ascoc")]
+layout_mode = 1
+offset_left = 13.0
+offset_top = 10.0
+offset_right = 13.0
+offset_bottom = 10.0
+scale = Vector2(2.1599998, 2.1599998)
 
 [node name="GameTimer" type="Node" parent="."]
 script = ExtResource("12_gpor5")
