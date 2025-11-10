@@ -5,14 +5,16 @@
 [node name="CustomerTest" type="Node2D"]
 
 [node name="CustomerManager" parent="." instance=ExtResource("1_b3cbk")]
-queue_points = Array[NodePath]([NodePath("../pos1"), NodePath("../pos1/pos2")])
-exit_point = NodePath("../pos1/pos2/pos3")
+queue_points = Array[NodePath]([NodePath("../pos1"), NodePath("../pos2")])
+exit_point = NodePath("../pos3")
 
 [node name="pos1" type="Marker2D" parent="."]
-position = Vector2(-0.91210556, -14.846283)
+position = Vector2(-580, -14)
 
-[node name="pos2" type="Marker2D" parent="pos1"]
-position = Vector2(-30.674627, -4.4593086)
+[node name="pos2" type="Marker2D" parent="."]
+position = Vector2(-244, 11)
 
-[node name="pos3" type="Marker2D" parent="pos1/pos2"]
-position = Vector2(-47.167007, 9.20998)
+[node name="pos3" type="Marker2D" parent="."]
+position = Vector2(-852, 6)
+
+[node name="Camera2D" type="Camera2D" parent="."]

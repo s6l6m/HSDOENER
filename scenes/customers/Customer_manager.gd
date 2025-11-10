@@ -17,34 +17,47 @@ func _process(_delta):
 	if Input.is_action_just_pressed("spawn_customer"):
 		spawn_customer()
 
+
 # Kunde spawnen und in Warteschlange einreihen
 func spawn_customer():
 	if customers.size() >= queue_points.size():
 		print("Queue full")
 		return
-	
-	# Test: Instanziieren und Typ prüfen
+
 	var new_customer = customer_scene.instantiate()
-	print(new_customer)  # Sollte CharacterBody2D mit Customer.gd sein
-	print(new_customer.get_class())  # Zeigt Node-Typ an
-	add_child(new_customer)
 	
-	# Zielposition für Warteschlange
+	# Basis-Spawnpunkt (ganz links)
+	var base_pos = Vector2(200, 0)  # beliebige sichtbare Startposition
+	
+	# Abstand zwischen Kunden in X-Richtung
+	var x_offset = 50
+	
+	# Jeder neue Kunde wird nach rechts versetzt gespawnt
+	new_customer.global_position = base_pos + Vector2(customers.size() * x_offset, 0)
+	
+	add_child(new_customer)
+
+	print("Customer spawned at:", new_customer.global_position)
+	
+	# Zielposition für Warteschlange (optional)
 	var target_pos = get_node(queue_points[customers.size()]).global_position
 	new_customer.move_to(target_pos)
-	
+
 	customers.append(new_customer)
 	
-	# Signal abonnieren
+	# Signale
 	new_customer.connect("customer_left", Callable(self, "_on_customer_left"))
 	new_customer.connect("customer_arrived_exit", Callable(self, "_remove_customer_from_scene"))
 
 
+
 # Kunde verlässt Warteschlange
 func _on_customer_left(customer):
-	customers.erase(customer)
-	# Bewegung Richtung Ausgang
+	# Kunde verlässt die Queue und läuft zum Ausgang
 	new_customer_move_to_exit(customer)
+	
+	# Restliche Kunden rücken nach
+	customers.erase(customer)
 	_update_queue_positions()
 
 # Kunden bewegen sich animiert nach vorne
