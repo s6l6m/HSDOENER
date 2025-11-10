@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm11dxs1blcs"]
+
+[ext_resource type="Script" uid="uid://g65umntlpdo2" path="res://scenes/customers/Customer.gd" id="1_67ays"]
+[ext_resource type="Script" uid="uid://g65umntlpdo2" path="res://scenes/customers/customer.gd" id="1_kdaui"]
+[ext_resource type="Texture2D" uid="uid://cmsgol8mxmbr8" path="res://assets/sprites/player.png" id="2_of1yg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdaui"]
+size = Vector2(14, 10)
+
+[node name="Customer" type="Node2D"]
+script = ExtResource("1_kdaui")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_67ays")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_kdaui")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -10)
+scale = Vector2(0.5078125, 0.5078125)
+texture = ExtResource("2_of1yg")
