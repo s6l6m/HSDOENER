@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 200
+@export var speed = 150
 @export var player_number = 1
 
 var facing_dir = Vector2.DOWN
