@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=57 format=3 uid="uid://2p6glpubmhup"]
+[gd_resource type="Theme" load_steps=63 format=3 uid="uid://2p6glpubmhup"]
 
 [ext_resource type="Texture2D" uid="uid://cdt88hgf4i1ej" path="res://resources/ui/UI_Button_Normal.png" id="1_whpug"]
 [ext_resource type="Texture2D" uid="uid://bmkudww6jhq84" path="res://resources/ui/UI_Button_Focus.png" id="2_nis3q"]
@@ -15,6 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://bd827650mmj54" path="res://resources/ui/UI_Up.png" id="7_dxuv0"]
 [ext_resource type="Texture2D" uid="uid://daxkx4gvm0py8" path="res://resources/ui/UI_Right.png" id="7_evec2"]
 [ext_resource type="Texture2D" uid="uid://bkrlk5ruo088f" path="res://resources/ui/UI_Menu_Panel.png" id="7_tqdkm"]
+[ext_resource type="Texture2D" uid="uid://r88dbulxqw8m" path="res://resources/ui/UI_Panel_Background.png" id="9_12cyy"]
+[ext_resource type="Texture2D" uid="uid://dxkab4mquxlkc" path="res://resources/ui/UI_Panel_Widget.png" id="16_yhwj1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12cyy"]
+bg_color = Color(0, 0, 0, 0.6901961)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0dtgv"]
 content_margin_top = 4.0
@@ -118,6 +123,7 @@ atlas = ExtResource("4_mgmgi")
 region = Rect2(51, 51, 10, 10)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mgmgi"]
+load_path = "res://.godot/imported/All.png-3afe54a8caf6506c63e415928ae9e916.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12cyy"]
 atlas = SubResource("CompressedTexture2D_mgmgi")
@@ -200,23 +206,31 @@ axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 64, 32)
 modulate_color = Color(0.6255971, 0.6255971, 0.6255971, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lgi76"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f543f"]
 texture = ExtResource("4_nis3q")
 texture_margin_left = 12.0
 texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
-axis_stretch_horizontal = 2
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_odufd"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e28a8"]
 texture = ExtResource("2_yn3xj")
 texture_margin_left = 3.0
 texture_margin_top = 3.0
 texture_margin_right = 3.0
 texture_margin_bottom = 3.0
-expand_margin_top = 1.0
 region_rect = Rect2(0, 0, 96, 64)
 draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q0t7u"]
+texture = ExtResource("9_12cyy")
+texture_margin_left = 16.0
+texture_margin_top = 14.0
+texture_margin_right = 25.0
+texture_margin_bottom = 18.0
+region_rect = Rect2(43, 32, 801, 754)
+modulate_color = Color(0.75029814, 0.66852605, 0.58675396, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mgmgi"]
 texture = ExtResource("7_tqdkm")
@@ -260,6 +274,16 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5j0a2"]
 bg_color = Color(0.8, 0.8, 0.8, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3kusf"]
+texture = ExtResource("2_yn3xj")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+expand_margin_top = 1.0
+region_rect = Rect2(0, 0, 96, 64)
+draw_center = false
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_evec2"]
 texture = ExtResource("6_nndxm")
@@ -306,9 +330,21 @@ atlas = ExtResource("4_mgmgi")
 atlas = SubResource("AtlasTexture_yhwj1")
 region = Rect2(176, 20, 16, 8)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0le3a"]
+texture = ExtResource("16_yhwj1")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(43, 32, 1434, 1108)
+
 [resource]
 default_font = ExtResource("2_whpug")
 default_font_size = 18
+BackdropPanel/base_type = &"Panel"
+BackdropPanel/styles/panel = SubResource("StyleBoxFlat_12cyy")
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/constants/outline_size = 4
 Button/styles/disabled = SubResource("StyleBoxTexture_0dtgv")
@@ -349,17 +385,16 @@ Label/constants/outline_size = 4
 LeftStaminaBar/base_type = &"ProgressBar"
 LeftStaminaBar/styles/background = SubResource("StyleBoxFlat_ywrjj")
 LeftStaminaBar/styles/fill = SubResource("StyleBoxFlat_tyerd")
-LineEdit/colors/font_color = Color(0.9777983, 0.5063783, 0.20069829, 1)
-LineEdit/colors/font_uneditable_color = Color(0.53308517, 0.3234007, 0.17297488, 1)
-LineEdit/constants/outline_size = 4
+LineEdit/colors/font_color = Color(0.101960786, 0.105882354, 0.08627451, 1)
+LineEdit/colors/font_uneditable_color = Color(0.19955531, 0.20583296, 0.17448437, 1)
 LineEdit/icons/clear = ExtResource("5_evec2")
 LineEdit/styles/normal = SubResource("StyleBoxTexture_12cyy")
 LineEdit/styles/read_only = SubResource("StyleBoxTexture_yhwj1")
 MenuPanel/base_type = &"PanelContainer"
-MenuPanel/styles/panel = SubResource("StyleBoxTexture_lgi76")
+MenuPanel/styles/panel = SubResource("StyleBoxTexture_f543f")
 OptionButton/icons/arrow = ExtResource("6_qg8ib")
-Panel/styles/panel = SubResource("StyleBoxTexture_odufd")
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_lgi76")
+Panel/styles/panel = SubResource("StyleBoxTexture_e28a8")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_q0t7u")
 PopupMenu/icons/checked = SubResource("AtlasTexture_odufd")
 PopupMenu/icons/radio_checked = SubResource("AtlasTexture_odufd")
 PopupMenu/icons/radio_unchecked = SubResource("AtlasTexture_qg8ib")
@@ -370,6 +405,7 @@ PopupMenu/styles/panel = SubResource("StyleBoxTexture_mgmgi")
 ProgressBar/colors/font_color = Color(1, 1, 1, 1)
 ProgressBar/constants/outline_size = 4
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_mgmgi")
+RichTextLabel/constants/outline_size = 4
 RightStaminaBar/base_type = &"ProgressBar"
 RightStaminaBar/styles/background = SubResource("StyleBoxFlat_aliwb")
 RightStaminaBar/styles/fill = SubResource("StyleBoxFlat_tnl2j")
@@ -388,14 +424,14 @@ TabContainer/colors/font_selected_color = Color(1, 1, 1, 1)
 TabContainer/colors/font_unselected_color = Color(1, 1, 1, 1)
 TabContainer/constants/outline_size = 4
 TabContainer/constants/side_margin = 6
-TabContainer/styles/panel = SubResource("StyleBoxTexture_odufd")
+TabContainer/styles/panel = SubResource("StyleBoxTexture_3kusf")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxTexture_evec2")
 TabContainer/styles/tab_focus = SubResource("StyleBoxTexture_j21ln")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_tqdkm")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_dxuv0")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_qg8ib")
-TextEdit/colors/font_color = Color(0.9764706, 0.5058824, 0.2, 1)
-TextEdit/constants/outline_size = 4
+TextEdit/colors/font_color = Color(0.101960786, 0.105882354, 0.08627451, 1)
+TextEdit/colors/font_outline_color = Color(0.625864, 0.6379702, 0.57903624, 1)
 TextEdit/styles/normal = SubResource("StyleBoxTexture_12cyy")
 TextEdit/styles/read_only = SubResource("StyleBoxTexture_yhwj1")
 Tree/colors/font_color = Color(1, 1, 1, 1)
@@ -406,6 +442,9 @@ Tree/icons/arrow_collapsed_mirrored = ExtResource("5_mgmgi")
 Tree/icons/checked = SubResource("AtlasTexture_odufd")
 Tree/icons/select_arrow = ExtResource("6_qg8ib")
 Tree/icons/unchecked = SubResource("AtlasTexture_qg8ib")
+Tree/styles/button_hover = SubResource("StyleBoxTexture_whpug")
+Tree/styles/button_pressed = SubResource("StyleBoxTexture_yn3xj")
+Tree/styles/hovered = SubResource("StyleBoxTexture_whpug")
 Tree/styles/panel = SubResource("StyleBoxTexture_mgmgi")
 VScrollBar/icons/decrement = ExtResource("7_dxuv0")
 VScrollBar/icons/decrement_highlight = ExtResource("7_dxuv0")
@@ -422,3 +461,5 @@ VSlider/icons/grabber = SubResource("AtlasTexture_3kusf")
 VSlider/icons/grabber_disabled = SubResource("AtlasTexture_12cyy")
 VSlider/icons/grabber_highlight = SubResource("AtlasTexture_3kusf")
 VSlider/icons/tick = SubResource("AtlasTexture_kswws")
+WidgetPanel/base_type = &"PanelContainer"
+WidgetPanel/styles/panel = SubResource("StyleBoxTexture_0le3a")

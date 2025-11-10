@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://cjfaitjwcf23h"]
 
-[ext_resource type="Texture2D" uid="uid://dgmgcehoi7acg" path="res://resources/ui/UI_Menu_Book.png" id="1_4aqf1"]
+[ext_resource type="Texture2D" uid="uid://dsxqakk1vwkpu" path="res://resources/ui/UI_Menu_Book.png" id="1_4aqf1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vw0dq"]
 atlas = ExtResource("1_4aqf1")
@@ -192,7 +192,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="book" type="AnimatedSprite2D"]
+[node name="Book" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_sk4uk")
+animation = &"previous"
 autoplay = "default"
+frame = 4
 frame_progress = 1.0
+offset = Vector2(4.5, 0)

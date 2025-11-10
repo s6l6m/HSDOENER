@@ -15,7 +15,7 @@ config/description="Einstieg in GODOT-Engine"
 config/version="0.0.1"
 run/main_scene="res://scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.5")
-config/icon="uid://dkp8hxdd3751x"
+config/icon="uid://ba4uhfpar2pn3"
 
 [autoload]
 
