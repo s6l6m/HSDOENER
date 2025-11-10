@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dunmeos6sxqjh"]
+
+[ext_resource type="Script" uid="uid://dulae26p4p11a" path="res://scenes/customers/Customer_manager.gd" id="1_veeto"]
+[ext_resource type="PackedScene" uid="uid://cm11dxs1blcs" path="res://scenes/customers/Customer.tscn" id="2_jqlbh"]
+
+[node name="CustomerManager" type="Node2D"]
+script = ExtResource("1_veeto")
+customer_scene = ExtResource("2_jqlbh")
