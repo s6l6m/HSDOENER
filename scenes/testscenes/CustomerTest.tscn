@@ -1,20 +1,18 @@
 [gd_scene load_steps=2 format=3 uid="uid://c36vyx6mjjrhd"]
 
-[ext_resource type="PackedScene" uid="uid://dunmeos6sxqjh" path="res://scenes/customers/CustomerManager.tscn" id="1_b3cbk"]
+[ext_resource type="PackedScene" uid="uid://dunmeos6sxqjh" path="res://scenes/customers/CustomerManager.tscn" id="1_58x7a"]
 
 [node name="CustomerTest" type="Node2D"]
 
-[node name="CustomerManager" parent="." instance=ExtResource("1_b3cbk")]
+[node name="CustomerManager" parent="." instance=ExtResource("1_58x7a")]
 queue_points = Array[NodePath]([NodePath("../pos1"), NodePath("../pos2")])
 exit_point = NodePath("../pos3")
 
 [node name="pos1" type="Marker2D" parent="."]
-position = Vector2(-580, -14)
+position = Vector2(233, 113)
 
 [node name="pos2" type="Marker2D" parent="."]
-position = Vector2(-244, 11)
+position = Vector2(569, 138)
 
 [node name="pos3" type="Marker2D" parent="."]
-position = Vector2(-852, 6)
-
-[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-39, 133)

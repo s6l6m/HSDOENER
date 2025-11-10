@@ -27,7 +27,7 @@ func spawn_customer():
 	var new_customer = customer_scene.instantiate()
 	
 	# Basis-Spawnpunkt (ganz links)
-	var base_pos = Vector2(200, 0)  # beliebige sichtbare Startposition
+	var base_pos = Vector2(0, 0)  # beliebige sichtbare Startposition
 	
 	# Abstand zwischen Kunden in X-Richtung
 	var x_offset = 50
