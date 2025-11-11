@@ -5,14 +5,35 @@
 [node name="CustomerTest" type="Node2D"]
 
 [node name="CustomerManager" parent="." instance=ExtResource("1_58x7a")]
-queue_points = Array[NodePath]([NodePath("../pos1"), NodePath("../pos2")])
-exit_point = NodePath("../pos3")
+queue_points = Array[NodePath]([NodePath("../QueuePos1"), NodePath("../QueuePos2"), NodePath("../QueuePos3"), NodePath("../QueuePos4"), NodePath("../QueuePos5")])
+exit_point = NodePath("../ExitPoint")
 
-[node name="pos1" type="Marker2D" parent="."]
-position = Vector2(233, 113)
+[node name="QueuePos1" type="Marker2D" parent="."]
+position = Vector2(200, 150)
 
-[node name="pos2" type="Marker2D" parent="."]
-position = Vector2(569, 138)
+[node name="QueuePos2" type="Marker2D" parent="."]
+position = Vector2(300, 150)
 
-[node name="pos3" type="Marker2D" parent="."]
-position = Vector2(-39, 133)
+[node name="QueuePos3" type="Marker2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="QueuePos4" type="Marker2D" parent="."]
+position = Vector2(500, 150)
+
+[node name="QueuePos5" type="Marker2D" parent="."]
+position = Vector2(600, 150)
+
+[node name="ExitPoint" type="Marker2D" parent="."]
+position = Vector2(-50, 150)
+
+[node name="Instructions" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 500.0
+offset_right = 500.0
+offset_bottom = 20.0
+text = "TEST CONTROLS:
+G = Spawn Customer
+H = Serve CORRECT order
+J = Serve WRONG order
+
+Watch timer bar: Green > Yellow > Red"

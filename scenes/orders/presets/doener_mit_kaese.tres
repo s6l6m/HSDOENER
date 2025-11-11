@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DoenerOrder" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/orders/DoenerOrder.gd" id="1_kaese"]
+
+[resource]
+script = ExtResource("1_kaese")
+order_name = "Döner mit Käse"
+required_ingredients = Array[int]([0, 1, 2, 3, 4, 6, 7])
+excluded_ingredients = Array[int]([])
