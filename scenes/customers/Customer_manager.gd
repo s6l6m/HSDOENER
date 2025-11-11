@@ -3,6 +3,9 @@ extends Node2D
 ## Signal für Happiness-System (später mit UI verbinden)
 signal happiness_changed(delta: int)  # +1 für richtig, -1 für falsch/timeout
 
+## Signal für Queue UI Display
+signal queue_updated(customers: Array)
+
 # Referenz auf die Customer-Szene
 @export var customer_scene: PackedScene
 
@@ -98,6 +101,9 @@ func spawn_customer():
 	await get_tree().create_timer(1.0).timeout
 	if new_customer and is_instance_valid(new_customer):
 		new_customer.start_waiting()
+	
+	# Notify UI about queue change
+	emit_signal("queue_updated", customers)
 
 # Kunde wurde bedient (korrekt oder falsch)
 func _on_customer_served(customer, order_correct: bool):
@@ -132,6 +138,9 @@ func _remove_customer_from_queue(customer):
 	
 	# Restliche Kunden rücken nach
 	_update_queue_positions()
+	
+	# Notify UI about queue change
+	emit_signal("queue_updated", customers)
 
 # Kunden bewegen sich animiert nach vorne
 func _update_queue_positions():

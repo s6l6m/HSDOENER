@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtslc3txgo038"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/widgets/order_queue_widget.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cm11dxs1blcs" path="res://scenes/customers/Customer.tscn" id="2"]
+[ext_resource type="Script" uid="uid://dulae26p4p11a" path="res://scenes/customers/Customer_manager.gd" id="3"]
+[ext_resource type="Script" uid="uid://dwy222jhqjshu" path="res://scenes/ui/widgets/order_queue_connector.gd" id="4"]
+
+[node name="QueueUITest" type="Node2D"]
+
+[node name="CustomerManager" type="Node2D" parent="."]
+script = ExtResource("3")
+customer_scene = ExtResource("2")
+queue_points = Array[NodePath]([NodePath("../QueuePoint1"), NodePath("../QueuePoint2"), NodePath("../QueuePoint3"), NodePath("../QueuePoint4"), NodePath("../QueuePoint5")])
+exit_point = NodePath("../ExitPoint")
+
+[node name="QueuePoint1" type="Marker2D" parent="."]
+position = Vector2(200, 300)
+
+[node name="QueuePoint2" type="Marker2D" parent="."]
+position = Vector2(250, 300)
+
+[node name="QueuePoint3" type="Marker2D" parent="."]
+position = Vector2(300, 300)
+
+[node name="QueuePoint4" type="Marker2D" parent="."]
+position = Vector2(350, 300)
+
+[node name="QueuePoint5" type="Marker2D" parent="."]
+position = Vector2(400, 300)
+
+[node name="ExitPoint" type="Marker2D" parent="."]
+position = Vector2(600, 300)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="OrderQueueWidget" parent="CanvasLayer" instance=ExtResource("1")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 220.0
+offset_bottom = 270.0
+
+[node name="OrderQueueConnector" type="Node" parent="CanvasLayer/OrderQueueWidget"]
+script = ExtResource("4")
+customer_manager_path = NodePath("../../../CustomerManager")
+
+[node name="InstructionLabel" type="Label" parent="CanvasLayer"]
+offset_left = 20.0
+offset_top = 300.0
+offset_right = 400.0
+offset_bottom = 400.0
+text = "TEST SCENE
+
+Drücke G = Spawn Customer
+Drücke H = Serve Correct
+Drücke J = Serve Wrong
+
+Queue Display sollte sich automatisch updaten!"

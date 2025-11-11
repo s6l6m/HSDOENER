@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c36vyx6mjjrhd"]
+[gd_scene load_steps=4 format=3 uid="uid://c36vyx6mjjrhd"]
 
 [ext_resource type="PackedScene" uid="uid://dunmeos6sxqjh" path="res://scenes/customers/CustomerManager.tscn" id="1_58x7a"]
+[ext_resource type="PackedScene" path="res://scenes/ui/widgets/order_queue_widget.tscn" id="2_widget"]
+[ext_resource type="Script" path="res://scenes/ui/widgets/order_queue_connector.gd" id="3_connector"]
 
 [node name="CustomerTest" type="Node2D"]
 
@@ -26,14 +28,29 @@ position = Vector2(600, 150)
 [node name="ExitPoint" type="Marker2D" parent="."]
 position = Vector2(-50, 150)
 
-[node name="Instructions" type="Label" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="OrderQueueWidget" parent="CanvasLayer" instance=ExtResource("2_widget")]
+offset_left = 540.0
+offset_top = 20.0
+offset_right = 740.0
+offset_bottom = 270.0
+
+[node name="OrderQueueConnector" type="Node" parent="CanvasLayer/OrderQueueWidget"]
+script = ExtResource("3_connector")
+customer_manager_path = NodePath("../../../CustomerManager")
+
+[node name="Instructions" type="Label" parent="CanvasLayer"]
 offset_left = 20.0
-offset_top = 500.0
+offset_top = 300.0
 offset_right = 500.0
-offset_bottom = 20.0
+offset_bottom = 450.0
 text = "TEST CONTROLS:
 G = Spawn Customer
 H = Serve CORRECT order
 J = Serve WRONG order
 
-Watch timer bar: Green > Yellow > Red"
+Watch timer bar: Green > Yellow > Red
+
+ORDER QUEUE:
+Widget links oben zeigt aktuelle Bestellungen!"

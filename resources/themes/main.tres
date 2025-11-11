@@ -15,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://bd827650mmj54" path="res://resources/ui/UI_Up.png" id="7_dxuv0"]
 [ext_resource type="Texture2D" uid="uid://daxkx4gvm0py8" path="res://resources/ui/UI_Right.png" id="7_evec2"]
 [ext_resource type="Texture2D" uid="uid://bkrlk5ruo088f" path="res://resources/ui/UI_Menu_Panel.png" id="7_tqdkm"]
-[ext_resource type="Texture2D" uid="uid://r88dbulxqw8m" path="res://resources/ui/UI_Panel_Background.png" id="9_12cyy"]
-[ext_resource type="Texture2D" uid="uid://dxkab4mquxlkc" path="res://resources/ui/UI_Panel_Widget.png" id="16_yhwj1"]
+[ext_resource type="Texture2D" uid="uid://cbio2mnj3lcho" path="res://resources/ui/UI_Panel_Background.png" id="9_12cyy"]
+[ext_resource type="Texture2D" uid="uid://c8wil574r4gx3" path="res://resources/ui/UI_Panel_Widget.png" id="16_yhwj1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12cyy"]
 bg_color = Color(0, 0, 0, 0.6901961)
@@ -123,7 +123,6 @@ atlas = ExtResource("4_mgmgi")
 region = Rect2(51, 51, 10, 10)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mgmgi"]
-load_path = "res://.godot/imported/All.png-3afe54a8caf6506c63e415928ae9e916.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12cyy"]
 atlas = SubResource("CompressedTexture2D_mgmgi")
