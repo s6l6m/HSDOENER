@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgso5mcugyxoi"]
 
-[ext_resource type="Script" uid="uid://cgqv2whk3u55o" path="res://scenes/credits/scrolling_credits.gd" id="1_hgjqm"]
+[ext_resource type="Script" uid="uid://ccuynlg0kaee" path="res://scenes/credits/scrolling_credits.gd" id="1_hgjqm"]
 [ext_resource type="PackedScene" uid="uid://de06iweerj751" path="res://scenes/credits/credits_label.tscn" id="2_cxj1u"]
 
 [node name="ScrollingCredits" type="Control"]
