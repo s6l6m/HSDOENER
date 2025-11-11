@@ -6,6 +6,8 @@ extends CharacterBody2D
 var facing_dir = Vector2.DOWN
 var velocity_target = Vector2.ZERO
 
+@onready var sprite = $AnimatedSprite2D
+
 func _physics_process(delta):
 	var direction = Vector2.ZERO
 
@@ -43,3 +45,12 @@ func _physics_process(delta):
 
 
 	move_and_slide()
+	
+	# Animation steuern
+	if direction != Vector2.ZERO:
+		if not sprite.is_playing() or sprite.animation != "run_right":
+			sprite.play("run_right")
+		sprite.flip_h = direction.x < 0
+	else:
+		if sprite.is_playing():
+			sprite.play("idle")
