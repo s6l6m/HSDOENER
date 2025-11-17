@@ -52,22 +52,22 @@ exit_point = NodePath("../posExit")
 spawn_point = NodePath("../posSpawn")
 
 [node name="posSpawn" type="Marker2D" parent="."]
-position = Vector2(868, -24)
+position = Vector2(1074, -16)
 
 [node name="pos1" type="Marker2D" parent="."]
-position = Vector2(860, 456)
+position = Vector2(865, 471)
 
 [node name="pos2" type="Marker2D" parent="."]
-position = Vector2(854, 427)
+position = Vector2(863, 408)
 
 [node name="pos3" type="Marker2D" parent="."]
-position = Vector2(857, 392)
+position = Vector2(863, 342)
 
 [node name="pos4" type="Marker2D" parent="."]
-position = Vector2(856, 361)
+position = Vector2(862, 279)
 
 [node name="pos5" type="Marker2D" parent="."]
-position = Vector2(859, 331)
+position = Vector2(861, 215)
 
 [node name="posExit" type="Marker2D" parent="."]
-position = Vector2(856, 541)
+position = Vector2(1052, 532)

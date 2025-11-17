@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://cmsgol8mxmbr8" path="res://assets/sprites/player.png" id="2_of1yg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdaui"]
-size = Vector2(14, 10)
+size = Vector2(16, 26)
 
 [node name="Customer" type="CharacterBody2D"]
 input_pickable = true
 script = ExtResource("1_of1yg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
+position = Vector2(-1, -10)
 shape = SubResource("RectangleShape2D_kdaui")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
