@@ -9,6 +9,9 @@ extends Node2D
 # Ausgangspunkt für Kunden, die gehen
 @export var exit_point: NodePath
 
+@export var spawn_point: NodePath
+
+
 # Intern gespeicherte Kunden
 var customers: Array = []
 
@@ -27,7 +30,7 @@ func spawn_customer():
 	var new_customer = customer_scene.instantiate()
 	
 	# Basis-Spawnpunkt (ganz links)
-	var base_pos = Vector2(0, 0)  # beliebige sichtbare Startposition
+	var base_pos = get_node(spawn_point).global_position
 	
 	# Abstand zwischen Kunden in X-Richtung
 	var x_offset = 50
