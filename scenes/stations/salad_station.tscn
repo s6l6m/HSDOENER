@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfrnrliqs1ac2"]
+
+[ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_2tog1"]
+[ext_resource type="Script" uid="uid://cd4y6evwven42" path="res://scenes/stations/salad_station.gd" id="2_gsqot"]
+[ext_resource type="Texture2D" uid="uid://dt2ob5dw7gsyb" path="res://assets/workstations/content/Salat.png" id="2_ne3pl"]
+[ext_resource type="Texture2D" uid="uid://qyfcxvmtcndx" path="res://assets/workstations/workstation_up.png" id="3_b70uv"]
+
+[node name="SaladStation" instance=ExtResource("1_2tog1")]
+script = ExtResource("2_gsqot")
+station_type = "saladstation"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_b70uv")
+
+[node name="Content" parent="." index="1"]
+visible = true
+texture = ExtResource("2_ne3pl")

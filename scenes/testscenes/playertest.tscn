@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=4 uid="uid://dgg4vwt32ng8p"]
+[gd_scene load_steps=13 format=4 uid="uid://dgg4vwt32ng8p"]
 
 [ext_resource type="Script" uid="uid://db42wncatlunt" path="res://scenes/testscenes/playertest.gd" id="1_0qt6d"]
-[ext_resource type="PackedScene" uid="uid://rj34n7wmoup7" path="res://scenes/player/Player.tscn" id="1_eg31v"]
+[ext_resource type="PackedScene" uid="uid://rj34n7wmoup7" path="res://scenes/player/player.tscn" id="1_eg31v"]
 [ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_p2qo3"]
 [ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
+[ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="5_37jns"]
+[ext_resource type="PackedScene" uid="uid://dqe5dy0v501xx" path="res://scenes/stations/cucumber_station.tscn" id="6_e3sbb"]
+[ext_resource type="PackedScene" uid="uid://dfrnrliqs1ac2" path="res://scenes/stations/salad_station.tscn" id="6_rcl3h"]
+[ext_resource type="PackedScene" uid="uid://524ejq66alxp" path="res://scenes/stations/doner_station.tscn" id="7_aea8e"]
+[ext_resource type="PackedScene" uid="uid://dy1cqc54o30wq" path="res://scenes/stations/onion_station.tscn" id="8_ptllb"]
+[ext_resource type="PackedScene" uid="uid://dlddl304vd3xa" path="res://scenes/stations/tomato_station.tscn" id="9_7xdsu"]
+[ext_resource type="PackedScene" uid="uid://cuudswvlhc7jf" path="res://scenes/stations/cutting_station.tscn" id="10_7xdsu"]
+[ext_resource type="PackedScene" uid="uid://tp3mfdvbfyo0" path="res://scenes/stations/bread_station.tscn" id="11_vb107"]
 
 [node name="Playertest" type="Node2D"]
 script = ExtResource("1_0qt6d")
@@ -11,26 +19,103 @@ script = ExtResource("1_0qt6d")
 [node name="Player1" parent="." instance=ExtResource("1_eg31v")]
 z_index = 1
 position = Vector2(392, 360)
-collision_layer = 2
 platform_floor_layers = 4294967041
 platform_wall_layers = 1
 
 [node name="Player2" parent="." instance=ExtResource("1_eg31v")]
 z_index = 1
 position = Vector2(700, 366)
-collision_layer = 2
 player_number = 2
 
 [node name="Floor" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAEAAMAAAAAAAIAAAAEAAQAAAAAAAIAAAAEAAUAAAAAAAIAAAAEAAYAAAAAAAIAAAAEAAcAAAAAAAIAAAAFAAMAAAAAAAIAAAAFAAQAAAAAAAIAAAAFAAUAAAAAAAIAAAAFAAYAAAAAAAIAAAAFAAcAAAAAAAIAAAAGAAMAAAAAAAIAAAAGAAQAAAAAAAIAAAAGAAUAAAAAAAIAAAAGAAYAAAAAAAIAAAAGAAcAAAAAAAIAAAAHAAMAAAAAAAIAAAAHAAQAAAAAAAIAAAAHAAUAAAAAAAIAAAAHAAYAAAAAAAIAAAAHAAcAAAAAAAIAAAAIAAMAAAAAAAIAAAAIAAQAAAAAAAIAAAAIAAUAAAAAAAIAAAAIAAYAAAAAAAIAAAAIAAcAAAAAAAIAAAAJAAMAAAAAAAIAAAAJAAQAAAAAAAIAAAAJAAUAAAAAAAIAAAAJAAYAAAAAAAIAAAAJAAcAAAAAAAIAAAAKAAMAAAAAAAIAAAAKAAQAAAAAAAIAAAAKAAUAAAAAAAIAAAAKAAYAAAAAAAIAAAAKAAcAAAAAAAIAAAALAAMAAAAAAAIAAAALAAQAAAAAAAIAAAALAAUAAAAAAAIAAAALAAYAAAAAAAIAAAALAAcAAAAAAAIAAAAMAAMAAAAAAAQAAAAMAAQAAAAAAAQAAAAMAAUAAAAAAAQAAAAMAAYAAAAAAAQAAAAMAAcAAAAAAAQAAAANAAMAAAAAAAAAAAANAAQAAAAAAAAAAAANAAUAAAAAAAAAAAANAAYAAAAAAAAAAAANAAcAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAADAAMAAAAAAAIAAAADAAQAAAAAAAIAAAADAAUAAAAAAAIAAAADAAYAAAAAAAIAAAADAAcAAAAAAAIAAAAQAAMAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAUAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAcAAAAAAAAAAAA=")
 tile_set = ExtResource("2_p2qo3")
 
-[node name="Stationen" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAEAAMAAAADAAcAAAAFAAMAAAABAAYAAAAGAAMAAAADAAcAAAAHAAMAAAACAAcAAAAIAAMAAAABAAYAAAAKAAMAAAAAAAYAAAALAAMAAAABAAcAAAAEAAcAAAADAAYAAAAFAAcAAAADAAYAAAAGAAcAAAADAAYAAAAHAAcAAAADAAYAAAAIAAcAAAACAAYAAAAJAAcAAAADAAYAAAAKAAcAAAACAAYAAAALAAcAAAADAAYAAAAJAAMAAAAAAAcAAAADAAMAAAADAAcAAAADAAcAAAADAAYAAAAHAAUAAAACAAUAAAAJAAUAAAAAAAUAAAAIAAUAAAABAAUAAAAHAAYAAAADAAcAAAAIAAYAAAADAAcAAAAJAAYAAAADAAcAAAA=")
-tile_set = ExtResource("2_p2qo3")
-
 [node name="Walls" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAEAAIAAAAGAAEAAAAFAAIAAAAGAAEAAAAGAAIAAAAGAAEAAAAHAAIAAAAGAAEAAAAIAAIAAAAGAAEAAAAJAAIAAAAGAAEAAAAKAAIAAAAGAAEAAAALAAIAAAAGAAEAAAAMAAIAAAAGAAEAAAANAAIAAAAGAAEAAAAOAAIAAAAGAAEAAAAPAAIAAAAGAAEAAAAQAAIAAAAGAAEAAAADAAIAAAAGAAEAAAAMAAMAAAAIAAAAAAAMAAQAAAAIAAEAAAAMAAUAAAAIAAEAAAAMAAYAAAAIAAEAAAAMAAcAAAAIAAIAAAA=")
+tile_set = ExtResource("2_p2qo3")
+
+[node name="Stations" type="Sprite2D" parent="."]
+
+[node name="WorkStation" parent="Stations" instance=ExtResource("5_37jns")]
+position = Vector2(224, 288)
+rotation = 4.712389
+direction = 2
+
+[node name="WorkStation2" parent="Stations" instance=ExtResource("5_37jns")]
+position = Vector2(288, 207)
+
+[node name="SaladStation" parent="Stations" instance=ExtResource("6_rcl3h")]
+position = Vector2(352, 207)
+station_type = Object(CollisionShape2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -12),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"shape":null,"disabled":false,"one_way_collision":false,"one_way_collision_margin":1.0,"script":null)
+
+
+[node name="CucumberStation" parent="Stations" instance=ExtResource("6_e3sbb")]
+position = Vector2(416, 207)
+station_type = Object(CollisionShape2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -12),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"shape":null,"disabled":false,"one_way_collision":false,"one_way_collision_margin":1.0,"script":null)
+
+
+[node name="DonerStation" parent="Stations" instance=ExtResource("7_aea8e")]
+position = Vector2(480, 207)
+station_type = Object(CollisionShape2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -12),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"shape":null,"disabled":false,"one_way_collision":false,"one_way_collision_margin":1.0,"script":null)
+
+
+[node name="OnionStation" parent="Stations" instance=ExtResource("8_ptllb")]
+position = Vector2(672, 207)
+station_type = Object(CollisionShape2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -12),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"shape":null,"disabled":false,"one_way_collision":false,"one_way_collision_margin":1.0,"script":null)
+
+
+[node name="TomatoStation" parent="Stations" instance=ExtResource("9_7xdsu")]
+position = Vector2(544, 207)
+station_type = Object(CollisionShape2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -12),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"shape":null,"disabled":false,"one_way_collision":false,"one_way_collision_margin":1.0,"script":null)
+
+
+[node name="WorkStation3" parent="Stations" instance=ExtResource("5_37jns")]
+position = Vector2(608, 207)
+
+[node name="CuttingStation" parent="Stations" instance=ExtResource("10_7xdsu")]
+position = Vector2(608, 378)
+station_type = Object(CollisionShape2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -12),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"shape":null,"disabled":false,"one_way_collision":false,"one_way_collision_margin":1.0,"script":null)
+
+
+[node name="BreadStation" parent="Stations" instance=ExtResource("11_vb107")]
+position = Vector2(544, 378)
+station_type = Object(CollisionShape2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -12),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"shape":null,"disabled":false,"one_way_collision":false,"one_way_collision_margin":1.0,"script":null)
+
+
+[node name="CuttingStation2" parent="Stations" instance=ExtResource("10_7xdsu")]
+position = Vector2(480, 378)
+station_type = Object(CollisionShape2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -12),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"shape":null,"disabled":false,"one_way_collision":false,"one_way_collision_margin":1.0,"script":null)
+
+
+[node name="TomatoStation2" parent="Stations" instance=ExtResource("9_7xdsu")]
+position = Vector2(480, 314)
+rotation = 3.1415927
+direction = 0
+station_type = Object(CollisionShape2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -12),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"shape":null,"disabled":true,"one_way_collision":false,"one_way_collision_margin":1.0,"script":null)
+
+
+[node name="CuttingStation3" parent="Stations" instance=ExtResource("10_7xdsu")]
+position = Vector2(544, 314)
+rotation = 3.1415927
+direction = 0
+station_type = Object(CollisionShape2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -12),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"shape":null,"disabled":true,"one_way_collision":false,"one_way_collision_margin":1.0,"script":null)
+
+
+[node name="WorkStation4" parent="Stations" instance=ExtResource("5_37jns")]
+position = Vector2(608, 314)
+rotation = 3.1415927
+direction = 0
+
+[node name="CucumberStation2" parent="Stations" instance=ExtResource("6_e3sbb")]
+position = Vector2(224, 352)
+rotation = 4.712389
+direction = 2
+station_type = Object(CollisionShape2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -12),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"shape":null,"disabled":true,"one_way_collision":false,"one_way_collision_margin":1.0,"script":null)
+
+
+[node name="Kasse" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAMAAYAAAAJAAAAAFA=")
 tile_set = ExtResource("2_p2qo3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -39,5 +124,4 @@ limit_left = -2
 limit_top = 0
 limit_right = 1343
 limit_bottom = 767
-position_smoothing_enabled = true
 script = ExtResource("3_7ty7q")
