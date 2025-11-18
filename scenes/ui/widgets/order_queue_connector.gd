@@ -32,6 +32,6 @@ func _ready():
 	else:
 		push_error("OrderQueueConnector: CustomerManager has no 'queue_updated' signal!")
 
-func _on_queue_updated(customers: Array):
+func _on_queue_updated(queue_data: Array):
 	if widget and widget.has_method("update_queue"):
-		widget.update_queue(customers)
+		widget.update_queue(queue_data)
