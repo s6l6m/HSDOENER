@@ -5,5 +5,9 @@
 
 [node name="Audio" instance=ExtResource("1_33wdu")]
 
+[node name="MuteControl" parent="VBoxContainer" index="1"]
+option_name = "Stumm schalten"
+key = "StummSchalten"
+
 [node name="AudioInputOptionControl" parent="VBoxContainer" index="2" instance=ExtResource("2_vnecy")]
 layout_mode = 2

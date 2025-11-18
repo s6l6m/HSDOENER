@@ -13,27 +13,27 @@ script = ExtResource("1_mkb8o")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Reset Game :"
+text = "Spiel zurücksetzen :"
 
 [node name="ResetButton" type="Button" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(72, 32)
 layout_mode = 2
-text = "Reset"
+text = "zurücksetzen"
 
 [node name="CancelButton" type="Button" parent="."]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(72, 32)
 layout_mode = 2
-text = "No"
+text = "Nein"
 
 [node name="ConfirmButton" type="Button" parent="."]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(72, 32)
 layout_mode = 2
-text = "Yes"
+text = "Ja"
 
 [connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="CancelButton" to="." method="_on_cancel_button_pressed"]

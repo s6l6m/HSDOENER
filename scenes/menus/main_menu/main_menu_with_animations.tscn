@@ -1,16 +1,14 @@
-[gd_scene load_steps=27 format=3 uid="uid://cwk8r8hp26uae"]
+[gd_scene load_steps=25 format=3 uid="uid://cwk8r8hp26uae"]
 
 [ext_resource type="Script" uid="uid://bgudewayvmljn" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_ixa71"]
 [ext_resource type="PackedScene" uid="uid://bt6q1fcu5f1ov" path="res://scenes/windows/main_menu_options_window.tscn" id="3_2k5l7"]
 [ext_resource type="PackedScene" uid="uid://d2f3ohhuwhuox" path="res://scenes/menus/level_select_menu/level_select_menu.tscn" id="3_ixa71"]
 [ext_resource type="PackedScene" uid="uid://b4wb07bqbnqke" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_vsp5b"]
-[ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_6xh1d"]
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_game_template/base/nodes/autoloads/ui_sound_controller/ui_sound_controller.gd" id="5_672y5"]
 [ext_resource type="PackedScene" uid="uid://cjfaitjwcf23h" path="res://scenes/ui/sprites/book.tscn" id="6_2k5l7"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="6_8dhfv"]
-[ext_resource type="AudioStream" uid="uid://bfq3ljd7vdg6x" path="res://resources/sounds/main_menu.mp3" id="6_vsp5b"]
+[ext_resource type="AudioStream" uid="uid://d1o4gp12l1dt1" path="res://resources/sounds/main_menu.mp3" id="6_vsp5b"]
 [ext_resource type="PackedScene" uid="uid://bn4a828drg1dp" path="res://scenes/ui/sprites/coin.tscn" id="8_6xh1d"]
-[ext_resource type="Script" uid="uid://dmkubt2nsnsbn" path="res://addons/maaacks_game_template/base/nodes/labels/config_version_label.gd" id="8_j8onx"]
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/nodes/labels/config_name_label.gd" id="9_gwise"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="12_r8ef7"]
 
@@ -70,46 +68,34 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PanelContainer/VersionMargin/VersionContainer:modulate")
+tracks/4/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.4, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/LeftPageContainer:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/LeftPageContainer:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -170,82 +156,70 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PanelContainer/VersionMargin/VersionContainer:modulate")
+tracks/4/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer:lock")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer:lock")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:animation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:animation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [&"closed", &"opening", &"default"]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:frame")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/LeftPageContainer:modulate")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/LeftPageContainer:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -321,70 +295,58 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PanelContainer/VersionMargin/VersionContainer:modulate")
+tracks/4/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer:lock")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer:lock")
+tracks/5/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer:modulate")
+tracks/6/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:animation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": [&"closed"]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:animation")
+tracks/7/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/LeftPageContainer:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"closed"]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/LeftPageContainer:modulate")
+tracks/8/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:frame")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/Book:frame")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -477,33 +439,6 @@ offset_right = 1280.0
 offset_bottom = 720.0
 theme_type_variation = &"MenuPanel"
 
-[node name="VersionMargin" type="MarginContainer" parent="PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="VersionContainer" type="Control" parent="PanelContainer/VersionMargin"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-mouse_filter = 2
-
-[node name="VersionLabel" type="Label" parent="PanelContainer/VersionMargin/VersionContainer"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -88.0
-offset_top = -26.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "v0.0.1"
-horizontal_alignment = 2
-script = ExtResource("8_j8onx")
-
 [node name="MenuContainer" type="MarginContainer" parent="PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -563,13 +498,14 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="Book" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control" instance=ExtResource("6_2k5l7")]
-modulate = Color(1, 1, 1, 0)
 scale = Vector2(3.5, 3.5)
 animation = &"closed"
 frame = 0
 frame_progress = 0.0
+metadata/_edit_lock_ = true
 
 [node name="LeftPageContainer" type="VBoxContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control"]
 modulate = Color(1, 1, 1, 0)
@@ -609,28 +545,23 @@ alignment = 1
 vertical = true
 script = ExtResource("12_r8ef7")
 lock = true
+metadata/_edit_lock_ = true
 
 [node name="NewGameButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "New Game"
-
-[node name="ContinueGameButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-text = "Continue"
+text = "Spiel starten"
 
 [node name="LevelSelectButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-text = "Level Select"
+text = "Level auswählen"
 
 [node name="OptionsButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Options"
+text = "Einstellungen"
 
 [node name="CreditsButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
@@ -640,22 +571,7 @@ text = "Credits"
 [node name="ExitButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Exit"
-
-[node name="NewGameConfirmation" parent="." instance=ExtResource("5_6xh1d")]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(420, 200)
-layout_mode = 1
-offset_left = -210.0
-offset_top = -100.0
-offset_right = 210.0
-offset_bottom = 100.0
-update_content = true
-text = "Are you sure you want to start a new game?
-
-All progress in the current game will be lost."
-title = "New Game"
+text = "Beenden"
 
 [node name="MouseFilter" type="Control" parent="."]
 layout_mode = 1
@@ -668,9 +584,7 @@ mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="confirmed" from="NewGameConfirmation" to="." method="_on_new_game_confirmation_confirmed"]
