@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bnu2hlsy8gfbf" path="res://scenes/player/player.gd" id="1_wr5hl"]
 [ext_resource type="Texture2D" uid="uid://cmsgol8mxmbr8" path="res://assets/sprites/player.png" id="2_4kuee"]
-[ext_resource type="Texture2D" uid="uid://gkgudtcvu1bk" path="res://assets/sprites/running_spritesheet_right.png" id="2_gfjak"]
+[ext_resource type="Texture2D" uid="uid://c2df06o2y3252" path="res://assets/sprites/running_spritesheet_right.png" id="2_gfjak"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gfjak"]
-height = 20.0
+radius = 10.965
+height = 21.93
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_npwbq"]
 atlas = ExtResource("2_4kuee")
@@ -61,13 +62,23 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 254
 script = ExtResource("1_wr5hl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(0, 11)
+position = Vector2(0, 16)
 shape = SubResource("CapsuleShape2D_gfjak")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_npwbq")
 animation = &"idle"
+
+[node name="HeldItem" type="Sprite2D" parent="."]
+position = Vector2(13.165, 15.1)
+
+[node name="InteractIcon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -36.625)
