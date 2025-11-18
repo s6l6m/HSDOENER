@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://gdxhyp5mg2l4"]
+
+[ext_resource type="Script" uid="uid://c2tnd7q4wknkh" path="res://scenes/ui/widgets/order/order_widget.gd" id="1_ab3os"]
+[ext_resource type="Texture2D" uid="uid://d6h63acikn3v" path="res://resources/ui/UI_Sprite_1.png" id="2_q6pbn"]
+[ext_resource type="Script" uid="uid://cqpm1v3twfd33" path="res://scenes/ui/widgets/order/timer_progress.gd" id="3_4ugo1"]
+[ext_resource type="PackedScene" uid="uid://bkiegbw6yaom8" path="res://scenes/ui/widgets/order/ingredient.tscn" id="5_u2618"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ugo1"]
+atlas = ExtResource("2_q6pbn")
+region = Rect2(873, 181, 32, 5)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ucajs"]
+load_path = "res://.godot/imported/UI_Sprite_1.png-16792152d5600c5824844de1cb449702.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2618"]
+atlas = SubResource("CompressedTexture2D_ucajs")
+region = Rect2(633, 181, 32, 5)
+
+[node name="OrderWidget" type="PanelContainer"]
+custom_minimum_size = Vector2(150, 0)
+offset_right = 220.0
+offset_bottom = 116.0
+size_flags_vertical = 0
+theme_type_variation = &"OrderTicketPanel"
+script = ExtResource("1_ab3os")
+ingredient_scene = ExtResource("5_u2618")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TimerProgress" type="TextureProgressBar" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 2
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = SubResource("AtlasTexture_4ugo1")
+texture_progress = SubResource("AtlasTexture_u2618")
+script = ExtResource("3_4ugo1")
+
+[node name="DishIconContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="DishIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/DishIconContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 4
+
+[node name="IngredientsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
