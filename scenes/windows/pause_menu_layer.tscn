@@ -35,7 +35,7 @@ update_content = true
 title = "Paused"
 
 [node name="TitleLabel" parent="PauseMenu/ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
-text = "Paused"
+text = "Spiel pausiert"
 
 [node name="DescriptionMargin" parent="PauseMenu/ContentContainer/BoxContainer" index="1"]
 visible = false
@@ -44,11 +44,11 @@ visible = false
 size_flags_vertical = 3
 
 [node name="CloseButton" parent="PauseMenu/ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
-text = "Resume"
+text = "Fortsetzen"
 
 [node name="RestartButton" type="Button" parent="PauseMenu/ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1"]
 layout_mode = 2
-text = "Restart"
+text = "Neustarten"
 
 [node name="SaveGameButton" type="Button" parent="PauseMenu/ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2"]
 unique_name_in_owner = true
@@ -65,23 +65,23 @@ text = "Load Game"
 [node name="OptionsButton" type="Button" parent="PauseMenu/ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="4"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Options"
+text = "Einstellungen"
 
 [node name="MainMenuButton" type="Button" parent="PauseMenu/ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="5"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Main Menu"
+text = "Hauptmenü"
 
 [node name="ExitButton" type="Button" parent="PauseMenu/ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="6"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Exit Game"
+text = "Spiel beenden"
 
 [node name="RestartConfirmation" parent="." instance=ExtResource("5_bgbk1")]
 unique_name_in_owner = true
 visible = false
 update_content = true
-text = "Restart the game?"
+text = "Spiel neu starten?"
 title = "Confirm Restart"
 
 [node name="MainMenuConfirmation" parent="." instance=ExtResource("5_bgbk1")]
@@ -89,14 +89,14 @@ unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 0)
 update_content = true
-text = "Exit to the main menu?"
+text = "Zurück ins Hauptmenü?"
 title = "Confirm Exit"
 
 [node name="ExitConfirmation" parent="." instance=ExtResource("5_bgbk1")]
 unique_name_in_owner = true
 visible = false
 update_content = true
-text = "Exit the game?"
+text = "Spiel beenden?"
 title = "Confirm Exit"
 
 [connection signal="hidden" from="PauseMenu" to="." method="_on_pause_menu_hidden"]

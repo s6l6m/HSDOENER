@@ -5,11 +5,41 @@
 
 [node name="Controls" instance=ExtResource("1_i27v5")]
 
+[node name="Label" parent="VBoxContainer/InputMappingContainer" index="0"]
+text = "Steuerung"
+
 [node name="InputActionsList" parent="VBoxContainer/InputMappingContainer" index="1" node_paths=PackedStringArray("input_icon_mapper")]
 input_icon_mapper = NodePath("../../../InputIconMapper")
 
 [node name="InputActionsTree" parent="VBoxContainer/InputMappingContainer" index="2" node_paths=PackedStringArray("input_icon_mapper")]
 input_icon_mapper = NodePath("../../../InputIconMapper")
+
+[node name="ResetButton" parent="VBoxContainer/InputMappingContainer/HBoxContainer" index="0"]
+text = "Zurücksetzen"
+
+[node name="KeyDeletionConfirmation" parent="." index="1"]
+confirm_button_text = "Bestätigen"
+
+[node name="ResetConfirmation" parent="." index="2"]
+confirm_button_text = "Bestätigen"
+
+[node name="KeyAssignmentWindow" parent="." index="5"]
+confirm_button_text = "Bestätigen"
+
+[node name="TitleLabel" parent="KeyAssignmentWindow/ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
+text = "Menü"
+
+[node name="InputLabel" parent="KeyAssignmentWindow/ContentContainer/BoxContainer/VBoxContainer" index="0"]
+text = "Keine"
+
+[node name="InputTextEdit" parent="KeyAssignmentWindow/ContentContainer/BoxContainer/VBoxContainer" index="1"]
+placeholder_text = "Bitte eine Taste drücken..."
+
+[node name="CloseButton" parent="KeyAssignmentWindow/ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
+text = "Abbrechen"
+
+[node name="ConfirmButton" parent="KeyAssignmentWindow/ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1"]
+text = "Bestätigen"
 
 [node name="InputIconMapper" parent="." index="6" instance=ExtResource("2_hyv0n")]
 

@@ -1,22 +1,23 @@
-[gd_resource type="Theme" load_steps=63 format=3 uid="uid://2p6glpubmhup"]
+[gd_resource type="Theme" load_steps=67 format=3 uid="uid://2p6glpubmhup"]
 
-[ext_resource type="Texture2D" uid="uid://c281ry3te7t3u" path="res://resources/ui/UI_Button_Normal.png" id="1_whpug"]
-[ext_resource type="Texture2D" uid="uid://dbevpx2mietl0" path="res://resources/ui/UI_Button_Focus.png" id="2_nis3q"]
+[ext_resource type="Texture2D" uid="uid://cdt88hgf4i1ej" path="res://resources/ui/UI_Button_Normal.png" id="1_whpug"]
+[ext_resource type="Texture2D" uid="uid://bmkudww6jhq84" path="res://resources/ui/UI_Button_Focus.png" id="2_nis3q"]
 [ext_resource type="FontFile" uid="uid://cftqrps0druak" path="res://assets/fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/Peaberry-Base.otf" id="2_whpug"]
-[ext_resource type="Texture2D" uid="uid://3yc0qcu1sa38" path="res://resources/ui/UI_Button_Hover.png" id="2_yn3xj"]
-[ext_resource type="Texture2D" uid="uid://doigx1ndymb2i" path="res://resources/ui/UI_Sprite_1.png" id="4_mgmgi"]
-[ext_resource type="Texture2D" uid="uid://cgw7wldm74a6e" path="res://resources/ui/UI_Menu_Background.jpg" id="4_nis3q"]
-[ext_resource type="Texture2D" uid="uid://dggp63ktshhao" path="res://resources/ui/UI_Clear.png" id="5_evec2"]
-[ext_resource type="Texture2D" uid="uid://ccvnmxkjy5muj" path="res://resources/ui/UI_Left.png" id="5_mgmgi"]
-[ext_resource type="Texture2D" uid="uid://dwb0l5mnbt2g2" path="res://resources/ui/UI_Input.png" id="6_j21ln"]
-[ext_resource type="Texture2D" uid="uid://bd1wnkpr3wky3" path="res://resources/ui/UI_Tab_Hover.png" id="6_lgi76"]
-[ext_resource type="Texture2D" uid="uid://63q73vciivmk" path="res://resources/ui/UI_Tab_Normal.png" id="6_nndxm"]
-[ext_resource type="Texture2D" uid="uid://b1ny8lkm0nn10" path="res://resources/ui/UI_Down.png" id="6_qg8ib"]
-[ext_resource type="Texture2D" uid="uid://cqaopj87k4mfn" path="res://resources/ui/UI_Up.png" id="7_dxuv0"]
-[ext_resource type="Texture2D" uid="uid://c80ns77lxwyfs" path="res://resources/ui/UI_Right.png" id="7_evec2"]
-[ext_resource type="Texture2D" uid="uid://culi2voopyy6u" path="res://resources/ui/UI_Menu_Panel.png" id="7_tqdkm"]
-[ext_resource type="Texture2D" uid="uid://cbio2mnj3lcho" path="res://resources/ui/UI_Panel_Background.png" id="9_12cyy"]
-[ext_resource type="Texture2D" uid="uid://c8wil574r4gx3" path="res://resources/ui/UI_Panel_Widget.png" id="16_yhwj1"]
+[ext_resource type="Texture2D" uid="uid://ci5tgd30it7ab" path="res://resources/ui/UI_Button_Hover.png" id="2_yn3xj"]
+[ext_resource type="Texture2D" uid="uid://d6h63acikn3v" path="res://resources/ui/UI_Sprite_1.png" id="4_mgmgi"]
+[ext_resource type="Texture2D" uid="uid://cairn553qi2ut" path="res://resources/ui/UI_Menu_Background.jpg" id="4_nis3q"]
+[ext_resource type="Texture2D" uid="uid://vix75r1fvkcp" path="res://resources/ui/UI_Clear.png" id="5_evec2"]
+[ext_resource type="Texture2D" uid="uid://cek5fiww5a0jb" path="res://resources/ui/UI_Left.png" id="5_mgmgi"]
+[ext_resource type="Texture2D" uid="uid://cmibljq0s0ewl" path="res://resources/ui/UI_Input.png" id="6_j21ln"]
+[ext_resource type="Texture2D" uid="uid://sisicp06ax7a" path="res://resources/ui/UI_Tab_Hover.png" id="6_lgi76"]
+[ext_resource type="Texture2D" uid="uid://33gmg1rl8sn4" path="res://resources/ui/UI_Tab_Normal.png" id="6_nndxm"]
+[ext_resource type="Texture2D" uid="uid://dw8ef7i5swas4" path="res://resources/ui/UI_Down.png" id="6_qg8ib"]
+[ext_resource type="Texture2D" uid="uid://dpr25c2a41ldb" path="res://resources/ui/UI_Sprite_2.png" id="7_7kddb"]
+[ext_resource type="Texture2D" uid="uid://bd827650mmj54" path="res://resources/ui/UI_Up.png" id="7_dxuv0"]
+[ext_resource type="Texture2D" uid="uid://daxkx4gvm0py8" path="res://resources/ui/UI_Right.png" id="7_evec2"]
+[ext_resource type="Texture2D" uid="uid://bkrlk5ruo088f" path="res://resources/ui/UI_Menu_Panel.png" id="7_tqdkm"]
+[ext_resource type="Texture2D" uid="uid://r88dbulxqw8m" path="res://resources/ui/UI_Panel_Background.png" id="9_12cyy"]
+[ext_resource type="Texture2D" uid="uid://dxkab4mquxlkc" path="res://resources/ui/UI_Panel_Widget.png" id="16_yhwj1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12cyy"]
 bg_color = Color(0, 0, 0, 0.6901961)
@@ -159,6 +160,19 @@ texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvb6q"]
+atlas = ExtResource("7_7kddb")
+region = Rect2(105, 48, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bym1e"]
+texture = SubResource("AtlasTexture_vvb6q")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 32, 32)
+modulate_color = Color(0.77157825, 0.9540637, 0.9999998, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywrjj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 3
@@ -212,6 +226,15 @@ texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dexfi"]
+texture = ExtResource("16_yhwj1")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(43, 32, 1434, 1108)
+modulate_color = Color(0.86036915, 0.8603692, 0.8603692, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e28a8"]
 texture = ExtResource("2_yn3xj")
@@ -380,6 +403,8 @@ HSlider/icons/tick = SubResource("AtlasTexture_7kddb")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_3u1er")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_7kddb")
 HSlider/styles/slider = SubResource("StyleBoxTexture_kswws")
+IngredientContainer/base_type = &"PanelContainer"
+IngredientContainer/styles/panel = SubResource("StyleBoxTexture_bym1e")
 Label/constants/outline_size = 4
 LeftStaminaBar/base_type = &"ProgressBar"
 LeftStaminaBar/styles/background = SubResource("StyleBoxFlat_ywrjj")
@@ -392,6 +417,8 @@ LineEdit/styles/read_only = SubResource("StyleBoxTexture_yhwj1")
 MenuPanel/base_type = &"PanelContainer"
 MenuPanel/styles/panel = SubResource("StyleBoxTexture_f543f")
 OptionButton/icons/arrow = ExtResource("6_qg8ib")
+OrderTicketPanel/base_type = &"PanelContainer"
+OrderTicketPanel/styles/panel = SubResource("StyleBoxTexture_dexfi")
 Panel/styles/panel = SubResource("StyleBoxTexture_e28a8")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_q0t7u")
 PopupMenu/icons/checked = SubResource("AtlasTexture_odufd")

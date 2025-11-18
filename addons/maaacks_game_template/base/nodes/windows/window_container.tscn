@@ -49,7 +49,7 @@ vertical = true
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
-text = "Menu"
+text = "Menü"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer"]
@@ -85,6 +85,6 @@ script = ExtResource("2_xihbi")
 [node name="CloseButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Close"
+text = "Schließen"
 
 [connection signal="pressed" from="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons/CloseButton" to="." method="_on_close_button_pressed"]

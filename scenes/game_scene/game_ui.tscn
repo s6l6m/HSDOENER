@@ -1,20 +1,26 @@
-[gd_scene load_steps=16 format=3 uid="uid://brs70jgc4xlem"]
+[gd_scene load_steps=22 format=3 uid="uid://brs70jgc4xlem"]
 
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="1_bmy5n"]
 [ext_resource type="PackedScene" uid="uid://8ooiy4l4sxal" path="res://scenes/windows/pause_menu_layer.tscn" id="2_7aihr"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_3re04"]
-[ext_resource type="AudioStream" uid="uid://bwxvcweduqbus" path="res://resources/sounds/in_game.mp3" id="4_7aihr"]
+[ext_resource type="AudioStream" uid="uid://d0ncjoekv42ln" path="res://resources/sounds/in_game.mp3" id="4_7aihr"]
 [ext_resource type="Script" uid="uid://bbymrin0cm704" path="res://addons/maaacks_game_template/extras/scripts/level_loader.gd" id="4_ascoc"]
-[ext_resource type="Script" uid="uid://cxidglk20cok3" path="res://scripts/level_and_state_manager.gd" id="5_wr4n6"]
+[ext_resource type="Script" path="res://scripts/level_and_state_manager.gd" id="5_wr4n6"]
 [ext_resource type="PackedScene" uid="uid://ba8buuvogx0m3" path="res://scenes/windows/game_won_window.tscn" id="6_ukb12"]
 [ext_resource type="PackedScene" uid="uid://dybw10d6drm1l" path="res://scenes/windows/level_lost_window.tscn" id="7_i7m4m"]
 [ext_resource type="PackedScene" uid="uid://dbb3wc2jaxyou" path="res://scenes/windows/level_won_window.tscn" id="8_rkfhe"]
 [ext_resource type="Script" uid="uid://wjq7li836lwj" path="res://addons/maaacks_game_template/extras/scripts/scene_lister.gd" id="9_g2ndc"]
 [ext_resource type="PackedScene" uid="uid://1wdj5r7kgshl" path="res://scenes/loading_screen/level_loading_screen.tscn" id="10_0v86b"]
-[ext_resource type="Script" uid="uid://cl3opf2oe8og3" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_ulq3g"]
+[ext_resource type="Script" uid="uid://chh8t028j1fqp" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_ulq3g"]
 [ext_resource type="Script" uid="uid://fvak028mb5k0" path="res://scenes/game_scene/game_timer.gd" id="12_gpor5"]
 [ext_resource type="PackedScene" uid="uid://b86o4cdjxtmjg" path="res://scenes/ui/widgets/timer_widget.tscn" id="13_3re04"]
 [ext_resource type="PackedScene" uid="uid://1w46kse8u11v" path="res://scenes/ui/widgets/coin_widget.tscn" id="14_ascoc"]
+[ext_resource type="PackedScene" uid="uid://gdxhyp5mg2l4" path="res://scenes/ui/widgets/order/order_widget.tscn" id="15_wr4n6"]
+[ext_resource type="Texture2D" uid="uid://cwpgee1smbh8l" path="res://assets/food/stations/doner_default-station.png" id="16_rkfhe"]
+[ext_resource type="Texture2D" uid="uid://c6gwmdqyakim8" path="res://assets/food/items/bread-item.png" id="17_g2ndc"]
+[ext_resource type="Texture2D" uid="uid://2njb7ajkbcyf" path="res://assets/food/items/tomato-item.png" id="18_0v86b"]
+[ext_resource type="Texture2D" uid="uid://dy7csov2rrsrv" path="res://assets/food/stations/doner_burned-station.png" id="19_0v86b"]
+[ext_resource type="Texture2D" uid="uid://boertsmolscgy" path="res://assets/food/items/union item.png" id="20_ulq3g"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -107,6 +113,28 @@ offset_top = 10.0
 offset_right = 13.0
 offset_bottom = 10.0
 scale = Vector2(2.1599998, 2.1599998)
+
+[node name="OrdersContainer" type="HBoxContainer" parent="CanvasLayer/UIContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -420.0
+offset_right = 420.0
+offset_bottom = 162.0
+grow_horizontal = 2
+
+[node name="OrderWidget" parent="CanvasLayer/UIContainer/OrdersContainer" instance=ExtResource("15_wr4n6")]
+layout_mode = 2
+order_wait_time = 5.0
+dish = ExtResource("16_rkfhe")
+ingredients = Array[Texture]([ExtResource("17_g2ndc"), ExtResource("18_0v86b")])
+
+[node name="OrderWidget2" parent="CanvasLayer/UIContainer/OrdersContainer" instance=ExtResource("15_wr4n6")]
+layout_mode = 2
+order_wait_time = 10.0
+dish = ExtResource("19_0v86b")
+ingredients = Array[Texture]([ExtResource("17_g2ndc"), ExtResource("20_ulq3g")])
 
 [node name="GameTimer" type="Node" parent="."]
 script = ExtResource("12_gpor5")

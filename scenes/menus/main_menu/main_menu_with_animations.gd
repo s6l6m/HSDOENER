@@ -10,20 +10,15 @@ extends MainMenu
 
 var animation_state_machine : AnimationNodeStateMachinePlayback
 
-@onready var continue_game_button = %ContinueGameButton
 @onready var level_select_button = %LevelSelectButton
-@onready var new_game_confirmation = %NewGameConfirmation
 
 func load_game_scene() -> void:
 	GameState.start_game()
 	super.load_game_scene()
 
 func new_game() -> void:
-	if confirm_new_game and GameState.get_levels_reached() > 0:
-		new_game_confirmation.show()
-	else:
-		GameState.reset()
-		load_game_scene()
+	GameState.reset()
+	load_game_scene()
 
 func intro_done() -> void:
 	animation_state_machine.travel("OpenMainMenu")
@@ -56,14 +51,9 @@ func _show_level_select_if_set() -> void:
 	if GameState.get_levels_reached() <= 1 : return
 	level_select_button.show()
 
-func _show_continue_if_set() -> void:
-	if GameState.get_current_level_path().is_empty(): return
-	continue_game_button.show()
-
 func _ready() -> void:
 	super._ready()
 	_show_level_select_if_set()
-	_show_continue_if_set()
 	animation_state_machine = $MenuAnimationTree.get("parameters/playback")
 
 func _on_continue_game_button_pressed() -> void:
@@ -74,7 +64,3 @@ func _on_level_select_button_pressed() -> void:
 	var level_select_scene := _open_sub_menu(level_select_packed_scene)
 	if level_select_scene.has_signal("level_selected"):
 		level_select_scene.connect("level_selected", load_game_scene)
-
-func _on_new_game_confirmation_confirmed() -> void:
-	GameState.reset()
-	load_game_scene()

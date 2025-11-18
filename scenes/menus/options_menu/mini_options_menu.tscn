@@ -34,15 +34,15 @@ search_depth = 2
 [node name="MuteControl" parent="." instance=ExtResource("4_xg1r4")]
 unique_name_in_owner = true
 layout_mode = 2
-option_name = "Mute"
+option_name = "Stumm schalten"
 option_section = 2
-key = "Mute"
+key = "StummSchalten"
 section = "AudioSettings"
 
 [node name="FullscreenControl" parent="." instance=ExtResource("4_xg1r4")]
 unique_name_in_owner = true
 layout_mode = 2
-option_name = "Fullscreen"
+option_name = "Vollbildmodus"
 option_section = 3
 key = "FullscreenEnabled"
 section = "VideoSettings"
