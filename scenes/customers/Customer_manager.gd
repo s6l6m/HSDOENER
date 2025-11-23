@@ -48,6 +48,15 @@ func spawn_customer():
 
 	customers.append(new_customer)
 	
+	# --- Bestellung erzeugen ---
+	var order_manager = get_node("/root/Playertest/OrderManager")
+	var doener_generator = order_manager.get_node("doener-generator")
+
+
+
+	order_manager.create_doner_order(new_customer)
+
+	
 	# Signale
 	new_customer.connect("customer_left", Callable(self, "_on_customer_left"))
 	new_customer.connect("customer_arrived_exit", Callable(self, "_remove_customer_from_scene"))

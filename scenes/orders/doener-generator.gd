@@ -47,4 +47,5 @@ func generate_doner() -> Array[Ingredient]:
 	for i in zwiebel_count:
 		ingredients.append(zwiebel)
 
+	print("Order created:", ingredients.map(func(i): return i.name))
 	return ingredients

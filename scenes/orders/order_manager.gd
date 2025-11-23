@@ -4,7 +4,7 @@ signal order_added(order)
 signal order_completed(order)
 signal order_removed(order)
 
-@onready var doner_generator: DonerGenerator = $DonerGenerator
+@onready var doner_generator: DonerGenerator = $"doener-generator"
 
 
 var orders: Array[Order] = []
