@@ -26,3 +26,14 @@ func remove_order(order: Order):
 	if order in orders:
 		orders.erase(order)
 		emit_signal("order_removed", order)
+
+func create_doner_order(customer: Node, selected_ingredients: Array[Ingredient]) -> Order:
+	var order = Order.new()
+	order.id = orders.size() + 1
+	order.customer = customer
+	order.ingredients = selected_ingredients
+	order.is_completed = false
+
+	orders.append(order)
+	emit_signal("order_added", order)
+	return order
