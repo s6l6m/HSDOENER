@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bkiegbw6yaom8"]
 
-[ext_resource type="Script" uid="uid://jj1mjg5yedtt" path="res://scenes/ui/widgets/order/ingredient.gd" id="1_dt06c"]
+[ext_resource type="Script" uid="uid://dhlyem2j3aug3" path="res://scenes/ui/widgets/order/ingredient.gd" id="1_dt06c"]
 
 [node name="IngredientPanelContainer" type="PanelContainer"]
 offset_right = 25.0

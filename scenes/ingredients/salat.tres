@@ -1,7 +1,10 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://5jd6vut8mk0y"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://5jd6vut8mk0y"]
 
+[ext_resource type="Texture2D" uid="uid://dk8ddurpq8r8y" path="res://assets/food/items/salad-item.png" id="1_ds2nt"]
 [ext_resource type="Script" uid="uid://dfk3anh4to5im" path="res://scenes/ingredients/ingredient-data.gd" id="1_kfjv8"]
 
 [resource]
 script = ExtResource("1_kfjv8")
+name = "Salat"
+icon = ExtResource("1_ds2nt")
 metadata/_custom_type_script = "uid://dfk3anh4to5im"

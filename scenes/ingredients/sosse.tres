@@ -1,7 +1,10 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://cpvpnb6xutbpx"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://cpvpnb6xutbpx"]
 
+[ext_resource type="Texture2D" uid="uid://c0vs2r0ttdt5l" path="res://assets/food/items/spoon_with_sauce-item.png" id="1_ahde6"]
 [ext_resource type="Script" uid="uid://dfk3anh4to5im" path="res://scenes/ingredients/ingredient-data.gd" id="1_b03dn"]
 
 [resource]
 script = ExtResource("1_b03dn")
+name = "Soße"
+icon = ExtResource("1_ahde6")
 metadata/_custom_type_script = "uid://dfk3anh4to5im"
