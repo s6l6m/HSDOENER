@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpd0yp5gwm45i"]
+[gd_scene load_steps=10 format=3 uid="uid://dpd0yp5gwm45i"]
 
 [ext_resource type="Script" uid="uid://b1l32nrui3jcu" path="res://scenes/orders/order_manager.gd" id="1_q7jjw"]
+[ext_resource type="Script" uid="uid://drp13ycycl4vf" path="res://scenes/orders/doener-generator.gd" id="2_mbwn4"]
+[ext_resource type="Resource" uid="uid://emjog242n5ar" path="res://scenes/ingredients/brot.tres" id="3_q1vf0"]
+[ext_resource type="Resource" uid="uid://b5gf2i04f2toe" path="res://scenes/ingredients/fleisch.tres" id="4_0xlj5"]
+[ext_resource type="Resource" uid="uid://d1uqc06qvbban" path="res://scenes/ingredients/tomate.tres" id="5_oe3o4"]
+[ext_resource type="Resource" uid="uid://bwabxyxc8u78p" path="res://scenes/ingredients/gurke.tres" id="6_p8uek"]
+[ext_resource type="Resource" uid="uid://5jd6vut8mk0y" path="res://scenes/ingredients/salat.tres" id="7_ejgy5"]
+[ext_resource type="Resource" uid="uid://cpvpnb6xutbpx" path="res://scenes/ingredients/sosse.tres" id="8_r7rkd"]
+[ext_resource type="Resource" uid="uid://d3kr6b6gslfcg" path="res://scenes/ingredients/zwiebel.tres" id="9_72swl"]
 
 [node name="OrderManager" type="Node2D"]
 script = ExtResource("1_q7jjw")
+
+[node name="doener-generator" type="Node" parent="."]
+script = ExtResource("2_mbwn4")
+brot = ExtResource("3_q1vf0")
+fleisch = ExtResource("4_0xlj5")
+tomate = ExtResource("5_oe3o4")
+gurke = ExtResource("6_p8uek")
+salat = ExtResource("7_ejgy5")
+sosse = ExtResource("8_r7rkd")
+zwiebel = ExtResource("9_72swl")
