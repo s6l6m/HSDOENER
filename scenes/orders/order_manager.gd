@@ -15,11 +15,21 @@ func complete_order(order: Order) -> void:
 		remove_order(order)
 
 func remove_order(order: Order) -> void:
+	if order == null:
+		push_warning("remove_order() received a null order")
+		return
+
+	if order.customer == null:
+		push_warning("Order has no customer. Cannot emit customer_left")
+		return
+
+	order.customer.customer_left.emit(order.customer)
+
 	if order in orders:
 		orders.erase(order)
 		emit_signal("order_removed", order)
 
-func create_doner_order(customer: Node) -> Order:
+func create_doner_order(customer: Customer) -> Order:
 	var ingredients := doner_generator.generate_doner()
 
 	var order := Order.new(

@@ -15,7 +15,8 @@ func _ready() -> void:
 func on_add_order(order: Order):
 	if order_widget.can_instantiate():
 		var scene: OrderWidget = order_widget.instantiate()
-		scene.order_wait_time = randi_range(10, 60) # TODO: Change Values to match gameplay
+		scene.order = order
+		scene.order_wait_time = randi_range(5, 20) # TODO: Change Values to match gameplay
 		scene.dish = order.icon
 		var ingredients_textures: Array[Texture2D] = []
 		for ingredient in order.required_ingredients:

@@ -41,11 +41,11 @@ func _process(delta: float) -> void:
 	timer_bar.update_progress(time_left, order_wait_time)
 
 	if time_left <= 0 and timer_running:
-		timer_running = false
-		time_finished.emit(order)
 		_on_timer_finished()
 
 func _on_timer_finished() -> void:
+	timer_running = false
+	time_finished.emit(order)
 	queue_free()
 
 func _update_dish_icon() -> void:

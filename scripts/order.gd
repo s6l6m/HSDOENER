@@ -6,7 +6,7 @@ extends Resource
 @export var fulfilled_ingredients: Array[Ingredient] = []
 @export var price: float = 0.0
 
-var customer: Node = null
+var customer: Customer
 
 signal is_complete(order: Order)
 
