@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Customer
 
 signal customer_left(customer)
 signal customer_arrived_exit(customer)

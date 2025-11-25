@@ -12,12 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://sisicp06ax7a" path="res://resources/ui/UI_Tab_Hover.png" id="6_lgi76"]
 [ext_resource type="Texture2D" uid="uid://33gmg1rl8sn4" path="res://resources/ui/UI_Tab_Normal.png" id="6_nndxm"]
 [ext_resource type="Texture2D" uid="uid://dw8ef7i5swas4" path="res://resources/ui/UI_Down.png" id="6_qg8ib"]
-[ext_resource type="Texture2D" uid="uid://u7562fvs48h1" path="res://resources/ui/UI_Sprite_2.png" id="7_7kddb"]
+[ext_resource type="Texture2D" uid="uid://dpr25c2a41ldb" path="res://resources/ui/UI_Sprite_2.png" id="7_7kddb"]
 [ext_resource type="Texture2D" uid="uid://bd827650mmj54" path="res://resources/ui/UI_Up.png" id="7_dxuv0"]
 [ext_resource type="Texture2D" uid="uid://daxkx4gvm0py8" path="res://resources/ui/UI_Right.png" id="7_evec2"]
 [ext_resource type="Texture2D" uid="uid://bkrlk5ruo088f" path="res://resources/ui/UI_Menu_Panel.png" id="7_tqdkm"]
-[ext_resource type="Texture2D" uid="uid://b146wcmtn6bd2" path="res://resources/ui/UI_Panel_Background.png" id="9_12cyy"]
-[ext_resource type="Texture2D" uid="uid://7g3fkfdhi25y" path="res://resources/ui/UI_Panel_Widget.png" id="16_yhwj1"]
+[ext_resource type="Texture2D" uid="uid://r88dbulxqw8m" path="res://resources/ui/UI_Panel_Background.png" id="9_12cyy"]
+[ext_resource type="Texture2D" uid="uid://dxkab4mquxlkc" path="res://resources/ui/UI_Panel_Widget.png" id="16_yhwj1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12cyy"]
 bg_color = Color(0, 0, 0, 0.6901961)
