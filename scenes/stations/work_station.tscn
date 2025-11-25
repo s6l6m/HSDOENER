@@ -40,6 +40,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionSmall"]
 position = Vector2(0, -20)
 shape = SubResource("RectangleShape2D_jeb1n")
+disabled = true
 
 [node name="InteractionArea" type="Area2D" parent="."]
 collision_layer = 2
