@@ -11,15 +11,18 @@ extends Node2D
 
 @export var spawn_point: NodePath
 
+@onready var order_manager: OrderManager
 
 # Intern gespeicherte Kunden
 var customers: Array = []
+
+func _ready() -> void:
+	order_manager = get_tree().root.get_node("GameUI/OrderManager")
 
 func _process(_delta):
 	# Test-Input: Kunde per Tastendruck spawnen
 	if Input.is_action_just_pressed("spawn_customer"):
 		spawn_customer()
-
 
 # Kunde spawnen und in Warteschlange einreihen
 func spawn_customer():
@@ -28,46 +31,39 @@ func spawn_customer():
 		return
 
 	var new_customer = customer_scene.instantiate()
-	
+
 	# Basis-Spawnpunkt (ganz links)
 	var base_pos = get_node(spawn_point).global_position
-	
+
 	# Abstand zwischen Kunden in X-Richtung
 	var x_offset = 50
-	
+
 	# Jeder neue Kunde wird nach rechts versetzt gespawnt
 	new_customer.global_position = base_pos + Vector2(customers.size() * x_offset, 0)
-	
+
 	add_child(new_customer)
 
 	print("Customer spawned at:", new_customer.global_position)
-	
+
 	# Zielposition für Warteschlange (optional)
 	var target_pos = get_node(queue_points[customers.size()]).global_position
 	new_customer.move_to(target_pos)
 
 	customers.append(new_customer)
-	
+
 	# --- Bestellung erzeugen ---
-	var order_manager = get_node("/root/Playertest/OrderManager")
-	var doener_generator = order_manager.get_node("doener-generator")
-
-
-
 	order_manager.create_doner_order(new_customer)
 
-	
 	# Signale
 	new_customer.connect("customer_left", Callable(self, "_on_customer_left"))
 	new_customer.connect("customer_arrived_exit", Callable(self, "_remove_customer_from_scene"))
-
 
 
 # Kunde verlässt Warteschlange
 func _on_customer_left(customer):
 	# Kunde verlässt die Queue und läuft zum Ausgang
 	new_customer_move_to_exit(customer)
-	
+
 	# Restliche Kunden rücken nach
 	customers.erase(customer)
 	_update_queue_positions()

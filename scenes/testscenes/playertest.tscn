@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://dgg4vwt32ng8p"]
+[gd_scene load_steps=14 format=4 uid="uid://dgg4vwt32ng8p"]
 
 [ext_resource type="Script" uid="uid://db42wncatlunt" path="res://scenes/testscenes/playertest.gd" id="1_0qt6d"]
 [ext_resource type="PackedScene" uid="uid://rj34n7wmoup7" path="res://scenes/player/Player.tscn" id="1_eg31v"]
 [ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_p2qo3"]
 [ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
-[ext_resource type="PackedScene" uid="uid://dpd0yp5gwm45i" path="res://scenes/orders/OrderManager.tscn" id="5_37jns"]
 [ext_resource type="PackedScene" uid="uid://dqe5dy0v501xx" path="res://scenes/stations/cucumber_station.tscn" id="6_e3sbb"]
 [ext_resource type="PackedScene" uid="uid://dunmeos6sxqjh" path="res://scenes/customers/CustomerManager.tscn" id="6_rcl3h"]
 [ext_resource type="PackedScene" uid="uid://524ejq66alxp" path="res://scenes/stations/doner_station.tscn" id="7_aea8e"]
@@ -123,8 +122,6 @@ limit_top = 0
 limit_right = 1343
 limit_bottom = 767
 script = ExtResource("3_7ty7q")
-
-[node name="OrderManager" parent="." instance=ExtResource("5_37jns")]
 
 [node name="CustomerManager" parent="." instance=ExtResource("6_rcl3h")]
 queue_points = Array[NodePath]([NodePath("../pos1"), NodePath("../pos2"), NodePath("../pos3"), NodePath("../pos4"), NodePath("../pos5")])
