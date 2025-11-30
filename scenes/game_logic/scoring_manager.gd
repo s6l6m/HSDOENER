@@ -22,25 +22,29 @@ func subtract_score(amount: int) -> void:
 
 
 # --- Bestellung bewerten ---
-func evaluate_order(order: Order) -> int:
-	var score := 0
+func evaluate_order(order: Order, time_left: int) -> int:
+	var score: float = 0.0
 
-	# Kopie erstellen, damit wir nicht am Original herumbasteln
-	var required := order.required_ingredients.duplicate()
-	var fulfilled := order.fulfilled_ingredients.duplicate()
-
-	# KORREKTE ZUTATEN
-	for ing in fulfilled:
-		if ing in required:
+	# --- 1) Richtige Zutaten prüfen ---
+	for ing in order.fulfilled_ingredients:
+		if ing in order.required_ingredients:
 			score += 5
-			required.erase(ing) # Verhindert Doppelwertung
 		else:
 			score -= 5
 
-	# FEHLENDE ZUTATEN
-	score -= required.size() * 5
+	# --- 2) Alle fehlenden Zutaten ebenfalls bestrafen ---
+	for ing in order.required_ingredients:
+		if ing not in order.fulfilled_ingredients:
+			score -= 5
 
+	# --- 3) Zeitbonus hinzufügen ---
+	# time_left / 120.0 ergibt einen Bonus zwischen 0.0 und 1.0 (oder mehr)
+	var time_bonus := time_left / 120.0 * 10
+	score += time_bonus
+
+	# --- 4) Score auf Gesamtscore anwenden ---
 	total_score += score
+	emit_signal("score_changed", total_score)
 
 	return score
 
@@ -48,7 +52,7 @@ func evaluate_order(order: Order) -> int:
 
 # --- Setzt score hart
 func set_score(value: int) -> void:
-	# TODO: direkt setzen + Signal senden
+	# TODO
 	pass
 
 
