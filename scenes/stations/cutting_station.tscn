@@ -1,22 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuudswvlhc7jf"]
+[gd_scene load_steps=4 format=3 uid="uid://cuudswvlhc7jf"]
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_s5h3g"]
-[ext_resource type="Script" uid="uid://m526cq8mgp2o" path="res://scenes/stations/cutting_station.gd" id="2_fwyh5"]
-[ext_resource type="Texture2D" uid="uid://p73b8c1pvi8f" path="res://assets/workstations/content/Schneidebrett.png" id="2_s7yq8"]
-[ext_resource type="Texture2D" uid="uid://qyfcxvmtcndx" path="res://assets/workstations/workstation_up.png" id="3_58qw7"]
+[ext_resource type="Script" uid="uid://b8c1ttqa1wksk" path="res://scenes/stations/cutting_station.gd" id="2_fwyh5"]
+[ext_resource type="Texture2D" uid="uid://cayndjshlejg5" path="res://assets/workstations/content/Schneidebrett.png" id="2_s7yq8"]
 
 [node name="CuttingStation" instance=ExtResource("1_s5h3g")]
 script = ExtResource("2_fwyh5")
 station_type = "cuttingstation"
 
-[node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("3_58qw7")
-
 [node name="Content" parent="." index="1"]
 visible = true
-position = Vector2(-3.52, -19.555)
+position = Vector2(0, -20)
 texture = ExtResource("2_s7yq8")
 
 [node name="Food" type="Sprite2D" parent="." index="2"]
 visible = false
 position = Vector2(0, -19.82)
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2(0, 0)

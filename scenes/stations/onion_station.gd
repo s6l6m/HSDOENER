@@ -4,5 +4,5 @@ class_name OnionStation
 
 var item = load("res://assets/food/items/onion-item.png")
 
-func interact(player):
+func interact(player: Player):
 	player.pickUp(item)

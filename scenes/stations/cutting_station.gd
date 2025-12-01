@@ -4,7 +4,7 @@ class_name CuttingStation
 
 @onready var food = $Food
 
-func interact(player):
+func interact(player: Player):
 	if(food.visible):
 		if(player.pickUp(food.texture)):
 			food.visible = false

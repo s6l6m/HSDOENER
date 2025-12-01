@@ -1,25 +1,14 @@
 class_name Order
 extends PickableResource
 
-## Order ist ein PickableResource (Resource + Pickable-Funktionalität)
-## Kann vom Player gehalten und herumgetragen werden
-## Erbt von PickableResource:
-##   - Resource-Funktionalität (kann gespeichert werden)
-##   - name, icon, description
-##   - on_picked_up(), on_dropped()
-
-
-@export var icon: Texture2D
 @export var required_ingredients: Array[Ingredient] = []
 @export var fulfilled_ingredients: Array[Ingredient] = []
 @export var creation_time: int = 0
 @export var price: float = 0.0
 @export var time_limit: int = 0
 
-
 var customer: Customer
 var time_remaining: float = 0.0
-
 
 func _init(_icon: Texture2D = null, _required_ingredients: Array[Ingredient] = [], _price: float = 0.0, _creation_time: int = 0, _time_limit: int = 0):
 	icon = _icon
@@ -27,7 +16,6 @@ func _init(_icon: Texture2D = null, _required_ingredients: Array[Ingredient] = [
 	price = _price
 	creation_time = creation_time
 	time_limit = _time_limit
-
 
 # Bewertet die Bestellung, indem erfüllte mit benötigten Zutaten (inkl. Multiplizitäten) abgeglichen werden.
 # Ermittelt matches, missing und wrong; berechnet base = matches/|required| und penalty = (missing+wrong)/|required|.

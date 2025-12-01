@@ -12,7 +12,7 @@ func move_to(pos: Vector2):
 	target_position = pos
 	is_moving = true
 
-func _process(delta):
+func _process(_delta):
 	if is_moving:
 		var direction = (target_position - global_position).normalized()
 		velocity = direction * speed
@@ -29,6 +29,6 @@ func _process(delta):
 
 
 # Wird aufgerufen, wenn auf den Kunden geklickt wird
-func _input_event(viewport, event, shape_idx):
+func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		emit_signal("customer_left", self)

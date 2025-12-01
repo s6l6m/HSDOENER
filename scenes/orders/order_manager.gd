@@ -11,7 +11,7 @@ signal order_added(order: Order)
 signal order_completed(order: Order)
 signal order_removed(order: Order)
 
-@onready var doner_generator: DonerGenerator = $"doener-generator"
+@onready var doener_generator: DonerGenerator = %DoenerGenerator
 
 var orders: Array[Order] = []
 
@@ -21,39 +21,40 @@ func complete_order(order: Order) -> void:
 		remove_order(order)
 
 func remove_order(order: Order) -> void:
-	if order == null:
-		push_warning("remove_order() received a null order")
-		return
-
-	if order.customer == null:
-		push_warning("Order has no customer. Cannot emit customer_left")
-		return
-
 	order.customer.customer_left.emit(order.customer)
-
-	if order in orders:
-		orders.erase(order)
-		emit_signal("order_removed", order)
+	orders.erase(order)
+	emit_signal("order_removed", order)
 
 func create_doner_order(customer: Customer, difficulty: Difficulty ) -> Order:
 	var ingredients : Array[Ingredient]
-	
+	var price: int
+	var time_limit: int
+
 	match difficulty:
 		Difficulty.EASY:
-			ingredients = doner_generator.generate_small_doner()
+			ingredients = doener_generator.generate_small_doner()
+			price = randi_range(3, 10)
+			time_limit = randi_range(15, 20)
 		Difficulty.MEDIUM:
-			ingredients = doner_generator.generate_mid_doner()
+			ingredients = doener_generator.generate_mid_doner()
+			price = randi_range(5, 15)
+			time_limit = randi_range(20, 40)
 		Difficulty.HARD:
-			ingredients = doner_generator.generate_big_doner()
+			ingredients = doener_generator.generate_big_doner()
+			price = randi_range(15, 25)
+			time_limit = randi_range(30, 60)
 	
 	var order := Order.new(
 		preload("res://assets/food/items/warp-item.png"),
-		ingredients, 0, 0
+		ingredients,
+		price,
+		%TimeManager.play_time,
+		time_limit,
 	)
 
 	order.customer = customer
-	order.is_complete.connect(complete_order)
 	orders.append(order)
-
+	
+	
 	emit_signal("order_added", order)
 	return order

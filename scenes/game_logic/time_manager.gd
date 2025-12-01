@@ -1,4 +1,5 @@
 extends Node
+class_name TimeManager
 
 var play_time : int
 var total_time : int

@@ -7,6 +7,7 @@
 size = Vector2(16, 26)
 
 [node name="Customer" type="CharacterBody2D"]
+visibility_layer = 32769
 input_pickable = true
 script = ExtResource("1_of1yg")
 

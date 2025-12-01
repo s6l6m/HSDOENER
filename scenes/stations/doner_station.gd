@@ -2,5 +2,5 @@
 extends WorkStation
 class_name DonerStation
 
-func interact(player):
+func interact(_player: Player):
 	print("Du brauchst ein Messer")

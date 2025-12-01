@@ -33,7 +33,7 @@ func _ready() -> void:
 	update_direction()
 
 
-func interact(player):
+func interact(player: Player):
 	if content.visible:
 		if player.pickUp(content.texture):
 			content.visible = false

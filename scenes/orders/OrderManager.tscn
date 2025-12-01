@@ -10,10 +10,11 @@
 [ext_resource type="Resource" uid="uid://cpvpnb6xutbpx" path="res://scenes/ingredients/sosse.tres" id="8_r7rkd"]
 [ext_resource type="Resource" uid="uid://d3kr6b6gslfcg" path="res://scenes/ingredients/zwiebel.tres" id="9_72swl"]
 
-[node name="OrderManager" type="Node2D"]
+[node name="OrderManager" type="Node"]
 script = ExtResource("1_q7jjw")
 
-[node name="doener-generator" type="Node" parent="."]
+[node name="DoenerGenerator" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("2_mbwn4")
 brot = ExtResource("3_q1vf0")
 fleisch = ExtResource("4_0xlj5")

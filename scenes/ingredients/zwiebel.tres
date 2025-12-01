@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://d3kr6b6gslfcg"]
 
 [ext_resource type="Texture2D" uid="uid://b4v35jaei0nqf" path="res://assets/food/items/onion-item.png" id="1_8brkl"]
-[ext_resource type="Script" uid="uid://dfk3anh4to5im" path="res://scenes/ingredients/ingredient-data.gd" id="1_kw1p7"]
+[ext_resource type="Script" uid="uid://cifydixhr2lix" path="res://scenes/ingredients/ingredient-data.gd" id="1_kw1p7"]
 
 [resource]
 script = ExtResource("1_kw1p7")
