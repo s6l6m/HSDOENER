@@ -5,8 +5,6 @@ class_name TimerWidget
 
 var warning_tween: Tween
 
-
-
 func _on_play_time_changed(time_left: int) -> void:
 	%TimeLabel.text = _format_time(time_left)
 

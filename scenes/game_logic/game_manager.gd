@@ -27,3 +27,6 @@ func _update_time_left(play_time: int = 0):
 	if time_left <= 0:
 		current_level.level_lost.emit()
 	timer_widget._on_play_time_changed(time_left)
+
+func _update_coins(coins: int):
+	coin_widget.update_coins(coins)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2xymsk6rlk2o"]
+[gd_scene load_steps=11 format=3 uid="uid://b2xymsk6rlk2o"]
 
 [ext_resource type="Script" uid="uid://d2c164booyvvo" path="res://scenes/game_scene/levels/level.gd" id="1_nv0pp"]
 [ext_resource type="PackedScene" uid="uid://uu7kvkdnj1tf" path="res://scenes/game_logic/GameManager.tscn" id="2_l1wr4"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://ns22pvak7rm3" path="res://scenes/game_logic/ScoringManager.tscn" id="6_ipu0p"]
 [ext_resource type="PackedScene" uid="uid://1w46kse8u11v" path="res://scenes/ui/widgets/coin_widget.tscn" id="6_xknmv"]
 [ext_resource type="PackedScene" uid="uid://b7txlhqh20os1" path="res://scenes/game_logic/TutorialManager.tscn" id="7_qywm2"]
-[ext_resource type="Script" uid="uid://oqr3hgxpggyd" path="res://scenes/ui/widgets/coin_widget.gd" id="7_x0ypt"]
 [ext_resource type="PackedScene" uid="uid://cx33a7apawsty" path="res://scenes/ui/widgets/order/OrdersContainer.tscn" id="8_6tvmh"]
 
 [node name="Level" type="Node"]
@@ -83,7 +82,6 @@ offset_bottom = -33.99994
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2.1599998, 2.1599998)
-script = ExtResource("7_x0ypt")
 
 [node name="OrdersContainer" parent="CanvasLayer/MarginContainer/UIContainer" node_paths=PackedStringArray("order_manager") instance=ExtResource("8_6tvmh")]
 unique_name_in_owner = true

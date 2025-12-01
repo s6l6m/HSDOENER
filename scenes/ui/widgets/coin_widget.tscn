@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://1w46kse8u11v"]
+[gd_scene load_steps=3 format=3 uid="uid://1w46kse8u11v"]
 
 [ext_resource type="PackedScene" uid="uid://bn4a828drg1dp" path="res://scenes/ui/sprites/coin.tscn" id="1_4h2y2"]
+[ext_resource type="Script" uid="uid://oqr3hgxpggyd" path="res://scenes/ui/widgets/coin_widget.gd" id="1_jbdy0"]
 
 [node name="CoinWidget" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 size_flags_vertical = 4
+script = ExtResource("1_jbdy0")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -30,6 +32,7 @@ size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
 [node name="CoinLabel" type="Label" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 0.6

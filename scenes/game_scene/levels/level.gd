@@ -19,15 +19,6 @@ enum Difficulty { EASY, MEDIUM, HARD }
 
 var level_state: LevelState
 
-func _on_lose_button_pressed() -> void:
-	level_lost.emit()
-
-func _on_win_button_pressed() -> void:
-	if not next_level_path.is_empty():
-		level_won_and_changed.emit(next_level_path)
-	else:
-		level_won.emit()
-
 func open_tutorials() -> void:
 	tutorial_manager.open_tutorials()
 	level_state.tutorial_read = true
