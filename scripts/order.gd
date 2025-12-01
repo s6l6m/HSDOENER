@@ -1,5 +1,12 @@
 class_name Order
-extends Resource
+extends PickableResource
+
+## Order ist ein PickableResource (Resource + Pickable-Funktionalität)
+## Kann vom Player gehalten und herumgetragen werden
+## Erbt von PickableResource:
+##   - Resource-Funktionalität (kann gespeichert werden)
+##   - name, icon, description
+##   - on_picked_up(), on_dropped()
 
 
 @export var icon: Texture2D
@@ -11,6 +18,7 @@ extends Resource
 
 
 var customer: Customer
+var time_remaining: float = 0.0
 
 
 func _init(_icon: Texture2D = null, _required_ingredients: Array[Ingredient] = [], _price: float = 0.0, _creation_time: int = 0, _time_limit: int = 0):
