@@ -91,7 +91,7 @@ func _physics_process(delta: float) -> void:
 				current_station.interact(self)
 		if Input.is_action_just_pressed("cut_p2"):
 			if current_station and current_station.station_type == "cuttingstation":
-				current_station.cut(self)
+				current_station.start_cut(self)
 		if Input.is_action_just_released("cut_p2"):
 			if current_station and current_station.station_type == "cuttingstation":
 				current_station.stop_cut(self)
