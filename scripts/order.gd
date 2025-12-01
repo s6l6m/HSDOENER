@@ -1,19 +1,29 @@
 class_name Order
-extends Resource
+extends PickableResource
 
-@export var icon: Texture2D
+## Order ist ein PickableResource (Resource + Pickable-Funktionalität)
+## Kann vom Player gehalten und herumgetragen werden
+## Erbt von PickableResource:
+##   - Resource-Funktionalität (kann gespeichert werden)
+##   - name, icon, description
+##   - on_picked_up(), on_dropped()
+
 @export var required_ingredients: Array[Ingredient] = []
 @export var fulfilled_ingredients: Array[Ingredient] = []
 @export var price: float = 0.0
+@export var time_limit: float = 120.0  # Zeit in Sekunden bis Order abläuft
 
 var customer: Customer
+var time_remaining: float = 0.0
 
 signal is_complete(order: Order)
+signal time_expired(order: Order)
 
 func _init(_icon: Texture2D = null, _required_ingredients: Array[Ingredient] = [], _price: float = 0.0):
-	icon = _icon
+	super._init("Order", _icon, "Döner Order")
 	required_ingredients = _required_ingredients
 	price = _price
+	time_remaining = time_limit
 
 func fulfill_ingredient(ingredient: Ingredient) -> bool:
 	if ingredient not in required_ingredients:
