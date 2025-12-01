@@ -1,6 +1,7 @@
 class_name Order
 extends Resource
 
+
 @export var icon: Texture2D
 @export var required_ingredients: Array[Ingredient] = []
 @export var fulfilled_ingredients: Array[Ingredient] = []
@@ -8,9 +9,9 @@ extends Resource
 @export var price: float = 0.0
 @export var time_limit: int = 0
 
+
 var customer: Customer
 
-signal is_complete(order: Order)
 
 func _init(_icon: Texture2D = null, _required_ingredients: Array[Ingredient] = [], _price: float = 0.0, _creation_time: int = 0, _time_limit: int = 0):
 	icon = _icon
@@ -19,46 +20,42 @@ func _init(_icon: Texture2D = null, _required_ingredients: Array[Ingredient] = [
 	creation_time = creation_time
 	time_limit = _time_limit
 
-func fulfill_ingredient(ingredient: Ingredient) -> bool:
-	if ingredient not in required_ingredients:
-		print("ingredient not required")
-		return false
 
-	var needed := _count(required_ingredients, ingredient)
-	var have := _count(fulfilled_ingredients, ingredient)
+# Bewertet die Bestellung, indem erfüllte mit benötigten Zutaten (inkl. Multiplizitäten) abgeglichen werden.
+# Ermittelt matches, missing und wrong; berechnet base = matches/|required| und penalty = (missing+wrong)/|required|.
+# Ergebnis ist base - penalty, auf den Bereich [-1.0, 1.0] beschränkt; leere Anforderungsliste liefert 0.0.
+func evaluate_ingredients_fulfilled() -> float:
+	if required_ingredients.is_empty():
+		return 0.0
 
-	if have >= needed:
-		print("ingredient is already there")
-		return false
+	var req_counts := {}
+	for r in required_ingredients:
+		req_counts[r] = (req_counts.get(r, 0) as int) + 1
 
-	fulfilled_ingredients.append(ingredient)
+	var matches := 0
+	var wrong := 0
 
-	if _evaluate_is_complete():
-		emit_signal("is_complete", self)
+	for f in fulfilled_ingredients:
+		if req_counts.has(f) and req_counts[f] > 0:
+			matches += 1
+			req_counts[f] -= 1
+		else:
+			wrong += 1
 
-	print("ingredient success")
-	return true
+	var missing := 0
+	for v in req_counts.values():
+		missing += v
 
-func _evaluate_is_complete() -> float:
-	if fulfilled_ingredients.size() != required_ingredients.size():
-		return 0
+	var denom := float(required_ingredients.size())
+	var base := float(matches) / denom
+	var penalty := float(missing + wrong) / denom
+	return clamp(base - penalty, -1.0, 1.0)
 
-	for ing in required_ingredients:
-		if _count(fulfilled_ingredients, ing) < _count(required_ingredients, ing):
-			return 0
-
-	return 1
-
-func _count(arr: Array, item) -> int:
-	var c := 0
-	for a in arr:
-		if a == item:
-			c += 1
-	return c
 	
 func _evaluate_freshness():
 	#TODO
 	return 1
+	
 	
 func _evaluate_time_left(current_time: int) -> float:
 	var elapsed: int = current_time - self.creation_time
