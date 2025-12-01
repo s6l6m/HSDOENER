@@ -52,7 +52,7 @@ func evaluate_ingredients_fulfilled() -> float:
 	return clamp(base - penalty, -1.0, 1.0)
 
 	
-func _evaluate_freshness():
+func evaluate_freshness() -> float:
 	#TODO
 	return 1
 	
@@ -60,5 +60,17 @@ func _evaluate_freshness():
 func _evaluate_time_left(current_time: int) -> float:
 	var elapsed: int = current_time - self.creation_time
 	
-	#normalisieren
-	return 1.0 - clamp(float(elapsed) / self.time_limit, 0.0, 1.0)
+	# negative Zeiten abfangen
+	if elapsed < 0:
+		elapsed = 0
+	
+	# ungültiges time_limit absichern
+	if time_limit <= 0:
+		return 0.0
+	
+	# wenn limit überschritten, 0 zurückgeben
+	if elapsed > time_limit:
+		return 0.0
+	
+	# normalisierter Wert zwischen 0 und 1
+	return float(elapsed) / float(time_limit)

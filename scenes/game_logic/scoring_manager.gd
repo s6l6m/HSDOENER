@@ -2,61 +2,36 @@ extends Node
 class_name ScoreManager
 
 # --- Signale ---
-signal score_changed(new_score)
-signal order_evaluated(order, score_delta)
+signal score_changed(new_score: int)
+signal order_evaluated(order: Order, score_delta: int)
 
 # --- Daten ---
-var total_score: int = 0
+var coins: int = 0
 
 
-# --- Score erhöhen ---
-func add_score(amount: int) -> void:
-	# TODO
-	pass
+func update_coins(delta: int) -> void:
+	coins += delta
+	emit_signal("score_changed", coins)
 
 
-# --- Score senken ---
-func subtract_score(amount: int) -> void:
-	# TODO
-	pass
+func evaluate_order(order: Order, current_time: int):
+	# Teilbewertungen aus der Order holen
+	var ingredients_score := order.evaluate_ingredients_fulfilled()   # [-1..1]
+	var freshness_score := order.evaluate_freshness()                # z.B. [0..1]
+	var time_score := order._evaluate_time_left(current_time)         # [0..1]
 
+	# Kombinierter Score 50 prozent machen ingredients aus, rest frische und zeit
+	var combined_score := (
+		ingredients_score * 0.5 +
+		freshness_score   * 0.25 +
+		time_score        * 0.25
+	)
+	# Coins-Änderung berechnen (Score * Preis)
+	var coin_delta_float := combined_score * order.price
+	var coin_delta := int(round(coin_delta_float))
 
-# --- Bestellung bewerten ---
-# time left muss im game manager ermittelt werden
-# order ist die bestellung die abgegeben wurde und bewertet werden muss
-# die funktion updatet am ende noch den gesamtscore. dieser ist aktuell im scoring manager, kann aber auch im game manager liegen 
-func evaluate_order_update_score(order: Order, current_time: int):
-	var score: int = 0
+	# Globalen Coin-Counter updaten
+	update_coins(coin_delta)
 
-	# --- 1) Richtige Zutaten prüfen ---
-	for ing in order.fulfilled_ingredients:
-		if ing in order.required_ingredients:
-			score += 5
-		else:
-			score -= 5
-
-	# --- 2) Alle fehlenden Zutaten ebenfalls bestrafen ---
-	for ing in order.required_ingredients:
-		if ing not in order.fulfilled_ingredients:
-			score -= 5
-
-	# --- 3) Zeitbonus hinzufügen ---
-	# time_left / 120.0 ergibt einen Bonus zwischen 0.0 und 1.0 (oder mehr)
-	var time_bonus := (current_time - order.creation_time) / 120 * 10
-	score += time_bonus
-
-	# --- 4) Score auf Gesamtscore anwenden ---
-	total_score += score
-	emit_signal("score_changed", total_score)
-
-
-# --- Setzt score hart
-func set_score(value: int) -> void:
-	# TODO
-	pass
-
-
-# --- Für Neustart / Game Reset ---
-func reset_score() -> void:
-	# TODO
-	pass
+	# Event nach außen melden
+	emit_signal("order_evaluated", order, coin_delta)
