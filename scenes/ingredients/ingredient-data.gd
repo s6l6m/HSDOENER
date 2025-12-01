@@ -10,11 +10,6 @@ extends PickableResource
 
 var is_in_workstation: bool = false          # wird von Workstation gesetzt
 
-func _process(delta: float) -> void:
-	if not is_in_workstation:
-		update_rot(delta)
-
-
 func update_rot(delta: float) -> void:
 	if rot_amount >= 1.0:
 		rot_amount = 1.0

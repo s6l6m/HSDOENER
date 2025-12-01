@@ -2,7 +2,15 @@
 extends WorkStation
 class_name TomatoStation
 
-var item = load("res://assets/food/items/tomato-item.png")
+var tomato_resource := preload("res://scenes/ingredients/tomate.tres")
 
 func interact(player):
-	player.pickUp(item)
+	# Wenn der Player schon was hält, abgeben nicht möglich
+	if player.isHoldingPickable():
+		return
+
+	# Neue Gurken-Instanz erzeugen
+	var tomato: Ingredient = tomato_resource.duplicate(true)
+
+	# Player bekommt das Ingredient
+	player.pickUpIngredient(tomato)

@@ -45,7 +45,6 @@ func _process(_delta):
 	if held_pickable != null:
 		held_pickable.update_rot(_delta)
 		heldItem.modulate = held_pickable.get_icon_tint()
-		print(held_pickable.rot_amount)
 
 func _physics_process(delta: float) -> void:
 	# Wenn Player DISABLED ist, keine Bewegung erlauben
