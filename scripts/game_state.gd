@@ -4,12 +4,13 @@ extends Resource
 const STATE_NAME : String = "GameState"
 const FILE_PATH = "res://scripts/game_state.gd"
 
-@export var level_states : Dictionary = {}
-@export var current_level_path : String
-@export var continue_level_path : String
-@export var total_games_played : int
-@export var play_time : int
-@export var total_time : int
+@export var level_states: Dictionary = {}
+@export var current_level_path: String
+@export var continue_level_path: String
+@export var total_games_played: int
+@export var play_time: int
+@export var total_time: int
+@export var total_coins: int
 
 static func get_level_state(level_state_key : String) -> LevelState:
 	if not has_game_state(): 
@@ -71,4 +72,5 @@ static func reset() -> void:
 	game_state.continue_level_path = ""
 	game_state.play_time = 0
 	game_state.total_time = 0
+	game_state.total_coins = 0
 	GlobalState.save()

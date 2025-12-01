@@ -1,63 +1,72 @@
 class_name Order
 extends PickableResource
 
-## Order ist ein PickableResource (Resource + Pickable-Funktionalität)
-## Kann vom Player gehalten und herumgetragen werden
-## Erbt von PickableResource:
-##   - Resource-Funktionalität (kann gespeichert werden)
-##   - name, icon, description
-##   - on_picked_up(), on_dropped()
-
 @export var required_ingredients: Array[Ingredient] = []
 @export var fulfilled_ingredients: Array[Ingredient] = []
+@export var creation_time: int = 0
 @export var price: float = 0.0
-@export var time_limit: float = 120.0  # Zeit in Sekunden bis Order abläuft
+@export var time_limit: int = 0
 
 var customer: Customer
 var time_remaining: float = 0.0
 
-signal is_complete(order: Order)
-signal time_expired(order: Order)
-
-func _init(_icon: Texture2D = null, _required_ingredients: Array[Ingredient] = [], _price: float = 0.0):
-	super._init("Order", _icon, "Döner Order")
+func _init(_icon: Texture2D = null, _required_ingredients: Array[Ingredient] = [], _price: float = 0.0, _creation_time: int = 0, _time_limit: int = 0):
+	icon = _icon
 	required_ingredients = _required_ingredients
 	price = _price
-	time_remaining = time_limit
+	creation_time = creation_time
+	time_limit = _time_limit
 
-func fulfill_ingredient(ingredient: Ingredient) -> bool:
-	if ingredient not in required_ingredients:
-		print("ingredient not required")
-		return false
+# Bewertet die Bestellung, indem erfüllte mit benötigten Zutaten (inkl. Multiplizitäten) abgeglichen werden.
+# Ermittelt matches, missing und wrong; berechnet base = matches/|required| und penalty = (missing+wrong)/|required|.
+# Ergebnis ist base - penalty, auf den Bereich [-1.0, 1.0] beschränkt; leere Anforderungsliste liefert 0.0.
+func evaluate_ingredients_fulfilled() -> float:
+	if required_ingredients.is_empty():
+		return 0.0
 
-	var needed := _count(required_ingredients, ingredient)
-	var have := _count(fulfilled_ingredients, ingredient)
+	var req_counts := {}
+	for r in required_ingredients:
+		req_counts[r] = (req_counts.get(r, 0) as int) + 1
 
-	if have >= needed:
-		print("ingredient is already there")
-		return false
+	var matches := 0
+	var wrong := 0
 
-	fulfilled_ingredients.append(ingredient)
+	for f in fulfilled_ingredients:
+		if req_counts.has(f) and req_counts[f] > 0:
+			matches += 1
+			req_counts[f] -= 1
+		else:
+			wrong += 1
 
-	if _is_complete():
-		emit_signal("is_complete", self)
+	var missing := 0
+	for v in req_counts.values():
+		missing += v
 
-	print("ingredient success")
-	return true
+	var denom := float(required_ingredients.size())
+	var base := float(matches) / denom
+	var penalty := float(missing + wrong) / denom
+	return clamp(base - penalty, -1.0, 1.0)
 
-func _is_complete() -> bool:
-	if fulfilled_ingredients.size() != required_ingredients.size():
-		return false
-
-	for ing in required_ingredients:
-		if _count(fulfilled_ingredients, ing) < _count(required_ingredients, ing):
-			return false
-
-	return true
-
-func _count(arr: Array, item) -> int:
-	var c := 0
-	for a in arr:
-		if a == item:
-			c += 1
-	return c
+	
+func evaluate_freshness() -> float:
+	#TODO
+	return 1
+	
+	
+func _evaluate_time_left(current_time: int) -> float:
+	var elapsed: int = current_time - self.creation_time
+	
+	# negative Zeiten abfangen
+	if elapsed < 0:
+		elapsed = 0
+	
+	# ungültiges time_limit absichern
+	if time_limit <= 0:
+		return 0.0
+	
+	# wenn limit überschritten, 0 zurückgeben
+	if elapsed > time_limit:
+		return 0.0
+	
+	# normalisierter Wert zwischen 0 und 1
+	return float(elapsed) / float(time_limit)

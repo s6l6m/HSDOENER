@@ -6,30 +6,37 @@
 [node name="TimerWidget" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+size_flags_vertical = 4
 script = ExtResource("1_d28bw")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 3.0
-offset_right = 97.0
-offset_bottom = 30.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -15.0
+offset_right = 12.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_type_variation = &"WidgetPanel"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 4
 theme_override_constants/separation = 0
 
-[node name="TimeDisplay" type="Label" parent="PanelContainer/HBoxContainer"]
+[node name="TimeLabel" type="Label" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.6
-theme_override_constants/line_spacing = 0
-theme_override_constants/outline_size = 8
-text = "00:00:00"
+text = "00:00"
 vertical_alignment = 1
 
 [node name="Clock" parent="PanelContainer/HBoxContainer" instance=ExtResource("2_dwelr")]

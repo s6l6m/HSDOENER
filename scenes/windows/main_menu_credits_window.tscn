@@ -25,4 +25,4 @@ visible = false
 
 [node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
 size_flags_horizontal = 0
-text = "Back"
+text = "Zurück"

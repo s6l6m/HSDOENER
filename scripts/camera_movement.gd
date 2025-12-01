@@ -5,12 +5,7 @@ extends Camera2D
 @export var min_zoom: float = 0.7
 @export var max_zoom: float = 1
 @export var margin: Vector2 = Vector2(300, 150)
-
-var targets: Array[Node2D] = []
-
-func add_target(t: Node2D) -> void:
-	if t not in targets:
-		targets.append(t)
+@export var targets: Array[Node2D] = []
 
 func remove_target(t: Node2D) -> void:
 	if t in targets:

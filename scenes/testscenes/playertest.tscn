@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=4 uid="uid://dgg4vwt32ng8p"]
+[gd_scene load_steps=14 format=4 uid="uid://bv420bevae7fi"]
 
-[ext_resource type="Script" uid="uid://db42wncatlunt" path="res://scenes/testscenes/playertest.gd" id="1_0qt6d"]
 [ext_resource type="PackedScene" uid="uid://rj34n7wmoup7" path="res://scenes/player/Player.tscn" id="1_eg31v"]
+[ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/level.tscn" id="1_f618n"]
 [ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_p2qo3"]
 [ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
 [ext_resource type="PackedScene" uid="uid://dqe5dy0v501xx" path="res://scenes/stations/cucumber_station.tscn" id="6_e3sbb"]
-[ext_resource type="PackedScene" uid="uid://dunmeos6sxqjh" path="res://scenes/customers/CustomerManager.tscn" id="6_rcl3h"]
 [ext_resource type="PackedScene" uid="uid://524ejq66alxp" path="res://scenes/stations/doner_station.tscn" id="7_aea8e"]
 [ext_resource type="PackedScene" uid="uid://dy1cqc54o30wq" path="res://scenes/stations/onion_station.tscn" id="8_ptllb"]
 [ext_resource type="PackedScene" uid="uid://dlddl304vd3xa" path="res://scenes/stations/tomato_station.tscn" id="9_7xdsu"]
@@ -13,147 +12,151 @@
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="10_f618n"]
 [ext_resource type="PackedScene" uid="uid://dfrnrliqs1ac2" path="res://scenes/stations/salad_station.tscn" id="11_27w7k"]
 [ext_resource type="PackedScene" uid="uid://tp3mfdvbfyo0" path="res://scenes/stations/bread_station.tscn" id="11_vb107"]
+[ext_resource type="PackedScene" uid="uid://bjyqpv0xaejip" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="15_lbva2"]
 
-[node name="Playertest" type="Node2D"]
-script = ExtResource("1_0qt6d")
+[node name="Level" instance=ExtResource("1_f618n")]
+round_time = 300
 
-[node name="Player1" parent="." instance=ExtResource("1_eg31v")]
+[node name="TutorialManager" parent="." index="4"]
+tutorial_scenes = Array[PackedScene]([ExtResource("15_lbva2")])
+
+[node name="Player1" parent="." index="5" instance=ExtResource("1_eg31v")]
 z_index = 1
 position = Vector2(307.765, 360)
 platform_floor_layers = 4294967041
 platform_wall_layers = 1
 
-[node name="Player2" parent="." instance=ExtResource("1_eg31v")]
+[node name="Player2" parent="." index="6" instance=ExtResource("1_eg31v")]
 z_index = 1
 position = Vector2(700, 366)
 player_number = 2
 
-[node name="Floor" type="TileMapLayer" parent="."]
+[node name="Floor" type="TileMapLayer" parent="." index="7"]
 tile_map_data = PackedByteArray("AAAEAAMAAAAAAAYAAAAEAAQAAAAAAAcAAAAEAAUAAAAAAAcAAAAEAAYAAAAAAAcAAAAEAAcAAAAAAAcAAAAFAAMAAAAAAAYAAAAFAAQAAAAAAAcAAAAFAAUAAAAAAAcAAAAFAAYAAAAAAAcAAAAFAAcAAAAAAAcAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAcAAAAGAAUAAAAAAAcAAAAGAAYAAAAAAAcAAAAGAAcAAAAAAAcAAAAHAAMAAAAAAAYAAAAHAAQAAAAAAAcAAAAHAAUAAAAAAAcAAAAHAAYAAAAAAAcAAAAHAAcAAAAAAAcAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAcAAAAIAAUAAAAAAAcAAAAIAAYAAAAAAAcAAAAIAAcAAAAAAAcAAAAJAAMAAAAAAAYAAAAJAAQAAAAAAAcAAAAJAAUAAAAAAAcAAAAJAAYAAAAAAAcAAAAJAAcAAAAAAAcAAAAKAAMAAAAAAAYAAAAKAAQAAAAAAAcAAAAKAAUAAAAAAAcAAAAKAAYAAAAAAAcAAAAKAAcAAAAAAAcAAAALAAMAAAAAAAYAAAALAAQAAAAAAAcAAAALAAUAAAAAAAcAAAALAAYAAAAAAAcAAAALAAcAAAAAAAcAAAAMAAMAAAAAAAYAAAAMAAQAAAAAAAcAAAAMAAUAAAAAAAcAAAAMAAYAAAAAAAcAAAAMAAcAAAAAAAcAAAANAAMAAAACAAcAAAANAAQAAAACAAcAAAANAAUAAAACAAcAAAANAAYAAAACAAcAAAANAAcAAAACAAcAAAAOAAMAAAACAAcAAAAOAAQAAAACAAcAAAAOAAUAAAACAAcAAAAOAAYAAAACAAcAAAAOAAcAAAACAAcAAAAPAAMAAAACAAcAAAAPAAQAAAACAAcAAAAPAAUAAAACAAcAAAAPAAYAAAACAAcAAAAPAAcAAAACAAcAAAADAAMAAAAAAAYAAAADAAQAAAAAAAcAAAADAAUAAAAAAAcAAAADAAYAAAAAAAcAAAADAAcAAAAAAAcAAAAQAAMAAAACAAcAAAAQAAQAAAACAAcAAAAQAAUAAAACAAcAAAAQAAYAAAACAAcAAAAQAAcAAAACAAcAAAANAAIAAAACAAcAAAANAAEAAAACAAcAAAAOAAEAAAACAAcAAAAOAAAAAAACAAcAAAAPAAAAAAACAAcAAAAPAAEAAAACAAcAAAAQAAEAAAACAAcAAAAQAAIAAAACAAcAAAAQAAAAAAACAAcAAAANAAAAAAACAAcAAAAOAAIAAAACAAcAAAAPAAIAAAACAAcAAAA=")
 tile_set = ExtResource("2_p2qo3")
 
-[node name="Walls" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAMAAMAAAAIAAEAAAAMAAQAAAAIAAEAAAAMAAUAAAAIAAEAAAAMAAYAAAAIAAEAAAAMAAcAAAAIAAMAAAADAAIAAAAAAAUAAAAEAAIAAAAAAAUAAAAFAAIAAAAAAAUAAAAGAAIAAAAAAAUAAAAHAAIAAAAAAAUAAAAIAAIAAAAAAAUAAAAJAAIAAAAAAAUAAAAKAAIAAAAAAAUAAAALAAIAAAAAAAUAAAAMAAIAAAAIAAAAAAADAAEAAAAAAAMAAAAEAAEAAAAAAAMAAAAFAAEAAAAAAAMAAAAGAAEAAAAAAAMAAAAHAAEAAAAAAAMAAAAIAAEAAAAAAAMAAAAJAAEAAAAAAAMAAAAKAAEAAAAAAAMAAAALAAEAAAAAAAMAAAAMAAEAAAABAAMAAAAMAAAAAAABAAEAAAANAP//AAAAAAQAAAAOAP//AAAAAAQAAAAPAP//AAAAAAQAAAAQAP//AAAAAAQAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAEAAAACAAUAAAABAAEAAAACAAYAAAABAAEAAAACAAcAAAABAAEAAAAMAP//AAABAAEAAAACAAEAAAABAAAAAAANAP7/AAAAAAMAAAAOAP7/AAAAAAMAAAAPAP7/AAAAAAMAAAAQAP7/AAAAAAMAAAAMAP7/AAABAAAAAAADAAgAAAAAAAIAAAAEAAgAAAAAAAIAAAAFAAgAAAAAAAIAAAAGAAgAAAAAAAIAAAAHAAgAAAAAAAIAAAAIAAgAAAAAAAIAAAAJAAgAAAAAAAIAAAAKAAgAAAAAAAIAAAALAAgAAAAAAAIAAAAMAAgAAAAAAAIAAAANAAgAAAAAAAIAAAAOAAgAAAAAAAIAAAAPAAgAAAAAAAIAAAAQAAgAAAAAAAIAAAARAP//AAACAAEAAAARAAAAAAACAAEAAAARAAEAAAACAAEAAAARAAIAAAACAAEAAAARAAMAAAACAAEAAAARAAQAAAACAAEAAAARAAUAAAACAAEAAAARAAYAAAACAAEAAAARAAcAAAACAAEAAAARAP7/AAACAAAAAAACAAgAAAABAAIAAAARAAgAAAACAAIAAAAHAAUAAAACAAAAAAA=")
+[node name="Walls" type="TileMapLayer" parent="." index="8"]
+tile_map_data = PackedByteArray("AAAMAAMAAAAIAAEAAAAMAAQAAAAIAAEAAAAMAAUAAAAIAAEAAAAMAAYAAAAIAAEAAAAMAAcAAAAIAAMAAAADAAIAAAAAAAUAAAAEAAIAAAAAAAUAAAAFAAIAAAAAAAUAAAAGAAIAAAAAAAUAAAAHAAIAAAAAAAUAAAAIAAIAAAAAAAUAAAAJAAIAAAAAAAUAAAAKAAIAAAAAAAUAAAALAAIAAAAAAAUAAAAMAAIAAAAIAAAAAAADAAEAAAAAAAMAAAAEAAEAAAAAAAMAAAAFAAEAAAAAAAMAAAAGAAEAAAAAAAMAAAAHAAEAAAAAAAMAAAAIAAEAAAAAAAMAAAAJAAEAAAAAAAMAAAAKAAEAAAAAAAMAAAALAAEAAAAAAAMAAAAMAAEAAAABAAMAAAAMAAAAAAABAAEAAAANAP//AAAAAAQAAAAOAP//AAAAAAQAAAAPAP//AAAAAAQAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAEAAAACAAUAAAABAAEAAAACAAYAAAABAAEAAAACAAcAAAABAAEAAAAMAP//AAABAAEAAAACAAEAAAABAAAAAAANAP7/AAAAAAMAAAAOAP7/AAAAAAMAAAAPAP7/AAAAAAMAAAAQAP7/AAAAAAMAAAAMAP7/AAABAAAAAAADAAgAAAAAAAIAAAAEAAgAAAAAAAIAAAAFAAgAAAAAAAIAAAAGAAgAAAAAAAIAAAAHAAgAAAAAAAIAAAAIAAgAAAAAAAIAAAAJAAgAAAAAAAIAAAAKAAgAAAAAAAIAAAALAAgAAAAAAAIAAAAMAAgAAAAAAAIAAAANAAgAAAAAAAIAAAAOAAgAAAAAAAIAAAAPAAgAAAAAAAIAAAAQAAgAAAAAAAIAAAARAP//AAACAAEAAAARAAAAAAACAAEAAAARAAEAAAACAAEAAAARAAIAAAACAAEAAAARAAMAAAACAAEAAAARAAQAAAACAAEAAAARAAUAAAACAAEAAAARAAYAAAACAAEAAAARAAcAAAACAAEAAAARAP7/AAACAAAAAAACAAgAAAABAAIAAAARAAgAAAACAAIAAAAHAAUAAAACAAAAAAAQAP//AAAAAAQAAAA=")
 tile_set = ExtResource("2_p2qo3")
 
-[node name="Stations" type="Sprite2D" parent="."]
+[node name="CustomerMarkers" type="Node" parent="." index="9"]
 
-[node name="CucumberStation" parent="Stations" instance=ExtResource("6_e3sbb")]
+[node name="Spawn" type="Marker2D" parent="CustomerMarkers" index="0"]
+position = Vector2(1130, 26)
+
+[node name="1" type="Marker2D" parent="CustomerMarkers" index="1"]
+position = Vector2(866, 228)
+
+[node name="2" type="Marker2D" parent="CustomerMarkers" index="2"]
+position = Vector2(866, 289)
+
+[node name="3" type="Marker2D" parent="CustomerMarkers" index="3"]
+position = Vector2(867, 347)
+
+[node name="4" type="Marker2D" parent="CustomerMarkers" index="4"]
+position = Vector2(867, 403)
+
+[node name="5" type="Marker2D" parent="CustomerMarkers" index="5"]
+position = Vector2(867, 461)
+
+[node name="Exit" type="Marker2D" parent="CustomerMarkers" index="6"]
+position = Vector2(1139, 493)
+
+[node name="Stations" type="Sprite2D" parent="." index="10"]
+
+[node name="CucumberStation" parent="Stations" index="0" instance=ExtResource("6_e3sbb")]
 position = Vector2(416, 207)
 
-[node name="DonerStation" parent="Stations" instance=ExtResource("7_aea8e")]
+[node name="DonerStation" parent="Stations" index="1" instance=ExtResource("7_aea8e")]
 position = Vector2(480, 207)
 
-[node name="OnionStation" parent="Stations" instance=ExtResource("8_ptllb")]
+[node name="OnionStation" parent="Stations" index="2" instance=ExtResource("8_ptllb")]
 position = Vector2(416, 480)
 rotation = 3.1415927
 direction = 0
 
-[node name="TomatoStation" parent="Stations" instance=ExtResource("9_7xdsu")]
+[node name="TomatoStation" parent="Stations" index="3" instance=ExtResource("9_7xdsu")]
 position = Vector2(544, 207)
 
-[node name="CuttingStation" parent="Stations" instance=ExtResource("10_7xdsu")]
+[node name="CuttingStation" parent="Stations" index="4" instance=ExtResource("10_7xdsu")]
 position = Vector2(608, 378)
 
-[node name="BreadStation" parent="Stations" instance=ExtResource("11_vb107")]
+[node name="BreadStation" parent="Stations" index="5" instance=ExtResource("11_vb107")]
 position = Vector2(544, 378)
 
-[node name="CuttingStation2" parent="Stations" instance=ExtResource("10_7xdsu")]
+[node name="CuttingStation2" parent="Stations" index="6" instance=ExtResource("10_7xdsu")]
 position = Vector2(480, 378)
 
-[node name="TomatoStation2" parent="Stations" instance=ExtResource("9_7xdsu")]
+[node name="TomatoStation2" parent="Stations" index="7" instance=ExtResource("9_7xdsu")]
 position = Vector2(480, 314)
 rotation = 3.1415927
 direction = 0
 
-[node name="CuttingStation3" parent="Stations" instance=ExtResource("10_7xdsu")]
+[node name="CuttingStation3" parent="Stations" index="8" instance=ExtResource("10_7xdsu")]
 position = Vector2(544, 314)
 rotation = 3.1415927
 direction = 0
 
-[node name="CucumberStation2" parent="Stations" instance=ExtResource("6_e3sbb")]
+[node name="CucumberStation2" parent="Stations" index="9" instance=ExtResource("6_e3sbb")]
 position = Vector2(224, 288)
 rotation = 4.712389
 direction = 2
 
-[node name="CucumberStation4" parent="Stations" instance=ExtResource("6_e3sbb")]
+[node name="CucumberStation4" parent="Stations" index="10" instance=ExtResource("6_e3sbb")]
 position = Vector2(224, 352)
 rotation = 4.712389
 direction = 2
 
-[node name="CucumberStation3" parent="Stations" instance=ExtResource("6_e3sbb")]
+[node name="CucumberStation3" parent="Stations" index="11" instance=ExtResource("6_e3sbb")]
 position = Vector2(224, 416)
 rotation = 4.712389
 direction = 2
 
-[node name="WorkStation" parent="Stations" instance=ExtResource("10_f618n")]
+[node name="WorkStation" parent="Stations" index="12" instance=ExtResource("10_f618n")]
 position = Vector2(352, 207)
 
-[node name="WorkStation2" parent="Stations" instance=ExtResource("10_f618n")]
+[node name="WorkStation2" parent="Stations" index="13" instance=ExtResource("10_f618n")]
 position = Vector2(352, 480)
 rotation = 3.1415927
 direction = 0
 
-[node name="SaladStation" parent="Stations" instance=ExtResource("11_27w7k")]
+[node name="SaladStation" parent="Stations" index="14" instance=ExtResource("11_27w7k")]
 position = Vector2(608, 207)
 
-[node name="SaladStation2" parent="Stations" instance=ExtResource("11_27w7k")]
+[node name="SaladStation2" parent="Stations" index="15" instance=ExtResource("11_27w7k")]
 position = Vector2(544, 480)
 rotation = 3.1415927
 direction = 0
 
-[node name="WorkStation3" parent="Stations" instance=ExtResource("10_f618n")]
+[node name="WorkStation3" parent="Stations" index="16" instance=ExtResource("10_f618n")]
 position = Vector2(608, 314)
 rotation = 3.1415927
 direction = 0
 
-[node name="DonerStation2" parent="Stations" instance=ExtResource("7_aea8e")]
+[node name="DonerStation2" parent="Stations" index="17" instance=ExtResource("7_aea8e")]
 position = Vector2(416, 314)
 rotation = 3.1415927
 direction = 0
 
-[node name="WorkStation4" parent="Stations" instance=ExtResource("10_f618n")]
+[node name="WorkStation4" parent="Stations" index="18" instance=ExtResource("10_f618n")]
 position = Vector2(416, 378)
 
-[node name="CuttingStation4" parent="Stations" instance=ExtResource("10_7xdsu")]
+[node name="CuttingStation4" parent="Stations" index="19" instance=ExtResource("10_7xdsu")]
 position = Vector2(480, 480)
 rotation = 3.1415927
 direction = 0
 
-[node name="Kasse" type="TileMapLayer" parent="."]
+[node name="Kasse" type="TileMapLayer" parent="." index="11"]
+position = Vector2(1074, -16)
 tile_map_data = PackedByteArray("AAAMAAYAAAAJAAAAAFA=")
 tile_set = ExtResource("2_p2qo3")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(642, 362)
-limit_left = -2
-limit_top = 0
-limit_right = 1343
-limit_bottom = 767
+[node name="Camera2D" type="Camera2D" parent="." index="12" node_paths=PackedStringArray("targets")]
+position = Vector2(640, 360)
 script = ExtResource("3_7ty7q")
+targets = [NodePath("../Player1"), NodePath("../Player2")]
 
-[node name="CustomerManager" parent="." instance=ExtResource("6_rcl3h")]
-queue_points = Array[NodePath]([NodePath("../pos1"), NodePath("../pos2"), NodePath("../pos3"), NodePath("../pos4"), NodePath("../pos5")])
-exit_point = NodePath("../posExit")
-spawn_point = NodePath("../posSpawn")
-
-[node name="posSpawn" type="Marker2D" parent="."]
-position = Vector2(1074, -16)
-
-[node name="pos1" type="Marker2D" parent="."]
-position = Vector2(865, 471)
-
-[node name="pos2" type="Marker2D" parent="."]
-position = Vector2(863, 408)
-
-[node name="pos3" type="Marker2D" parent="."]
-position = Vector2(863, 342)
-
-[node name="pos4" type="Marker2D" parent="."]
-position = Vector2(862, 279)
-
-[node name="pos5" type="Marker2D" parent="."]
-position = Vector2(861, 215)
-
-[node name="posExit" type="Marker2D" parent="."]
-position = Vector2(1052, 532)
+[node name="CustomerManager" parent="." index="13"]
+queue_points = Array[NodePath]([NodePath("../CustomerMarkers/5"), NodePath("../CustomerMarkers/4"), NodePath("../CustomerMarkers/3"), NodePath("../CustomerMarkers/2"), NodePath("../CustomerMarkers/1")])
+exit_point = NodePath("../CustomerMarkers/Exit")
+spawn_point = NodePath("../CustomerMarkers/Spawn")

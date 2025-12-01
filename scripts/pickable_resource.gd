@@ -1,16 +1,6 @@
 class_name PickableResource
 extends Resource
 
-## Zwischenklasse: Resource mit Pickable-Funktionalität
-## Alle Items die der Player aufheben kann erben von dieser Klasse
-## Ingredients und Orders sind PickableResources
-## 
-## Hierarchie:
-##   Resource (Godot)
-##     └── PickableResource (diese Klasse)
-##          ├── Ingredient
-##          └── Order
-
 @export var name: String = ""
 @export var icon: Texture2D
 @export var description: String = ""
@@ -29,11 +19,11 @@ func on_dropped() -> void:
 	pass
 
 ## Gibt zurück ob das Item mit einem anderen kombiniert werden kann
-func can_combine_with(other: PickableResource) -> bool:
+func can_combine_with(_other: PickableResource) -> bool:
 	return false
 
 ## Kombiniert dieses Item mit einem anderen
-func combine_with(other: PickableResource) -> PickableResource:
+func combine_with(_other: PickableResource) -> PickableResource:
 	return null
 
 ## Prüft ob dies ein Ingredient ist

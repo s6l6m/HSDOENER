@@ -38,8 +38,6 @@ offset_bottom = 17.5
 grow_horizontal = 2
 grow_vertical = 2
 auto_height = true
-item_count = 1
-item_0/text = "1 - ExampleLevel"
 
 [node name="SceneLister" type="Node" parent="."]
 script = ExtResource("3_le4jx")

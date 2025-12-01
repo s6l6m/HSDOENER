@@ -1,4 +1,5 @@
-extends Node2D
+extends Node
+class_name CustomerManager
 
 # Referenz auf die Customer-Szene
 @export var customer_scene: PackedScene
@@ -11,18 +12,10 @@ extends Node2D
 
 @export var spawn_point: NodePath
 
-@onready var order_manager: OrderManager
+@export var order_manager: OrderManager
 
 # Intern gespeicherte Kunden
-var customers: Array = []
-
-func _ready() -> void:
-	order_manager = get_tree().root.get_node("GameUI/OrderManager")
-
-func _process(_delta):
-	# Test-Input: Kunde per Tastendruck spawnen
-	if Input.is_action_just_pressed("spawn_customer"):
-		spawn_customer()
+var customers: Array[Customer] = []
 
 # Kunde spawnen und in Warteschlange einreihen
 func spawn_customer():
@@ -52,7 +45,7 @@ func spawn_customer():
 	customers.append(new_customer)
 
 	# --- Bestellung erzeugen ---
-	order_manager.create_doner_order(new_customer)
+	order_manager.create_doner_order(new_customer, OrderManager.Difficulty.EASY)
 
 	# Signale
 	new_customer.connect("customer_left", Callable(self, "_on_customer_left"))
@@ -60,7 +53,7 @@ func spawn_customer():
 
 
 # Kunde verlässt Warteschlange
-func _on_customer_left(customer):
+func _on_customer_left(customer: Customer):
 	# Kunde verlässt die Queue und läuft zum Ausgang
 	new_customer_move_to_exit(customer)
 
@@ -76,10 +69,10 @@ func _update_queue_positions():
 			customers[i].move_to(target_pos)
 
 # Bewegung Richtung Ausgang starten
-func new_customer_move_to_exit(customer):
+func new_customer_move_to_exit(customer: Customer):
 	var exit_pos = get_node(exit_point).global_position
 	customer.move_to(exit_pos)
 
 # Kunde ist am Ausgang angekommen, kann gelöscht werden
-func _remove_customer_from_scene(customer):
+func _remove_customer_from_scene(customer: Customer):
 	customer.queue_free()

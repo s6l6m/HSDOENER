@@ -1,22 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://brs70jgc4xlem"]
+[gd_scene load_steps=13 format=3 uid="uid://brs70jgc4xlem"]
 
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="1_bmy5n"]
 [ext_resource type="PackedScene" uid="uid://8ooiy4l4sxal" path="res://scenes/windows/pause_menu_layer.tscn" id="2_7aihr"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_3re04"]
 [ext_resource type="AudioStream" uid="uid://d0ncjoekv42ln" path="res://resources/sounds/in_game.mp3" id="4_7aihr"]
 [ext_resource type="Script" uid="uid://bbymrin0cm704" path="res://addons/maaacks_game_template/extras/scripts/level_loader.gd" id="4_ascoc"]
-[ext_resource type="Script" path="res://scripts/level_and_state_manager.gd" id="5_wr4n6"]
-[ext_resource type="PackedScene" uid="uid://dpd0yp5gwm45i" path="res://scenes/orders/OrderManager.tscn" id="6_i7m4m"]
+[ext_resource type="Script" uid="uid://cxidglk20cok3" path="res://scripts/level_and_state_manager.gd" id="5_wr4n6"]
 [ext_resource type="PackedScene" uid="uid://ba8buuvogx0m3" path="res://scenes/windows/game_won_window.tscn" id="6_ukb12"]
 [ext_resource type="PackedScene" uid="uid://dybw10d6drm1l" path="res://scenes/windows/level_lost_window.tscn" id="7_i7m4m"]
 [ext_resource type="PackedScene" uid="uid://dbb3wc2jaxyou" path="res://scenes/windows/level_won_window.tscn" id="8_rkfhe"]
 [ext_resource type="Script" uid="uid://wjq7li836lwj" path="res://addons/maaacks_game_template/extras/scripts/scene_lister.gd" id="9_g2ndc"]
 [ext_resource type="PackedScene" uid="uid://1wdj5r7kgshl" path="res://scenes/loading_screen/level_loading_screen.tscn" id="10_0v86b"]
 [ext_resource type="Script" uid="uid://chh8t028j1fqp" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_ulq3g"]
-[ext_resource type="Script" uid="uid://fvak028mb5k0" path="res://scenes/game_scene/game_timer.gd" id="12_gpor5"]
-[ext_resource type="PackedScene" uid="uid://b86o4cdjxtmjg" path="res://scenes/ui/widgets/timer_widget.tscn" id="13_3re04"]
-[ext_resource type="PackedScene" uid="uid://1w46kse8u11v" path="res://scenes/ui/widgets/coin_widget.tscn" id="14_ascoc"]
-[ext_resource type="PackedScene" uid="uid://cx33a7apawsty" path="res://scenes/ui/widgets/order/OrdersContainer.tscn" id="15_wr4n6"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -35,6 +30,9 @@ focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
 stream = ExtResource("4_7aihr")
 parameters/looping = false
 
+[node name="LevelLoadingScreen" parent="." instance=ExtResource("10_0v86b")]
+visible = false
+
 [node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("level_container", "level_loading_screen")]
 script = ExtResource("4_ascoc")
 level_container = NodePath("../ViewportContainer/ConfigurableSubViewport")
@@ -43,7 +41,7 @@ level_loading_screen = NodePath("../LevelLoadingScreen")
 [node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("level_loader", "scene_lister")]
 script = ExtResource("5_wr4n6")
 level_loader = NodePath("../LevelLoader")
-starting_level_path = "uid://dgg4vwt32ng8p"
+starting_level_path = "uid://bv420bevae7fi"
 scene_lister = NodePath("SceneLister")
 game_won_scene = ExtResource("6_ukb12")
 level_lost_scene = ExtResource("7_i7m4m")
@@ -53,12 +51,6 @@ level_won_scene = ExtResource("8_rkfhe")
 script = ExtResource("9_g2ndc")
 files = Array[String](["res://scenes/testscenes/playertest.tscn"])
 directory = "res://scenes/testscenes"
-
-[node name="OrderManager" parent="." instance=ExtResource("6_i7m4m")]
-unique_name_in_owner = true
-
-[node name="LevelLoadingScreen" parent="." instance=ExtResource("10_0v86b")]
-visible = false
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
@@ -71,53 +63,13 @@ stretch = true
 
 [node name="ConfigurableSubViewport" type="SubViewport" parent="ViewportContainer"]
 unique_name_in_owner = true
+disable_3d = true
 handle_input_locally = false
-canvas_item_default_texture_filter = 0
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+canvas_item_default_texture_filter = 3
 audio_listener_enable_2d = true
-audio_listener_enable_3d = true
+oversampling = false
 size = Vector2i(1280, 720)
 render_target_update_mode = 4
 script = ExtResource("11_ulq3g")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="UIContainer" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="TimerWidget" parent="CanvasLayer/UIContainer" node_paths=PackedStringArray("time_node") instance=ExtResource("13_3re04")]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -230.99988
-offset_top = 16.0
-offset_right = -230.99988
-offset_bottom = 16.0
-grow_horizontal = 0
-scale = Vector2(2.2799976, 2.2799976)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-time_node = NodePath("../../../GameTimer")
-
-[node name="CoinWidget" parent="CanvasLayer/UIContainer" instance=ExtResource("14_ascoc")]
-layout_mode = 1
-offset_left = 13.0
-offset_top = 10.0
-offset_right = 13.0
-offset_bottom = 10.0
-scale = Vector2(2.1599998, 2.1599998)
-
-[node name="OrdersContainer" parent="CanvasLayer/UIContainer" instance=ExtResource("15_wr4n6")]
-unique_name_in_owner = true
-layout_mode = 1
-offset_left = -464.0
-
-[node name="GameTimer" type="Node" parent="."]
-script = ExtResource("12_gpor5")

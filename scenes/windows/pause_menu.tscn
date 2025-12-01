@@ -37,26 +37,26 @@ vertical_alignment = 0
 size_flags_vertical = 3
 
 [node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
-text = "Resume"
+text = "Fortsetzen"
 
 [node name="RestartButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1"]
 layout_mode = 2
-text = "Restart"
+text = "Neustarten"
 
 [node name="OptionsButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Options"
+text = "Einstellungen"
 
 [node name="MainMenuButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="3"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Main Menu"
+text = "Hauptmenü"
 
 [node name="ExitButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="4"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Exit Game"
+text = "Spiel schließen"
 
 [node name="RestartConfirmation" parent="." index="1" instance=ExtResource("4_6lma4")]
 unique_name_in_owner = true

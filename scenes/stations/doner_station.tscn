@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_6m066"]
 [ext_resource type="Texture2D" uid="uid://hbemxsmb4blv" path="res://assets/workstations/content/Doner.png" id="2_016na"]
-[ext_resource type="Script" uid="uid://dqdkbcfq5wvrg" path="res://scenes/stations/doner_station.gd" id="2_tydxm"]
+[ext_resource type="Script" uid="uid://cykmlpk02o4mb" path="res://scenes/stations/doner_station.gd" id="2_tydxm"]
 
 [node name="DonerStation" instance=ExtResource("1_6m066")]
 script = ExtResource("2_tydxm")

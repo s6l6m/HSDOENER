@@ -8,4 +8,4 @@ process_mode = 3
 packed_scene = ExtResource("2_r1t3m")
 
 [node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
-text = "Options"
+text = "Einstellungen"
