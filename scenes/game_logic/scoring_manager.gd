@@ -22,7 +22,10 @@ func subtract_score(amount: int) -> void:
 
 
 # --- Bestellung bewerten ---
-func evaluate_order(order: Order, time_left: int) -> int:
+# time left muss im game manager ermittelt werden
+# order ist die bestellung die abgegeben wurde und bewertet werden muss
+# die funktion updatet am ende noch den gesamtscore. dieser ist aktuell im scoring manager, kann aber auch im game manager liegen 
+func evaluate_order_update_score(order: Order, time_left: int):
 	var score: float = 0.0
 
 	# --- 1) Richtige Zutaten prüfen ---
@@ -45,9 +48,6 @@ func evaluate_order(order: Order, time_left: int) -> int:
 	# --- 4) Score auf Gesamtscore anwenden ---
 	total_score += score
 	emit_signal("score_changed", total_score)
-
-	return score
-
 
 
 # --- Setzt score hart
