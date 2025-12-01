@@ -83,14 +83,16 @@ visible = false
 update_content = true
 text = "Spiel neu starten?"
 title = "Confirm Restart"
+title_visible = false
 
 [node name="MainMenuConfirmation" parent="." instance=ExtResource("5_bgbk1")]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 0)
 update_content = true
-text = "Zurück ins Hauptmenü?"
+text = "Zurück zum Hauptmenü?"
 title = "Confirm Exit"
+title_visible = false
 
 [node name="ExitConfirmation" parent="." instance=ExtResource("5_bgbk1")]
 unique_name_in_owner = true
@@ -98,6 +100,7 @@ visible = false
 update_content = true
 text = "Spiel beenden?"
 title = "Confirm Exit"
+title_visible = false
 
 [connection signal="hidden" from="PauseMenu" to="." method="_on_pause_menu_hidden"]
 [connection signal="pressed" from="PauseMenu/ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons/RestartButton" to="PauseMenu" method="_on_restart_button_pressed"]

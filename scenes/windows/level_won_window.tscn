@@ -34,7 +34,7 @@ text = "Exit"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Main Menu"
+text = "Hauptmenü"
 
 [node name="RestartButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2"]
 unique_name_in_owner = true
@@ -54,6 +54,7 @@ layout_mode = 2
 update_content = true
 text = "Zurück zum Hauptmenü?"
 title = "Confirm Exit"
+title_visible = false
 
 [node name="ExitConfirmation" parent="." index="2" instance=ExtResource("3_ss43f")]
 unique_name_in_owner = true
@@ -62,6 +63,7 @@ layout_mode = 2
 update_content = true
 text = "Spiel schließen?"
 title = "Confirm Exit"
+title_visible = false
 
 [connection signal="pressed" from="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
