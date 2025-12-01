@@ -2,16 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_dbhqo"]
 [ext_resource type="Texture2D" uid="uid://dmexlkqm1dab2" path="res://assets/workstations/content/Zwiebel_.png" id="2_dpdpk"]
-[ext_resource type="Script" uid="uid://bbm0wsksnj2q0" path="res://scenes/stations/onion_station.gd" id="2_ur1ib"]
+[ext_resource type="Script" uid="uid://j6kv6p7tfhms" path="res://scenes/stations/onion_station.gd" id="2_ur1ib"]
 
 [node name="OnionStation" instance=ExtResource("1_dbhqo")]
 script = ExtResource("2_ur1ib")
 station_type = "onionstation"
 
-[node name="Content" parent="." index="1"]
+[node name="Content" parent="Rotatable" index="1"]
 visible = true
-position = Vector2(0, -20)
 texture = ExtResource("2_dpdpk")
-
-[node name="CollisionShape2D" parent="InteractionArea" index="0"]
-position = Vector2(0, 0)
