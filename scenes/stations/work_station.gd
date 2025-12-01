@@ -11,7 +11,7 @@ var _initialized := false
 		if direction == value:
 			return
 		direction = value
-		if _initialized:
+		if _initialized: 
 			update_direction()
 
 var sprite_up: Texture2D   = load("res://assets/workstations/workstation_up.png")
@@ -25,6 +25,9 @@ var sprite_right: Texture2D= load("res://assets/workstations/workstation_right.p
 @onready var interactionArea: CollisionShape2D = $InteractionArea/CollisionShape2D
 @onready var content: Sprite2D = $Content
 
+var stored_pickable: PickableResource
+
+
 @export var station_type := "workstation"
 
 
@@ -33,20 +36,32 @@ func _ready() -> void:
 	update_direction()
 
 
-func interact(player):
-	if content.visible:
-		if player.pickUp(content.texture):
-			content.visible = false
-			content.texture = null
-	else:
-		if player.heldItem.texture:
-			content.texture = player.heldItem.texture
-			content.visible = true
-			player.layDown()
-			print("Laying down item:", player.heldItem)
-		else:
-			print("Interacting with base station:", self.name)
 
+func interact(player):
+	var held = player.getHeldPickable()
+	if stored_pickable != null:
+		if player.pickUpPickable(stored_pickable):
+			if stored_pickable is Ingredient:
+				stored_pickable.remove_from_workstation()
+			stored_pickable = null
+			update_visual()
+		return
+		
+	if held != null:
+		stored_pickable = held
+		if stored_pickable is Ingredient:
+			stored_pickable.put_into_workstation()
+		player.dropPickable()
+		update_visual()
+
+func update_visual():
+	if stored_pickable == null:
+		content.visible = false
+		return
+
+	content.texture = stored_pickable.icon
+	content.modulate = stored_pickable.get_icon_tint()
+	content.visible = true
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("players"):
