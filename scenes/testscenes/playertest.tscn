@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bjyqpv0xaejip" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="15_lbva2"]
 
 [node name="Level" instance=ExtResource("1_f618n")]
-round_time = 10
+round_time = 300
 
 [node name="TutorialManager" parent="." index="4"]
 tutorial_scenes = Array[PackedScene]([ExtResource("15_lbva2")])
