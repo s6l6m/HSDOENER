@@ -1,6 +1,12 @@
 extends Node
 class_name OrderManager
 
+enum Difficulty {
+	EASY,
+	MEDIUM,
+	HARD
+}
+
 signal order_added(order: Order)
 signal order_completed(order: Order)
 signal order_removed(order: Order)
@@ -29,12 +35,20 @@ func remove_order(order: Order) -> void:
 		orders.erase(order)
 		emit_signal("order_removed", order)
 
-func create_doner_order(customer: Customer) -> Order:
-	var ingredients := doner_generator.generate_doner()
-
+func create_doner_order(customer: Customer, difficulty: Difficulty ) -> Order:
+	var ingredients : Array[Ingredient]
+	
+	match difficulty:
+		Difficulty.EASY:
+			ingredients = doner_generator.generate_small_doner()
+		Difficulty.MEDIUM:
+			ingredients = doner_generator.generate_mid_doner()
+		Difficulty.HARD:
+			ingredients = doner_generator.generate_big_doner()
+	
 	var order := Order.new(
 		preload("res://assets/food/items/warp-item.png"),
-		ingredients,
+		ingredients, 0, 0
 	)
 
 	order.customer = customer

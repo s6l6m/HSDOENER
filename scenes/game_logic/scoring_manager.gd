@@ -25,8 +25,8 @@ func subtract_score(amount: int) -> void:
 # time left muss im game manager ermittelt werden
 # order ist die bestellung die abgegeben wurde und bewertet werden muss
 # die funktion updatet am ende noch den gesamtscore. dieser ist aktuell im scoring manager, kann aber auch im game manager liegen 
-func evaluate_order_update_score(order: Order, time_left: int):
-	var score: float = 0.0
+func evaluate_order_update_score(order: Order, current_time: int):
+	var score: int = 0
 
 	# --- 1) Richtige Zutaten prüfen ---
 	for ing in order.fulfilled_ingredients:
@@ -42,7 +42,7 @@ func evaluate_order_update_score(order: Order, time_left: int):
 
 	# --- 3) Zeitbonus hinzufügen ---
 	# time_left / 120.0 ergibt einen Bonus zwischen 0.0 und 1.0 (oder mehr)
-	var time_bonus := time_left / 120.0 * 10
+	var time_bonus := (current_time - order.creation_time) / 120 * 10
 	score += time_bonus
 
 	# --- 4) Score auf Gesamtscore anwenden ---
