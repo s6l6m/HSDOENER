@@ -2,7 +2,15 @@
 extends WorkStation
 class_name CucumberStation
 
-var item = load("res://assets/food/items/cucumber-item.png")
+var cucumber_resource := preload("res://scenes/ingredients/gurke.tres")
 
-func interact(player: Player):
-	player.pickUp(item)
+func interact(player):
+	# Wenn der Player schon was hält, abgeben nicht möglich
+	if player.isHoldingPickable():
+		return
+
+	# Neue Gurken-Instanz erzeugen
+	var cucumber: Ingredient = cucumber_resource.duplicate(true)
+
+	# Player bekommt das Ingredient
+	player.pickUpIngredient(cucumber)

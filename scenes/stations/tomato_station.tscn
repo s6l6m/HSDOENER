@@ -10,4 +10,8 @@ station_type = "tomatostation"
 
 [node name="Content" parent="." index="1"]
 visible = true
+position = Vector2(0, -20)
 texture = ExtResource("2_5hfri")
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2(0, 0)

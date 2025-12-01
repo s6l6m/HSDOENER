@@ -42,6 +42,11 @@ func _ready() -> void:
 	
 	set_state(State.FREE)
 
+func _process(_delta):
+	if held_pickable != null:
+		held_pickable.update_rot(_delta)
+		heldItem.modulate = held_pickable.get_icon_tint()
+
 func _physics_process(delta: float) -> void:
 	# Wenn Player DISABLED ist, keine Bewegung erlauben
 	if current_state == State.DISABLED:
