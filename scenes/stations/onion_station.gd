@@ -2,7 +2,15 @@
 extends WorkStation
 class_name OnionStation
 
-var item = load("res://assets/food/items/onion-item.png")
+var onion_resource := preload("res://scenes/ingredients/zwiebel.tres")
 
-func interact(player: Player):
-	player.pickUp(item)
+func interact(player):
+	# Wenn der Player schon was hält, abgeben nicht möglich
+	if player.isHoldingPickable():
+		return
+
+	# Neue Gurken-Instanz erzeugen
+	var onion: Ingredient = onion_resource.duplicate(true)
+
+	# Player bekommt das Ingredient
+	player.pickUpIngredient(onion)

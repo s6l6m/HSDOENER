@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_4jijf"]
 [ext_resource type="Texture2D" uid="uid://dov1ynbhdfbld" path="res://assets/workstations/content/Tomate.png" id="2_5hfri"]
-[ext_resource type="Script" uid="uid://bfy8tq0v5xu06" path="res://scenes/stations/tomato_station.gd" id="2_87a3p"]
+[ext_resource type="Script" uid="uid://u1qn4pvnx6sj" path="res://scenes/stations/tomato_station.gd" id="2_87a3p"]
 
 [node name="TomatoStation" instance=ExtResource("1_4jijf")]
 script = ExtResource("2_87a3p")
 station_type = "tomatostation"
 
-[node name="Content" parent="." index="1"]
+[node name="Content" parent="Rotatable" index="1"]
 visible = true
 texture = ExtResource("2_5hfri")

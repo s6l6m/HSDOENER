@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_jslii")
+is_prepared = true
 name = "Fleisch"
 icon = ExtResource("1_m52je")
-metadata/_custom_type_script = "uid://dfk3anh4to5im"
