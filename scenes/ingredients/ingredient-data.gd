@@ -28,5 +28,3 @@ func put_into_workstation() -> void:
 
 func remove_from_workstation() -> void:
 	is_in_workstation = false
-
- 

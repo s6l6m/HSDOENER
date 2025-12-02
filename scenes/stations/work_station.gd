@@ -19,11 +19,12 @@ var sprite_down: Texture2D = load("res://assets/workstations/workstation_down.pn
 var sprite_left: Texture2D = load("res://assets/workstations/workstation_left.png")
 var sprite_right: Texture2D= load("res://assets/workstations/workstation_right.png")
 
-@onready var table_sprite: Sprite2D = $Sprite2D
-@onready var collisionBoxLarge: CollisionShape2D = $Collision/CollisionShape2D
-@onready var collisionBoxSmall: CollisionShape2D = $CollisionSmall/CollisionShape2D
-@onready var interactionArea: CollisionShape2D = $InteractionArea/CollisionShape2D
-@onready var content: Sprite2D = $Content
+@onready var rotatable : Node2D = $Rotatable
+@onready var table_sprite: Sprite2D = $Rotatable/Sprite2D
+@onready var collisionBoxLarge: CollisionShape2D = $Rotatable/Collision/CollisionShape2D
+@onready var collisionBoxSmall: CollisionShape2D = $Rotatable/CollisionSmall/CollisionShape2D
+@onready var interactionArea: CollisionShape2D = $Rotatable/InteractionArea/CollisionShape2D
+@onready var content: Sprite2D = $Rotatable/Content
 
 var stored_pickable: PickableResource
 
@@ -86,7 +87,7 @@ func update_direction() -> void:
 			else:
 				content.position = Vector2(0, -20)
 				content.rotation_degrees = 0
-			rotation_degrees = 0
+			rotatable.rotation_degrees = 0
 			table_sprite.texture = sprite_up
 			interactionArea.position = Vector2(0, 0)
 
@@ -98,7 +99,7 @@ func update_direction() -> void:
 			else:
 				content.position = Vector2(-31, -20)
 				content.rotation_degrees = 0
-			rotation_degrees = 90
+			rotatable.rotation_degrees = 90
 			table_sprite.texture = sprite_right
 			collisionBoxSmall.position = Vector2(-16, -20)
 			interactionArea.position = Vector2(-32, 0)
@@ -111,7 +112,7 @@ func update_direction() -> void:
 			else:
 				content.position = Vector2(0, -20)
 				content.rotation_degrees = 0
-			rotation_degrees = 180
+			rotatable.rotation_degrees = 180
 			table_sprite.texture = sprite_down
 			collisionBoxSmall.position = Vector2(0, -20)
 			interactionArea.position = Vector2(0, 0)
@@ -124,7 +125,7 @@ func update_direction() -> void:
 			else:
 				content.position = Vector2(31, -20)
 				content.rotation_degrees = 0
-			rotation_degrees = 270
+			rotatable.rotation_degrees = 270
 			table_sprite.texture = sprite_left
 			collisionBoxSmall.position = Vector2(16, -20)
 			interactionArea.position = Vector2(32, 0)

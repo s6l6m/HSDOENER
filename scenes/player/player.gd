@@ -56,30 +56,45 @@ func _physics_process(delta: float) -> void:
 
 	# Steuerung für Player 1
 	if player_number == 1:
-		if Input.is_action_pressed("move_right_p1"):
-			direction.x += 1
-		if Input.is_action_pressed("move_left_p1"):
-			direction.x -= 1
-		if Input.is_action_pressed("move_down_p1"):
-			direction.y += 1
-		if Input.is_action_pressed("move_up_p1"):
-			direction.y -= 1
+		if can_move():
+			if Input.is_action_pressed("move_right_p1"):
+				direction.x += 1
+			if Input.is_action_pressed("move_left_p1"):
+				direction.x -= 1
+			if Input.is_action_pressed("move_down_p1"):
+				direction.y += 1
+			if Input.is_action_pressed("move_up_p1"):
+				direction.y -= 1
 		if Input.is_action_just_pressed("interact_p1"):
 			if current_station:
 				current_station.interact(self)
+		if Input.is_action_just_pressed("cut_p1"):
+			if current_station and current_station.station_type == "cuttingstation":
+				current_station.start_cut(self)
+		if Input.is_action_just_released("cut_p1"):
+			if current_station and current_station.station_type == "cuttingstation":
+				current_station.stop_cut(self)
+	
 	# Steuerung für Player 2
 	elif player_number == 2:
-		if Input.is_action_pressed("move_right_p2"):
-			direction.x += 1
-		if Input.is_action_pressed("move_left_p2"):
-			direction.x -= 1
-		if Input.is_action_pressed("move_down_p2"):
-			direction.y += 1
-		if Input.is_action_pressed("move_up_p2"):
-			direction.y -= 1
+		if can_move():
+			if Input.is_action_pressed("move_right_p2"):
+				direction.x += 1
+			if Input.is_action_pressed("move_left_p2"):
+				direction.x -= 1
+			if Input.is_action_pressed("move_down_p2"):
+				direction.y += 1
+			if Input.is_action_pressed("move_up_p2"):
+				direction.y -= 1
 		if Input.is_action_just_pressed("interact_p2"):
 			if current_station:
 				current_station.interact(self)
+		if Input.is_action_just_pressed("cut_p2"):
+			if current_station and current_station.station_type == "cuttingstation":
+				current_station.start_cut(self)
+		if Input.is_action_just_released("cut_p2"):
+			if current_station and current_station.station_type == "cuttingstation":
+				current_station.stop_cut(self)
 
 	# Richtung merken
 	if direction != Vector2.ZERO:
@@ -120,6 +135,14 @@ func _update_current_station() -> void:
 	else:
 		current_station = stations_in_range.back()
 
+func start_cutting():
+	if current_state == State.FREE or current_state == State.CARRYING:
+		set_state(State.CUTTING)
+
+func stop_cutting():
+	if current_state == State.CUTTING:
+		set_state(State.FREE)
+
 # State Machine
 func set_state(new_state: State) -> void:
 	if current_state == new_state:
@@ -134,7 +157,7 @@ func get_state() -> State:
 	return current_state
 
 func can_move() -> bool:
-	return current_state != State.DISABLED
+	return current_state == State.FREE or current_state == State.CARRYING
 
 func can_interact() -> bool:
 	return current_state == State.FREE or current_state == State.CARRYING
