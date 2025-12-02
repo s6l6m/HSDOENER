@@ -17,11 +17,29 @@ input_icon_mapper = NodePath("../../../InputIconMapper")
 [node name="ResetButton" parent="VBoxContainer/InputMappingContainer/HBoxContainer" index="0"]
 text = "Zurücksetzen"
 
-[node name="InputLabel" parent="KeyAssignmentWindow/ContentContainer/BoxContainer/VBoxContainer" index="0"]
-text = "Keine"
+[node name="KeyDeletionConfirmation" parent="." index="1"]
+text = "Taste löschen?"
+title = ""
+title_visible = false
+
+[node name="ResetConfirmation" parent="." index="2"]
+text = "Steuerngen zurücksetzen?"
+title_visible = false
+
+[node name="OneInputMinimumMessage" parent="." index="3"]
+title = "Eine Eingabe hinzufügen"
+
+[node name="AlreadyAssignedMessage" parent="." index="4"]
+title = "Bereits hinzugefügt"
+
+[node name="KeyAssignmentWindow" parent="." index="5"]
+title = "Menü"
+
+[node name="TitleLabel" parent="KeyAssignmentWindow/ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
+text = "Menü"
 
 [node name="InputTextEdit" parent="KeyAssignmentWindow/ContentContainer/BoxContainer/VBoxContainer" index="1"]
-placeholder_text = "Bitte eine Taste drücken..."
+placeholder_text = "Focus here to assign inputs."
 
 [node name="InputIconMapper" parent="." index="6" instance=ExtResource("2_hyv0n")]
 

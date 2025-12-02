@@ -37,7 +37,7 @@ func _ready() -> void:
 	update_direction()
 
 
-func interact(player):
+func interact(player: Player):
 	var held = player.getHeldPickable()
 	if stored_pickable != null:
 		if player.pickUpPickable(stored_pickable):

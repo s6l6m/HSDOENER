@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cq452dimfuc1l"]
+[gd_scene load_steps=13 format=3 uid="uid://rj34n7wmoup7"]
 
 [ext_resource type="Script" uid="uid://bnu2hlsy8gfbf" path="res://scenes/player/player.gd" id="1_wr5hl"]
 [ext_resource type="Texture2D" uid="uid://cmsgol8mxmbr8" path="res://assets/sprites/player.png" id="2_4kuee"]
-[ext_resource type="Texture2D" uid="uid://c2df06o2y3252" path="res://assets/sprites/running_spritesheet_right.png" id="2_gfjak"]
+[ext_resource type="Texture2D" uid="uid://gkgudtcvu1bk" path="res://assets/sprites/running_spritesheet_right.png" id="2_gfjak"]
+[ext_resource type="PackedScene" uid="uid://ctoohxdkxasro" path="res://scenes/menus/options_menu/input/input_icon_mapper.tscn" id="4_524rm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gfjak"]
 radius = 10.965
@@ -61,6 +62,13 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpg5x"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 254
@@ -79,6 +87,64 @@ animation = &"idle"
 [node name="HeldItem" type="Sprite2D" parent="."]
 position = Vector2(13.165, 15.1)
 
-[node name="InteractIcon" type="Sprite2D" parent="."]
+[node name="Icons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Icons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -48.0
+offset_right = 20.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="CutIconBackgrouind" type="Panel" parent="Icons/HBoxContainer"]
 visible = false
-position = Vector2(0, -36.625)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tpg5x")
+
+[node name="CutIcon" type="TextureRect" parent="Icons/HBoxContainer/CutIconBackgrouind"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="InteractIconBackground" type="Panel" parent="Icons/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tpg5x")
+
+[node name="InteractIcon" type="TextureRect" parent="Icons/HBoxContainer/InteractIconBackground"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+expand_mode = 2
+stretch_mode = 5
+
+[node name="InputIconMapper" parent="." instance=ExtResource("4_524rm")]

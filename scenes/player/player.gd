@@ -30,15 +30,18 @@ var stations_in_range: Array[WorkStation] = []
 var held_pickable: PickableResource = null
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var interaction_icon: Sprite2D = $InteractIcon
+@onready var interaction_icon: TextureRect = %InteractIcon
+@onready var cut_icon: TextureRect = %CutIcon
 @onready var heldItem: Sprite2D = $HeldItem
 
 func _ready() -> void:
 	add_to_group("players")
 	if player_number == 1:
-		interaction_icon.texture = load("res://assets/ui/interact_button_p1.png")
+		var event := InputMap.action_get_events("interact_p1")[0]
+		interaction_icon.texture = $InputIconMapper.get_icon(event)
 	else:
-		interaction_icon.texture = load("res://assets/ui/interact_button_p2.png")
+		var event := InputMap.action_get_events("interact_p2")[0]
+		interaction_icon.texture = $InputIconMapper.get_icon(event)
 	
 	set_state(State.FREE)
 
@@ -122,7 +125,7 @@ func _physics_process(delta: float) -> void:
 func enter_station(station: WorkStation) -> void:
 	stations_in_range.append(station)
 	_update_current_station()
-	interaction_icon.visible = true
+	interaction_icon.get_parent().show()
 
 func exit_station(station: WorkStation) -> void:
 	stations_in_range.erase(station)
@@ -131,7 +134,7 @@ func exit_station(station: WorkStation) -> void:
 func _update_current_station() -> void:
 	if stations_in_range.is_empty():
 		current_station = null
-		interaction_icon.visible = false
+		interaction_icon.get_parent().hide()
 	else:
 		current_station = stations_in_range.back()
 
