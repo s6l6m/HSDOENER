@@ -7,13 +7,17 @@ enum Difficulty {
 	HARD
 }
 
-signal order_added(order: Order)
+signal order_added(order: Order, callback_time_finished: Callable)
 signal order_completed(order: Order)
 signal order_removed(order: Order)
 
 @onready var doener_generator: DonerGenerator = %DoenerGenerator
+@onready var orders_container: OrdersContainer = %OrdersContainer
 
 var orders: Array[Order] = []
+
+func _ready() -> void:
+	self.order_added.connect(orders_container.on_add_order)
 
 func complete_order(order: Order) -> void:
 	if order in orders:
@@ -56,5 +60,5 @@ func create_doner_order(customer: Customer, difficulty: Difficulty ) -> Order:
 	orders.append(order)
 	
 	
-	emit_signal("order_added", order)
+	emit_signal("order_added", order, remove_order)
 	return order

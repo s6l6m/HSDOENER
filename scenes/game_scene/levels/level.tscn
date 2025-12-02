@@ -83,7 +83,7 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2.1599998, 2.1599998)
 
-[node name="OrdersContainer" parent="CanvasLayer/MarginContainer/UIContainer" node_paths=PackedStringArray("order_manager") instance=ExtResource("8_6tvmh")]
+[node name="OrdersContainer" parent="CanvasLayer/MarginContainer/UIContainer" instance=ExtResource("8_6tvmh")]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 10
@@ -92,4 +92,3 @@ anchor_right = 1.0
 offset_left = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
-order_manager = NodePath("../../../../OrderManager")
