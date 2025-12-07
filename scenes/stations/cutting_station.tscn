@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://p73b8c1pvi8f" path="res://assets/workstations/content/Schneidebrett.png" id="2_s7yq8"]
 
 [node name="CuttingStation" instance=ExtResource("1_s5h3g")]
+y_sort_enabled = false
 script = ExtResource("2_fwyh5")
 station_type = "cuttingstation"
 

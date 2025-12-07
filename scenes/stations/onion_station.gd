@@ -13,4 +13,4 @@ func interact(player):
 	var onion: Ingredient = onion_resource.duplicate(true)
 
 	# Player bekommt das Ingredient
-	player.pickUpIngredient(onion)
+	player.pickUpPickable(onion)
