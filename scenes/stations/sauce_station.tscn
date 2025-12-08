@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx04h3616abi3"]
+
+[ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_o3w36"]
+[ext_resource type="Script" uid="uid://btl1gyv5cpmn1" path="res://scenes/stations/sauce_station.gd" id="2_o3w36"]
+[ext_resource type="Texture2D" uid="uid://dlegmy4552pd7" path="res://assets/workstations/content/Sosse.png" id="3_o3w36"]
+
+[node name="SauceStation" instance=ExtResource("1_o3w36")]
+y_sort_enabled = false
+script = ExtResource("2_o3w36")
+
+[node name="Content" parent="Rotatable" index="1"]
+visible = true
+texture = ExtResource("3_o3w36")
