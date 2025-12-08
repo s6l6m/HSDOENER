@@ -1,5 +1,10 @@
-# teller.gd
 class_name Teller
-extends Area2D    # Root deines Teller-Nodes
+extends PickableResource
 
-@export var order: Order = null
+var ingredients: Array[Ingredient] = []
+
+func addIngredient(_newIngredient: Ingredient):
+	if(ingredients.size() != 0):
+		ingredients.append(_newIngredient)
+	elif(_newIngredient.name == "Brot"):
+		ingredients.append(_newIngredient)
