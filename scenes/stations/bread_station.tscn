@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://tp3mfdvbfyo0"]
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_40j6n"]
-[ext_resource type="Script" uid="uid://dh2o6pahs2q11" path="res://scenes/stations/bread_station.gd" id="2_kmekc"]
+[ext_resource type="Script" uid="uid://dnpa8lmklxqau" path="res://scenes/stations/bread_station.gd" id="2_kmekc"]
 [ext_resource type="Texture2D" uid="uid://cilpr2npbfx6u" path="res://assets/workstations/content/brotkorb.png" id="2_o6dfe"]
 
 [node name="BreadStation" instance=ExtResource("1_40j6n")]
 script = ExtResource("2_kmekc")
-station_type = "breadstation"
+station_type = 3
 
 [node name="Content" parent="Rotatable" index="1"]
 visible = true

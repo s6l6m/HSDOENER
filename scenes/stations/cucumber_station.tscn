@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqe5dy0v501xx"]
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_2b8rw"]
-[ext_resource type="Script" uid="uid://b6bigu33wr6jo" path="res://scenes/stations/cucumber_station.gd" id="2_jy7u6"]
+[ext_resource type="Script" uid="uid://b75vy4oc2k0ko" path="res://scenes/stations/cucumber_station.gd" id="2_jy7u6"]
 [ext_resource type="Texture2D" uid="uid://c6ktydcpmxdi3" path="res://assets/workstations/content/Gurke.png" id="2_llj8d"]
 
 [node name="CucumberStation" instance=ExtResource("1_2b8rw")]
 script = ExtResource("2_jy7u6")
-station_type = "cucumberstation"
+station_type = 3
 
 [node name="Content" parent="Rotatable" index="1"]
 visible = true

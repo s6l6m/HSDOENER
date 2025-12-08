@@ -80,7 +80,7 @@ func _physics_process(delta: float) -> void:
 			if current_station:
 				current_station.interact_b(self)
 		if Input.is_action_just_released("interact_b_p1"):
-			if current_station and current_station.station_type == "cuttingstation":
+			if current_station and current_station.station_type == WorkStation.StationType.CUTTTINGSTATION:
 				current_station.stop_cut(self)
 	
 	# Steuerung für Player 2
@@ -101,7 +101,7 @@ func _physics_process(delta: float) -> void:
 			if current_station:
 				current_station.interact_b(self)
 		if Input.is_action_just_released("interact_b_p2"):
-			if current_station and current_station.station_type == "cuttingstation":
+			if current_station and current_station.station_type == WorkStation.StationType.CUTTTINGSTATION:
 				current_station.stop_cut(self)
 
 	# Richtung merken
@@ -115,9 +115,8 @@ func _physics_process(delta: float) -> void:
 	var target_velocity: Vector2 = direction.normalized() * speed
 	velocity = velocity.lerp(target_velocity, (accel if direction != Vector2.ZERO else friction) * delta)
 
-
 	move_and_slide()
-	
+
 	# Animation steuern
 	if direction != Vector2.ZERO:
 		if not sprite.is_playing() or sprite.animation != "run_right":
