@@ -31,6 +31,7 @@ window/size/viewport_height=720
 window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 
@@ -167,6 +168,9 @@ camera/depth_of_field/depth_of_field_bokeh_quality=0
 textures/decals/filter=0
 textures/light_projectors/filter=0
 2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
+2d/sdf/oversize=0
+2d/sdf/scale=0
 environment/defaults/default_environment="res://default_env.tres"
 textures/depth_of_field/depth_of_field_bokeh_shape=0
 textures/depth_of_field/depth_of_field_bokeh_quality=0

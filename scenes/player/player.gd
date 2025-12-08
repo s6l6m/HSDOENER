@@ -16,7 +16,8 @@ signal pickable_picked_up(pickable: PickableResource)
 signal pickable_dropped(pickable: PickableResource)
 
 @export var speed: float = 150.0
-@export var player_number: int = 1
+enum PlayerNumber { ONE, TWO }
+@export var player_number: PlayerNumber = PlayerNumber.ONE
 
 var facing_dir: Vector2 = Vector2.DOWN
 var velocity_target: Vector2 = Vector2.ZERO
@@ -36,22 +37,23 @@ var held_pickable: PickableResource = null
 
 func _ready() -> void:
 	add_to_group("players")
-	if player_number == 1:
-		var event := InputMap.action_get_events("interact_a_p1")[0]
-		interaction_icon.texture = $InputIconMapper.get_icon(event)
-	else:
-		var event := InputMap.action_get_events("interact_a_p2")[0]
-		interaction_icon.texture = $InputIconMapper.get_icon(event)
-	
+	match player_number:
+		PlayerNumber.ONE:
+			var event := InputMap.action_get_events("interact_a_p1")[0]
+			interaction_icon.texture = $InputIconMapper.get_icon(event)
+		PlayerNumber.TWO:
+			var event := InputMap.action_get_events("interact_a_p2")[0]
+			interaction_icon.texture = $InputIconMapper.get_icon(event)
 	set_state(State.FREE)
 	# mit Workstations verbinden
 	for station in get_tree().get_nodes_in_group("stations"):
-		station.connect("player_entered_station", self._on_player_entered_station)
-		station.connect("player_exited_station", self._on_player_exited_station)
+		if station is WorkStation:
+			station.player_entered_station.connect(_on_player_entered_station)
+			station.player_exited_station.connect(_on_player_exited_station)
 
 
 func _process(_delta):
-	if held_pickable != null:
+	if held_pickable != null and held_pickable is Ingredient:
 		held_pickable.update_rot(_delta)
 		heldItem.modulate = held_pickable.get_icon_tint()
 
@@ -59,50 +61,51 @@ func _physics_process(delta: float) -> void:
 	# Wenn Player DISABLED ist, keine Bewegung erlauben
 	if current_state == State.DISABLED:
 		return
-	
+
 	var direction: Vector2 = Vector2.ZERO
 
 	# Steuerung für Player 1
-	if player_number == 1:
-		if can_move():
-			if Input.is_action_pressed("move_right_p1"):
-				direction.x += 1
-			if Input.is_action_pressed("move_left_p1"):
-				direction.x -= 1
-			if Input.is_action_pressed("move_down_p1"):
-				direction.y += 1
-			if Input.is_action_pressed("move_up_p1"):
-				direction.y -= 1
-		if Input.is_action_just_pressed("interact_a_p1"):
-			if current_station:
-				current_station.interact(self)
-		if Input.is_action_just_pressed("interact_b_p1"):
-			if current_station:
-				current_station.interact_b(self)
-		if Input.is_action_just_released("interact_b_p1"):
-			if current_station and current_station.station_type == "cuttingstation":
-				current_station.stop_cut(self)
+	match player_number:
+		PlayerNumber.ONE:
+			if can_move():
+				if Input.is_action_pressed("move_right_p1"):
+					direction.x += 1
+				if Input.is_action_pressed("move_left_p1"):
+					direction.x -= 1
+				if Input.is_action_pressed("move_down_p1"):
+					direction.y += 1
+				if Input.is_action_pressed("move_up_p1"):
+					direction.y -= 1
+			if Input.is_action_just_pressed("interact_a_p1"):
+				if current_station:
+					current_station.interact(self)
+			if Input.is_action_just_pressed("interact_b_p1"):
+				if current_station:
+					current_station.interact_b(self)
+			if Input.is_action_just_released("interact_b_p1"):
+				if current_station and current_station.station_type == WorkStation.StationType.CUTTINGSTATION:
+					current_station.stop_cut(self)
 	
 	# Steuerung für Player 2
-	elif player_number == 2:
-		if can_move():
-			if Input.is_action_pressed("move_right_p2"):
-				direction.x += 1
-			if Input.is_action_pressed("move_left_p2"):
-				direction.x -= 1
-			if Input.is_action_pressed("move_down_p2"):
-				direction.y += 1
-			if Input.is_action_pressed("move_up_p2"):
-				direction.y -= 1
-		if Input.is_action_just_pressed("interact_a_p2"):
-			if current_station:
-				current_station.interact(self)
-		if Input.is_action_just_pressed("interact_b_p2"):
-			if current_station:
-				current_station.interact_b(self)
-		if Input.is_action_just_released("interact_b_p2"):
-			if current_station and current_station.station_type == "cuttingstation":
-				current_station.stop_cut(self)
+		PlayerNumber.TWO:
+			if can_move():
+				if Input.is_action_pressed("move_right_p2"):
+					direction.x += 1
+				if Input.is_action_pressed("move_left_p2"):
+					direction.x -= 1
+				if Input.is_action_pressed("move_down_p2"):
+					direction.y += 1
+				if Input.is_action_pressed("move_up_p2"):
+					direction.y -= 1
+			if Input.is_action_just_pressed("interact_a_p2"):
+				if current_station:
+					current_station.interact(self)
+			if Input.is_action_just_pressed("interact_b_p2"):
+				if current_station:
+					current_station.interact_b(self)
+			if Input.is_action_just_released("interact_b_p2"):
+				if current_station and current_station.station_type == WorkStation.StationType.CUTTINGSTATION:
+					current_station.stop_cut(self)
 
 	# Richtung merken
 	if direction != Vector2.ZERO:
@@ -115,9 +118,8 @@ func _physics_process(delta: float) -> void:
 	var target_velocity: Vector2 = direction.normalized() * speed
 	velocity = velocity.lerp(target_velocity, (accel if direction != Vector2.ZERO else friction) * delta)
 
-
 	move_and_slide()
-	
+
 	# Animation steuern
 	if direction != Vector2.ZERO:
 		if not sprite.is_playing() or sprite.animation != "run_right":
@@ -130,7 +132,6 @@ func _physics_process(delta: float) -> void:
 func _on_player_entered_station(player, station):
 	if player != self:
 		return
-	
 	stations_in_range.append(station)
 	_update_current_station()
 	interaction_icon.get_parent().show()
@@ -192,6 +193,11 @@ func pickUpPickable(pickable: PickableResource) -> bool:
 		print("Player ", player_number, " picked up: ", pickable.name)
 		return true
 	else:
+		# wenn der Spieler einen Teller hält, fügen wir den Ingredient seiner Liste hinzu
+		if held_pickable is Plate and pickable is Ingredient:
+			if pickable.is_prepared:
+				held_pickable.addIngredient(pickable)
+				return true
 		print("Already holding a pickable: ", held_pickable.name)
 		return false
 
@@ -218,17 +224,25 @@ func isHoldingPickable() -> bool:
 
 # Type-safe Getter für spezifische Typen
 func getHeldOrder() -> Order:
-	if held_pickable and held_pickable.is_order():
+	if held_pickable and held_pickable is Order:
 		return held_pickable as Order
 	return null
 
 func isHoldingOrder() -> bool:
-	return held_pickable != null and held_pickable.is_order()
+	return held_pickable != null and held_pickable is Order
 
 func getHeldIngredient() -> Ingredient:
-	if held_pickable and held_pickable.is_ingredient():
+	if held_pickable and held_pickable is Ingredient:
 		return held_pickable as Ingredient
 	return null
 
 func isHoldingIngredient() -> bool:
-	return held_pickable != null and held_pickable.is_ingredient()
+	return held_pickable != null and held_pickable is Ingredient
+
+func getHeldPlate() -> Plate:
+	if held_pickable and held_pickable is Plate:
+		return held_pickable as Plate
+	return null
+
+func isHoldingPlate() -> bool:
+	return held_pickable != null and held_pickable is Plate

@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=4 uid="uid://bv420bevae7fi"]
+[gd_scene load_steps=17 format=4 uid="uid://bv420bevae7fi"]
 
-[ext_resource type="PackedScene" uid="uid://b7yx4l7dhfv0q" path="res://scenes/player/Player.tscn" id="1_eg31v"]
+[ext_resource type="PackedScene" uid="uid://b7yx4l7dhfv0q" path="res://scenes/player/player.tscn" id="1_eg31v"]
 [ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/level.tscn" id="1_f618n"]
 [ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_p2qo3"]
 [ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
@@ -12,8 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="10_f618n"]
 [ext_resource type="PackedScene" uid="uid://dfrnrliqs1ac2" path="res://scenes/stations/salad_station.tscn" id="11_27w7k"]
 [ext_resource type="PackedScene" uid="uid://tp3mfdvbfyo0" path="res://scenes/stations/bread_station.tscn" id="11_vb107"]
+[ext_resource type="PackedScene" uid="uid://bjfq145sa10oq" path="res://scenes/stations/trash_station.tscn" id="13_27w7k"]
 [ext_resource type="PackedScene" uid="uid://dx04h3616abi3" path="res://scenes/stations/sauce_station.tscn" id="13_f618n"]
 [ext_resource type="PackedScene" uid="uid://bjyqpv0xaejip" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="15_lbva2"]
+[ext_resource type="PackedScene" path="res://scenes/stations/plate_station.tscn" id="15_oot12"]
 
 [node name="Level" instance=ExtResource("1_f618n")]
 round_time = 300
@@ -29,7 +31,8 @@ tile_set = ExtResource("2_p2qo3")
 tile_map_data = PackedByteArray("AAAMAAMAAAAIAAEAAAAMAAQAAAAIAAEAAAAMAAUAAAAIAAEAAAAMAAYAAAAIAAEAAAAMAAcAAAAIAAMAAAADAAIAAAAAAAUAAAAEAAIAAAAAAAUAAAAFAAIAAAAAAAUAAAAGAAIAAAAAAAUAAAAHAAIAAAAAAAUAAAAIAAIAAAAAAAUAAAAJAAIAAAAAAAUAAAAKAAIAAAAAAAUAAAALAAIAAAAAAAUAAAAMAAIAAAAIAAAAAAADAAEAAAAAAAMAAAAEAAEAAAAAAAMAAAAFAAEAAAAAAAMAAAAGAAEAAAAAAAMAAAAHAAEAAAAAAAMAAAAIAAEAAAAAAAMAAAAJAAEAAAAAAAMAAAAKAAEAAAAAAAMAAAALAAEAAAAAAAMAAAAMAAEAAAABAAMAAAAMAAAAAAABAAEAAAANAP//AAAAAAQAAAAOAP//AAAAAAQAAAAPAP//AAAAAAQAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAEAAAACAAUAAAABAAEAAAACAAYAAAABAAEAAAACAAcAAAABAAEAAAAMAP//AAABAAEAAAACAAEAAAABAAAAAAANAP7/AAAAAAMAAAAOAP7/AAAAAAMAAAAPAP7/AAAAAAMAAAAQAP7/AAAAAAMAAAAMAP7/AAABAAAAAAADAAgAAAAAAAIAAAAEAAgAAAAAAAIAAAAFAAgAAAAAAAIAAAAGAAgAAAAAAAIAAAAHAAgAAAAAAAIAAAAIAAgAAAAAAAIAAAAJAAgAAAAAAAIAAAAKAAgAAAAAAAIAAAALAAgAAAAAAAIAAAAMAAgAAAAAAAIAAAANAAgAAAAAAAIAAAAOAAgAAAAAAAIAAAAPAAgAAAAAAAIAAAAQAAgAAAAAAAIAAAARAP//AAACAAEAAAARAAAAAAACAAEAAAARAAEAAAACAAEAAAARAAIAAAACAAEAAAARAAMAAAACAAEAAAARAAQAAAACAAEAAAARAAUAAAACAAEAAAARAAYAAAACAAEAAAARAAcAAAACAAEAAAARAP7/AAACAAAAAAACAAgAAAABAAIAAAARAAgAAAACAAIAAAAHAAUAAAACAAAAAAAQAP//AAAAAAQAAAA=")
 tile_set = ExtResource("2_p2qo3")
 
-[node name="CustomerMarkers" type="Node" parent="." index="7"]
+[node name="CustomerMarkers" type="Node2D" parent="." index="7"]
+visible = false
 
 [node name="Spawn" type="Marker2D" parent="CustomerMarkers" index="0"]
 position = Vector2(1130, 26)
@@ -46,10 +49,7 @@ position = Vector2(867, 347)
 [node name="4" type="Marker2D" parent="CustomerMarkers" index="4"]
 position = Vector2(867, 403)
 
-[node name="5" type="Marker2D" parent="CustomerMarkers" index="5"]
-position = Vector2(867, 461)
-
-[node name="Exit" type="Marker2D" parent="CustomerMarkers" index="6"]
+[node name="Exit" type="Marker2D" parent="CustomerMarkers" index="5"]
 position = Vector2(1139, 493)
 
 [node name="YSort" type="Node2D" parent="." index="8"]
@@ -57,6 +57,7 @@ y_sort_enabled = true
 
 [node name="CucumberStation" parent="YSort" index="0" instance=ExtResource("6_e3sbb")]
 position = Vector2(416, 207)
+station_type = 0
 
 [node name="DonerStation" parent="YSort" index="1" instance=ExtResource("7_aea8e")]
 position = Vector2(480, 207)
@@ -71,12 +72,15 @@ position = Vector2(544, 207)
 
 [node name="CuttingStation" parent="YSort" index="4" instance=ExtResource("10_7xdsu")]
 position = Vector2(608, 378)
+station_type = 0
 
 [node name="BreadStation" parent="YSort" index="5" instance=ExtResource("11_vb107")]
 position = Vector2(544, 378)
+station_type = 0
 
 [node name="CuttingStation2" parent="YSort" index="6" instance=ExtResource("10_7xdsu")]
 position = Vector2(480, 378)
+station_type = 0
 
 [node name="TomatoStation2" parent="YSort" index="7" instance=ExtResource("9_7xdsu")]
 position = Vector2(480, 314)
@@ -85,18 +89,22 @@ direction = 0
 [node name="CuttingStation3" parent="YSort" index="8" instance=ExtResource("10_7xdsu")]
 position = Vector2(544, 314)
 direction = 0
+station_type = 0
 
 [node name="CucumberStation2" parent="YSort" index="9" instance=ExtResource("6_e3sbb")]
 position = Vector2(224, 288)
 direction = 2
+station_type = 0
 
 [node name="CucumberStation4" parent="YSort" index="10" instance=ExtResource("6_e3sbb")]
 position = Vector2(224, 352)
 direction = 2
+station_type = 0
 
 [node name="CucumberStation3" parent="YSort" index="11" instance=ExtResource("6_e3sbb")]
 position = Vector2(224, 416)
 direction = 2
+station_type = 0
 
 [node name="WorkStation" parent="YSort" index="12" instance=ExtResource("10_f618n")]
 position = Vector2(352, 207)
@@ -107,10 +115,12 @@ direction = 0
 
 [node name="SaladStation" parent="YSort" index="14" instance=ExtResource("11_27w7k")]
 position = Vector2(608, 207)
+station_type = 0
 
 [node name="SaladStation2" parent="YSort" index="15" instance=ExtResource("11_27w7k")]
 position = Vector2(544, 480)
 direction = 0
+station_type = 0
 
 [node name="WorkStation3" parent="YSort" index="16" instance=ExtResource("10_f618n")]
 position = Vector2(608, 314)
@@ -126,30 +136,46 @@ position = Vector2(416, 378)
 [node name="CuttingStation4" parent="YSort" index="19" instance=ExtResource("10_7xdsu")]
 position = Vector2(480, 480)
 direction = 0
+station_type = 0
 
 [node name="SauceStation" parent="YSort" index="20" instance=ExtResource("13_f618n")]
 position = Vector2(288, 207)
+station_type = 0
 
-[node name="Player1" parent="YSort" index="21" instance=ExtResource("1_eg31v")]
+[node name="TrashStation" parent="YSort" index="21" instance=ExtResource("13_27w7k")]
+position = Vector2(728, 195)
+
+[node name="TrashStation2" parent="YSort" index="22" instance=ExtResource("13_27w7k")]
+position = Vector2(232, 501)
+
+[node name="PlateStation" parent="YSort" index="23" instance=ExtResource("15_oot12")]
+position = Vector2(352, 378)
+
+[node name="Kasse" type="TileMapLayer" parent="YSort" index="24"]
+position = Vector2(1088, -64)
+tile_map_data = PackedByteArray("AAD7/wgAAAAJAAAAAFA=")
+tile_set = ExtResource("2_p2qo3")
+
+[node name="Player1" parent="YSort" index="25" instance=ExtResource("1_eg31v")]
 position = Vector2(411.83, 289.235)
 platform_floor_layers = 4294967041
 platform_wall_layers = 1
 
-[node name="Player2" parent="YSort" index="22" instance=ExtResource("1_eg31v")]
+[node name="Player2" parent="YSort" index="26" instance=ExtResource("1_eg31v")]
 position = Vector2(700, 366)
-player_number = 2
+player_number = 1
 
-[node name="Kasse" type="TileMapLayer" parent="." index="9"]
-position = Vector2(1074, -16)
-tile_map_data = PackedByteArray("AAAMAAYAAAAJAAAAAFA=")
-tile_set = ExtResource("2_p2qo3")
-
-[node name="Camera2D" type="Camera2D" parent="." index="10" node_paths=PackedStringArray("targets")]
+[node name="MultiTargetCamera" type="Camera2D" parent="." index="9" node_paths=PackedStringArray("targets")]
 position = Vector2(640, 360)
+limit_enabled = false
 script = ExtResource("3_7ty7q")
 targets = [NodePath("../YSort/Player1"), NodePath("../YSort/Player2")]
+smoothing_enabled = true
+smoothing_distance = 8
+metadata/_custom_type_script = "uid://sv3a4lk24ihx"
 
-[node name="CustomerManager" parent="." index="11"]
-queue_points = Array[NodePath]([NodePath("../CustomerMarkers/5"), NodePath("../CustomerMarkers/4"), NodePath("../CustomerMarkers/3"), NodePath("../CustomerMarkers/2"), NodePath("../CustomerMarkers/1")])
+[node name="CustomerManager" parent="." index="10" node_paths=PackedStringArray("camera")]
+queue_points = Array[NodePath]([NodePath("../CustomerMarkers/4"), NodePath("../CustomerMarkers/3"), NodePath("../CustomerMarkers/2"), NodePath("../CustomerMarkers/1")])
 exit_point = NodePath("../CustomerMarkers/Exit")
 spawn_point = NodePath("../CustomerMarkers/Spawn")
+camera = NodePath("../MultiTargetCamera")

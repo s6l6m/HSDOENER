@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dlegmy4552pd7" path="res://assets/workstations/content/Sosse.png" id="3_o3w36"]
 
 [node name="SauceStation" instance=ExtResource("1_o3w36")]
-y_sort_enabled = false
 script = ExtResource("2_o3w36")
+station_type = 3
 
 [node name="Content" parent="Rotatable" index="1"]
 visible = true

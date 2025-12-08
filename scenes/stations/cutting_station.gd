@@ -74,6 +74,8 @@ func _finish_cut():
 
 func interact(player):
 	var held = player.getHeldPickable()
+	
+	
 	if stored_ingredient != null:
 		if player.pickUpPickable(stored_ingredient):
 			if stored_ingredient is Ingredient:
@@ -82,10 +84,9 @@ func interact(player):
 			update_visual()
 		return
 		
-	if held != null:
+	if held != null and held is Ingredient:
 		stored_ingredient = held
-		if stored_ingredient is Ingredient:
-			stored_ingredient.put_into_workstation()
+		stored_ingredient.put_into_workstation()
 		player.dropPickable()
 		update_visual()
 

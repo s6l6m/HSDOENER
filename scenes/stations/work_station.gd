@@ -31,9 +31,16 @@ var sprite_right: Texture2D= load("res://assets/workstations/workstation_right.p
 
 var stored_pickable: PickableResource
 
+enum StationType {
+	WORKSTATION,
+	CUTTINGSTATION,
+	DONERSTATION,
+	INGREDIENTSTATION,
+	TRASHSTATION,
+	PLATESTATION
+}
 
-@export var station_type := "workstation"
-
+@export var station_type: StationType = StationType.WORKSTATION
 
 func _ready() -> void:
 	_initialized = true
@@ -67,17 +74,17 @@ func update_visual():
 		return
 
 	content.texture = stored_pickable.icon
-	content.modulate = stored_pickable.get_icon_tint()
+	#content.modulate = stored_pickable.get_icon_tint()
 	content.visible = true
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("players"):
-		emit_signal("player_entered_station", body, self)
+		player_entered_station.emit(body, self)
 
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("players"):
-		emit_signal("player_exited_station", body, self)
+		player_exited_station.emit(body, self)
 
 
 func update_direction() -> void:
@@ -88,7 +95,7 @@ func update_direction() -> void:
 	match direction:
 		Direction.UP:
 			collisionBoxLarge.disabled = false
-			if station_type == "donerstation":
+			if station_type == StationType.DONERSTATION:
 				content.position = Vector2(0, -39)
 				content.rotation_degrees = 0
 			else:
@@ -100,7 +107,7 @@ func update_direction() -> void:
 
 		Direction.RIGHT:
 			collisionBoxSmall.disabled = false
-			if station_type == "donerstation":
+			if station_type == StationType.DONERSTATION:
 				content.position = Vector2(-50, -20)
 				content.rotation_degrees = -90
 			else:
@@ -113,7 +120,7 @@ func update_direction() -> void:
 
 		Direction.DOWN:
 			collisionBoxSmall.disabled = false
-			if station_type == "donerstation":
+			if station_type == StationType.DONERSTATION:
 				content.position = Vector2(0, 0)
 				content.rotation_degrees = -180
 			else:
@@ -126,7 +133,7 @@ func update_direction() -> void:
 
 		Direction.LEFT:
 			collisionBoxSmall.disabled = false
-			if station_type == "donerstation":
+			if station_type == StationType.DONERSTATION:
 				content.position = Vector2(50, -20)
 				content.rotation_degrees = -270
 			else:
