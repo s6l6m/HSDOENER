@@ -13,4 +13,4 @@ func interact(player):
 	var cucumber: Ingredient = cucumber_resource.duplicate(true)
 
 	# Player bekommt das Ingredient
-	player.pickUpIngredient(cucumber)
+	player.pickUpPickable(cucumber)
