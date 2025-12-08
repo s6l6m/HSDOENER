@@ -1,11 +1,14 @@
 extends Node2D
+class_name ServingSlot
 
+@onready var interaction_zone: Area2D = $InteractionZone
+@onready var customer_position: Marker2D = $CustomerPosition
+@onready var plate_position: Marker2D = $PlatePosition
+@onready var counter_texture: Sprite2D = $CounterTexture
+@onready var order_color: Sprite2D = $OrderColor
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#var plate: Teller = null
+var customer: Customer = null
+var order: Order:
+	get:
+		return customer.order if customer else null

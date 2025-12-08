@@ -7,6 +7,7 @@ signal customer_arrived_exit(customer)
 @export var speed: float = 100.0
 var target_position: Vector2
 var is_moving = false
+var order: Order
 
 func move_to(pos: Vector2):
 	target_position = pos
