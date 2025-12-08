@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bjfq145sa10oq"]
 
-[ext_resource type="Script" uid="uid://cv6w8cbc0djxd" path="res://scenes/stations/trash_station.gd" id="1_4ws13"]
+[ext_resource type="Script" uid="uid://dglp8sd8f3h35" path="res://scenes/stations/trash_station.gd" id="1_4ws13"]
 [ext_resource type="Texture2D" uid="uid://bj5ek3d4coglu" path="res://assets/workstations/trash_can.png" id="3_isa1o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_isa1o"]
@@ -49,6 +49,7 @@ shape = SubResource("RectangleShape2D_jeb1n")
 disabled = true
 
 [node name="InteractionArea" type="Area2D" parent="Rotatable"]
+visible = false
 collision_layer = 2
 collision_mask = 2
 

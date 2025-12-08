@@ -2,14 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_4jijf"]
 [ext_resource type="Texture2D" uid="uid://dov1ynbhdfbld" path="res://assets/workstations/content/Tomate.png" id="2_5hfri"]
-[ext_resource type="Script" uid="uid://bfy8tq0v5xu06" path="res://scenes/stations/tomato_station.gd" id="2_87a3p"]
+[ext_resource type="Script" uid="uid://u1qn4pvnx6sj" path="res://scenes/stations/tomato_station.gd" id="2_87a3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysy51"]
-size = Vector2(17, 42.5)
+size = Vector2(64, 61)
 
 [node name="TomatoStation" instance=ExtResource("1_4jijf")]
 script = ExtResource("2_87a3p")
-station_type = 3
 
 [node name="Content" parent="Rotatable" index="1"]
 visible = true
@@ -22,5 +21,5 @@ visible = true
 visible = false
 
 [node name="CollisionShape2D" parent="Rotatable/InteractionArea" index="0"]
-visible = true
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_ysy51")

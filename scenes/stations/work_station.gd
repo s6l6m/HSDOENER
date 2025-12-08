@@ -33,10 +33,11 @@ var stored_pickable: PickableResource
 
 enum StationType {
 	WORKSTATION,
-	CUTTTINGSTATION,
+	CUTTINGSTATION,
 	DONERSTATION,
 	INGREDIENTSTATION,
-	TRASHSTATION
+	TRASHSTATION,
+	PLATESTATION
 }
 
 @export var station_type: StationType = StationType.WORKSTATION
@@ -73,7 +74,7 @@ func update_visual():
 		return
 
 	content.texture = stored_pickable.icon
-	content.modulate = stored_pickable.get_icon_tint()
+	#content.modulate = stored_pickable.get_icon_tint()
 	content.visible = true
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
