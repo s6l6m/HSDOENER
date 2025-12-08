@@ -35,7 +35,7 @@ func _process(delta):
 			_finish_cut()
 
 
-func start_cut(player):
+func interact_b(player):
 	_player_cutting = player
 	
 	if stored_ingredient == null:

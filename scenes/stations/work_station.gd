@@ -2,6 +2,9 @@
 extends Node2D
 class_name WorkStation
 
+signal player_entered_station(player, station)
+signal player_exited_station(player, station)
+
 enum Direction { DOWN, UP, LEFT, RIGHT }
 
 var _initialized := false
@@ -34,6 +37,7 @@ var stored_pickable: PickableResource
 
 func _ready() -> void:
 	_initialized = true
+	add_to_group("stations")
 	update_direction()
 
 
@@ -54,6 +58,9 @@ func interact(player: Player):
 		player.dropPickable()
 		update_visual()
 
+func interact_b(player: Player):
+	print("Nothing to do")
+
 func update_visual():
 	if stored_pickable == null:
 		content.visible = false
@@ -65,12 +72,12 @@ func update_visual():
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("players"):
-		body.enter_station(self)
+		emit_signal("player_entered_station", body, self)
 
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("players"):
-		body.exit_station(self)
+		emit_signal("player_exited_station", body, self)
 
 
 func update_direction() -> void:

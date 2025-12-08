@@ -37,13 +37,18 @@ var held_pickable: PickableResource = null
 func _ready() -> void:
 	add_to_group("players")
 	if player_number == 1:
-		var event := InputMap.action_get_events("interact_p1")[0]
+		var event := InputMap.action_get_events("interact_a_p1")[0]
 		interaction_icon.texture = $InputIconMapper.get_icon(event)
 	else:
-		var event := InputMap.action_get_events("interact_p2")[0]
+		var event := InputMap.action_get_events("interact_a_p2")[0]
 		interaction_icon.texture = $InputIconMapper.get_icon(event)
 	
 	set_state(State.FREE)
+	# mit Workstations verbinden
+	for station in get_tree().get_nodes_in_group("stations"):
+		station.connect("player_entered_station", self._on_player_entered_station)
+		station.connect("player_exited_station", self._on_player_exited_station)
+
 
 func _process(_delta):
 	if held_pickable != null:
@@ -68,13 +73,13 @@ func _physics_process(delta: float) -> void:
 				direction.y += 1
 			if Input.is_action_pressed("move_up_p1"):
 				direction.y -= 1
-		if Input.is_action_just_pressed("interact_p1"):
+		if Input.is_action_just_pressed("interact_a_p1"):
 			if current_station:
 				current_station.interact(self)
-		if Input.is_action_just_pressed("cut_p1"):
-			if current_station and current_station.station_type == "cuttingstation":
-				current_station.start_cut(self)
-		if Input.is_action_just_released("cut_p1"):
+		if Input.is_action_just_pressed("interact_b_p1"):
+			if current_station:
+				current_station.interact_b(self)
+		if Input.is_action_just_released("interact_b_p1"):
 			if current_station and current_station.station_type == "cuttingstation":
 				current_station.stop_cut(self)
 	
@@ -89,13 +94,13 @@ func _physics_process(delta: float) -> void:
 				direction.y += 1
 			if Input.is_action_pressed("move_up_p2"):
 				direction.y -= 1
-		if Input.is_action_just_pressed("interact_p2"):
+		if Input.is_action_just_pressed("interact_a_p2"):
 			if current_station:
 				current_station.interact(self)
-		if Input.is_action_just_pressed("cut_p2"):
-			if current_station and current_station.station_type == "cuttingstation":
-				current_station.start_cut(self)
-		if Input.is_action_just_released("cut_p2"):
+		if Input.is_action_just_pressed("interact_b_p2"):
+			if current_station:
+				current_station.interact_b(self)
+		if Input.is_action_just_released("interact_b_p2"):
 			if current_station and current_station.station_type == "cuttingstation":
 				current_station.stop_cut(self)
 
@@ -122,12 +127,18 @@ func _physics_process(delta: float) -> void:
 		if sprite.is_playing():
 			sprite.play("idle")
 
-func enter_station(station: WorkStation) -> void:
+func _on_player_entered_station(player, station):
+	if player != self:
+		return
+	
 	stations_in_range.append(station)
 	_update_current_station()
 	interaction_icon.get_parent().show()
 
-func exit_station(station: WorkStation) -> void:
+func _on_player_exited_station(player, station):
+	if player != self:
+		return
+	
 	stations_in_range.erase(station)
 	_update_current_station()
 
@@ -214,36 +225,10 @@ func getHeldOrder() -> Order:
 func isHoldingOrder() -> bool:
 	return held_pickable != null and held_pickable.is_order()
 
-# Legacy-Funktionen für Backward Compatibility mit bestehenden Stations
-func pickUp(item: Texture2D) -> bool:
-	if heldItem.texture == null:
-		heldItem.texture = item
-		heldItem.visible = true
-		set_state(State.CARRYING)
-		return true
-	else:
-		print("Already holding an item")
-		return false
-
-func layDown() -> Texture2D:
-	if heldItem.texture != null:
-		var item: Texture2D = heldItem.texture
-		heldItem.texture = null
-		heldItem.visible = false
-		set_state(State.FREE)
-		return item
-	else:
-		print("Not holding an item")
-		return null
-
-# Backward Compatibility - Ingredient-spezifische Funktionen
-func pickUpIngredient(ingredient: Ingredient) -> bool:
-	return pickUpPickable(ingredient)
-
 func getHeldIngredient() -> Ingredient:
-	if held_pickable is Ingredient:
+	if held_pickable and held_pickable.is_ingredient():
 		return held_pickable as Ingredient
 	return null
 
 func isHoldingIngredient() -> bool:
-	return held_pickable is Ingredient
+	return held_pickable != null and held_pickable.is_ingredient()

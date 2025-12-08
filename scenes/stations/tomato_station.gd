@@ -13,4 +13,4 @@ func interact(player):
 	var tomato: Ingredient = tomato_resource.duplicate(true)
 
 	# Player bekommt das Ingredient
-	player.pickUpIngredient(tomato)
+	player.pickUpPickable(tomato)
