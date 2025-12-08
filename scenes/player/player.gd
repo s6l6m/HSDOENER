@@ -16,7 +16,8 @@ signal pickable_picked_up(pickable: PickableResource)
 signal pickable_dropped(pickable: PickableResource)
 
 @export var speed: float = 150.0
-@export var player_number: int = 1
+enum PlayerNumber { ONE, TWO }
+@export var player_number: PlayerNumber = PlayerNumber.ONE
 
 var facing_dir: Vector2 = Vector2.DOWN
 var velocity_target: Vector2 = Vector2.ZERO
@@ -36,13 +37,13 @@ var held_pickable: PickableResource = null
 
 func _ready() -> void:
 	add_to_group("players")
-	if player_number == 1:
-		var event := InputMap.action_get_events("interact_a_p1")[0]
-		interaction_icon.texture = $InputIconMapper.get_icon(event)
-	else:
-		var event := InputMap.action_get_events("interact_a_p2")[0]
-		interaction_icon.texture = $InputIconMapper.get_icon(event)
-	
+	match player_number:
+		PlayerNumber.ONE:
+			var event := InputMap.action_get_events("interact_a_p1")[0]
+			interaction_icon.texture = $InputIconMapper.get_icon(event)
+		PlayerNumber.TWO:
+			var event := InputMap.action_get_events("interact_a_p2")[0]
+			interaction_icon.texture = $InputIconMapper.get_icon(event)
 	set_state(State.FREE)
 	# mit Workstations verbinden
 	for station in get_tree().get_nodes_in_group("stations"):
@@ -60,50 +61,51 @@ func _physics_process(delta: float) -> void:
 	# Wenn Player DISABLED ist, keine Bewegung erlauben
 	if current_state == State.DISABLED:
 		return
-	
+
 	var direction: Vector2 = Vector2.ZERO
 
 	# Steuerung für Player 1
-	if player_number == 1:
-		if can_move():
-			if Input.is_action_pressed("move_right_p1"):
-				direction.x += 1
-			if Input.is_action_pressed("move_left_p1"):
-				direction.x -= 1
-			if Input.is_action_pressed("move_down_p1"):
-				direction.y += 1
-			if Input.is_action_pressed("move_up_p1"):
-				direction.y -= 1
-		if Input.is_action_just_pressed("interact_a_p1"):
-			if current_station:
-				current_station.interact(self)
-		if Input.is_action_just_pressed("interact_b_p1"):
-			if current_station:
-				current_station.interact_b(self)
-		if Input.is_action_just_released("interact_b_p1"):
-			if current_station and current_station.station_type == WorkStation.StationType.CUTTINGSTATION:
-				current_station.stop_cut(self)
+	match player_number:
+		PlayerNumber.ONE:
+			if can_move():
+				if Input.is_action_pressed("move_right_p1"):
+					direction.x += 1
+				if Input.is_action_pressed("move_left_p1"):
+					direction.x -= 1
+				if Input.is_action_pressed("move_down_p1"):
+					direction.y += 1
+				if Input.is_action_pressed("move_up_p1"):
+					direction.y -= 1
+			if Input.is_action_just_pressed("interact_a_p1"):
+				if current_station:
+					current_station.interact(self)
+			if Input.is_action_just_pressed("interact_b_p1"):
+				if current_station:
+					current_station.interact_b(self)
+			if Input.is_action_just_released("interact_b_p1"):
+				if current_station and current_station.station_type == WorkStation.StationType.CUTTINGSTATION:
+					current_station.stop_cut(self)
 	
 	# Steuerung für Player 2
-	elif player_number == 2:
-		if can_move():
-			if Input.is_action_pressed("move_right_p2"):
-				direction.x += 1
-			if Input.is_action_pressed("move_left_p2"):
-				direction.x -= 1
-			if Input.is_action_pressed("move_down_p2"):
-				direction.y += 1
-			if Input.is_action_pressed("move_up_p2"):
-				direction.y -= 1
-		if Input.is_action_just_pressed("interact_a_p2"):
-			if current_station:
-				current_station.interact(self)
-		if Input.is_action_just_pressed("interact_b_p2"):
-			if current_station:
-				current_station.interact_b(self)
-		if Input.is_action_just_released("interact_b_p2"):
-			if current_station and current_station.station_type == WorkStation.StationType.CUTTINGSTATION:
-				current_station.stop_cut(self)
+		PlayerNumber.TWO:
+			if can_move():
+				if Input.is_action_pressed("move_right_p2"):
+					direction.x += 1
+				if Input.is_action_pressed("move_left_p2"):
+					direction.x -= 1
+				if Input.is_action_pressed("move_down_p2"):
+					direction.y += 1
+				if Input.is_action_pressed("move_up_p2"):
+					direction.y -= 1
+			if Input.is_action_just_pressed("interact_a_p2"):
+				if current_station:
+					current_station.interact(self)
+			if Input.is_action_just_pressed("interact_b_p2"):
+				if current_station:
+					current_station.interact_b(self)
+			if Input.is_action_just_released("interact_b_p2"):
+				if current_station and current_station.station_type == WorkStation.StationType.CUTTINGSTATION:
+					current_station.stop_cut(self)
 
 	# Richtung merken
 	if direction != Vector2.ZERO:
