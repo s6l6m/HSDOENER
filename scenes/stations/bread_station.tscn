@@ -10,6 +10,5 @@ station_type = 3
 
 [node name="Content" parent="Rotatable" index="1"]
 visible = true
-position = Vector2(-1.9073486e-06, -21)
 scale = Vector2(0.4375, 0.453125)
 texture = ExtResource("2_o6dfe")

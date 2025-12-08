@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://lswecnwa26fu"]
+[gd_scene load_steps=6 format=3 uid="uid://lswecnwa26fu"]
 
 [ext_resource type="Script" uid="uid://coti6n4lukoat" path="res://scenes/orders/serving_slot.gd" id="1_7nvyl"]
 [ext_resource type="Texture2D" uid="uid://6vsbbqyk7yyp" path="res://assets/sprites/counter-slot-default.png" id="2_jsgy0"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a4qep"]
 radius = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wtiy"]
+size = Vector2(64, 64)
 
 [node name="ServingSlot" type="Node2D"]
 script = ExtResource("1_7nvyl")
@@ -19,10 +22,22 @@ texture = ExtResource("3_8wtiy")
 [node name="CustomerPosition" type="Marker2D" parent="."]
 position = Vector2(64, 0)
 
-[node name="PlatePosition" type="Marker2D" parent="."]
+[node name="InteractionArea" type="Area2D" parent="."]
 
-[node name="InteractionZone" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(-30, 0)
 shape = SubResource("CircleShape2D_a4qep")
+
+[node name="Content" type="Sprite2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_8wtiy")
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

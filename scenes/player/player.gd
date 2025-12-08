@@ -50,6 +50,10 @@ func _ready() -> void:
 		if station is WorkStation:
 			station.player_entered_station.connect(_on_player_entered_station)
 			station.player_exited_station.connect(_on_player_exited_station)
+	for counter in get_tree().get_nodes_in_group("counterslots"):
+		if counter is CounterSlot:
+			counter.player_entered_slot.connect(_on_player_entered_station)
+			counter.player_exited_slot.connect(_on_player_exited_station)
 
 
 func _process(_delta):
@@ -142,6 +146,8 @@ func _on_player_exited_station(player, station):
 	
 	stations_in_range.erase(station)
 	_update_current_station()
+	
+
 
 func _update_current_station() -> void:
 	if stations_in_range.is_empty():
