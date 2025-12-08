@@ -24,8 +24,8 @@ var velocity_target: Vector2 = Vector2.ZERO
 var current_state: State = State.FREE
 
 # Station Interaktion
-var current_station: WorkStation = null
-var stations_in_range: Array[WorkStation] = []
+var current_station: Node2D = null
+var stations_in_range: Array[Node2D] = []
 
 # Was der Player gerade hält (Player State) - PickableResource (Ingredient oder Order)
 var held_pickable: PickableResource = null
@@ -82,7 +82,8 @@ func _physics_process(delta: float) -> void:
 					direction.y -= 1
 			if Input.is_action_just_pressed("interact_a_p1"):
 				if current_station:
-					current_station.interact(self)
+					if current_station is WorkStation or current_station is CounterSlot:
+						current_station.interact(self)
 			if Input.is_action_just_pressed("interact_b_p1"):
 				if current_station:
 					current_station.interact_b(self)
@@ -147,8 +148,6 @@ func _on_player_exited_station(player, station):
 	stations_in_range.erase(station)
 	_update_current_station()
 	
-
-
 func _update_current_station() -> void:
 	if stations_in_range.is_empty():
 		current_station = null

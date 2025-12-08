@@ -43,12 +43,10 @@ func update_visual() -> void:
 
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
-	print("test")
 	if body.is_in_group("players"):
 		player_entered_slot.emit(body, self)
 
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
-	print("test2")
 	if body.is_in_group("players"):
 		player_exited_slot.emit(body, self)
