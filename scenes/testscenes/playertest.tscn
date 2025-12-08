@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=4 uid="uid://bv420bevae7fi"]
 
-[ext_resource type="PackedScene" uid="uid://cqv0mn6impy3v" path="res://scenes/player/player.tscn" id="1_eg31v"]
+[ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/player.tscn" id="1_eg31v"]
 [ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/level.tscn" id="1_f618n"]
 [ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_p2qo3"]
 [ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dx04h3616abi3" path="res://scenes/stations/sauce_station.tscn" id="13_f618n"]
 [ext_resource type="PackedScene" uid="uid://bjyqpv0xaejip" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="15_lbva2"]
 [ext_resource type="PackedScene" uid="uid://b7wvjtcdfwo8k" path="res://scenes/stations/plate_station.tscn" id="15_oot12"]
-[ext_resource type="PackedScene" uid="uid://lswecnwa26fu" path="res://scenes/orders/ServingSlot.tscn" id="17_oot12"]
+[ext_resource type="PackedScene" uid="uid://chn64x1htog3j" path="res://scenes/orders/ServingSlot.tscn" id="17_oot12"]
 
 [node name="Level" instance=ExtResource("1_f618n")]
 round_time = 300
@@ -33,24 +33,26 @@ tile_map_data = PackedByteArray("AAADAAIAAAAAAAUAAAAEAAIAAAAAAAUAAAAFAAIAAAAAAAU
 tile_set = ExtResource("2_p2qo3")
 
 [node name="CustomerMarkers" type="Node2D" parent="." index="7"]
-visible = false
 
 [node name="Spawn" type="Marker2D" parent="CustomerMarkers" index="0"]
 position = Vector2(1130, 26)
 
 [node name="1" type="Marker2D" parent="CustomerMarkers" index="1"]
-position = Vector2(866, 228)
+position = Vector2(855, 226)
 
 [node name="2" type="Marker2D" parent="CustomerMarkers" index="2"]
-position = Vector2(866, 289)
+position = Vector2(855, 289)
 
 [node name="3" type="Marker2D" parent="CustomerMarkers" index="3"]
-position = Vector2(867, 347)
+position = Vector2(855, 353)
 
 [node name="4" type="Marker2D" parent="CustomerMarkers" index="4"]
-position = Vector2(867, 403)
+position = Vector2(855, 415)
 
-[node name="Exit" type="Marker2D" parent="CustomerMarkers" index="5"]
+[node name="5" type="Marker2D" parent="CustomerMarkers" index="5"]
+position = Vector2(855, 481)
+
+[node name="Exit" type="Marker2D" parent="CustomerMarkers" index="6"]
 position = Vector2(1139, 493)
 
 [node name="YSort" type="Node2D" parent="." index="8"]
@@ -153,19 +155,26 @@ position = Vector2(232, 501)
 position = Vector2(352, 378)
 
 [node name="ServingSlot" parent="YSort" index="24" instance=ExtResource("17_oot12")]
-position = Vector2(800, 337)
+position = Vector2(800, 225)
 
-[node name="Kasse" type="TileMapLayer" parent="YSort" index="25"]
-position = Vector2(1088, -64)
-tile_map_data = PackedByteArray("AAD7/wgAAAAJAAAAAFA=")
-tile_set = ExtResource("2_p2qo3")
+[node name="ServingSlot2" parent="YSort" index="25" instance=ExtResource("17_oot12")]
+position = Vector2(800, 289)
 
-[node name="Player1" parent="YSort" index="26" instance=ExtResource("1_eg31v")]
+[node name="ServingSlot3" parent="YSort" index="26" instance=ExtResource("17_oot12")]
+position = Vector2(800, 352)
+
+[node name="ServingSlot4" parent="YSort" index="27" instance=ExtResource("17_oot12")]
+position = Vector2(800, 416)
+
+[node name="ServingSlot5" parent="YSort" index="28" instance=ExtResource("17_oot12")]
+position = Vector2(800, 480)
+
+[node name="Player1" parent="YSort" index="29" instance=ExtResource("1_eg31v")]
 position = Vector2(411.83, 289.235)
 platform_floor_layers = 4294967041
 platform_wall_layers = 1
 
-[node name="Player2" parent="YSort" index="27" instance=ExtResource("1_eg31v")]
+[node name="Player2" parent="YSort" index="30" instance=ExtResource("1_eg31v")]
 position = Vector2(700, 366)
 player_number = 1
 
@@ -179,7 +188,7 @@ smoothing_distance = 8
 metadata/_custom_type_script = "uid://sv3a4lk24ihx"
 
 [node name="CustomerManager" parent="." index="10" node_paths=PackedStringArray("camera")]
-queue_points = Array[NodePath]([NodePath("../CustomerMarkers/4"), NodePath("../CustomerMarkers/3"), NodePath("../CustomerMarkers/2"), NodePath("../CustomerMarkers/1")])
+queue_points = Array[NodePath]([NodePath("../CustomerMarkers/5"), NodePath("../CustomerMarkers/4"), NodePath("../CustomerMarkers/3"), NodePath("../CustomerMarkers/2"), NodePath("../CustomerMarkers/1")])
 exit_point = NodePath("../CustomerMarkers/Exit")
 spawn_point = NodePath("../CustomerMarkers/Spawn")
 camera = NodePath("../MultiTargetCamera")

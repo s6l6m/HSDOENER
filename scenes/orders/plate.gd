@@ -23,7 +23,9 @@ func isBreadIncluded() -> bool:
 			return true
 	return false
 
-
 func printIngredients():
 	for i in ingredients:
 		print(i.name)
+
+func hasIngredients():
+	return ingredients.size() > 0

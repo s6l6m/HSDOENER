@@ -86,7 +86,8 @@ func _physics_process(delta: float) -> void:
 						current_station.interact(self)
 			if Input.is_action_just_pressed("interact_b_p1"):
 				if current_station:
-					current_station.interact_b(self)
+					if current_station is WorkStation or current_station is CounterSlot:
+						current_station.interact_b(self)
 			if Input.is_action_just_released("interact_b_p1"):
 				if current_station and current_station.station_type == WorkStation.StationType.CUTTINGSTATION:
 					current_station.stop_cut(self)
@@ -104,10 +105,12 @@ func _physics_process(delta: float) -> void:
 					direction.y -= 1
 			if Input.is_action_just_pressed("interact_a_p2"):
 				if current_station:
-					current_station.interact(self)
+					if current_station is WorkStation or current_station is CounterSlot:
+						current_station.interact(self)
 			if Input.is_action_just_pressed("interact_b_p2"):
 				if current_station:
-					current_station.interact_b(self)
+					if current_station is WorkStation or current_station is CounterSlot:
+						current_station.interact_b(self)
 			if Input.is_action_just_released("interact_b_p2"):
 				if current_station and current_station.station_type == WorkStation.StationType.CUTTINGSTATION:
 					current_station.stop_cut(self)

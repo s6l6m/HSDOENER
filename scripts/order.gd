@@ -70,3 +70,7 @@ func _evaluate_time_left(current_time: int) -> float:
 	
 	# normalisierter Wert zwischen 0 und 1
 	return float(elapsed) / float(time_limit)
+
+func printIngredients():
+	for i in fulfilled_ingredients:
+		print(i.name)
