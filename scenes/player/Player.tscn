@@ -59,7 +59,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_right",
-"speed": 10.0
+"speed": 4.0
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpg5x"]
@@ -82,7 +82,6 @@ shape = SubResource("CapsuleShape2D_gfjak")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_npwbq")
-animation = &"idle"
 
 [node name="HeldItem" type="Sprite2D" parent="."]
 position = Vector2(6.46, 4.665)
