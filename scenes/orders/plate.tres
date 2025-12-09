@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Plate" load_steps=3 format=3 uid="uid://bg8p4q0gasgtb"]
+
+[ext_resource type="Texture2D" uid="uid://bdpfj5nmmfg7h" path="res://assets/food/items/teller-sprite.png" id="1_ujjwg"]
+[ext_resource type="Script" uid="uid://4kgljblw17pg" path="res://scenes/orders/plate.gd" id="2_cduio"]
+
+[resource]
+script = ExtResource("2_cduio")
+name = "Plate"
+icon = ExtResource("1_ujjwg")
+metadata/_custom_type_script = "uid://bqmy4oi0wpmqb"

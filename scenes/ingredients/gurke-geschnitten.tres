@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://bjxf2clxtu1jd"]
-
-[ext_resource type="Script" uid="uid://dfk3anh4to5im" path="res://scenes/ingredients/ingredient-data.gd" id="1_tfft6"]
-
-[resource]
-script = ExtResource("1_tfft6")
-metadata/_custom_type_script = "uid://dfk3anh4to5im"

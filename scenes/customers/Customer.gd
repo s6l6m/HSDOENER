@@ -7,6 +7,20 @@ signal customer_arrived_exit(customer)
 @export var speed: float = 100.0
 var target_position: Vector2
 var is_moving = false
+var order: Order
+var color: Color
+
+func _ready() -> void:
+	add_to_group("customers")
+	if not color:
+		color = _generate_random_rgb_color()
+
+func _generate_random_rgb_color() -> Color:
+	return Color(
+		randf(), # RED
+		randf(), # GREEN
+		randf(), # BLUE
+	)
 
 func move_to(pos: Vector2):
 	target_position = pos
@@ -27,6 +41,14 @@ func _process(_delta):
 			if target_position == exit_pos:
 				emit_signal("customer_arrived_exit", self)
 
+func fillFulfilledIngredients(ingredients: Array[Ingredient]) -> void:
+	if order == null:
+		push_warning("Customer has no order assigned in fillFulfilledIngredients()")
+		return
+
+	# neue Liste setzen (Kopie, nicht Referenz übernehmen)
+	order.fulfilled_ingredients = ingredients.duplicate()
+	
 
 # Wird aufgerufen, wenn auf den Kunden geklickt wird
 func _input_event(_viewport, event, _shape_idx):

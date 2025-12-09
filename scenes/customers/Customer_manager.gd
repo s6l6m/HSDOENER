@@ -14,6 +14,8 @@ class_name CustomerManager
 
 @export var order_manager: OrderManager
 
+@export var camera: MultiTargetCamera
+
 # Intern gespeicherte Kunden
 var customers: Array[Customer] = []
 
@@ -35,7 +37,6 @@ func spawn_customer():
 	new_customer.global_position = base_pos + Vector2(customers.size() * x_offset, 0)
 
 	add_child(new_customer)
-
 	print("Customer spawned at:", new_customer.global_position)
 
 	# Zielposition für Warteschlange (optional)
@@ -56,7 +57,6 @@ func spawn_customer():
 func _on_customer_left(customer: Customer):
 	# Kunde verlässt die Queue und läuft zum Ausgang
 	new_customer_move_to_exit(customer)
-
 	# Restliche Kunden rücken nach
 	customers.erase(customer)
 	_update_queue_positions()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://gdxhyp5mg2l4"]
+[gd_scene load_steps=10 format=3 uid="uid://gdxhyp5mg2l4"]
 
 [ext_resource type="Script" uid="uid://c2tnd7q4wknkh" path="res://scenes/ui/widgets/order/order_widget.gd" id="1_ab3os"]
 [ext_resource type="Texture2D" uid="uid://d6h63acikn3v" path="res://resources/ui/UI_Sprite_1.png" id="2_q6pbn"]
 [ext_resource type="Script" uid="uid://cqpm1v3twfd33" path="res://scenes/ui/widgets/order/timer_progress.gd" id="3_4ugo1"]
 [ext_resource type="PackedScene" uid="uid://bkiegbw6yaom8" path="res://scenes/ui/widgets/order/ingredient.tscn" id="5_u2618"]
+[ext_resource type="Texture2D" uid="uid://caw2df38hwqd5" path="res://resources/ui/UI_Coin.png" id="9_c80hy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ugo1"]
 atlas = ExtResource("2_q6pbn")
@@ -15,6 +16,10 @@ load_path = "res://.godot/imported/UI_Sprite_1.png-16792152d5600c5824844de1cb449
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2618"]
 atlas = SubResource("CompressedTexture2D_ucajs")
 region = Rect2(633, 181, 32, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0m1ti"]
+atlas = ExtResource("9_c80hy")
+region = Rect2(32, 0, 16, 16)
 
 [node name="OrderWidget" type="PanelContainer"]
 custom_minimum_size = Vector2(150, 0)
@@ -70,3 +75,21 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+
+[node name="Price" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 2
+
+[node name="PriceLabel" type="Label" parent="MarginContainer/VBoxContainer/Price"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/Price"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_0m1ti")
+expand_mode = 4
+stretch_mode = 5

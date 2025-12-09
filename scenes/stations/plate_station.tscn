@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7wvjtcdfwo8k"]
+
+[ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_apxx5"]
+[ext_resource type="Script" uid="uid://ubc21wmettly" path="res://scenes/stations/plate_station.gd" id="2_apxx5"]
+[ext_resource type="Texture2D" uid="uid://bdpfj5nmmfg7h" path="res://assets/food/items/teller-sprite.png" id="3_apxx5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysy51"]
+size = Vector2(64, 60.5)
+
+[node name="PlateStation" instance=ExtResource("1_apxx5")]
+script = ExtResource("2_apxx5")
+station_type = 5
+
+[node name="Content" parent="Rotatable" index="1"]
+visible = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_apxx5")
+
+[node name="CollisionShape2D" parent="Rotatable/Collision" index="0"]
+visible = true
+
+[node name="InteractionArea" parent="Rotatable" index="4"]
+visible = false
+
+[node name="CollisionShape2D" parent="Rotatable/InteractionArea" index="0"]
+visible = true
+position = Vector2(0, -1.75)
+shape = SubResource("RectangleShape2D_ysy51")

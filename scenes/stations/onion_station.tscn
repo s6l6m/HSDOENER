@@ -6,8 +6,10 @@
 
 [node name="OnionStation" instance=ExtResource("1_dbhqo")]
 script = ExtResource("2_ur1ib")
-station_type = "onionstation"
 
 [node name="Content" parent="Rotatable" index="1"]
 visible = true
 texture = ExtResource("2_dpdpk")
+
+[node name="InteractionArea" parent="Rotatable" index="4"]
+visible = false
