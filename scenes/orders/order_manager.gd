@@ -18,6 +18,7 @@ var orders: Array[Order] = []
 
 func _ready() -> void:
 	self.order_added.connect(orders_container.on_add_order)
+	self.order_removed.connect(orders_container.on_remove_order)
 
 func complete_order(order: Order) -> void:
 	if order in orders:

@@ -33,6 +33,7 @@ tile_map_data = PackedByteArray("AAADAAIAAAAAAAUAAAAEAAIAAAAAAAUAAAAFAAIAAAAAAAU
 tile_set = ExtResource("2_p2qo3")
 
 [node name="CustomerMarkers" type="Node2D" parent="." index="7"]
+position = Vector2(-10, 9)
 
 [node name="Spawn" type="Marker2D" parent="CustomerMarkers" index="0"]
 position = Vector2(1130, 26)
@@ -158,20 +159,25 @@ position = Vector2(672, 207)
 position = Vector2(608, 480)
 direction = 0
 
-[node name="ServingSlot" parent="YSort" index="25" instance=ExtResource("17_oot12")]
+[node name="ServingSlot" parent="YSort" index="25" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
 position = Vector2(800, 225)
+order_manager = NodePath("../../OrderManager")
 
-[node name="ServingSlot2" parent="YSort" index="26" instance=ExtResource("17_oot12")]
+[node name="ServingSlot2" parent="YSort" index="26" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
 position = Vector2(800, 289)
+order_manager = NodePath("../../OrderManager")
 
-[node name="ServingSlot3" parent="YSort" index="27" instance=ExtResource("17_oot12")]
+[node name="ServingSlot3" parent="YSort" index="27" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
 position = Vector2(800, 352)
+order_manager = NodePath("../../OrderManager")
 
-[node name="ServingSlot4" parent="YSort" index="28" instance=ExtResource("17_oot12")]
+[node name="ServingSlot4" parent="YSort" index="28" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
 position = Vector2(800, 416)
+order_manager = NodePath("../../OrderManager")
 
-[node name="ServingSlot5" parent="YSort" index="29" instance=ExtResource("17_oot12")]
+[node name="ServingSlot5" parent="YSort" index="29" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
 position = Vector2(800, 480)
+order_manager = NodePath("../../OrderManager")
 
 [node name="Player1" parent="YSort" index="30" instance=ExtResource("1_eg31v")]
 position = Vector2(411.83, 289.235)

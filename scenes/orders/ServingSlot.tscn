@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://chn64x1htog3j"]
 
-[ext_resource type="Script" uid="uid://coti6n4lukoat" path="res://scenes/orders/serving_slot.gd" id="1_7nvyl"]
+[ext_resource type="Script" uid="uid://b6t6gtf7onxbe" path="res://scenes/orders/serving_slot.gd" id="1_7nvyl"]
 [ext_resource type="Texture2D" uid="uid://6vsbbqyk7yyp" path="res://assets/sprites/counter-slot-default.png" id="2_jsgy0"]
 [ext_resource type="Texture2D" uid="uid://cv8sb861wu7oc" path="res://assets/sprites/counter-color.png" id="3_8wtiy"]
 
@@ -8,7 +8,7 @@
 radius = 32.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4qep"]
-size = Vector2(44, 41)
+size = Vector2(26, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wtiy"]
 size = Vector2(64, 64)
@@ -20,6 +20,7 @@ script = ExtResource("1_7nvyl")
 texture = ExtResource("2_jsgy0")
 
 [node name="OrderColor" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("3_8wtiy")
 
 [node name="InteractionArea" type="Area2D" parent="."]
@@ -38,7 +39,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionAreaCustomer"]
-position = Vector2(-40, 0)
+position = Vector2(-49, 0)
 shape = SubResource("RectangleShape2D_a4qep")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
