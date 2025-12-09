@@ -5,6 +5,7 @@ class_name OrderWidget
 @onready var timer_bar = %TimerProgress
 @onready var ingredients_container: HBoxContainer = %IngredientsContainer
 @onready var dish_icon: TextureRect = %DishIcon
+@onready var price_label: Label = %PriceLabel
 
 @export var order: Order :
 	set(value):
@@ -64,10 +65,17 @@ func _load_order_runtime():
 
 	_update_dish_icon()
 	_update_ingredients()
+	_update_price_label()
 
 
 func _load_order_editor_preview():
 	if not order:
+		dish = null
+		ingredients.clear()
+		time_left = 0
+		timer_running = false
+		order_wait_time = 0
+		_update_price_label()
 		return
 
 	dish = order.icon
@@ -78,11 +86,15 @@ func _load_order_editor_preview():
 
 	_update_dish_icon()
 	_update_ingredients()
+	_update_price_label()
 
 func _update_dish_icon():
 	if dish_icon:
 		dish_icon.texture = dish
 
+func _update_price_label():
+	if price_label:
+		price_label.text = str(order.price) if order.price else "-"
 
 func _update_ingredients():
 	if not ingredients_container or not ingredient_scene:

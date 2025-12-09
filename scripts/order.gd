@@ -4,13 +4,13 @@ extends PickableResource
 @export var required_ingredients: Array[Ingredient] = []
 @export var fulfilled_ingredients: Array[Ingredient] = []
 @export var creation_time: int = 0
-@export var price: float = 0.0
+@export var price: int = 0
 @export var time_limit: int = 0
 
 var customer: Customer
 var time_remaining: float = 0.0
 
-func _init(_icon: Texture2D = null, _required_ingredients: Array[Ingredient] = [], _price: float = 0.0, _creation_time: int = 0, _time_limit: int = 0):
+func _init(_icon: Texture2D = null, _required_ingredients: Array[Ingredient] = [], _price: int = 0, _creation_time: int = 0, _time_limit: int = 0):
 	icon = _icon
 	required_ingredients = _required_ingredients
 	price = _price
