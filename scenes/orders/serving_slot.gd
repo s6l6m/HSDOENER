@@ -43,13 +43,10 @@ func update_visual() -> void:
 	content.texture = stored_plate.icon
 
 # hier logik für teller abgeben, order abschliessen
-func interact_b(player: Player) -> void:
-	print(active_customer.order)
-	if active_customer and stored_plate.hasIngredients():
-		print(active_customer.order)
+func interact_b(_player: Player) -> void:
+	if active_customer and stored_plate and stored_plate.hasIngredients():
 		active_customer.order.fulfilled_ingredients = stored_plate.ingredients.duplicate()
-		print(active_customer.order.evaluate_ingredients_fulfilled())
-		player.emit("customer_left")
+		active_customer.customer_left.emit()
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("players"):

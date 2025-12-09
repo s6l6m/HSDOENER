@@ -1,9 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://gdxhyp5mg2l4"]
+[gd_scene load_steps=13 format=3 uid="uid://gdxhyp5mg2l4"]
 
 [ext_resource type="Script" uid="uid://c2tnd7q4wknkh" path="res://scenes/ui/widgets/order/order_widget.gd" id="1_ab3os"]
+[ext_resource type="Script" uid="uid://cifydixhr2lix" path="res://scenes/ingredients/ingredient-data.gd" id="2_ddt3b"]
 [ext_resource type="Texture2D" uid="uid://d6h63acikn3v" path="res://resources/ui/UI_Sprite_1.png" id="2_q6pbn"]
 [ext_resource type="Script" uid="uid://cqpm1v3twfd33" path="res://scenes/ui/widgets/order/timer_progress.gd" id="3_4ugo1"]
+[ext_resource type="Texture2D" uid="uid://bxexjkhyo18tj" path="res://assets/food/items/warp-item.png" id="3_c80hy"]
+[ext_resource type="Resource" uid="uid://bwabxyxc8u78p" path="res://scenes/ingredients/gurke.tres" id="3_ujrc5"]
+[ext_resource type="Script" uid="uid://c0hvg2jwu8bm7" path="res://scripts/order.gd" id="4_c80hy"]
 [ext_resource type="PackedScene" uid="uid://bkiegbw6yaom8" path="res://scenes/ui/widgets/order/ingredient.tscn" id="5_u2618"]
+
+[sub_resource type="Resource" id="Resource_0m1ti"]
+script = ExtResource("4_c80hy")
+required_ingredients = Array[ExtResource("2_ddt3b")]([ExtResource("3_ujrc5")])
+time_limit = 30
+icon = ExtResource("3_c80hy")
+metadata/_custom_type_script = "uid://c0hvg2jwu8bm7"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ugo1"]
 atlas = ExtResource("2_q6pbn")
@@ -23,6 +34,7 @@ offset_bottom = 116.0
 size_flags_vertical = 0
 theme_type_variation = &"OrderTicketPanel"
 script = ExtResource("1_ab3os")
+order = SubResource("Resource_0m1ti")
 ingredient_scene = ExtResource("5_u2618")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -63,6 +75,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_vertical = 4
+texture = ExtResource("3_c80hy")
 expand_mode = 4
 
 [node name="IngredientsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
