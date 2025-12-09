@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=4 uid="uid://bv420bevae7fi"]
 
-[ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/player.tscn" id="1_eg31v"]
+[ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/Player.tscn" id="1_eg31v"]
 [ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/level.tscn" id="1_f618n"]
 [ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_p2qo3"]
 [ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
@@ -152,29 +152,33 @@ position = Vector2(728, 195)
 position = Vector2(232, 501)
 
 [node name="PlateStation" parent="YSort" index="23" instance=ExtResource("15_oot12")]
-position = Vector2(352, 378)
+position = Vector2(672, 207)
 
-[node name="ServingSlot" parent="YSort" index="24" instance=ExtResource("17_oot12")]
+[node name="PlateStation2" parent="YSort" index="24" instance=ExtResource("15_oot12")]
+position = Vector2(608, 480)
+direction = 0
+
+[node name="ServingSlot" parent="YSort" index="25" instance=ExtResource("17_oot12")]
 position = Vector2(800, 225)
 
-[node name="ServingSlot2" parent="YSort" index="25" instance=ExtResource("17_oot12")]
+[node name="ServingSlot2" parent="YSort" index="26" instance=ExtResource("17_oot12")]
 position = Vector2(800, 289)
 
-[node name="ServingSlot3" parent="YSort" index="26" instance=ExtResource("17_oot12")]
+[node name="ServingSlot3" parent="YSort" index="27" instance=ExtResource("17_oot12")]
 position = Vector2(800, 352)
 
-[node name="ServingSlot4" parent="YSort" index="27" instance=ExtResource("17_oot12")]
+[node name="ServingSlot4" parent="YSort" index="28" instance=ExtResource("17_oot12")]
 position = Vector2(800, 416)
 
-[node name="ServingSlot5" parent="YSort" index="28" instance=ExtResource("17_oot12")]
+[node name="ServingSlot5" parent="YSort" index="29" instance=ExtResource("17_oot12")]
 position = Vector2(800, 480)
 
-[node name="Player1" parent="YSort" index="29" instance=ExtResource("1_eg31v")]
+[node name="Player1" parent="YSort" index="30" instance=ExtResource("1_eg31v")]
 position = Vector2(411.83, 289.235)
 platform_floor_layers = 4294967041
 platform_wall_layers = 1
 
-[node name="Player2" parent="YSort" index="30" instance=ExtResource("1_eg31v")]
+[node name="Player2" parent="YSort" index="31" instance=ExtResource("1_eg31v")]
 position = Vector2(700, 366)
 player_number = 1
 

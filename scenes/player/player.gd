@@ -89,7 +89,7 @@ func _physics_process(delta: float) -> void:
 					if current_station is WorkStation or current_station is CounterSlot:
 						current_station.interact_b(self)
 			if Input.is_action_just_released("interact_b_p1"):
-				if current_station and current_station.station_type == WorkStation.StationType.CUTTINGSTATION:
+				if current_station and current_station is WorkStation and current_station.station_type == WorkStation.StationType.CUTTINGSTATION:
 					current_station.stop_cut(self)
 	
 	# Steuerung für Player 2

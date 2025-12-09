@@ -4,14 +4,12 @@ class_name CounterSlot
 signal player_entered_slot(player, slot)
 signal player_exited_slot(player, slot)
 
-
 @onready var interaction_area: Area2D = $InteractionArea
 @onready var interaction_area_customer: Area2D = $InteractionAreaCustomer
 @onready var content: Sprite2D = $Content
 
 var stored_plate: Plate = null
 var active_customer: Customer = null
-
 
 func _ready() -> void:
 	add_to_group("counterslots")
@@ -36,7 +34,6 @@ func interact(player: Player) -> void:
 		print(stored_plate.hasIngredients())
 		stored_plate.printIngredients()
 
-
 func update_visual() -> void:
 	if stored_plate == null:
 		content.visible = false
@@ -58,19 +55,14 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("players"):
 		player_entered_slot.emit(body, self)
 
-
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("players"):
 		player_exited_slot.emit(body, self)
-		
-
 
 func _on_interaction_area_customer_body_entered(body: Node2D) -> void:
-	print(active_customer.order)
-	if body.is_in_group("customers"):
+	if body.is_in_group("customers") and body is Customer:
 		print("customer entered counter zone")
 		active_customer = body as Customer
-
 
 func _on_interaction_area_customer_body_exited(body: Node2D) -> void:
 	if body.is_in_group("customers"):

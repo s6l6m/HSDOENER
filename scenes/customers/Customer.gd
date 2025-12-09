@@ -8,13 +8,23 @@ signal customer_arrived_exit(customer)
 var target_position: Vector2
 var is_moving = false
 var order: Order
+var color: Color
+
+func _ready() -> void:
+	add_to_group("customers")
+	if not color:
+		color = _generate_random_rgb_color()
+
+func _generate_random_rgb_color() -> Color:
+	return Color(
+		randf(), # RED
+		randf(), # GREEN
+		randf(), # BLUE
+	)
 
 func move_to(pos: Vector2):
 	target_position = pos
 	is_moving = true
-
-func _ready() -> void:
-	add_to_group("customers")
 
 func _process(_delta):
 	if is_moving:

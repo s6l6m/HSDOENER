@@ -29,7 +29,7 @@ func remove_order(order: Order) -> void:
 	orders.erase(order)
 	emit_signal("order_removed", order)
 
-func create_doner_order(customer: Customer, difficulty: Difficulty ) -> Order:
+func create_doner_order(customer: Customer, difficulty: Difficulty) -> Order:
 	var ingredients : Array[Ingredient]
 	var price: int
 	var time_limit: int
@@ -55,10 +55,10 @@ func create_doner_order(customer: Customer, difficulty: Difficulty ) -> Order:
 		%TimeManager.play_time,
 		time_limit,
 	)
-
-	order.customer = customer
-	orders.append(order)
 	
+	order.customer = customer
+	customer.order = order
+	orders.append(order)
 	
 	emit_signal("order_added", order, remove_order)
 	return order
