@@ -128,14 +128,8 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	# Animation steuern
-	if direction != Vector2.ZERO:
-		if not sprite.is_playing() or sprite.animation != "run_right":
-			sprite.play("run_right")
-		sprite.flip_h = direction.x < 0
-	else:
-		if sprite.is_playing():
-			sprite.play("idle")
+	# Animation steuern (8-Richtungen)
+	_update_animation(direction)
 
 func _on_player_entered_station(player, station):
 	if player != self:
@@ -165,6 +159,81 @@ func start_cutting():
 func stop_cutting():
 	if current_state == State.CUTTING:
 		set_state(State.FREE)
+
+# Animation System - 8 Richtungen
+func _update_animation(direction: Vector2) -> void:
+	var anim_name: String = ""
+
+	if direction == Vector2.ZERO:
+		# Idle Animation basierend auf letzter Blickrichtung
+		anim_name = _get_idle_animation_from_direction(facing_dir)
+	else:
+		# Lauf-Animation basierend auf aktueller Bewegungsrichtung
+		anim_name = _get_run_animation_from_direction(direction)
+
+	# Animation abspielen, nur wenn sie sich geändert hat
+	if sprite.animation != anim_name:
+		sprite.play(anim_name)
+
+func _get_run_animation_from_direction(dir: Vector2) -> String:
+	# Normalisiere die Richtung
+	var normalized = dir.normalized()
+
+	# Bestimme die 8 Richtungen basierend auf Winkel
+	var angle = normalized.angle()
+
+	# Winkel in Grad umrechnen (0° = rechts, 90° = unten, -90° = oben, 180° = links)
+	var degrees = rad_to_deg(angle)
+
+	# 8-Richtungs-Logik (45° Bereiche)
+	if degrees >= -22.5 and degrees < 22.5:
+		return "run_right"
+	elif degrees >= 22.5 and degrees < 67.5:
+		return "run_down_right"
+	elif degrees >= 67.5 and degrees < 112.5:
+		return "run_down"
+	elif degrees >= 112.5 and degrees < 157.5:
+		return "run_down_left"
+	elif degrees >= 157.5 or degrees < -157.5:
+		return "run_left"
+	elif degrees >= -157.5 and degrees < -112.5:
+		return "run_up_left"
+	elif degrees >= -112.5 and degrees < -67.5:
+		return "run_up"
+	elif degrees >= -67.5 and degrees < -22.5:
+		return "run_up_right"
+
+	# Fallback
+	return "run_right"
+
+func _get_idle_animation_from_direction(dir: Vector2) -> String:
+	# Falls du nur eine Idle-Animation hast:
+	# return "idle"
+
+	# Für 8-Richtungs Idle:
+	var normalized = dir.normalized()
+	var angle = normalized.angle()
+	var degrees = rad_to_deg(angle)
+
+	if degrees >= -22.5 and degrees < 22.5:
+		return "idle_right"
+	elif degrees >= 22.5 and degrees < 67.5:
+		return "idle_down_right"
+	elif degrees >= 67.5 and degrees < 112.5:
+		return "idle_down"
+	elif degrees >= 112.5 and degrees < 157.5:
+		return "idle_down_left"
+	elif degrees >= 157.5 or degrees < -157.5:
+		return "idle_left"
+	elif degrees >= -157.5 and degrees < -112.5:
+		return "idle_up_left"
+	elif degrees >= -112.5 and degrees < -67.5:
+		return "idle_up"
+	elif degrees >= -67.5 and degrees < -22.5:
+		return "idle_up_right"
+
+	# Fallback
+	return "idle_down"
 
 # State Machine
 func set_state(new_state: State) -> void:
