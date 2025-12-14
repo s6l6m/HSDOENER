@@ -12,17 +12,8 @@ script = ExtResource("2_apxx5")
 station_type = 5
 
 [node name="Content" parent="Rotatable" index="1"]
-visible = true
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.9894103, 0.9894103)
 texture = ExtResource("3_apxx5")
 
-[node name="CollisionShape2D" parent="Rotatable/Collision" index="0"]
-visible = true
-
-[node name="InteractionArea" parent="Rotatable" index="4"]
-visible = false
-
 [node name="CollisionShape2D" parent="Rotatable/InteractionArea" index="0"]
-visible = true
-position = Vector2(0, -1.75)
 shape = SubResource("RectangleShape2D_ysy51")

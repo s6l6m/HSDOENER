@@ -27,7 +27,6 @@ func interact(player: Player) -> void:
 	if stored_plate != null:
 		if held == null and player.pickUpPickable(stored_plate):
 			stored_plate = null
-		return
 
 	# Fall 2: Slot ist leer → Spieler kann Plate ablegen
 	if held != null and held is Plate:

@@ -1,16 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://cx33a7apawsty"]
 
-[ext_resource type="Script" uid="uid://dlyk6ibj2isvi" path="res://scenes/ui/widgets/order/orders_container.gd" id="1_k0tt7"]
+[ext_resource type="Script" uid="uid://daluwwurih8mv" path="res://scenes/ui/widgets/order/orders_container.gd" id="1_k0tt7"]
 [ext_resource type="PackedScene" uid="uid://gdxhyp5mg2l4" path="res://scenes/ui/widgets/order/order_widget.tscn" id="2_smva6"]
 
 [node name="OrdersContainer" type="HBoxContainer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -385.5
-offset_right = 385.5
-offset_bottom = 162.0
+anchors_preset = 10
+anchor_right = 1.0
 grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
 alignment = 1
 script = ExtResource("1_k0tt7")
 order_widget = ExtResource("2_smva6")
