@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/Player.tscn" id="1_eg31v"]
 [ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/level.tscn" id="1_f618n"]
 [ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_p2qo3"]
-[ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
+[ext_resource type="Script" uid="uid://c3hb2a6kekpoy" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
 [ext_resource type="PackedScene" uid="uid://dqe5dy0v501xx" path="res://scenes/stations/cucumber_station.tscn" id="6_e3sbb"]
 [ext_resource type="PackedScene" uid="uid://524ejq66alxp" path="res://scenes/stations/doner_station.tscn" id="7_aea8e"]
 [ext_resource type="PackedScene" uid="uid://dy1cqc54o30wq" path="res://scenes/stations/onion_station.tscn" id="8_ptllb"]
@@ -21,184 +21,202 @@
 [node name="Level" instance=ExtResource("1_f618n")]
 round_time = 300
 
-[node name="TutorialManager" parent="." index="4"]
-tutorial_scenes = Array[PackedScene]([ExtResource("15_lbva2")])
+[node name="Map" type="Node2D" parent="." index="0"]
+position = Vector2(23, 149)
 
-[node name="Floor" type="TileMapLayer" parent="." index="5"]
-tile_map_data = PackedByteArray("AAAEAAMAAAAAAAYAAAAEAAQAAAAAAAcAAAAEAAUAAAAAAAcAAAAEAAYAAAAAAAcAAAAEAAcAAAAAAAcAAAAFAAMAAAAAAAYAAAAFAAQAAAAAAAcAAAAFAAUAAAAAAAcAAAAFAAYAAAAAAAcAAAAFAAcAAAAAAAcAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAcAAAAGAAUAAAAAAAcAAAAGAAYAAAAAAAcAAAAGAAcAAAAAAAcAAAAHAAMAAAAAAAYAAAAHAAQAAAAAAAcAAAAHAAUAAAAAAAcAAAAHAAYAAAAAAAcAAAAHAAcAAAAAAAcAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAcAAAAIAAUAAAAAAAcAAAAIAAYAAAAAAAcAAAAIAAcAAAAAAAcAAAAJAAMAAAAAAAYAAAAJAAQAAAAAAAcAAAAJAAUAAAAAAAcAAAAJAAYAAAAAAAcAAAAJAAcAAAAAAAcAAAAKAAMAAAAAAAYAAAAKAAQAAAAAAAcAAAAKAAUAAAAAAAcAAAAKAAYAAAAAAAcAAAAKAAcAAAAAAAcAAAALAAMAAAAAAAYAAAALAAQAAAAAAAcAAAALAAUAAAAAAAcAAAALAAYAAAAAAAcAAAALAAcAAAAAAAcAAAAMAAMAAAAAAAYAAAAMAAQAAAAAAAcAAAAMAAUAAAAAAAcAAAAMAAYAAAAAAAcAAAANAAMAAAACAAcAAAANAAQAAAACAAcAAAANAAUAAAACAAcAAAANAAYAAAACAAcAAAANAAcAAAACAAcAAAAOAAMAAAACAAcAAAAOAAQAAAACAAcAAAAOAAUAAAACAAcAAAAOAAYAAAACAAcAAAAOAAcAAAACAAcAAAAPAAMAAAACAAcAAAAPAAQAAAACAAcAAAAPAAUAAAACAAcAAAAPAAYAAAACAAcAAAAPAAcAAAACAAcAAAADAAMAAAAAAAYAAAADAAQAAAAAAAcAAAADAAUAAAAAAAcAAAADAAYAAAAAAAcAAAADAAcAAAAAAAcAAAAQAAMAAAACAAcAAAAQAAQAAAACAAcAAAAQAAUAAAACAAcAAAAQAAYAAAACAAcAAAAQAAcAAAACAAcAAAANAAIAAAACAAcAAAANAAEAAAACAAcAAAAOAAEAAAACAAcAAAAOAAAAAAACAAcAAAAPAAAAAAACAAcAAAAPAAEAAAACAAcAAAAQAAEAAAACAAcAAAAQAAIAAAACAAcAAAAQAAAAAAACAAcAAAANAAAAAAACAAcAAAAOAAIAAAACAAcAAAAPAAIAAAACAAcAAAAMAAcAAAAAAAcAAAA=")
+[node name="Floor" type="TileMapLayer" parent="Map" index="0"]
+tile_map_data = PackedByteArray("AAAHAAAAAAABAAMAAAAHAAEAAAABAAMAAAAHAAIAAAABAAMAAAAHAAMAAAABAAMAAAAHAAQAAAABAAMAAAAIAAAAAAABAAMAAAAIAAEAAAABAAMAAAAIAAIAAAABAAMAAAAIAAMAAAABAAMAAAAIAAQAAAABAAMAAAAJAAAAAAABAAMAAAAJAAEAAAABAAMAAAAJAAIAAAABAAMAAAAJAAMAAAABAAMAAAAJAAQAAAABAAMAAAABAAEAAAAAAAMAAAABAAIAAAAAAAMAAAABAAMAAAAAAAMAAAABAAQAAAAAAAMAAAACAAEAAAAAAAMAAAACAAIAAAAAAAMAAAACAAMAAAAAAAMAAAACAAQAAAAAAAMAAAADAAEAAAAAAAMAAAADAAIAAAAAAAMAAAADAAMAAAAAAAMAAAADAAQAAAAAAAMAAAAEAAEAAAAAAAMAAAAEAAIAAAAAAAMAAAAEAAMAAAAAAAMAAAAEAAQAAAAAAAMAAAAFAAEAAAAAAAMAAAAFAAIAAAAAAAMAAAAFAAMAAAAAAAMAAAAFAAQAAAAAAAMAAAAGAAEAAAAAAAMAAAAGAAIAAAAAAAMAAAAGAAMAAAAAAAMAAAAGAAQAAAAAAAMAAAAHAP//AAABAAMAAAAIAP//AAABAAMAAAAJAP//AAABAAMAAAABAAUAAAAAAAMAAAACAAUAAAAAAAMAAAADAAUAAAAAAAMAAAAEAAUAAAAAAAMAAAAFAAUAAAAAAAMAAAAGAAUAAAAAAAMAAAAAAAEAAAAAAAMAAAAAAAIAAAAAAAMAAAAAAAMAAAAAAAMAAAAAAAQAAAAAAAMAAAAAAAUAAAAAAAMAAAAHAAUAAAABAAMAAAAIAAUAAAABAAMAAAAJAAUAAAABAAMAAAA=")
 tile_set = ExtResource("2_p2qo3")
+metadata/_edit_lock_ = true
 
-[node name="Walls" type="TileMapLayer" parent="." index="6"]
-tile_map_data = PackedByteArray("AAADAAIAAAAAAAUAAAAEAAIAAAAAAAUAAAAFAAIAAAAAAAUAAAAGAAIAAAAAAAUAAAAHAAIAAAAAAAUAAAAIAAIAAAAAAAUAAAAJAAIAAAAAAAUAAAAKAAIAAAAAAAUAAAALAAIAAAAAAAUAAAADAAEAAAAAAAMAAAAEAAEAAAAAAAMAAAAFAAEAAAAAAAMAAAAGAAEAAAAAAAMAAAAHAAEAAAAAAAMAAAAIAAEAAAAAAAMAAAAJAAEAAAAAAAMAAAAKAAEAAAAAAAMAAAALAAEAAAAAAAMAAAAMAAEAAAABAAMAAAAMAAAAAAABAAEAAAANAP//AAAAAAQAAAAOAP//AAAAAAQAAAAPAP//AAAAAAQAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAEAAAACAAUAAAABAAEAAAACAAYAAAABAAEAAAACAAcAAAABAAEAAAAMAP//AAABAAEAAAACAAEAAAABAAAAAAANAP7/AAAAAAMAAAAOAP7/AAAAAAMAAAAPAP7/AAAAAAMAAAAQAP7/AAAAAAMAAAAMAP7/AAABAAAAAAADAAgAAAAAAAIAAAAEAAgAAAAAAAIAAAAFAAgAAAAAAAIAAAAGAAgAAAAAAAIAAAAHAAgAAAAAAAIAAAAIAAgAAAAAAAIAAAAJAAgAAAAAAAIAAAAKAAgAAAAAAAIAAAALAAgAAAAAAAIAAAAMAAgAAAAAAAIAAAANAAgAAAAAAAIAAAAOAAgAAAAAAAIAAAAPAAgAAAAAAAIAAAAQAAgAAAAAAAIAAAARAP//AAACAAEAAAARAAAAAAACAAEAAAARAAEAAAACAAEAAAARAAIAAAACAAEAAAARAAMAAAACAAEAAAARAAQAAAACAAEAAAARAAUAAAACAAEAAAARAAYAAAACAAEAAAARAAcAAAACAAEAAAARAP7/AAACAAAAAAACAAgAAAABAAIAAAARAAgAAAACAAIAAAAHAAUAAAACAAAAAAAQAP//AAAAAAQAAAAMAAIAAAAAAAQAAAA=")
+[node name="WallsWithCollision" type="TileMapLayer" parent="Map" index="1"]
+tile_map_data = PackedByteArray("AAAGAAAAAAACAAMAAAABAAAAAAACAAMAAAACAAAAAAACAAMAAAADAAAAAAACAAMAAAAEAAAAAAACAAMAAAAFAAAAAAACAAMAAAAGAP//AAAFAAMAAAABAP//AAAEAAMAAAACAP//AAAEAAMAAAADAP//AAAEAAMAAAAEAP//AAAEAAMAAAAFAP//AAAEAAMAAAAAAAAAAAACAAMAAAAAAP//AAAEAAMAAAD//wAAAAADAAEAAAD//wEAAAADAAEAAAD//wIAAAADAAEAAAD//wMAAAADAAEAAAD//wQAAAADAAEAAAD//wUAAAADAAEAAAD/////AAADAAAAAAAGAP7/AAADAAAAAAD//wYAAAADAAIAAAAGAAYAAAADAAMAAAAFAAYAAAADAAMAAAAEAAYAAAADAAMAAAADAAYAAAADAAMAAAACAAYAAAADAAMAAAABAAYAAAADAAMAAAAAAAYAAAADAAMAAAA=")
 tile_set = ExtResource("2_p2qo3")
+metadata/_edit_lock_ = true
 
-[node name="CustomerMarkers" type="Node2D" parent="." index="7"]
+[node name="WallsWithoutCollision" type="TileMapLayer" parent="Map" index="2"]
+tile_map_data = PackedByteArray("AAD/////AAADAAAAAAAGAP7/AAADAAAAAAAKAP7/AAAEAAAAAAAKAAAAAAAEAAEAAAAKAAEAAAAEAAEAAAAKAAIAAAAEAAEAAAAKAAMAAAAEAAEAAAAKAAQAAAAEAAEAAAAKAAUAAAAEAAEAAAAJAAYAAAAEAAEAAFAHAAYAAAAEAAEAAFAIAAYAAAAEAAEAAFAKAP//AAAEAAEAAAAHAP7/AAAEAAEAAGAIAP7/AAAEAAEAAGAJAP7/AAAEAAEAAGAKAAYAAAAEAAIAAAA=")
+tile_set = ExtResource("2_p2qo3")
+collision_enabled = false
+metadata/_edit_lock_ = true
+
+[node name="CustomersMarkers" type="Node2D" parent="Map" index="3"]
 position = Vector2(-10, 9)
+metadata/_edit_lock_ = true
 
-[node name="Spawn" type="Marker2D" parent="CustomerMarkers" index="0"]
-position = Vector2(1130, 26)
+[node name="Spawn" type="Marker2D" parent="Map/CustomersMarkers" index="0"]
+position = Vector2(1356, -103.99999)
 
-[node name="1" type="Marker2D" parent="CustomerMarkers" index="1"]
-position = Vector2(855, 226)
+[node name="1" type="Marker2D" parent="Map/CustomersMarkers" index="1"]
+position = Vector2(930, 200)
 
-[node name="2" type="Marker2D" parent="CustomerMarkers" index="2"]
-position = Vector2(855, 289)
+[node name="2" type="Marker2D" parent="Map/CustomersMarkers" index="2"]
+position = Vector2(930, 330)
 
-[node name="3" type="Marker2D" parent="CustomerMarkers" index="3"]
-position = Vector2(855, 353)
+[node name="3" type="Marker2D" parent="Map/CustomersMarkers" index="3"]
+position = Vector2(930, 460)
 
-[node name="4" type="Marker2D" parent="CustomerMarkers" index="4"]
-position = Vector2(855, 415)
+[node name="4" type="Marker2D" parent="Map/CustomersMarkers" index="4"]
+position = Vector2(930, 590)
 
-[node name="5" type="Marker2D" parent="CustomerMarkers" index="5"]
-position = Vector2(855, 481)
+[node name="5" type="Marker2D" parent="Map/CustomersMarkers" index="5"]
+position = Vector2(930, 715)
 
-[node name="Exit" type="Marker2D" parent="CustomerMarkers" index="6"]
-position = Vector2(1139, 493)
+[node name="Exit" type="Marker2D" parent="Map/CustomersMarkers" index="6"]
+position = Vector2(1369, 728)
 
-[node name="YSort" type="Node2D" parent="." index="8"]
+[node name="YSort" type="Node2D" parent="Map" index="4"]
 y_sort_enabled = true
+metadata/_edit_lock_ = true
 
-[node name="CucumberStation" parent="YSort" index="0" instance=ExtResource("6_e3sbb")]
-position = Vector2(416, 207)
+[node name="CucumberStation" parent="Map/YSort" index="0" instance=ExtResource("6_e3sbb")]
+position = Vector2(64, 161)
 station_type = 0
 
-[node name="DonerStation" parent="YSort" index="1" instance=ExtResource("7_aea8e")]
-position = Vector2(480, 207)
+[node name="CucumberStation2" parent="Map/YSort" index="1" instance=ExtResource("6_e3sbb")]
+position = Vector2(320, 704)
+direction = 0
+station_type = 0
 
-[node name="OnionStation" parent="YSort" index="2" instance=ExtResource("8_ptllb")]
+[node name="DonerStation" parent="Map/YSort" index="2" instance=ExtResource("7_aea8e")]
+position = Vector2(448, 161)
+
+[node name="OnionStation" parent="Map/YSort" index="3" instance=ExtResource("8_ptllb")]
 y_sort_enabled = true
-position = Vector2(416, 480)
+position = Vector2(576, 161)
+
+[node name="TomatoStation" parent="Map/YSort" index="4" instance=ExtResource("9_7xdsu")]
+position = Vector2(320, 161)
+
+[node name="TomatoStation2" parent="Map/YSort" index="5" instance=ExtResource("9_7xdsu")]
+position = Vector2(448, 704)
 direction = 0
 
-[node name="TomatoStation" parent="YSort" index="3" instance=ExtResource("9_7xdsu")]
-position = Vector2(544, 207)
-
-[node name="CuttingStation" parent="YSort" index="4" instance=ExtResource("10_7xdsu")]
-position = Vector2(608, 378)
-station_type = 0
-
-[node name="BreadStation" parent="YSort" index="5" instance=ExtResource("11_vb107")]
-position = Vector2(544, 378)
-station_type = 0
-
-[node name="CuttingStation2" parent="YSort" index="6" instance=ExtResource("10_7xdsu")]
-position = Vector2(480, 378)
-station_type = 0
-
-[node name="TomatoStation2" parent="YSort" index="7" instance=ExtResource("9_7xdsu")]
-position = Vector2(480, 314)
-direction = 0
-
-[node name="CuttingStation3" parent="YSort" index="8" instance=ExtResource("10_7xdsu")]
-position = Vector2(544, 314)
+[node name="BreadStation" parent="Map/YSort" index="6" instance=ExtResource("11_vb107")]
+position = Vector2(576, 368)
 direction = 0
 station_type = 0
 
-[node name="CucumberStation2" parent="YSort" index="9" instance=ExtResource("6_e3sbb")]
-position = Vector2(224, 288)
-direction = 2
-station_type = 0
-
-[node name="CucumberStation4" parent="YSort" index="10" instance=ExtResource("6_e3sbb")]
-position = Vector2(224, 352)
-direction = 2
-station_type = 0
-
-[node name="CucumberStation3" parent="YSort" index="11" instance=ExtResource("6_e3sbb")]
-position = Vector2(224, 416)
-direction = 2
-station_type = 0
-
-[node name="WorkStation" parent="YSort" index="12" instance=ExtResource("10_f618n")]
-position = Vector2(352, 207)
-
-[node name="WorkStation2" parent="YSort" index="13" instance=ExtResource("10_f618n")]
-position = Vector2(352, 480)
-direction = 0
-
-[node name="SaladStation" parent="YSort" index="14" instance=ExtResource("11_27w7k")]
-position = Vector2(608, 207)
-station_type = 0
-
-[node name="SaladStation2" parent="YSort" index="15" instance=ExtResource("11_27w7k")]
-position = Vector2(544, 480)
+[node name="CuttingStation" parent="Map/YSort" index="7" instance=ExtResource("10_7xdsu")]
+position = Vector2(320, 368)
 direction = 0
 station_type = 0
 
-[node name="WorkStation3" parent="YSort" index="16" instance=ExtResource("10_f618n")]
-position = Vector2(608, 314)
-direction = 0
+[node name="CuttingStation2" parent="Map/YSort" index="8" instance=ExtResource("10_7xdsu")]
+position = Vector2(448, 496)
+station_type = 0
 
-[node name="DonerStation2" parent="YSort" index="17" instance=ExtResource("7_aea8e")]
-position = Vector2(416, 314)
-direction = 0
-
-[node name="WorkStation4" parent="YSort" index="18" instance=ExtResource("10_f618n")]
-position = Vector2(416, 378)
-
-[node name="CuttingStation4" parent="YSort" index="19" instance=ExtResource("10_7xdsu")]
-position = Vector2(480, 480)
+[node name="CuttingStation3" parent="Map/YSort" index="9" instance=ExtResource("10_7xdsu")]
+position = Vector2(64, 704)
 direction = 0
 station_type = 0
 
-[node name="SauceStation" parent="YSort" index="20" instance=ExtResource("13_f618n")]
-position = Vector2(288, 207)
+[node name="CuttingStation4" parent="Map/YSort" index="10" instance=ExtResource("10_7xdsu")]
+position = Vector2(192, 704)
+direction = 0
 station_type = 0
 
-[node name="TrashStation" parent="YSort" index="21" instance=ExtResource("13_27w7k")]
-position = Vector2(728, 195)
-
-[node name="TrashStation2" parent="YSort" index="22" instance=ExtResource("13_27w7k")]
-position = Vector2(232, 501)
-
-[node name="PlateStation" parent="YSort" index="23" instance=ExtResource("15_oot12")]
-position = Vector2(672, 207)
-
-[node name="PlateStation2" parent="YSort" index="24" instance=ExtResource("15_oot12")]
-position = Vector2(608, 480)
+[node name="WorkStation" parent="Map/YSort" index="11" instance=ExtResource("10_f618n")]
+position = Vector2(192, 368)
 direction = 0
 
-[node name="ServingSlot" parent="YSort" index="25" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
-position = Vector2(800, 225)
-order_manager = NodePath("../../OrderManager")
+[node name="WorkStation2" parent="Map/YSort" index="12" instance=ExtResource("10_f618n")]
+position = Vector2(192, 496)
 
-[node name="ServingSlot2" parent="YSort" index="26" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
-position = Vector2(800, 289)
-order_manager = NodePath("../../OrderManager")
+[node name="WorkStation3" parent="Map/YSort" index="13" instance=ExtResource("10_f618n")]
+position = Vector2(448, 368)
+direction = 0
 
-[node name="ServingSlot3" parent="YSort" index="27" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
-position = Vector2(800, 352)
-order_manager = NodePath("../../OrderManager")
+[node name="WorkStation4" parent="Map/YSort" index="14" instance=ExtResource("10_f618n")]
+position = Vector2(320, 496)
 
-[node name="ServingSlot4" parent="YSort" index="28" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
-position = Vector2(800, 416)
-order_manager = NodePath("../../OrderManager")
+[node name="SaladStation" parent="Map/YSort" index="15" instance=ExtResource("11_27w7k")]
+position = Vector2(192, 161)
+station_type = 0
 
-[node name="ServingSlot5" parent="YSort" index="29" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
-position = Vector2(800, 480)
-order_manager = NodePath("../../OrderManager")
+[node name="SaladStation2" parent="Map/YSort" index="16" instance=ExtResource("11_27w7k")]
+position = Vector2(576, 704)
+direction = 0
+station_type = 0
 
-[node name="Player1" parent="YSort" index="30" instance=ExtResource("1_eg31v")]
-position = Vector2(411.83, 289.235)
+[node name="SauceStation" parent="Map/YSort" index="17" instance=ExtResource("13_f618n")]
+position = Vector2(576, 496)
+station_type = 0
+
+[node name="TrashStation" parent="Map/YSort" index="18" instance=ExtResource("13_27w7k")]
+position = Vector2(656, 436)
+
+[node name="TrashStation2" parent="Map/YSort" index="19" instance=ExtResource("13_27w7k")]
+position = Vector2(113, 436)
+
+[node name="PlateStation" parent="Map/YSort" index="20" instance=ExtResource("15_oot12")]
+position = Vector2(704, 161)
+
+[node name="PlateStation2" parent="Map/YSort" index="21" instance=ExtResource("15_oot12")]
+position = Vector2(704, 704)
+direction = 0
+
+[node name="ServingSlot" parent="Map/YSort" index="22" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+position = Vector2(832, 192)
+order_manager = NodePath("../../../OrderManager")
+
+[node name="ServingSlot2" parent="Map/YSort" index="23" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+position = Vector2(832, 320)
+order_manager = NodePath("../../../OrderManager")
+
+[node name="ServingSlot3" parent="Map/YSort" index="24" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+position = Vector2(832, 448)
+order_manager = NodePath("../../../OrderManager")
+
+[node name="ServingSlot4" parent="Map/YSort" index="25" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+position = Vector2(832, 576)
+order_manager = NodePath("../../../OrderManager")
+
+[node name="ServingSlot5" parent="Map/YSort" index="26" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+position = Vector2(832, 704)
+order_manager = NodePath("../../../OrderManager")
+
+[node name="Player1" parent="Map/YSort" index="27" instance=ExtResource("1_eg31v")]
+position = Vector2(178.00002, 327)
 platform_floor_layers = 4294967041
 platform_wall_layers = 1
+speed = 200.0
 
-[node name="Player2" parent="YSort" index="31" instance=ExtResource("1_eg31v")]
-position = Vector2(700, 366)
+[node name="Player2" parent="Map/YSort" index="28" instance=ExtResource("1_eg31v")]
+position = Vector2(659, 550)
+speed = 200.0
 player_number = 1
 
-[node name="MultiTargetCamera" type="Camera2D" parent="." index="9" node_paths=PackedStringArray("targets")]
-position = Vector2(640, 360)
+[node name="MultiTargetCamera" type="Camera2D" parent="." index="1" node_paths=PackedStringArray("targets")]
+position = Vector2(659, 535)
+zoom = Vector2(1.2, 1.2)
 limit_enabled = false
+limit_left = -2
+limit_top = -42
+limit_right = 1335
+limit_bottom = 993
+position_smoothing_enabled = true
+position_smoothing_speed = 128.0
+drag_vertical_offset = -0.5
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+editor_draw_limits = true
 script = ExtResource("3_7ty7q")
-targets = [NodePath("../YSort/Player1"), NodePath("../YSort/Player2")]
-smoothing_enabled = true
-smoothing_distance = 8
-metadata/_custom_type_script = "uid://sv3a4lk24ihx"
+targets = [NodePath("../Map/YSort/Player1"), NodePath("../Map/YSort/Player2")]
 
-[node name="CustomerManager" parent="." index="10" node_paths=PackedStringArray("camera")]
-queue_points = Array[NodePath]([NodePath("../CustomerMarkers/5"), NodePath("../CustomerMarkers/4"), NodePath("../CustomerMarkers/3"), NodePath("../CustomerMarkers/2"), NodePath("../CustomerMarkers/1")])
-exit_point = NodePath("../CustomerMarkers/Exit")
-spawn_point = NodePath("../CustomerMarkers/Spawn")
+[node name="TutorialManager" parent="." index="6"]
+tutorial_scenes = Array[PackedScene]([ExtResource("15_lbva2")])
+
+[node name="CustomerManager" parent="." index="7" node_paths=PackedStringArray("camera")]
+queue_points = Array[NodePath]([NodePath("../Map/CustomersMarkers/5"), NodePath("../Map/CustomersMarkers/4"), NodePath("../Map/CustomersMarkers/3"), NodePath("../Map/CustomersMarkers/2"), NodePath("../Map/CustomersMarkers/1")])
+exit_point = NodePath("../Map/CustomersMarkers/Exit")
+spawn_point = NodePath("../Map/CustomersMarkers/Spawn")
 camera = NodePath("../MultiTargetCamera")
+
+[node name="MarginContainer" parent="CanvasLayer" index="0"]
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4

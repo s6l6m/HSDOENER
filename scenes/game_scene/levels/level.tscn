@@ -43,17 +43,22 @@ order_manager = NodePath("../OrderManager")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-offset_right = 1280.0
-offset_bottom = 720.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
+metadata/_edit_lock_ = true
 
 [node name="UIContainer" type="Control" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+metadata/_edit_lock_ = true
 
 [node name="TimerWidget" parent="CanvasLayer/MarginContainer/UIContainer" instance=ExtResource("5_qywm2")]
 layout_mode = 1
@@ -67,6 +72,7 @@ offset_bottom = -34.99994
 grow_vertical = 0
 scale = Vector2(2.2799976, 2.2799976)
 size_flags_horizontal = 4
+metadata/_edit_lock_ = true
 
 [node name="CoinWidget" parent="CanvasLayer/MarginContainer/UIContainer" instance=ExtResource("6_xknmv")]
 layout_mode = 1
@@ -82,13 +88,13 @@ offset_bottom = -33.99994
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2.1599998, 2.1599998)
+metadata/_edit_lock_ = true
 
 [node name="OrdersContainer" parent="CanvasLayer/MarginContainer/UIContainer" instance=ExtResource("8_6tvmh")]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 10
-anchor_left = 0.0
 anchor_right = 1.0
-offset_left = 0.0
 offset_right = 0.0
-offset_bottom = 0.0
+grow_horizontal = 2
+metadata/_edit_lock_ = true

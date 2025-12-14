@@ -1,29 +1,33 @@
 [gd_scene load_steps=7 format=3 uid="uid://chn64x1htog3j"]
 
-[ext_resource type="Script" uid="uid://b6t6gtf7onxbe" path="res://scenes/orders/serving_slot.gd" id="1_7nvyl"]
-[ext_resource type="Texture2D" uid="uid://6vsbbqyk7yyp" path="res://assets/sprites/counter-slot-default.png" id="2_jsgy0"]
+[ext_resource type="Script" uid="uid://dotnmvc66jp5q" path="res://scenes/orders/serving_slot.gd" id="1_7nvyl"]
+[ext_resource type="Texture2D" uid="uid://dbxdf7ln0drne" path="res://assets/workstations/tresen.png" id="2_8wtiy"]
 [ext_resource type="Texture2D" uid="uid://cv8sb861wu7oc" path="res://assets/sprites/counter-color.png" id="3_8wtiy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a4qep"]
-radius = 32.0
+radius = 64.00781
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4qep"]
-size = Vector2(26, 24)
+size = Vector2(55, 53.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wtiy"]
-size = Vector2(64, 64)
+size = Vector2(128, 128)
 
 [node name="ServingSlot" type="Node2D"]
 script = ExtResource("1_7nvyl")
 
 [node name="CounterTexture" type="Sprite2D" parent="."]
-texture = ExtResource("2_jsgy0")
+texture = ExtResource("2_8wtiy")
 
 [node name="OrderColor" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(8.34465e-07, -8.940697e-08)
+scale = Vector2(1.96875, 1.9687499)
 texture = ExtResource("3_8wtiy")
 
 [node name="InteractionArea" type="Area2D" parent="."]
+visible = false
+position = Vector2(-34, 0)
 collision_layer = 4
 collision_mask = 2
 
@@ -32,17 +36,20 @@ position = Vector2(-30, 0)
 shape = SubResource("CircleShape2D_a4qep")
 
 [node name="Content" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 
 [node name="InteractionAreaCustomer" type="Area2D" parent="."]
-position = Vector2(94, 0)
+visible = false
+position = Vector2(143, 0)
 collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionAreaCustomer"]
-position = Vector2(-49, 0)
+position = Vector2(-51, 0)
 shape = SubResource("RectangleShape2D_a4qep")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 2
 

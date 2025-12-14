@@ -5,10 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://gkgudtcvu1bk" path="res://assets/sprites/running_spritesheet_right.png" id="2_gfjak"]
 [ext_resource type="PackedScene" uid="uid://ctoohxdkxasro" path="res://scenes/menus/options_menu/input/input_icon_mapper.tscn" id="4_524rm"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gfjak"]
-radius = 10.965
-height = 21.93
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_npwbq"]
 atlas = ExtResource("2_4kuee")
 region = Rect2(0, 0, 64, 64)
@@ -31,11 +27,6 @@ region = Rect2(141, 0, 47, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_npwbq"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_npwbq")
@@ -62,6 +53,9 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_524rm"]
+size = Vector2(38, 41.125)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpg5x"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 4
@@ -74,17 +68,19 @@ collision_layer = 2
 collision_mask = 254
 script = ExtResource("1_wr5hl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 16)
-shape = SubResource("CapsuleShape2D_gfjak")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -1)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_npwbq")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="HeldItem" type="Sprite2D" parent="."]
 position = Vector2(6.46, 4.665)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, 18.5625)
+shape = SubResource("RectangleShape2D_524rm")
 
 [node name="Icons" type="Control" parent="."]
 layout_mode = 3
@@ -139,6 +135,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tpg5x")
 
 [node name="InteractIcon" type="TextureRect" parent="Icons/HBoxContainer/InteractIconBackground"]
 unique_name_in_owner = true
+texture_filter = 1
+texture_repeat = 1
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 0
 offset_right = 16.0
