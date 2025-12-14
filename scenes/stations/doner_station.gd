@@ -8,9 +8,9 @@ var burn_level := 0
 var timer_running := true
 
 func _process(delta: float) -> void:
-	if(not timer_running):
+	if not timer_running:
 		return
-	if(burn_timer <= 0):
+	if burn_timer <= 0:
 		burn_level = 1
 		update_texture()
 		timer_running = false
@@ -18,10 +18,10 @@ func _process(delta: float) -> void:
 		burn_timer -= delta
 
 func interact(player: Player):
-	if(not player.isHoldingOrder()):
+	if not player.isHoldingPlate():
 		print("Du brauchst einen Teller!")
 
-func interact_b(player: Player):
+func interact_b(_player: Player):
 	burn_level = 0
 	update_texture()
 	burn_timer = burn_time

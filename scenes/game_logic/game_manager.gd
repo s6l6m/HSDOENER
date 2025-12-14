@@ -25,7 +25,7 @@ func _process(_delta):
 func _update_time_left(play_time: int = 0):
 	var time_left: int = current_level.round_time - play_time
 	if time_left <= 0:
-		current_level.level_lost.emit()
+		current_level._on_level_lost()
 	timer_widget._on_play_time_changed(time_left)
 
 func _update_coins(coins: int):

@@ -31,3 +31,12 @@ func _ready() -> void:
 
 func _on_tutorial_button_pressed() -> void:
 	open_tutorials()
+
+func _on_level_lost() -> void:
+	level_lost.emit()
+	
+func _on_level_won() -> void:
+	if next_level_path:
+		level_won_and_changed.emit(next_level_path)
+	else:
+		level_won.emit()

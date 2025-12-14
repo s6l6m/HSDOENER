@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://5jd6vut8mk0y"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=4 format=3 uid="uid://5jd6vut8mk0y"]
 
-[ext_resource type="Texture2D" uid="uid://c53cq0ucp4iv0" path="res://assets/food/items/salad-item.png" id="1_ds2nt"]
-[ext_resource type="Script" uid="uid://cifydixhr2lix" path="res://scenes/ingredients/ingredient-data.gd" id="1_kfjv8"]
+[ext_resource type="Texture2D" uid="uid://dk8ddurpq8r8y" path="res://assets/food/items/salad-item.png" id="1_ds2nt"]
+[ext_resource type="Texture2D" uid="uid://begs8kplx1bas" path="res://assets/food/items/salat-geschnitten.png" id="1_dya1b"]
+[ext_resource type="Script" uid="uid://cfsyo13bchtc2" path="res://scenes/ingredients/ingredient-data.gd" id="1_kfjv8"]
 
 [resource]
 script = ExtResource("1_kfjv8")
+cut_icon = ExtResource("1_dya1b")
 name = "Salat"
 icon = ExtResource("1_ds2nt")
