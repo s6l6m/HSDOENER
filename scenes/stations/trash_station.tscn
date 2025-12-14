@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bjfq145sa10oq"]
 
 [ext_resource type="Script" uid="uid://dglp8sd8f3h35" path="res://scenes/stations/trash_station.gd" id="1_4ws13"]
-[ext_resource type="Texture2D" uid="uid://bj5ek3d4coglu" path="res://assets/workstations/trash_can.png" id="3_isa1o"]
+[ext_resource type="Texture2D" uid="uid://cx447sxbomafu" path="res://assets/workstations/trash_can.png" id="3_isa1o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fm0ul"]
 size = Vector2(32, 40)

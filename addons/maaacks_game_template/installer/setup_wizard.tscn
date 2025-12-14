@@ -31,7 +31,7 @@ theme_override_constants/separation = 16
 unique_name_in_owner = true
 custom_minimum_size = Vector2(384, 0)
 layout_mode = 2
-text = "Maaack's Game Template v1.4.0"
+text = "Maaack's Game Template v1.4.1"
 autowrap_mode = 3
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]

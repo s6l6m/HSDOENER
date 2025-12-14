@@ -42,9 +42,6 @@ title = "Paused"
 [node name="TitleLabel" parent="PauseMenu/ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
 text = "Spiel pausiert"
 
-[node name="DescriptionMargin" parent="PauseMenu/ContentContainer/BoxContainer" index="1"]
-visible = false
-
 [node name="MenuButtonsMargin" parent="PauseMenu/ContentContainer/BoxContainer" index="2"]
 size_flags_vertical = 3
 

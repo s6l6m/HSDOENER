@@ -6,6 +6,4 @@ func update_direction() -> void:
 	return
 
 func interact(player: Player):
-	var held = player.getHeldPickable()
-	if held != null:
-		player.dropPickable()
+	player.dropPickable()

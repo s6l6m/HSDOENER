@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cwhhsdqyxybvx" path="res://assets/food/items/tomato-item.png" id="1_5ok4q"]
 [ext_resource type="Texture2D" uid="uid://jo4egfc1d2li" path="res://assets/food/items/tomato-cut.png" id="1_wpwku"]
-[ext_resource type="Script" uid="uid://dfk3anh4to5im" path="res://scenes/ingredients/ingredient-data.gd" id="1_ycf7c"]
+[ext_resource type="Script" uid="uid://cfsyo13bchtc2" path="res://scenes/ingredients/ingredient-data.gd" id="1_ycf7c"]
 
 [resource]
 script = ExtResource("1_ycf7c")

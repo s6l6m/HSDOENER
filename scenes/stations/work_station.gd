@@ -17,7 +17,7 @@ var _initialized := false
 		if _initialized: 
 			update_direction()
 
-var sprite_up: Texture2D   = load("res://assets/workstations/workstation_up.png")
+var sprite_up: Texture2D = load("res://assets/workstations/workstation_up.png")
 var sprite_down: Texture2D = load("res://assets/workstations/workstation_down.png")
 var sprite_left: Texture2D = load("res://assets/workstations/workstation_left.png")
 var sprite_right: Texture2D= load("res://assets/workstations/workstation_right.png")
@@ -65,7 +65,7 @@ func interact(player: Player):
 		player.dropPickable()
 		update_visual()
 
-func interact_b(player: Player):
+func interact_b(_player: Player):
 	print("Nothing to do")
 
 func update_visual():
