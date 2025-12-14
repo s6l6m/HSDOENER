@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_game_template/base/nodes/autoloads/ui_sound_controller/ui_sound_controller.gd" id="5_672y5"]
 [ext_resource type="PackedScene" uid="uid://cjfaitjwcf23h" path="res://scenes/ui/sprites/book.tscn" id="6_2k5l7"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="6_8dhfv"]
-[ext_resource type="AudioStream" uid="uid://d1o4gp12l1dt1" path="res://resources/sounds/main_menu.mp3" id="6_vsp5b"]
+[ext_resource type="AudioStream" uid="uid://bfq3ljd7vdg6x" path="res://resources/sounds/main_menu.mp3" id="6_vsp5b"]
 [ext_resource type="PackedScene" uid="uid://bn4a828drg1dp" path="res://scenes/ui/sprites/coin.tscn" id="8_6xh1d"]
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/nodes/labels/config_name_label.gd" id="9_gwise"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="12_r8ef7"]
@@ -434,9 +434,12 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_type_variation = &"MenuPanel"
 
 [node name="MenuContainer" type="MarginContainer" parent="PanelContainer"]
@@ -498,10 +501,9 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_lock_ = true
+scale = Vector2(1.614253, 1.614253)
 
 [node name="Book" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control" instance=ExtResource("6_2k5l7")]
-modulate = Color(1, 1, 1, 0)
 scale = Vector2(3.5, 3.5)
 animation = &"closed"
 frame = 0

@@ -96,50 +96,50 @@ func update_direction() -> void:
 		Direction.UP:
 			collisionBoxLarge.disabled = false
 			if station_type == StationType.DONERSTATION:
-				content.position = Vector2(0, -39)
+				content.position = Vector2(0, -59)
 				content.rotation_degrees = 0
 			else:
-				content.position = Vector2(0, -20)
+				content.position = Vector2(0, -40)
 				content.rotation_degrees = 0
 			rotatable.rotation_degrees = 0
 			table_sprite.texture = sprite_up
-			interactionArea.position = Vector2(0, 0)
+			interactionArea.position = Vector2(0, -6)
 
 		Direction.RIGHT:
 			collisionBoxSmall.disabled = false
 			if station_type == StationType.DONERSTATION:
-				content.position = Vector2(-50, -20)
+				content.position = Vector2(-32, -55)
 				content.rotation_degrees = -90
 			else:
-				content.position = Vector2(-31, -20)
+				content.position = Vector2(-14, -55)
 				content.rotation_degrees = 0
 			rotatable.rotation_degrees = 90
 			table_sprite.texture = sprite_right
-			collisionBoxSmall.position = Vector2(-16, -20)
-			interactionArea.position = Vector2(-32, 0)
+			collisionBoxSmall.position = Vector2(15, -57)
+			interactionArea.position = Vector2(-15, -21)
 
 		Direction.DOWN:
 			collisionBoxSmall.disabled = false
 			if station_type == StationType.DONERSTATION:
-				content.position = Vector2(0, 0)
+				content.position = Vector2(0, -20)
 				content.rotation_degrees = -180
 			else:
-				content.position = Vector2(0, -20)
+				content.position = Vector2(0, -40)
 				content.rotation_degrees = 0
 			rotatable.rotation_degrees = 180
 			table_sprite.texture = sprite_down
-			collisionBoxSmall.position = Vector2(0, -20)
-			interactionArea.position = Vector2(0, 0)
+			collisionBoxSmall.position = Vector2(0, -42)
+			interactionArea.position = Vector2(0, -6)
 
 		Direction.LEFT:
 			collisionBoxSmall.disabled = false
 			if station_type == StationType.DONERSTATION:
-				content.position = Vector2(50, -20)
+				content.position = Vector2(32, -55)
 				content.rotation_degrees = -270
 			else:
-				content.position = Vector2(31, -20)
+				content.position = Vector2(14, -55)
 				content.rotation_degrees = 0
 			rotatable.rotation_degrees = 270
 			table_sprite.texture = sprite_left
-			collisionBoxSmall.position = Vector2(16, -20)
-			interactionArea.position = Vector2(32, 0)
+			collisionBoxSmall.position = Vector2(-15, -57)
+			interactionArea.position = Vector2(15, -21)
