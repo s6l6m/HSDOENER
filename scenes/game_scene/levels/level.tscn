@@ -93,8 +93,4 @@ metadata/_edit_lock_ = true
 [node name="OrdersContainer" parent="CanvasLayer/MarginContainer/UIContainer" instance=ExtResource("8_6tvmh")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_right = 0.0
-grow_horizontal = 2
 metadata/_edit_lock_ = true

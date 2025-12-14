@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://b5gf2i04f2toe"]
 
-[ext_resource type="Script" uid="uid://cifydixhr2lix" path="res://scenes/ingredients/ingredient-data.gd" id="1_jslii"]
-[ext_resource type="Texture2D" uid="uid://ddd14nwlgjsfh" path="res://assets/food/stations/spies done.png" id="1_m52je"]
+[ext_resource type="Script" uid="uid://cfsyo13bchtc2" path="res://scenes/ingredients/ingredient-data.gd" id="1_jslii"]
+[ext_resource type="Texture2D" uid="uid://dkp8hxdd3751x" path="res://assets/food/stations/spies done.png" id="1_m52je"]
 
 [resource]
 script = ExtResource("1_jslii")

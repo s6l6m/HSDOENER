@@ -49,18 +49,18 @@ vertical = true
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
-text = "Menü"
+text = "Menu"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer"]
 layout_mode = 2
 
-[node name="DescriptionMargin" type="MarginContainer" parent="ContentContainer/BoxContainer"]
+[node name="BodyMargin" type="MarginContainer" parent="ContentContainer/BoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="DescriptionLabel" type="RichTextLabel" parent="ContentContainer/BoxContainer/DescriptionMargin"]
+[node name="DescriptionLabel" type="RichTextLabel" parent="ContentContainer/BoxContainer/BodyMargin"]
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
@@ -85,6 +85,6 @@ script = ExtResource("2_xihbi")
 [node name="CloseButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Schließen"
+text = "Close"
 
 [connection signal="pressed" from="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons/CloseButton" to="." method="_on_close_button_pressed"]

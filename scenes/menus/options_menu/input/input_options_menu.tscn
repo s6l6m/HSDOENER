@@ -38,9 +38,6 @@ title = "Menü"
 [node name="TitleLabel" parent="KeyAssignmentWindow/ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
 text = "Menü"
 
-[node name="InputTextEdit" parent="KeyAssignmentWindow/ContentContainer/BoxContainer/VBoxContainer" index="1"]
-placeholder_text = "Focus here to assign inputs."
-
 [node name="InputIconMapper" parent="." index="6" instance=ExtResource("2_hyv0n")]
 
 [editable path="KeyAssignmentWindow"]

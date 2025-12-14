@@ -35,24 +35,25 @@ func _process(delta):
 			_finish_cut()
 
 
-func interact_b(player):
-	_player_cutting = player
-	
+func interact_b(player: Player):
 	if stored_ingredient == null:
 		return
+	
 	if not (stored_ingredient is Ingredient):
 		return
 	if stored_ingredient.is_prepared:
 		return
 	
-	cutting = true
-	player.start_cutting()
+	if player.can_move():
+		cutting = true
+		_player_cutting = player
+		player.set_state(Player.State.CUTTING)
 
-
-func stop_cut(player):
-	_player_cutting = null
-	cutting = false
-	player.stop_cutting()
+func stop_cut(player: Player):
+	if player.current_state == Player.State.CUTTING:
+		_player_cutting = null
+		cutting = false
+		player.set_state(Player.State.FREE)
 
 
 func _finish_cut():
@@ -65,16 +66,12 @@ func _finish_cut():
 	if ing.cut_icon:
 		ing.icon = ing.cut_icon
 
+	stop_cut(_player_cutting)
 	update_visual()
-	
-	if _player_cutting:
-		_player_cutting.stop_cutting()
-		_player_cutting = null
 
 
-func interact(player):
+func interact(player: Player):
 	var held = player.getHeldPickable()
-	
 	
 	if stored_ingredient != null:
 		if player.pickUpPickable(stored_ingredient):
