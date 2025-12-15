@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://rxr222530jpw"]
+
+[ext_resource type="Texture2D" uid="uid://bkcbrb63h6asv" path="res://assets/food/items/fleisch-angebrannt-item.png" id="1_fcbux"]
+[ext_resource type="Script" uid="uid://dfk3anh4to5im" path="res://scenes/ingredients/ingredient-data.gd" id="2_v5ko0"]
+
+[resource]
+script = ExtResource("2_v5ko0")
+is_prepared = true
+name = "Fleisch"
+icon = ExtResource("1_fcbux")
