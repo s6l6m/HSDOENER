@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dpg5adlmv4g8l" path="res://assets/sprites/running_spritesheet_left.png" id="6_left"]
 [ext_resource type="Texture2D" uid="uid://bxv2830y4rpyb" path="res://assets/sprites/running_spritesheet_up_left.png" id="7_up_left"]
 [ext_resource type="Texture2D" uid="uid://dxpkxjswoipyt" path="res://assets/sprites/running_spritesheet_up.png" id="8_up"]
-[ext_resource type="Texture2D" uid="uid://o4iqrfqmjm3j" path="res://assets/sprites/running_spritesheet_up_right.png" id="10_5stf6"]
+[ext_resource type="Texture2D" uid="uid://b0tkjkecgyi78" path="res://assets/sprites/running_spritesheet_up_right.png" id="10_5stf6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gfjak"]
 radius = 10.965
