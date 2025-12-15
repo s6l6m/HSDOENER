@@ -6,6 +6,8 @@
 
 [resource]
 script = ExtResource("1_kfjv8")
+item_id = &"salat"
 cut_icon = ExtResource("1_dya1b")
+is_prepared = false
 name = "Salat"
 icon = ExtResource("1_ds2nt")

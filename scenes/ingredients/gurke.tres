@@ -6,6 +6,8 @@
 
 [resource]
 script = ExtResource("1_lhktl")
+item_id = &"gurke"
 cut_icon = ExtResource("1_kbc8w")
+is_prepared = false
 name = "Gurke"
 icon = ExtResource("1_7pn5y")

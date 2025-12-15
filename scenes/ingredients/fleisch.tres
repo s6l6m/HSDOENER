@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_jslii")
+item_id = &"fleisch"
 is_prepared = true
 name = "Fleisch"
 icon = ExtResource("1_m52je")

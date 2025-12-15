@@ -7,9 +7,12 @@ class_name OrderWidget
 @onready var dish_icon: TextureRect = %DishIcon
 @onready var price_label: Label = %PriceLabel
 
-@export var order: Order :
+var _order: Order
+@export var order: Order:
+	get:
+		return _order
 	set(value):
-		order = value
+		_order = value
 		if Engine.is_editor_hint():
 			_load_order_editor_preview()
 

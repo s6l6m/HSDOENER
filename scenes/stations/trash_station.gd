@@ -6,4 +6,6 @@ func update_direction() -> void:
 	return
 
 func interact(player: Player):
-	player.dropPickable()
+	var item := player.drop_item()
+	if item:
+		item.queue_free()

@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_v5ko0")
+item_id = &"fleisch_burnt"
 is_prepared = true
 name = "Fleisch"
 icon = ExtResource("1_fcbux")
