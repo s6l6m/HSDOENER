@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/Player.tscn" id="1_eg31v"]
 [ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/level.tscn" id="1_f618n"]
 [ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_p2qo3"]
-[ext_resource type="Script" uid="uid://c3hb2a6kekpoy" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
+[ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
 [ext_resource type="PackedScene" uid="uid://dqe5dy0v501xx" path="res://scenes/stations/cucumber_station.tscn" id="6_e3sbb"]
 [ext_resource type="PackedScene" uid="uid://524ejq66alxp" path="res://scenes/stations/doner_station.tscn" id="7_aea8e"]
 [ext_resource type="PackedScene" uid="uid://dy1cqc54o30wq" path="res://scenes/stations/onion_station.tscn" id="8_ptllb"]
@@ -71,12 +71,10 @@ metadata/_edit_lock_ = true
 
 [node name="CucumberStation" parent="Map/YSort" index="0" instance=ExtResource("6_e3sbb")]
 position = Vector2(64, 161)
-station_type = 0
 
 [node name="CucumberStation2" parent="Map/YSort" index="1" instance=ExtResource("6_e3sbb")]
 position = Vector2(320, 704)
 direction = 0
-station_type = 0
 
 [node name="DonerStation" parent="Map/YSort" index="2" instance=ExtResource("7_aea8e")]
 position = Vector2(448, 161)
@@ -84,13 +82,16 @@ position = Vector2(448, 161)
 [node name="OnionStation" parent="Map/YSort" index="3" instance=ExtResource("8_ptllb")]
 y_sort_enabled = true
 position = Vector2(576, 161)
+station_type = 3
 
 [node name="TomatoStation" parent="Map/YSort" index="4" instance=ExtResource("9_7xdsu")]
 position = Vector2(320, 161)
+station_type = 3
 
 [node name="TomatoStation2" parent="Map/YSort" index="5" instance=ExtResource("9_7xdsu")]
 position = Vector2(448, 704)
 direction = 0
+station_type = 3
 
 [node name="BreadStation" parent="Map/YSort" index="6" instance=ExtResource("11_vb107")]
 position = Vector2(576, 368)
@@ -109,12 +110,10 @@ station_type = 0
 [node name="CuttingStation3" parent="Map/YSort" index="9" instance=ExtResource("10_7xdsu")]
 position = Vector2(64, 704)
 direction = 0
-station_type = 0
 
 [node name="CuttingStation4" parent="Map/YSort" index="10" instance=ExtResource("10_7xdsu")]
 position = Vector2(192, 704)
 direction = 0
-station_type = 0
 
 [node name="WorkStation" parent="Map/YSort" index="11" instance=ExtResource("10_f618n")]
 position = Vector2(192, 368)
@@ -132,12 +131,10 @@ position = Vector2(320, 496)
 
 [node name="SaladStation" parent="Map/YSort" index="15" instance=ExtResource("11_27w7k")]
 position = Vector2(192, 161)
-station_type = 0
 
 [node name="SaladStation2" parent="Map/YSort" index="16" instance=ExtResource("11_27w7k")]
 position = Vector2(576, 704)
 direction = 0
-station_type = 0
 
 [node name="SauceStation" parent="Map/YSort" index="17" instance=ExtResource("13_f618n")]
 position = Vector2(576, 496)

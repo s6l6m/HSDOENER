@@ -1,8 +1,12 @@
 class_name Order
-extends PickableResource
+extends Resource
+
+## Runtime order instance. Stores the required ingredient list and the fulfilled ingredient list.
+## Matching compares ingredients by `item_id` (stable identifier), not by object identity.
+@export var icon: Texture2D
 
 @export var required_ingredients: Array[Ingredient] = []
-@export var fulfilled_ingredients: Array[Ingredient] = []
+var fulfilled_ingredients: Array[Ingredient] = []
 @export var creation_time: int = 0
 @export var price: int = 0
 @export var time_limit: int = 0
@@ -14,8 +18,12 @@ func _init(_icon: Texture2D = null, _required_ingredients: Array[Ingredient] = [
 	icon = _icon
 	required_ingredients = _required_ingredients
 	price = _price
-	creation_time = creation_time
+	creation_time = _creation_time
 	time_limit = _time_limit
+
+func evaluate() -> float:
+	## Convenience entrypoint for order evaluation (extend later with freshness/time).
+	return evaluate_ingredients_fulfilled()
 
 # Bewertet die Bestellung, indem erfüllte mit benötigten Zutaten (inkl. Multiplizitäten) abgeglichen werden.
 # Ermittelt matches, missing und wrong; berechnet base = matches/|required| und penalty = (missing+wrong)/|required|.
@@ -24,17 +32,22 @@ func evaluate_ingredients_fulfilled() -> float:
 	if required_ingredients.is_empty():
 		return 0.0
 
+	# Count required ingredient IDs (supports multiplicities).
 	var req_counts := {}
 	for r in required_ingredients:
-		req_counts[r] = (req_counts.get(r, 0) as int) + 1
+		var id := r.item_id
+		req_counts[id] = (req_counts.get(id, 0) as int) + 1
 
 	var matches := 0
 	var wrong := 0
 
 	for f in fulfilled_ingredients:
-		if req_counts.has(f) and req_counts[f] > 0:
+		if f == null:
+			continue
+		var f_id := f.item_id
+		if req_counts.has(f_id) and req_counts[f_id] > 0:
 			matches += 1
-			req_counts[f] -= 1
+			req_counts[f_id] -= 1
 		else:
 			wrong += 1
 
@@ -45,6 +58,8 @@ func evaluate_ingredients_fulfilled() -> float:
 	var denom := float(required_ingredients.size())
 	var base := float(matches) / denom
 	var penalty := float(missing + wrong) / denom
+	print("note:")
+	print(clamp(base - penalty, -1.0, 1.0))
 	return clamp(base - penalty, -1.0, 1.0)
 
 	
@@ -73,4 +88,5 @@ func _evaluate_time_left(current_time: int) -> float:
 
 func printIngredients():
 	for i in fulfilled_ingredients:
-		print(i.name)
+		if i != null:
+			print(i.name)

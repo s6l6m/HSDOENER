@@ -6,7 +6,9 @@
 
 [resource]
 script = ExtResource("1_ycf7c")
+item_id = &"tomate"
 cut_icon = ExtResource("1_wpwku")
+is_prepared = false
 name = "Tomate"
 icon = ExtResource("1_5ok4q")
 metadata/_custom_type_script = "uid://dfk3anh4to5im"

@@ -7,6 +7,10 @@ var burn_timer := burn_time
 var burn_level := 0
 var timer_running := true
 
+var ingredient_entity_scene := preload("res://scenes/items/ingredient_entity.tscn")
+var meat_resource := preload("res://scenes/ingredients/fleisch.tres")
+var burnt_meat_resource := preload("res://scenes/ingredients/fleisch-angebrannt.tres")
+
 func _process(delta: float) -> void:
 	if not timer_running:
 		return
@@ -18,8 +22,11 @@ func _process(delta: float) -> void:
 		burn_timer -= delta
 
 func interact(player: Player):
-	if not player.isHoldingPlate():
-		print("Du brauchst einen Teller!")
+	var entity := ingredient_entity_scene.instantiate() as IngredientEntity
+	entity.ingredient = burnt_meat_resource if burn_level == 1 else meat_resource
+	var picked := player.pick_up_item(entity)
+	if not picked and is_instance_valid(entity) and not entity.is_inside_tree():
+		entity.free()
 
 func interact_b(_player: Player):
 	burn_level = 0

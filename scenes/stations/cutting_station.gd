@@ -7,7 +7,7 @@ var cutting_progress: float = 0.0
 var cutting_duration: float = 2.0  # Sekunden bis fertig
 var _player_cutting: Player = null
 
-var stored_ingredient: Ingredient
+var stored_ingredient: IngredientEntity
 @onready var food: Sprite2D = $Rotatable/Food
 @onready var progress_bar := $ProgressBar
 
@@ -38,9 +38,7 @@ func _process(delta):
 func interact_b(player: Player):
 	if stored_ingredient == null:
 		return
-	
-	if not (stored_ingredient is Ingredient):
-		return
+
 	if stored_ingredient.is_prepared:
 		return
 	
@@ -60,31 +58,25 @@ func _finish_cut():
 	cutting = false
 	cutting_progress = 0.0
 	
-	var ing := stored_ingredient
-
-	ing.is_prepared = true
-	if ing.cut_icon:
-		ing.icon = ing.cut_icon
+	stored_ingredient.set_prepared(true)
 
 	stop_cut(_player_cutting)
 	update_visual()
 
 
 func interact(player: Player):
-	var held = player.getHeldPickable()
+	var held := player.get_held_item()
 	
 	if stored_ingredient != null:
-		if player.pickUpPickable(stored_ingredient):
-			if stored_ingredient is Ingredient:
-				stored_ingredient.remove_from_workstation()
+		if player.pick_up_item(stored_ingredient):
 			stored_ingredient = null
 			update_visual()
 		return
 		
-	if held != null and held is Ingredient:
-		stored_ingredient = held
-		stored_ingredient.put_into_workstation()
-		player.dropPickable()
+	if held != null and held is IngredientEntity:
+		stored_ingredient = player.drop_item() as IngredientEntity
+		if stored_ingredient:
+			stored_ingredient.attach_to(food)
 		update_visual()
 
 
@@ -92,7 +84,6 @@ func update_visual():
 	if stored_ingredient == null:
 		food.visible = false
 		return
-	
-	food.texture = stored_ingredient.icon
-	food.modulate = stored_ingredient.get_icon_tint()
+
+	food.texture = null
 	food.visible = true
