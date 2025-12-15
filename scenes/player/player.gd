@@ -75,12 +75,12 @@ func _ready() -> void:
 	_connect_stations()
 	set_state(State.FREE)
 
-func _process(delta: float) -> void:
-	if held_pickable is Ingredient:
-		held_pickable.update_rot(delta)
-		held_item.modulate = held_pickable.get_icon_tint()
-	elif held_pickable is Plate:
-		held_item.modulate = Color(1,1,1)
+#func _process(delta: float) -> void:
+	#if held_pickable is Ingredient:
+		#held_pickable.update_rot(delta)
+		#held_item.modulate = held_pickable.get_icon_tint()
+	#elif held_pickable is Plate:
+		#held_item.modulate = Color(1,1,1)
 
 func _physics_process(delta: float) -> void:
 	if current_state == State.DISABLED:
