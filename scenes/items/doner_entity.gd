@@ -1,5 +1,5 @@
+extends ItemEntity
 class_name DonerEntity
-extends "res://scenes/items/item_entity.gd"
 
 ## A Döner is a composite item: it stores a list of Ingredient data resources and updates visuals on change.
 ## It can optionally render a plate backdrop (kitchen vs. customer).

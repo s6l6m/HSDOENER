@@ -39,18 +39,7 @@ func _process(_delta):
 			# Wenn Kunde sein Ziel erreicht hat (z. B. Exit)
 			var exit_pos = get_parent().get_node(get_parent().exit_point).global_position
 			if target_position == exit_pos:
-				emit_signal("customer_arrived_exit", self)
+				customer_arrived_exit.emit(self)
 
-func fillFulfilledIngredients(ingredients: Array[Ingredient]) -> void:
-	if order == null:
-		push_warning("Customer has no order assigned in fillFulfilledIngredients()")
-		return
-
-	# neue Liste setzen (Kopie, nicht Referenz übernehmen)
-	order.fulfilled_ingredients = ingredients.duplicate()
-	
-
-# Wird aufgerufen, wenn auf den Kunden geklickt wird
-func _input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		emit_signal("customer_left", self)
+func leave_queue() -> void:
+	customer_left.emit(self)

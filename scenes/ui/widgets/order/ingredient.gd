@@ -1,5 +1,6 @@
 @tool
 extends PanelContainer
+class_name IngredientScene
 
 @export var icon: Texture
 @onready var icon_rect: TextureRect = %IngredientIcon

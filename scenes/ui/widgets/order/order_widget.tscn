@@ -1,10 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://gdxhyp5mg2l4"]
+[gd_scene load_steps=16 format=3 uid="uid://gdxhyp5mg2l4"]
 
 [ext_resource type="Script" uid="uid://dfqkadpb5yubp" path="res://scenes/ui/widgets/order/order_widget.gd" id="1_ab3os"]
 [ext_resource type="Texture2D" uid="uid://d6h63acikn3v" path="res://resources/ui/UI_Sprite_1.png" id="2_q6pbn"]
+[ext_resource type="Script" uid="uid://cfsyo13bchtc2" path="res://scenes/ingredients/ingredient-data.gd" id="2_ujrc5"]
+[ext_resource type="Resource" uid="uid://emjog242n5ar" path="res://scenes/ingredients/brot.tres" id="3_0m1ti"]
 [ext_resource type="Script" uid="uid://cgf54pbshkc4d" path="res://scenes/ui/widgets/order/timer_progress.gd" id="3_4ugo1"]
+[ext_resource type="Script" uid="uid://sjx5pedwkk5c" path="res://scripts/order.gd" id="3_c80hy"]
+[ext_resource type="Resource" uid="uid://b5gf2i04f2toe" path="res://scenes/ingredients/fleisch.tres" id="4_0m1ti"]
 [ext_resource type="PackedScene" uid="uid://bkiegbw6yaom8" path="res://scenes/ui/widgets/order/ingredient.tscn" id="5_u2618"]
+[ext_resource type="PackedScene" uid="uid://csg2f5qv5p7q4" path="res://scenes/items/doner_entity.tscn" id="7_0m1ti"]
 [ext_resource type="Texture2D" uid="uid://caw2df38hwqd5" path="res://resources/ui/UI_Coin.png" id="9_c80hy"]
+
+[sub_resource type="Resource" id="Resource_7xbbu"]
+script = ExtResource("3_c80hy")
+required_ingredients = Array[ExtResource("2_ujrc5")]([ExtResource("3_0m1ti"), ExtResource("4_0m1ti")])
+price = 10
+time_limit = 30
+metadata/_custom_type_script = "uid://sjx5pedwkk5c"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ugo1"]
 atlas = ExtResource("2_q6pbn")
@@ -28,7 +40,9 @@ offset_bottom = 116.0
 size_flags_vertical = 0
 theme_type_variation = &"OrderTicketPanel"
 script = ExtResource("1_ab3os")
+order = SubResource("Resource_7xbbu")
 ingredient_scene = ExtResource("5_u2618")
+doner_scene = ExtResource("7_0m1ti")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -58,17 +72,11 @@ texture_under = SubResource("AtlasTexture_4ugo1")
 texture_progress = SubResource("AtlasTexture_u2618")
 script = ExtResource("3_4ugo1")
 
-[node name="DishIconContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(75, 75)
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="DishIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/DishIconContainer"]
+[node name="DishContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
-size_flags_vertical = 4
-expand_mode = 4
+size_flags_vertical = 0
 
 [node name="IngredientsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -84,7 +92,7 @@ alignment = 2
 [node name="PriceLabel" type="Label" parent="MarginContainer/VBoxContainer/Price"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "00"
+text = "10"
 
 [node name="CoinIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/Price"]
 custom_minimum_size = Vector2(26, 26)

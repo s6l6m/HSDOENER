@@ -1,5 +1,5 @@
+extends ItemEntity
 class_name IngredientEntity
-extends "res://scenes/items/item_entity.gd"
 
 ## IngredientEntity is the world instance; `ingredient` is the shared Ingredient data resource.
 ## Runtime state like "prepared/cut" is stored here (not inside the Ingredient resource).

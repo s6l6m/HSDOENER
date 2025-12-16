@@ -20,12 +20,12 @@ class_name CustomerManager
 var customers: Array[Customer] = []
 
 # Kunde spawnen und in Warteschlange einreihen
-func spawn_customer():
+func spawn_customer(difficulty: Level.Difficulty):
 	if customers.size() >= queue_points.size():
 		print("Queue full")
 		return
 
-	var new_customer = customer_scene.instantiate()
+	var new_customer: Customer = customer_scene.instantiate()
 
 	# Basis-Spawnpunkt (ganz links)
 	var base_pos = get_node(spawn_point).global_position
@@ -37,7 +37,6 @@ func spawn_customer():
 	new_customer.global_position = base_pos + Vector2(customers.size() * x_offset, 0)
 
 	add_child(new_customer)
-	print("Customer spawned at:", new_customer.global_position)
 
 	# Zielposition für Warteschlange (optional)
 	var target_pos = get_node(queue_points[customers.size()]).global_position
@@ -46,11 +45,11 @@ func spawn_customer():
 	customers.append(new_customer)
 
 	# --- Bestellung erzeugen ---
-	order_manager.create_doner_order(new_customer, OrderManager.Difficulty.EASY)
+	new_customer.order = order_manager.create_doner_order(new_customer, difficulty)
 
 	# Signale
-	new_customer.connect("customer_left", Callable(self, "_on_customer_left"))
-	new_customer.connect("customer_arrived_exit", Callable(self, "_remove_customer_from_scene"))
+	new_customer.customer_left.connect(_on_customer_left)
+	new_customer.customer_arrived_exit.connect(_remove_customer_from_scene)
 
 
 # Kunde verlässt Warteschlange

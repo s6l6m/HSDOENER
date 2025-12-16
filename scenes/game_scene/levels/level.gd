@@ -11,7 +11,7 @@ signal level_won_and_changed(level_path : String)
 enum Difficulty { EASY, MEDIUM, HARD }
 
 @export_category("Level Settings")
-@export var round_time: int = 30
+@export var round_time: int = 300
 @export var target_coins: int = 150
 @export var difficulty: Difficulty
 
@@ -40,3 +40,7 @@ func _on_level_won() -> void:
 		level_won_and_changed.emit(next_level_path)
 	else:
 		level_won.emit()
+		
+func add_coins(coins: int) -> int:
+	level_state.coins = level_state.coins + coins
+	return level_state.coins

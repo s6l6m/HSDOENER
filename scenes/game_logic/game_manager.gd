@@ -16,11 +16,13 @@ extends Node
 func _ready() -> void:
 	_update_time_left()
 	time_manager.play_time_changed.connect(_update_time_left)
+	order_manager.order_completed.connect(_on_order_completed)
+	score_manager.order_evaluated.connect(_on_order_evaluated)
 
 func _process(_delta):
 	# Test-Input: Kunde per Tastendruck spawnen
 	if Input.is_action_just_pressed("spawn_customer"):
-		customer_manager.spawn_customer()
+		customer_manager.spawn_customer(current_level.difficulty)
 
 func _update_time_left(play_time: int = 0):
 	var time_left: int = current_level.round_time - play_time
@@ -30,3 +32,10 @@ func _update_time_left(play_time: int = 0):
 
 func _update_coins(coins: int):
 	coin_widget.update_coins(coins)
+
+func _on_order_completed(order: Order):
+	score_manager.evaluate_order(order, time_manager.play_time)
+
+func _on_order_evaluated(_order: Order, coin_delta: int):
+	var new_coin_count := current_level.add_coins(coin_delta)
+	_update_coins(new_coin_count)

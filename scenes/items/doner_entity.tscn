@@ -1,12 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://csg2f5qv5p7q4"]
 
-[ext_resource type="Script" uid="uid://bbtxfw8ulj3m8" path="res://scenes/items/doner_entity.gd" id="1_2m4j1"]
+[ext_resource type="Script" uid="uid://bchxm4f627wr8" path="res://scenes/items/doner_entity.gd" id="1_2m4j1"]
 
 [node name="DonerEntity" type="Node2D"]
 script = ExtResource("1_2m4j1")
 
 [node name="Plate" type="Sprite2D" parent="."]
-z_index = 0
 
 [node name="Base" type="Sprite2D" parent="."]
 

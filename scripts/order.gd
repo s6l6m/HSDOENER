@@ -1,10 +1,6 @@
 class_name Order
 extends Resource
 
-## Runtime order instance. Stores the required ingredient list and the fulfilled ingredient list.
-## Matching compares ingredients by `item_id` (stable identifier), not by object identity.
-@export var icon: Texture2D
-
 @export var required_ingredients: Array[Ingredient] = []
 var fulfilled_ingredients: Array[Ingredient] = []
 @export var creation_time: int = 0
@@ -14,16 +10,11 @@ var fulfilled_ingredients: Array[Ingredient] = []
 var customer: Customer
 var time_remaining: float = 0.0
 
-func _init(_icon: Texture2D = null, _required_ingredients: Array[Ingredient] = [], _price: int = 0, _creation_time: int = 0, _time_limit: int = 0):
-	icon = _icon
+func _init(_required_ingredients: Array[Ingredient] = [], _price: int = 0, _creation_time: int = 0, _time_limit: int = 0):
 	required_ingredients = _required_ingredients
 	price = _price
 	creation_time = _creation_time
 	time_limit = _time_limit
-
-func evaluate() -> float:
-	## Convenience entrypoint for order evaluation (extend later with freshness/time).
-	return evaluate_ingredients_fulfilled()
 
 # Bewertet die Bestellung, indem erfüllte mit benötigten Zutaten (inkl. Multiplizitäten) abgeglichen werden.
 # Ermittelt matches, missing und wrong; berechnet base = matches/|required| und penalty = (missing+wrong)/|required|.
@@ -58,8 +49,6 @@ func evaluate_ingredients_fulfilled() -> float:
 	var denom := float(required_ingredients.size())
 	var base := float(matches) / denom
 	var penalty := float(missing + wrong) / denom
-	print("note:")
-	print(clamp(base - penalty, -1.0, 1.0))
 	return clamp(base - penalty, -1.0, 1.0)
 
 	
