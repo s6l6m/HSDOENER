@@ -10,6 +10,8 @@ var is_moving = false
 var order: Order
 var color: Color
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 func _ready() -> void:
 	add_to_group("customers")
 	if not color:
@@ -32,14 +34,24 @@ func _process(_delta):
 		velocity = direction * speed
 		move_and_slide()
 		
+		# Animation basierend auf Bewegungsrichtung aktualisieren
+		_update_animation(direction)
+		
 		if global_position.distance_to(target_position) < 5:
 			is_moving = false
 			velocity = Vector2.ZERO
+			# Idle-Animation wenn angekommen
+			if animated_sprite:
+				animated_sprite.play("idle")
 
 			# Wenn Kunde sein Ziel erreicht hat (z. B. Exit)
 			var exit_pos = get_parent().get_node(get_parent().exit_point).global_position
 			if target_position == exit_pos:
 				emit_signal("customer_arrived_exit", self)
+	else:
+		# Idle-Animation wenn nicht bewegt
+		if animated_sprite and animated_sprite.animation != "idle":
+			animated_sprite.play("idle")
 
 func fillFulfilledIngredients(ingredients: Array[Ingredient]) -> void:
 	if order == null:
@@ -49,6 +61,31 @@ func fillFulfilledIngredients(ingredients: Array[Ingredient]) -> void:
 	# neue Liste setzen (Kopie, nicht Referenz übernehmen)
 	order.fulfilled_ingredients = ingredients.duplicate()
 	
+
+# Animation basierend auf Bewegungsrichtung aktualisieren
+func _update_animation(direction: Vector2) -> void:
+	if not animated_sprite:
+		return
+	
+	if direction == Vector2.ZERO:
+		animated_sprite.play("idle")
+		return
+	
+	# Winkel in Grad umrechnen (0° = rechts, 90° = unten, -90° = oben, 180° = links)
+	var degrees = rad_to_deg(direction.normalized().angle())
+	
+	var animation_name: String
+	if degrees >= -45.0 and degrees < 45.0:
+		animation_name = "run_right"
+	elif degrees >= 45.0 and degrees < 135.0:
+		animation_name = "run_down"
+	elif degrees >= 135.0 or degrees < -135.0:
+		animation_name = "run_left"
+	else:  # degrees >= -135.0 and degrees < -45.0
+		animation_name = "run_up"
+	
+	if animated_sprite.animation != animation_name:
+		animated_sprite.play(animation_name)
 
 # Wird aufgerufen, wenn auf den Kunden geklickt wird
 func _input_event(_viewport, event, _shape_idx):
