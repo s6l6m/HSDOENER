@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/Player.tscn" id="1_eg31v"]
 [ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/level.tscn" id="1_f618n"]
 [ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_p2qo3"]
-[ext_resource type="Script" uid="uid://c3hb2a6kekpoy" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
+[ext_resource type="Script" uid="uid://dlcvfvsgolj8k" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
 [ext_resource type="PackedScene" uid="uid://dqe5dy0v501xx" path="res://scenes/stations/cucumber_station.tscn" id="6_e3sbb"]
 [ext_resource type="PackedScene" uid="uid://524ejq66alxp" path="res://scenes/stations/doner_station.tscn" id="7_aea8e"]
 [ext_resource type="PackedScene" uid="uid://dy1cqc54o30wq" path="res://scenes/stations/onion_station.tscn" id="8_ptllb"]
@@ -203,10 +203,10 @@ editor_draw_limits = true
 script = ExtResource("3_7ty7q")
 targets = [NodePath("../Map/YSort/Player1"), NodePath("../Map/YSort/Player2")]
 
-[node name="TutorialManager" parent="." index="6"]
+[node name="TutorialManager" parent="." index="7"]
 tutorial_scenes = Array[PackedScene]([ExtResource("15_lbva2")])
 
-[node name="CustomerManager" parent="." index="7" node_paths=PackedStringArray("camera")]
+[node name="CustomerManager" parent="." index="8" node_paths=PackedStringArray("camera")]
 queue_points = Array[NodePath]([NodePath("../Map/CustomersMarkers/5"), NodePath("../Map/CustomersMarkers/4"), NodePath("../Map/CustomersMarkers/3"), NodePath("../Map/CustomersMarkers/2"), NodePath("../Map/CustomersMarkers/1")])
 exit_point = NodePath("../Map/CustomersMarkers/Exit")
 spawn_point = NodePath("../Map/CustomersMarkers/Spawn")

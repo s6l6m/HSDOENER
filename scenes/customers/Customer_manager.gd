@@ -43,6 +43,7 @@ func spawn_customer(difficulty: Level.Difficulty):
 	new_customer.move_to(target_pos)
 
 	customers.append(new_customer)
+	AudioPlayerManager.play(AudioPlayerManager.AudioID.CUSTOMER_ENTER)
 
 	# --- Bestellung erzeugen ---
 	new_customer.order = order_manager.create_doner_order(new_customer, difficulty)

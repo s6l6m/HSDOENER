@@ -10,3 +10,5 @@ func interact(player: Player):
 	var picked := player.pick_up_item(doner)
 	if not picked and is_instance_valid(doner) and not doner.is_inside_tree():
 		doner.free()
+	else:
+		AudioPlayerManager.play(AudioPlayerManager.AudioID.PLATE_TAKE)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://524ejq66alxp"]
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_6m066"]
-[ext_resource type="Script" uid="uid://dqdkbcfq5wvrg" path="res://scenes/stations/doner_station.gd" id="2_tydxm"]
-[ext_resource type="Texture2D" uid="uid://hbemxsmb4blv" path="res://assets/workstations/content/Doner_burnt.png" id="3_tydxm"]
+[ext_resource type="Script" uid="uid://crj6kmkhfvypv" path="res://scenes/stations/doner_station.gd" id="2_tydxm"]
+[ext_resource type="Texture2D" uid="uid://csshwveoyn628" path="res://assets/workstations/content/Doner_default.png" id="3_tydxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysy51"]
 size = Vector2(64, 65.5)
@@ -21,5 +21,4 @@ texture = ExtResource("3_tydxm")
 visible = false
 
 [node name="CollisionShape2D" parent="Rotatable/InteractionArea" index="0"]
-position = Vector2(0, -1.75)
 shape = SubResource("RectangleShape2D_ysy51")

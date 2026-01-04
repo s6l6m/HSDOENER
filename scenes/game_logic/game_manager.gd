@@ -37,5 +37,6 @@ func _on_order_completed(order: Order):
 	score_manager.evaluate_order(order, time_manager.play_time)
 
 func _on_order_evaluated(_order: Order, coin_delta: int):
+	AudioPlayerManager.play(AudioPlayerManager.AudioID.COIN_UP if coin_delta > 0 else AudioPlayerManager.AudioID.COIN_DOWN)
 	var new_coin_count := current_level.add_coins(coin_delta)
 	_update_coins(new_coin_count)

@@ -42,6 +42,7 @@ func interact(player: Player) -> void:
 	# 1️⃣ Take plate from counter
 	if stored_doner:
 		if player.pick_up_item(stored_doner):
+			AudioPlayerManager.play(AudioPlayerManager.AudioID.PLATE_TAKE)
 			stored_doner = null
 			update_visual()
 		return
@@ -51,6 +52,7 @@ func interact(player: Player) -> void:
 	if held is DonerEntity:
 		stored_doner = player.drop_item() as DonerEntity
 		if stored_doner:
+			AudioPlayerManager.play(AudioPlayerManager.AudioID.PLATE_PLACE)
 			stored_doner.attach_to(content)
 			stored_doner.show_plate_visual = true
 		update_visual()

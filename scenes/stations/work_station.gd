@@ -8,6 +8,7 @@ signal player_exited_station(player, station)
 enum Direction { DOWN, UP, LEFT, RIGHT }
 
 var _initialized := false
+var audio_player: AudioStreamPlayer
 
 @export var direction: Direction = Direction.UP:
 	set(value):
@@ -58,7 +59,7 @@ func interact(player: Player):
 		# Combine ingredient into doner (either direction).
 		if stored_item is DonerEntity and held is IngredientEntity:
 			if (stored_item as DonerEntity).add_ingredient(held as IngredientEntity):
-				player.clear_held_item()
+				player.drop_item()
 				update_visual()
 			return
 		if held is DonerEntity and stored_item is IngredientEntity:
@@ -69,6 +70,7 @@ func interact(player: Player):
 
 	if stored_item != null:
 		if player.pick_up_item(stored_item):
+			AudioPlayerManager.play(AudioPlayerManager.AudioID.PLATE_TAKE if stored_item is DonerEntity else AudioPlayerManager.AudioID.PLAYER_GRAB)
 			stored_item = null
 			update_visual()
 		return
@@ -76,6 +78,7 @@ func interact(player: Player):
 	if held != null:
 		stored_item = player.drop_item()
 		if stored_item:
+			AudioPlayerManager.play(AudioPlayerManager.AudioID.PLATE_PLACE if stored_item is DonerEntity else AudioPlayerManager.AudioID.PLAYER_PUT)
 			stored_item.attach_to(content)
 		update_visual()
 

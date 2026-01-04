@@ -11,3 +11,5 @@ func interact(player: Player):
 	var picked := player.pick_up_item(entity)
 	if not picked and is_instance_valid(entity) and not entity.is_inside_tree():
 		entity.free()
+	else:
+		AudioPlayerManager.play(AudioPlayerManager.AudioID.PLAYER_GRAB)
