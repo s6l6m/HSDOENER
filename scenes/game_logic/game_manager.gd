@@ -18,6 +18,9 @@ func _ready() -> void:
 	time_manager.play_time_changed.connect(_update_time_left)
 	order_manager.order_completed.connect(_on_order_completed)
 	score_manager.order_evaluated.connect(_on_order_evaluated)
+	
+	# Starte automatisches Spawning basierend auf Schwierigkeitsgrad
+	customer_manager.start_auto_spawning(current_level)
 
 func _process(_delta):
 	# Test-Input: Kunde per Tastendruck spawnen
@@ -27,6 +30,8 @@ func _process(_delta):
 func _update_time_left(play_time: int = 0):
 	var time_left: int = current_level.round_time - play_time
 	if time_left <= 0:
+		# Stoppe automatisches Spawning wenn Zeit abgelaufen
+		customer_manager.stop_auto_spawning()
 		current_level._on_level_lost()
 	timer_widget._on_play_time_changed(time_left)
 

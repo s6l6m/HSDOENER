@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/Player.tscn" id="1_eg31v"]
 [ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/level.tscn" id="1_f618n"]
 [ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_p2qo3"]
-[ext_resource type="Script" uid="uid://c3hb2a6kekpoy" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
+[ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
 [ext_resource type="PackedScene" uid="uid://dqe5dy0v501xx" path="res://scenes/stations/cucumber_station.tscn" id="6_e3sbb"]
 [ext_resource type="PackedScene" uid="uid://524ejq66alxp" path="res://scenes/stations/doner_station.tscn" id="7_aea8e"]
 [ext_resource type="PackedScene" uid="uid://dy1cqc54o30wq" path="res://scenes/stations/onion_station.tscn" id="8_ptllb"]
@@ -20,6 +20,7 @@
 
 [node name="Level" instance=ExtResource("1_f618n")]
 target_coins = 50
+difficulty = 1
 
 [node name="Map" type="Node2D" parent="." index="0"]
 position = Vector2(23, 149)
@@ -45,7 +46,7 @@ position = Vector2(-10, 9)
 metadata/_edit_lock_ = true
 
 [node name="Spawn" type="Marker2D" parent="Map/CustomersMarkers" index="0"]
-position = Vector2(1356, -103.99999)
+position = Vector2(1351, 177)
 
 [node name="1" type="Marker2D" parent="Map/CustomersMarkers" index="1"]
 position = Vector2(930, 200)
