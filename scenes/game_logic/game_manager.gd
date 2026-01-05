@@ -27,7 +27,7 @@ func _process(_delta):
 func _update_time_left(play_time: int = 0):
 	var time_left: int = current_level.round_time - play_time
 	if time_left <= 0:
-		current_level._on_level_lost()
+		current_level._on_level_time_up()
 	timer_widget._on_play_time_changed(time_left)
 
 func _update_coins(coins: int):
@@ -40,3 +40,5 @@ func _on_order_evaluated(_order: Order, coin_delta: int):
 	AudioPlayerManager.play(AudioPlayerManager.AudioID.COIN_UP if coin_delta > 0 else AudioPlayerManager.AudioID.COIN_DOWN)
 	var new_coin_count := current_level.add_coins(coin_delta)
 	_update_coins(new_coin_count)
+	if current_level._target_coins_reached():
+		current_level._on_level_won()

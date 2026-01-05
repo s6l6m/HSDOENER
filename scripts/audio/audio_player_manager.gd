@@ -36,6 +36,10 @@ enum AudioID {
 	
 	# Sauce
 	SAUCE,
+	
+	# Level
+	LEVEL_LOST,
+	LEVEL_WON,
 }
 
 # -------------------------------------------------
@@ -114,7 +118,12 @@ func _create_player(cue: AudioCue) -> AudioStreamPlayer:
 
 	# Duplicate stream so loop state is per-instance
 	var stream_instance: AudioStream = cue.stream.duplicate()
-
+	
+	# Make sure it keeps playing even if the game is paused
+	if cue.unpausable:
+		player.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	# The audio should keep looping
 	if cue.loop:
 		if stream_instance is AudioStreamWAV:
 			stream_instance.loop_mode = AudioStreamWAV.LOOP_FORWARD
