@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://emjog242n5ar"]
 
-[ext_resource type="Script" uid="uid://cfsyo13bchtc2" path="res://scenes/ingredients/ingredient-data.gd" id="1_o8yax"]
-[ext_resource type="Texture2D" uid="uid://loa44mwhsdri" path="res://assets/food/items/bread-item.png" id="1_obecx"]
+[ext_resource type="Script" uid="uid://c1ohr25d38pwq" path="res://scenes/ingredients/ingredient-data.gd" id="1_o8yax"]
+[ext_resource type="Texture2D" uid="uid://mnw43okn5558" path="res://assets/food/items/bread-item.png" id="1_obecx"]
 
 [resource]
 script = ExtResource("1_o8yax")
-item_id = &"brot"
 is_prepared = true
+item_id = &"brot"
 name = "Brot"
 icon = ExtResource("1_obecx")

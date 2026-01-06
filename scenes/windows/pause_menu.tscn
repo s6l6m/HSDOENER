@@ -55,7 +55,6 @@ text = "Spiel schließen"
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-update_content = true
 text = "Restart the game?"
 title = "Confirm Restart"
 
@@ -64,7 +63,6 @@ unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
-update_content = true
 text = "Exit to the main menu?"
 title = "Confirm Exit"
 
@@ -72,7 +70,6 @@ title = "Confirm Exit"
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-update_content = true
 text = "Exit the game?"
 title = "Confirm Exit"
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dpd0yp5gwm45i"]
 
-[ext_resource type="Script" uid="uid://b1l32nrui3jcu" path="res://scenes/orders/order_manager.gd" id="1_q7jjw"]
-[ext_resource type="Script" uid="uid://drp13ycycl4vf" path="res://scenes/orders/doener-generator.gd" id="2_mbwn4"]
+[ext_resource type="Script" uid="uid://lf260qdax84s" path="res://scenes/orders/order_manager.gd" id="1_q7jjw"]
+[ext_resource type="Script" uid="uid://nt0wo502sdto" path="res://scenes/orders/doener-generator.gd" id="2_mbwn4"]
 [ext_resource type="Resource" uid="uid://emjog242n5ar" path="res://scenes/ingredients/brot.tres" id="3_q1vf0"]
 [ext_resource type="Resource" uid="uid://b5gf2i04f2toe" path="res://scenes/ingredients/fleisch.tres" id="4_0xlj5"]
 [ext_resource type="Resource" uid="uid://d1uqc06qvbban" path="res://scenes/ingredients/tomate.tres" id="5_oe3o4"]

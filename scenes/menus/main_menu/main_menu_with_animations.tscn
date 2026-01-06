@@ -504,6 +504,7 @@ grow_vertical = 2
 scale = Vector2(1.614253, 1.614253)
 
 [node name="Book" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control" instance=ExtResource("6_2k5l7")]
+modulate = Color(1, 1, 1, 0)
 scale = Vector2(3.5, 3.5)
 animation = &"closed"
 frame = 0

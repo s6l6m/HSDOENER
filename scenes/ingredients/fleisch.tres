@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://b5gf2i04f2toe"]
 
-[ext_resource type="Script" uid="uid://dfk3anh4to5im" path="res://scenes/ingredients/ingredient-data.gd" id="1_jslii"]
+[ext_resource type="Script" uid="uid://c1ohr25d38pwq" path="res://scenes/ingredients/ingredient-data.gd" id="1_jslii"]
 [ext_resource type="Texture2D" uid="uid://bnavmr0bdehgh" path="res://assets/food/items/fleisch-normal-item.png" id="1_m52je"]
 
 [resource]
 script = ExtResource("1_jslii")
-item_id = &"fleisch"
 is_prepared = true
+item_id = &"fleisch"
 name = "Fleisch"
 icon = ExtResource("1_m52je")

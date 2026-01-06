@@ -2,12 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://c31dmy5hbeft2" path="res://assets/food/items/cucumber-item.png" id="1_7pn5y"]
 [ext_resource type="Texture2D" uid="uid://duvkscis1m15g" path="res://assets/food/items/cucumber-item_cut.png" id="1_kbc8w"]
-[ext_resource type="Script" uid="uid://cfsyo13bchtc2" path="res://scenes/ingredients/ingredient-data.gd" id="1_lhktl"]
+[ext_resource type="Script" uid="uid://c1ohr25d38pwq" path="res://scenes/ingredients/ingredient-data.gd" id="1_lhktl"]
 
 [resource]
 script = ExtResource("1_lhktl")
-item_id = &"gurke"
 cut_icon = ExtResource("1_kbc8w")
-is_prepared = false
+item_id = &"gurke"
 name = "Gurke"
 icon = ExtResource("1_7pn5y")
