@@ -55,6 +55,12 @@ func spawn_customer(difficulty: Level.Difficulty):
 
 # Kunde verlässt Warteschlange
 func _on_customer_left(customer: Customer):
+	
+	if customer.order and customer.order in order_manager.orders:
+		print("[CustomerManager] Kunde geht ohne Teller, Order wird negativ bewertet:")
+		order_manager.order_completed.emit(customer.order)
+		order_manager.orders.erase(customer.order)
+		
 	# Kunde verlässt die Queue und läuft zum Ausgang
 	new_customer_move_to_exit(customer)
 	# Restliche Kunden rücken nach

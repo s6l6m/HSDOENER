@@ -39,14 +39,14 @@ func _ready() -> void:
 # Pick up / place plate
 # =====================================================
 func interact(player: Player) -> void:
-	# 1️⃣ Take plate from counter
+	# Take plate from counter
 	if stored_doner:
 		if player.pick_up_item(stored_doner):
 			stored_doner = null
 			update_visual()
 		return
 
-	# 2️⃣ Place plate on counter
+	# Place plate on counter
 	var held := player.get_held_item()
 	if held is DonerEntity:
 		stored_doner = player.drop_item() as DonerEntity
@@ -56,7 +56,7 @@ func interact(player: Player) -> void:
 		update_visual()
 
 # =====================================================
-# Interaction (B)
+# Interaktion mit C
 # Serve customer
 # =====================================================
 func interact_b(_player: Player) -> void:

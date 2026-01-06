@@ -39,8 +39,10 @@ func _update_coins(coins: int):
 	coin_widget.update_coins(coins)
 
 func _on_order_completed(order: Order):
+	print("[GameManager] order_completed erhalten:", order)
 	score_manager.evaluate_order(order, time_manager.play_time)
 
 func _on_order_evaluated(_order: Order, coin_delta: int):
 	var new_coin_count := current_level.add_coins(coin_delta)
+	print("[GameManager] order_evaluated coin_delta=", coin_delta, " coins_total=", new_coin_count)
 	_update_coins(new_coin_count)
