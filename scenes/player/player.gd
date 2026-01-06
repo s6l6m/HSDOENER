@@ -32,6 +32,8 @@ var held_item_entity: ItemEntity
 var current_station: Node2D
 var stations_in_range: Array[Node2D] = []
 
+var walk_audio_player: AudioStreamPlayer
+
 # =====================================================
 # Nodes
 # =====================================================
@@ -87,6 +89,12 @@ func _physics_process(delta: float) -> void:
 
 	_move(direction, delta)
 	_update_animation(direction)
+
+	if not walk_audio_player and direction != Vector2.ZERO:
+		walk_audio_player = AudioPlayerManager.play(AudioPlayerManager.AudioID.PLAYER_MOVE)
+
+	if walk_audio_player and direction.is_equal_approx(Vector2.ZERO):
+		AudioPlayerManager.stop(walk_audio_player)
 
 # =====================================================
 # Input Handling
@@ -260,11 +268,6 @@ func drop_item() -> ItemEntity:
 	item_dropped.emit(item)
 	set_state(State.FREE)
 	return item
-
-func clear_held_item() -> void:
-	if held_item_entity != null:
-		held_item_entity = null
-		set_state(State.FREE)
 
 func is_holding_item() -> bool:
 	return held_item_entity != null

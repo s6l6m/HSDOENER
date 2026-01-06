@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2xymsk6rlk2o"]
+[gd_scene load_steps=12 format=3 uid="uid://b2xymsk6rlk2o"]
 
 [ext_resource type="Script" uid="uid://d2c164booyvvo" path="res://scenes/game_scene/levels/level.gd" id="1_nv0pp"]
 [ext_resource type="PackedScene" uid="uid://uu7kvkdnj1tf" path="res://scenes/game_logic/GameManager.tscn" id="2_l1wr4"]
+[ext_resource type="PackedScene" uid="uid://jk25xxv6oo5m" path="res://scripts/audio/audio_player_manager.tscn" id="2_qywm2"]
 [ext_resource type="PackedScene" uid="uid://dpd0yp5gwm45i" path="res://scenes/orders/OrderManager.tscn" id="3_6i7vj"]
 [ext_resource type="PackedScene" uid="uid://cm8ptywu4lquy" path="res://scenes/game_logic/TimeManager.tscn" id="3_qywm2"]
 [ext_resource type="PackedScene" uid="uid://dunmeos6sxqjh" path="res://scenes/customers/CustomerManager.tscn" id="5_6i7vj"]
@@ -14,6 +15,8 @@
 [node name="Level" type="Node"]
 script = ExtResource("1_nv0pp")
 target_coins = 100
+
+[node name="AudioPlayerManager" parent="." instance=ExtResource("2_qywm2")]
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("time_manager", "order_manager", "customer_manager", "score_manager", "timer_widget", "coin_widget") instance=ExtResource("2_l1wr4")]
 unique_name_in_owner = true

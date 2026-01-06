@@ -32,7 +32,7 @@ func _update_time_left(play_time: int = 0):
 	if time_left <= 0:
 		# Stoppe automatisches Spawning wenn Zeit abgelaufen
 		customer_manager.stop_auto_spawning()
-		current_level._on_level_lost()
+		current_level._on_level_time_up()
 	timer_widget._on_play_time_changed(time_left)
 
 func _update_coins(coins: int):
@@ -43,6 +43,9 @@ func _on_order_completed(order: Order):
 	score_manager.evaluate_order(order, time_manager.play_time)
 
 func _on_order_evaluated(_order: Order, coin_delta: int):
+	AudioPlayerManager.play(AudioPlayerManager.AudioID.COIN_UP if coin_delta > 0 else AudioPlayerManager.AudioID.COIN_DOWN)
 	var new_coin_count := current_level.add_coins(coin_delta)
 	print("[GameManager] order_evaluated coin_delta=", coin_delta, " coins_total=", new_coin_count)
 	_update_coins(new_coin_count)
+	if current_level._target_coins_reached():
+		current_level._on_level_won()

@@ -46,12 +46,14 @@ func interact_b(player: Player):
 		cutting = true
 		_player_cutting = player
 		player.set_state(Player.State.CUTTING)
+		audio_player = AudioPlayerManager.play(AudioPlayerManager.AudioID.STATION_CUTTING)
 
 func stop_cut(player: Player):
 	if player.current_state == Player.State.CUTTING:
 		_player_cutting = null
 		cutting = false
 		player.set_state(Player.State.FREE)
+		AudioPlayerManager.stop(audio_player)
 
 
 func _finish_cut():
@@ -69,6 +71,7 @@ func interact(player: Player):
 	
 	if stored_ingredient != null:
 		if player.pick_up_item(stored_ingredient):
+			AudioPlayerManager.play(AudioPlayerManager.AudioID.PLAYER_GRAB)
 			stored_ingredient = null
 			update_visual()
 		return
@@ -76,6 +79,7 @@ func interact(player: Player):
 	if held != null and held is IngredientEntity:
 		stored_ingredient = player.drop_item() as IngredientEntity
 		if stored_ingredient:
+			AudioPlayerManager.play(AudioPlayerManager.AudioID.PLAYER_PUT)
 			stored_ingredient.attach_to(food)
 		update_visual()
 
