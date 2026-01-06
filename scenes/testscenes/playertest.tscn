@@ -20,6 +20,7 @@
 
 [node name="Level" instance=ExtResource("1_f618n")]
 target_coins = 50
+difficulty = 1
 
 [node name="Map" type="Node2D" parent="." index="0"]
 position = Vector2(23, 149)
@@ -45,7 +46,7 @@ position = Vector2(-10, 9)
 metadata/_edit_lock_ = true
 
 [node name="Spawn" type="Marker2D" parent="Map/CustomersMarkers" index="0"]
-position = Vector2(1356, -103.99999)
+position = Vector2(1351, 177)
 
 [node name="1" type="Marker2D" parent="Map/CustomersMarkers" index="1"]
 position = Vector2(930, 200)

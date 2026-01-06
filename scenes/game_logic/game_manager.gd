@@ -18,6 +18,9 @@ func _ready() -> void:
 	time_manager.play_time_changed.connect(_update_time_left)
 	order_manager.order_completed.connect(_on_order_completed)
 	score_manager.order_evaluated.connect(_on_order_evaluated)
+	
+	# Starte automatisches Spawning basierend auf Schwierigkeitsgrad
+	customer_manager.start_auto_spawning(current_level)
 
 func _process(_delta):
 	# Test-Input: Kunde per Tastendruck spawnen
@@ -27,6 +30,8 @@ func _process(_delta):
 func _update_time_left(play_time: int = 0):
 	var time_left: int = current_level.round_time - play_time
 	if time_left <= 0:
+		# Stoppe automatisches Spawning wenn Zeit abgelaufen
+		customer_manager.stop_auto_spawning()
 		current_level._on_level_time_up()
 	timer_widget._on_play_time_changed(time_left)
 
@@ -34,11 +39,13 @@ func _update_coins(coins: int):
 	coin_widget.update_coins(coins)
 
 func _on_order_completed(order: Order):
+	print("[GameManager] order_completed erhalten:", order)
 	score_manager.evaluate_order(order, time_manager.play_time)
 
 func _on_order_evaluated(_order: Order, coin_delta: int):
 	AudioPlayerManager.play(AudioPlayerManager.AudioID.COIN_UP if coin_delta > 0 else AudioPlayerManager.AudioID.COIN_DOWN)
 	var new_coin_count := current_level.add_coins(coin_delta)
+	print("[GameManager] order_evaluated coin_delta=", coin_delta, " coins_total=", new_coin_count)
 	_update_coins(new_coin_count)
 	if current_level._target_coins_reached():
 		current_level._on_level_won()
