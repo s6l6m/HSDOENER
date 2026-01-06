@@ -11,7 +11,7 @@ signal level_won_and_changed(level_path : String)
 enum Difficulty { EASY, MEDIUM, HARD }
 
 @export_category("Level Settings")
-@export var round_time: int = 30
+@export var round_time: int = 300
 @export var target_coins: int = 150
 @export var difficulty: Difficulty
 
@@ -26,6 +26,7 @@ func open_tutorials() -> void:
 
 func _ready() -> void:
 	level_state = GameState.get_level_state(scene_file_path)
+	level_state.reset_level()
 	if not level_state.tutorial_read:
 		open_tutorials()
 
@@ -33,10 +34,25 @@ func _on_tutorial_button_pressed() -> void:
 	open_tutorials()
 
 func _on_level_lost() -> void:
+	AudioPlayerManager.play(AudioPlayerManager.AudioID.LEVEL_LOST)
 	level_lost.emit()
 	
 func _on_level_won() -> void:
+	AudioPlayerManager.play(AudioPlayerManager.AudioID.LEVEL_WON)
 	if next_level_path:
 		level_won_and_changed.emit(next_level_path)
 	else:
 		level_won.emit()
+		
+func add_coins(coins: int) -> int:
+	level_state.coins = level_state.coins + coins
+	return level_state.coins
+
+func _on_level_time_up() -> void:
+	if self._target_coins_reached():
+		_on_level_won()
+	else:
+		_on_level_lost()
+
+func _target_coins_reached() -> bool:
+	return self.level_state.coins >= self.target_coins

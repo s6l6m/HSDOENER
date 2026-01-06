@@ -4,16 +4,20 @@ class_name OrderWidget
 
 @onready var timer_bar = %TimerProgress
 @onready var ingredients_container: HBoxContainer = %IngredientsContainer
-@onready var dish_icon: TextureRect = %DishIcon
+@onready var dish_container: CenterContainer = %DishContainer
 @onready var price_label: Label = %PriceLabel
 
-@export var order: Order :
+var _order: Order
+@export var order: Order:
+	get:
+		return _order
 	set(value):
-		order = value
+		_order = value
 		if Engine.is_editor_hint():
 			_load_order_editor_preview()
 
 @export var ingredient_scene: PackedScene
+@export var doner_scene: PackedScene
 
 var order_wait_time: float
 var dish: Texture2D
@@ -54,8 +58,7 @@ func _load_order_runtime():
 
 	order_wait_time = order.time_limit
 	time_left = order_wait_time
-
-	dish = order.icon
+	
 	ingredients.clear()
 	for ingredient in order.required_ingredients:
 		ingredients.append(ingredient.icon)
@@ -78,7 +81,7 @@ func _load_order_editor_preview():
 		_update_price_label()
 		return
 
-	dish = order.icon
+	dish = preload("res://assets/food/items/warp-item.png")
 
 	ingredients.clear()
 	for ingredient in order.required_ingredients:
@@ -88,13 +91,32 @@ func _load_order_editor_preview():
 	_update_ingredients()
 	_update_price_label()
 
+
 func _update_dish_icon():
-	if dish_icon:
-		dish_icon.texture = dish
+	if not dish_container or not doner_scene:
+		return
+
+	for child in dish_container.get_children():
+		child.queue_free()
+
+	var host := Control.new()
+	host.name = "DonerHost"
+	host.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	dish_container.add_child(host)
+
+	var doner: DonerEntity = doner_scene.instantiate()
+	host.add_child(doner)
+
+	doner.position = host.size * 0.5
+	doner.ingredients = self.order.required_ingredients
+	doner._apply_doner_layers()
+
 
 func _update_price_label():
-	if price_label:
-		price_label.text = str(order.price) if order.price else "-"
+	if order.price:
+		price_label.text = str(order.price)
+	else:
+		price_label.text = "-"
 
 func _update_ingredients():
 	if not ingredients_container or not ingredient_scene:

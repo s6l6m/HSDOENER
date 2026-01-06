@@ -1,65 +1,53 @@
 extends Node
 class_name OrderManager
 
-enum Difficulty {
-	EASY,
-	MEDIUM,
-	HARD
-}
-
 signal order_added(order: Order, callback_time_finished: Callable)
 signal order_completed(order: Order)
-signal order_removed(order: Order)
 
 @onready var doener_generator: DonerGenerator = %DoenerGenerator
 @onready var orders_container: OrdersContainer = %OrdersContainer
+@onready var time_manager: TimeManager = %TimeManager
 
 var orders: Array[Order] = []
 
 func _ready() -> void:
-	self.order_added.connect(orders_container.on_add_order)
-	self.order_removed.connect(orders_container.on_remove_order)
+	order_added.connect(orders_container.on_add_order)
+	order_completed.connect(orders_container.on_remove_order)
 
 func complete_order(order: Order) -> void:
 	if order in orders:
-		emit_signal("order_completed", order)
-		remove_order(order)
+		order_completed.emit(order)
+		order.customer.leave_queue()
+		orders.erase(order)
 
-func remove_order(order: Order) -> void:
-	order.customer.customer_left.emit(order.customer)
-	orders.erase(order)
-	emit_signal("order_removed", order)
-
-func create_doner_order(customer: Customer, difficulty: Difficulty) -> Order:
+func create_doner_order(customer: Customer, difficulty: Level.Difficulty) -> Order:
 	var ingredients : Array[Ingredient]
 	var price: int
 	var time_limit: int
 
 	match difficulty:
-		Difficulty.EASY:
+		Level.Difficulty.EASY:
 			ingredients = doener_generator.generate_small_doner()
-			price = randi_range(3, 10)
-			time_limit = randi_range(15, 20)
-		Difficulty.MEDIUM:
+			price = randi_range(5, 7)
+			time_limit = randi_range(40, 50)
+		Level.Difficulty.MEDIUM:
 			ingredients = doener_generator.generate_mid_doner()
-			price = randi_range(5, 15)
-			time_limit = randi_range(20, 40)
-		Difficulty.HARD:
+			price = randi_range(10, 13)
+			time_limit = randi_range(50, 60)
+		Level.Difficulty.HARD:
 			ingredients = doener_generator.generate_big_doner()
-			price = randi_range(15, 25)
-			time_limit = randi_range(30, 60)
+			price = randi_range(20, 25)
+			time_limit = randi_range(60, 80)
 	
 	var order := Order.new(
-		preload("res://assets/food/items/warp-item.png"),
 		ingredients,
 		price,
-		%TimeManager.play_time,
+		time_manager.play_time,
 		time_limit,
 	)
 	
 	order.customer = customer
-	customer.order = order
 	orders.append(order)
 	
-	emit_signal("order_added", order, remove_order)
+	order_added.emit(order, complete_order)
 	return order

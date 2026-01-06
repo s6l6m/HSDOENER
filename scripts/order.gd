@@ -1,8 +1,8 @@
 class_name Order
-extends PickableResource
+extends Resource
 
 @export var required_ingredients: Array[Ingredient] = []
-@export var fulfilled_ingredients: Array[Ingredient] = []
+var fulfilled_ingredients: Array[Ingredient] = []
 @export var creation_time: int = 0
 @export var price: int = 0
 @export var time_limit: int = 0
@@ -10,11 +10,10 @@ extends PickableResource
 var customer: Customer
 var time_remaining: float = 0.0
 
-func _init(_icon: Texture2D = null, _required_ingredients: Array[Ingredient] = [], _price: int = 0, _creation_time: int = 0, _time_limit: int = 0):
-	icon = _icon
+func _init(_required_ingredients: Array[Ingredient] = [], _price: int = 0, _creation_time: int = 0, _time_limit: int = 0):
 	required_ingredients = _required_ingredients
 	price = _price
-	creation_time = creation_time
+	creation_time = _creation_time
 	time_limit = _time_limit
 
 # Bewertet die Bestellung, indem erfüllte mit benötigten Zutaten (inkl. Multiplizitäten) abgeglichen werden.
@@ -24,17 +23,22 @@ func evaluate_ingredients_fulfilled() -> float:
 	if required_ingredients.is_empty():
 		return 0.0
 
+	# Count required ingredient IDs (supports multiplicities).
 	var req_counts := {}
 	for r in required_ingredients:
-		req_counts[r] = (req_counts.get(r, 0) as int) + 1
+		var id := r.item_id
+		req_counts[id] = (req_counts.get(id, 0) as int) + 1
 
 	var matches := 0
 	var wrong := 0
 
 	for f in fulfilled_ingredients:
-		if req_counts.has(f) and req_counts[f] > 0:
+		if f == null:
+			continue
+		var f_id := f.item_id
+		if req_counts.has(f_id) and req_counts[f_id] > 0:
 			matches += 1
-			req_counts[f] -= 1
+			req_counts[f_id] -= 1
 		else:
 			wrong += 1
 
@@ -73,4 +77,5 @@ func _evaluate_time_left(current_time: int) -> float:
 
 func printIngredients():
 	for i in fulfilled_ingredients:
-		print(i.name)
+		if i != null:
+			print(i.name)

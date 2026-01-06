@@ -17,6 +17,9 @@ title_visible = false
 [node name="TitleMargin" parent="ContentContainer/BoxContainer" index="0"]
 visible = false
 
+[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" index="0"]
+text = "LEVEL VERLOREN!"
+
 [node name="MenuButtons" parent="ContentContainer/BoxContainer/MenuButtonsMargin" index="0"]
 vertical = false
 

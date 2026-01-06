@@ -23,7 +23,7 @@ signal player_exited_slot(player: Player, slot: CounterSlot)
 # =====================================================
 # State
 # =====================================================
-var stored_plate: Plate
+var stored_doner: DonerEntity
 var active_customer: Customer
 var customers_in_area: Array[Customer] = []
 
@@ -39,30 +39,38 @@ func _ready() -> void:
 # Pick up / place plate
 # =====================================================
 func interact(player: Player) -> void:
-	# 1️⃣ Take plate from counter
-	if stored_plate:
-		if player.pickUpPickable(stored_plate):
-			stored_plate = null
+	# Take plate from counter
+	if stored_doner:
+		if player.pick_up_item(stored_doner):
+			AudioPlayerManager.play(AudioPlayerManager.AudioID.PLATE_TAKE)
+			stored_doner = null
 			update_visual()
 		return
 
-	# 2️⃣ Place plate on counter
-	if player.isHoldingPlate():
-		stored_plate = player.dropPickable()
-		stored_plate.printIngredients()
+	# Place plate on counter
+	var held := player.get_held_item()
+	if held is DonerEntity:
+		stored_doner = player.drop_item() as DonerEntity
+		if stored_doner:
+			AudioPlayerManager.play(AudioPlayerManager.AudioID.PLATE_PLACE)
+			stored_doner.attach_to(content)
+			stored_doner.show_plate_visual = true
 		update_visual()
 
 # =====================================================
-# Interaction (B)
+# Interaktion mit C
 # Serve customer
 # =====================================================
 func interact_b(_player: Player) -> void:
-	if not active_customer or not stored_plate or not stored_plate.hasIngredients():
+	## Serve: copy the döner's ingredient list into the order, evaluate, then complete the order.
+	if not active_customer or not stored_doner or stored_doner.ingredients.is_empty():
 		return
 
-	active_customer.order.fulfilled_ingredients = stored_plate.ingredients.duplicate()
+	active_customer.order.fulfilled_ingredients = stored_doner.ingredients.duplicate()
 	order_manager.complete_order(active_customer.order)
-	stored_plate = null
+	stored_doner.show_plate_visual = false
+	stored_doner.queue_free()
+	stored_doner = null
 
 	update_visual()
 
@@ -70,9 +78,8 @@ func interact_b(_player: Player) -> void:
 # Visuals
 # =====================================================
 func update_visual() -> void:
-	content.visible = stored_plate != null
-	if stored_plate:
-		content.texture = stored_plate.icon
+	content.visible = stored_doner != null
+	content.texture = null
 
 	order_color.visible = active_customer != null
 	if active_customer:

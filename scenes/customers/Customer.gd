@@ -47,7 +47,7 @@ func _process(_delta):
 			# Wenn Kunde sein Ziel erreicht hat (z. B. Exit)
 			var exit_pos = get_parent().get_node(get_parent().exit_point).global_position
 			if target_position == exit_pos:
-				emit_signal("customer_arrived_exit", self)
+				customer_arrived_exit.emit(self)
 	else:
 		# Idle-Animation wenn nicht bewegt
 		if animated_sprite and animated_sprite.animation != "idle":
@@ -87,7 +87,5 @@ func _update_animation(direction: Vector2) -> void:
 	if animated_sprite.animation != animation_name:
 		animated_sprite.play(animation_name)
 
-# Wird aufgerufen, wenn auf den Kunden geklickt wird
-func _input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		emit_signal("customer_left", self)
+func leave_queue() -> void:
+	customer_left.emit(self)

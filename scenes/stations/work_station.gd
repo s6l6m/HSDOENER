@@ -8,6 +8,7 @@ signal player_exited_station(player, station)
 enum Direction { DOWN, UP, LEFT, RIGHT }
 
 var _initialized := false
+var audio_player: AudioStreamPlayer
 
 @export var direction: Direction = Direction.UP:
 	set(value):
@@ -22,14 +23,14 @@ var sprite_down: Texture2D = load("res://assets/workstations/workstation_down.pn
 var sprite_left: Texture2D = load("res://assets/workstations/workstation_left.png")
 var sprite_right: Texture2D= load("res://assets/workstations/workstation_right.png")
 
-@onready var rotatable : Node2D = $Rotatable
+@onready var rotatable: Node2D = $Rotatable
 @onready var table_sprite: Sprite2D = $Rotatable/Sprite2D
-@onready var collisionBoxLarge: CollisionShape2D = $Rotatable/Collision/CollisionShape2D
-@onready var collisionBoxSmall: CollisionShape2D = $Rotatable/CollisionSmall/CollisionShape2D
-@onready var interactionArea: CollisionShape2D = $Rotatable/InteractionArea/CollisionShape2D
+@onready var collisionBoxLarge := get_node_or_null(^"Rotatable/Collision/CollisionShape2D") as CollisionShape2D
+@onready var collisionBoxSmall := get_node_or_null(^"Rotatable/CollisionSmall/CollisionShape2D") as CollisionShape2D
+@onready var interactionArea := get_node_or_null(^"Rotatable/InteractionArea/CollisionShape2D") as CollisionShape2D
 @onready var content: Sprite2D = $Rotatable/Content
 
-var stored_pickable: PickableResource
+var stored_item: ItemEntity
 
 enum StationType {
 	WORKSTATION,
@@ -49,33 +50,44 @@ func _ready() -> void:
 
 
 func interact(player: Player):
-	var held = player.getHeldPickable()
-	if stored_pickable != null:
-		if player.pickUpPickable(stored_pickable):
-			if stored_pickable is Ingredient:
-				stored_pickable.remove_from_workstation()
-			stored_pickable = null
+	## Default station interaction:
+	## - If both sides have items, try combining Ingredient <-> Döner.
+	## - Else transfer items between station slot and player.
+	var held := player.get_held_item()
+
+	if stored_item != null and held != null:
+		# Combine ingredient into doner (either direction).
+		if stored_item is DonerEntity and held is IngredientEntity:
+			if (stored_item as DonerEntity).add_ingredient(held as IngredientEntity):
+				player.drop_item()
+				update_visual()
+			return
+		if held is DonerEntity and stored_item is IngredientEntity:
+			if (held as DonerEntity).add_ingredient(stored_item as IngredientEntity):
+				stored_item = null
+				update_visual()
+			return
+
+	if stored_item != null:
+		if player.pick_up_item(stored_item):
+			AudioPlayerManager.play(AudioPlayerManager.AudioID.PLATE_TAKE if stored_item is DonerEntity else AudioPlayerManager.AudioID.PLAYER_GRAB)
+			stored_item = null
 			update_visual()
 		return
-		
+
 	if held != null:
-		stored_pickable = held
-		if stored_pickable is Ingredient:
-			stored_pickable.put_into_workstation()
-		player.dropPickable()
+		stored_item = player.drop_item()
+		if stored_item:
+			AudioPlayerManager.play(AudioPlayerManager.AudioID.PLATE_PLACE if stored_item is DonerEntity else AudioPlayerManager.AudioID.PLAYER_PUT)
+			stored_item.attach_to(content)
 		update_visual()
 
 func interact_b(_player: Player):
 	print("Nothing to do")
 
 func update_visual():
-	if stored_pickable == null:
-		content.visible = false
-		return
-
-	content.texture = stored_pickable.icon
-	#content.modulate = stored_pickable.get_icon_tint()
-	content.visible = true
+	content.texture = null
+	content.visible = stored_item != null
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("players"):
@@ -89,12 +101,15 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 
 func update_direction() -> void:
 
-	collisionBoxLarge.disabled = true
-	collisionBoxSmall.disabled = true
+	if collisionBoxLarge != null:
+		collisionBoxLarge.disabled = true
+	if collisionBoxSmall != null:
+		collisionBoxSmall.disabled = true
 
 	match direction:
 		Direction.UP:
-			collisionBoxLarge.disabled = false
+			if collisionBoxLarge != null:
+				collisionBoxLarge.disabled = false
 			if station_type == StationType.DONERSTATION:
 				content.position = Vector2(0, -59)
 				content.rotation_degrees = 0
@@ -106,7 +121,8 @@ func update_direction() -> void:
 			interactionArea.position = Vector2(0, -6)
 
 		Direction.RIGHT:
-			collisionBoxSmall.disabled = false
+			if collisionBoxSmall != null:
+				collisionBoxSmall.disabled = false
 			if station_type == StationType.DONERSTATION:
 				content.position = Vector2(-32, -55)
 				content.rotation_degrees = -90
@@ -119,7 +135,8 @@ func update_direction() -> void:
 			interactionArea.position = Vector2(-15, -21)
 
 		Direction.DOWN:
-			collisionBoxSmall.disabled = false
+			if collisionBoxSmall != null:
+				collisionBoxSmall.disabled = false
 			if station_type == StationType.DONERSTATION:
 				content.position = Vector2(0, -20)
 				content.rotation_degrees = -180
@@ -132,7 +149,8 @@ func update_direction() -> void:
 			interactionArea.position = Vector2(0, -6)
 
 		Direction.LEFT:
-			collisionBoxSmall.disabled = false
+			if collisionBoxSmall != null:
+				collisionBoxSmall.disabled = false
 			if station_type == StationType.DONERSTATION:
 				content.position = Vector2(32, -55)
 				content.rotation_degrees = -270

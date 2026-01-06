@@ -5,7 +5,9 @@
 
 [resource]
 script = ExtResource("1_b03dn")
+item_id = &"sosse"
 cut_icon = ExtResource("1_ahde6")
+is_prepared = true
 name = "Soße"
 icon = ExtResource("1_ahde6")
 metadata/_custom_type_script = "uid://dfk3anh4to5im"

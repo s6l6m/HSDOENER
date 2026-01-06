@@ -12,8 +12,8 @@ enum InputAction { MOVE, INTERACT_A, INTERACT_B }
 # Signals
 # =====================================================
 signal state_changed(old_state: State, new_state: State)
-signal pickable_picked_up(pickable: PickableResource)
-signal pickable_dropped(pickable: PickableResource)
+signal item_picked_up(item: ItemEntity)
+signal item_dropped(item: ItemEntity)
 
 # =====================================================
 # Export / Config
@@ -26,11 +26,13 @@ signal pickable_dropped(pickable: PickableResource)
 # =====================================================
 var current_state: State = State.FREE
 var facing_dir := Vector2.DOWN
-var held_pickable: PickableResource
+var held_item_entity: ItemEntity
 
 # Stations
 var current_station: Node2D
 var stations_in_range: Array[Node2D] = []
+
+var walk_audio_player: AudioStreamPlayer
 
 # =====================================================
 # Nodes
@@ -38,7 +40,7 @@ var stations_in_range: Array[Node2D] = []
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interaction_icon: TextureRect = %InteractIcon
 @onready var cut_icon: TextureRect = %CutIcon
-@onready var held_item: Sprite2D = $HeldItem
+@onready var held_item_anchor: Node2D = $HeldItem
 
 # =====================================================
 # Input Mapping (ENUM → ACTION STRING)
@@ -75,12 +77,8 @@ func _ready() -> void:
 	_connect_stations()
 	set_state(State.FREE)
 
-func _process(delta: float) -> void:
-	if held_pickable is Ingredient:
-		held_pickable.update_rot(delta)
-		held_item.modulate = held_pickable.get_icon_tint()
-	elif held_pickable is Plate:
-		held_item.modulate = Color(1,1,1)
+func _process(_delta: float) -> void:
+	pass
 
 func _physics_process(delta: float) -> void:
 	if current_state == State.DISABLED:
@@ -91,6 +89,12 @@ func _physics_process(delta: float) -> void:
 
 	_move(direction, delta)
 	_update_animation(direction)
+
+	if not walk_audio_player and direction != Vector2.ZERO:
+		walk_audio_player = AudioPlayerManager.play(AudioPlayerManager.AudioID.PLAYER_MOVE)
+
+	if walk_audio_player and direction.is_equal_approx(Vector2.ZERO):
+		AudioPlayerManager.stop(walk_audio_player)
 
 # =====================================================
 # Input Handling
@@ -218,47 +222,58 @@ func can_interact() -> bool:
 	return can_move()
 
 # =====================================================
-# Pickables
+# Items
 # =====================================================
-func pickUpPickable(pickable: PickableResource) -> bool:
-	if not pickable:
+func pick_up_item(item: ItemEntity) -> bool:
+	if not item:
 		return false
 
-	if not held_pickable:
-		held_pickable = pickable
-		held_item.texture = pickable.icon
-		held_item.visible = true
-		pickable.on_picked_up()
-		pickable_picked_up.emit(pickable)
-		set_state(State.CARRYING)
-		return true
+	# Special case: if we're already holding a Döner, picking up an ingredient should add it.
+	if held_item_entity is DonerEntity and item is IngredientEntity:
+		# Ownership note: the caller (station/workstation) owns the temporary entity and handles cleanup
+		# if this returns false. DonerEntity consumes the ingredient entity on success.
+		var doner := held_item_entity as DonerEntity
+		var ingredient_entity := item as IngredientEntity
+		if doner.add_ingredient(ingredient_entity):
+			return true
+		return false
 
-	if held_pickable is Plate and pickable is Ingredient and pickable.is_prepared:
-		held_pickable.addIngredient(pickable)
+	# Symmetric: holding an ingredient and picking up a Döner.
+	if held_item_entity is IngredientEntity and item is DonerEntity:
+		# If successful, the held ingredient is consumed and the player ends up holding the döner.
+		var ingredient_entity := held_item_entity as IngredientEntity
+		var doner := item as DonerEntity
+		if doner.add_ingredient(ingredient_entity):
+			held_item_entity = doner
+			doner.attach_to(held_item_anchor)
+			doner.visible = true
+			return true
+		return false
+
+	if not held_item_entity:
+		held_item_entity = item
+		item.attach_to(held_item_anchor)
+		item.visible = true
+		item_picked_up.emit(item)
+		set_state(State.CARRYING)
 		return true
 
 	return false
 
-func dropPickable() -> PickableResource:
-	if not held_pickable:
+func drop_item() -> ItemEntity:
+	if not held_item_entity:
 		return null
-
-	var p := held_pickable
-	held_pickable = null
-	held_item.visible = false
-	p.on_dropped()
-	pickable_dropped.emit(p)
+	var item := held_item_entity
+	held_item_entity = null
+	item_dropped.emit(item)
 	set_state(State.FREE)
-	return p
+	return item
 
-func isHoldingPickable() -> bool:
-	return self.held_pickable != null
+func is_holding_item() -> bool:
+	return held_item_entity != null
 
-func getHeldPickable() -> PickableResource:
-	return self.held_pickable if self.isHoldingPickable() else null
-
-func isHoldingPlate() -> bool:
-	return self.getHeldPickable() is Plate
+func get_held_item() -> ItemEntity:
+	return held_item_entity
 
 # =====================================================
 # Helpers
