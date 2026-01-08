@@ -9,11 +9,10 @@ func evaluate_order(order: Order, current_time: int):
 	var freshness_score := order.evaluate_freshness()                # z.B. [0..1]
 	var time_score := order._evaluate_time_left(current_time)         # [0..1]
 
-	# Kombinierter Score 50 prozent machen ingredients aus, rest frische und zeit
 	var combined_score := (
 		ingredients_score * 0.5 +
-		freshness_score   * 0 +
-		time_score        * 0
+		freshness_score   * 0.25 +
+		time_score        * 0.25
 	)
 
 	# Coins-Änderung berechnen (Score * Preis)
@@ -23,6 +22,7 @@ func evaluate_order(order: Order, current_time: int):
 	print("[ScoreManager] Order bewerten:",
 		" ingredients_score=", ingredients_score,
 		" time_score=", time_score,
+		" freshness_score", freshness_score,
 		" combined=", combined_score,
 		" price=", order.price,
 		" coin_delta=", coin_delta)

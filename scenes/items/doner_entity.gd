@@ -30,7 +30,6 @@ var _zwiebel_layers: Array[Sprite2D] = []
 var _gurke_layers: Array[Sprite2D] = []
 
 func _ready() -> void:
-	# Make sure it renders above the floor tiles.
 	z_index = 1
 	if plate_texture == null:
 		plate_texture = preload("res://assets/food/items/teller-sprite.png")
