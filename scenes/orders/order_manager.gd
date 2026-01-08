@@ -25,19 +25,24 @@ func create_doner_order(customer: Customer, difficulty: Level.Difficulty) -> Ord
 	var price: int
 	var time_limit: int
 
+	price = 0
+	time_limit = 0
 	match difficulty:
 		Level.Difficulty.EASY:
 			ingredients = doener_generator.generate_small_doner()
-			price = randi_range(5, 7)
-			time_limit = randi_range(40, 50)
+			for i in ingredients:
+				price += 1
+				time_limit += 12
 		Level.Difficulty.MEDIUM:
 			ingredients = doener_generator.generate_mid_doner()
-			price = randi_range(10, 13)
-			time_limit = randi_range(50, 60)
+			for i in ingredients:
+				price += 1
+				time_limit += 10
 		Level.Difficulty.HARD:
 			ingredients = doener_generator.generate_big_doner()
-			price = randi_range(20, 25)
-			time_limit = randi_range(60, 80)
+			for i in ingredients:
+				price += 1
+				time_limit += 8
 	
 	var order := Order.new(
 		ingredients,

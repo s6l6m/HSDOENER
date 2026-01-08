@@ -9,7 +9,6 @@ func evaluate_order(order: Order, current_time: int):
 	var freshness_score := order.evaluate_freshness()                # z.B. [0..1]
 	var time_score := order._evaluate_time_left(current_time)         # [0..1]
 
-	# Kombinierter Score 50 prozent machen ingredients aus, rest frische und zeit
 	var combined_score := (
 		ingredients_score * 0.5 +
 		freshness_score   * 0 +
