@@ -25,33 +25,78 @@ var customers: Array[Customer] = []
 # Timer für automatisches Spawning
 var spawn_timer: Timer
 
-# Kunde spawnen und in Warteschlange einreihen
-func spawn_customer(difficulty: Level.Difficulty):
+# Benutze die Enums direkt als Keys
+var difficulty_weights = {
+	Level.Difficulty.EASY: {
+		Level.Difficulty.EASY: 60,
+		Level.Difficulty.MEDIUM: 30,
+		Level.Difficulty.HARD: 10
+	},
+	Level.Difficulty.MEDIUM: {
+		Level.Difficulty.EASY: 20,
+		Level.Difficulty.MEDIUM: 50,
+		Level.Difficulty.HARD: 30
+	},
+	Level.Difficulty.HARD: {
+		Level.Difficulty.EASY: 10,
+		Level.Difficulty.MEDIUM: 40,
+		Level.Difficulty.HARD: 50
+	}
+}
+
+func get_weighted_order_difficulty(current_game_diff: Level.Difficulty) -> Level.Difficulty:
+	# Sicherheitsscheck: Existiert der Schwierigkeitsgrad im Dictionary?
+	if not difficulty_weights.has(current_game_diff):
+		push_error("Schwierigkeitsgrad nicht im Dictionary gefunden: ", current_game_diff)
+		return Level.Difficulty.EASY
+	
+	var weights = difficulty_weights[current_game_diff]
+	var roll = randi() % 100
+	var cumulative_weight = 0
+	
+	# Wir iterieren über die Keys des inneren Dictionaries
+	for order_diff in weights.keys():
+		cumulative_weight += weights[order_diff]
+		if roll < cumulative_weight:
+			return order_diff as Level.Difficulty # Casten zur Sicherheit
+			
+	return Level.Difficulty.EASY
+	
+## Kunde spawnen und Bestellung zuweisen
+func spawn_customer(game_difficulty: Level.Difficulty):
 	if customers.size() >= queue_points.size():
-		print("Queue full")
 		return
 
 	var new_customer: Customer = customer_scene.instantiate()
-
-	# Alle Kunden spawnen am selben Punkt
 	var spawn_pos = get_node(spawn_point).global_position
 	new_customer.global_position = spawn_pos
-
 	add_child(new_customer)
 
-	# Zielposition für Warteschlange (optional)
 	var target_pos = get_node(queue_points[customers.size()]).global_position
 	new_customer.move_to(target_pos)
-
 	customers.append(new_customer)
+	
 	AudioPlayerManager.play(AudioPlayerManager.AudioID.CUSTOMER_ENTER)
 
-	# --- Bestellung erzeugen ---
-	new_customer.order = order_manager.create_doner_order(new_customer, difficulty)
+	# --- NEUE LOGIK: Gewichtete Bestellung ---
+	# Wir bestimmen erst, wie schwer die Bestellung sein soll
+	var calculated_order_diff = get_weighted_order_difficulty(game_difficulty)
+	
+	# Wir geben die berechnete Schwierigkeit an den OrderManager weiter, 
+	# nicht die allgemeine Spielschwierigkeit.
+	new_customer.order = order_manager.create_doner_order(new_customer, calculated_order_diff)
 
-	# Signale
+	# Umwandlung des Enum-Wertes in einen lesbaren String (z.B. "MEDIUM")
+	var diff_name = Level.Difficulty.keys()[calculated_order_diff]
+
+	print("[CustomerManager]: Customer gespawnt | Diff: %s | Start: %s | Limit: %s" % [
+			diff_name,
+			str(new_customer.order.creation_time), 
+			str(new_customer.order.time_limit)
+		])
 	new_customer.customer_left.connect(_on_customer_left)
 	new_customer.customer_arrived_exit.connect(_remove_customer_from_scene)
+
 
 
 # Kunde verlässt Warteschlange
@@ -93,20 +138,20 @@ func get_spawn_params_for_difficulty(difficulty: Level.Difficulty) -> Dictionary
 	match difficulty:
 		Level.Difficulty.EASY:
 			return {
-				"interval_min": 15.0,  # Sekunden zwischen Spawns (Minimum)
-				"interval_max": 25.0,  # Sekunden zwischen Spawns (Maximum)
+				"interval_min": 16.0,  # Sekunden zwischen Spawns (Minimum)
+				"interval_max": 20.0,  # Sekunden zwischen Spawns (Maximum)
 				"max_customers": queue_points.size()  # Maximale Anzahl gleichzeitiger Kunden
 			}
 		Level.Difficulty.MEDIUM:
 			return {
-				"interval_min": 10.0,
+				"interval_min": 14.0,
 				"interval_max": 18.0,
 				"max_customers": queue_points.size()
 			}
 		Level.Difficulty.HARD:
 			return {
-				"interval_min": 6.0,
-				"interval_max": 12.0,
+				"interval_min": 12.0,
+				"interval_max": 16.0,
 				"max_customers": queue_points.size()
 			}
 		_:

@@ -1,7 +1,6 @@
 class_name DonerGenerator
 extends Node
 
-# Referenzen auf Ingredient-Resources
 @export var brot: Ingredient
 @export var fleisch: Ingredient
 @export var tomate: Ingredient
@@ -84,7 +83,7 @@ func generate_small_doner() -> Array[Ingredient]:
 	for i in zwiebel_count:
 		ingredients.append(zwiebel)
 
-	print("Order created:", ingredients.map(func(i): return i.name))
+	print("[DoenerGenerator] Order created:", ingredients.map(func(i): return i.name))
 	return ingredients
 
 func generate_mid_doner() -> Array[Ingredient]:
