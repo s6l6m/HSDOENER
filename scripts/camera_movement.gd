@@ -4,7 +4,7 @@ class_name MultiTargetCamera
 @export var move_speed: float = 1.0
 @export var targets: Array[Node2D] = []
 
-func _process(_delta):
+func _physics_process(_delta: float) -> void:
 	if targets.is_empty():
 		return
 
