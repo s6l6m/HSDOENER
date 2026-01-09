@@ -22,6 +22,14 @@ signal item_dropped(item: ItemEntity)
 @export var player_number: PlayerNumber = PlayerNumber.ONE
 
 # =====================================================
+# Sprite Frame Resources
+# =====================================================
+const SPRITE_FRAMES := {
+	PlayerNumber.ONE: preload("res://scenes/player/player_1_sprite_frames.tres"),
+	PlayerNumber.TWO: preload("res://scenes/player/player_2_sprite_frames.tres"),
+}
+
+# =====================================================
 # Runtime State
 # =====================================================
 var current_state: State = State.FREE
@@ -73,12 +81,21 @@ const INPUT_MAP := {
 # =====================================================
 func _ready() -> void:
 	add_to_group("players")
+	_load_sprite_frames()
 	_setup_interaction_icon()
 	_connect_stations()
 	set_state(State.FREE)
 
 func _process(_delta: float) -> void:
 	pass
+
+func _load_sprite_frames() -> void:
+	"""Load player-specific sprite frames based on player_number."""
+	if player_number in SPRITE_FRAMES:
+		sprite.sprite_frames = SPRITE_FRAMES[player_number]
+		print_debug("Player %s: Loaded sprite frames" % PlayerNumber.keys()[player_number])
+	else:
+		push_warning("Player: Unknown player_number %s, using default sprite frames" % player_number)
 
 func _physics_process(delta: float) -> void:
 	if current_state == State.DISABLED:
