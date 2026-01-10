@@ -188,11 +188,10 @@ player_number = 1
 [node name="MultiTargetCamera" type="Camera2D" parent="." index="1" node_paths=PackedStringArray("targets")]
 position = Vector2(659, 535)
 zoom = Vector2(1.2, 1.2)
-limit_enabled = false
-limit_left = -2
-limit_top = -42
-limit_right = 1335
-limit_bottom = 993
+limit_left = -214
+limit_top = -130
+limit_right = 1540
+limit_bottom = 946
 position_smoothing_enabled = true
 position_smoothing_speed = 128.0
 drag_vertical_offset = -0.5
