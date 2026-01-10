@@ -43,7 +43,6 @@ text = "Weiter"
 [node name="MainMenuConfirmation" parent="." index="1" instance=ExtResource("3_ga0ue")]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 text = "Zurück zum Hauptmenü?"
 title = "Confirm Exit"
@@ -54,6 +53,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Spiel schließen?"
+close_button_text = "Abbrechen"
 title = "Confirm Exit"
 title_visible = false
 
