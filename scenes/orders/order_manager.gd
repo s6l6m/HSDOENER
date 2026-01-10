@@ -16,7 +16,6 @@ func _ready() -> void:
 
 func complete_order(order: Order) -> void:
 	if order in orders:
-		order_completed.emit(order)
 		order.customer.leave_queue()
 		orders.erase(order)
 
