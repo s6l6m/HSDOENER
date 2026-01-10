@@ -16,6 +16,61 @@
 script = ExtResource("1_nv0pp")
 target_coins = 100
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+metadata/_edit_lock_ = true
+
+[node name="UIContainer" type="Control" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
+
+[node name="TimerWidget" parent="CanvasLayer/MarginContainer/UIContainer" instance=ExtResource("5_qywm2")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 27.999998
+offset_top = 4.0
+offset_right = 27.999998
+offset_bottom = 4.0
+grow_vertical = 0
+scale = Vector2(2.2799976, 2.2799976)
+size_flags_horizontal = 4
+metadata/_edit_lock_ = true
+
+[node name="CoinWidget" parent="CanvasLayer/MarginContainer/UIContainer" instance=ExtResource("6_xknmv")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.999878
+offset_top = 12.0
+offset_right = -19.999878
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2.1599998, 2.1599998)
+metadata/_edit_lock_ = true
+
+[node name="OrdersContainer" parent="CanvasLayer/MarginContainer/UIContainer" instance=ExtResource("8_6tvmh")]
+unique_name_in_owner = true
+layout_mode = 1
+metadata/_edit_lock_ = true
+
 [node name="AudioPlayerManager" parent="." instance=ExtResource("2_qywm2")]
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("time_manager", "order_manager", "customer_manager", "score_manager", "timer_widget", "coin_widget") instance=ExtResource("2_l1wr4")]
@@ -42,58 +97,3 @@ unique_name_in_owner = true
 [node name="CustomerManager" parent="." node_paths=PackedStringArray("order_manager") instance=ExtResource("5_6i7vj")]
 unique_name_in_owner = true
 order_manager = NodePath("../OrderManager")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
-metadata/_edit_lock_ = true
-
-[node name="UIContainer" type="Control" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-metadata/_edit_lock_ = true
-
-[node name="TimerWidget" parent="CanvasLayer/MarginContainer/UIContainer" instance=ExtResource("5_qywm2")]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 102.0
-offset_top = -34.99994
-offset_right = 102.0
-offset_bottom = -34.99994
-grow_vertical = 0
-scale = Vector2(2.2799976, 2.2799976)
-size_flags_horizontal = 4
-metadata/_edit_lock_ = true
-
-[node name="CoinWidget" parent="CanvasLayer/MarginContainer/UIContainer" instance=ExtResource("6_xknmv")]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -66.0
-offset_top = -33.99994
-offset_right = -66.0
-offset_bottom = -33.99994
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(2.1599998, 2.1599998)
-metadata/_edit_lock_ = true
-
-[node name="OrdersContainer" parent="CanvasLayer/MarginContainer/UIContainer" instance=ExtResource("8_6tvmh")]
-unique_name_in_owner = true
-layout_mode = 1
-metadata/_edit_lock_ = true

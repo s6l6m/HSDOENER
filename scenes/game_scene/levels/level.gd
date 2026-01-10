@@ -45,7 +45,7 @@ func _on_level_won() -> void:
 		level_won.emit()
 		
 func add_coins(coins: int) -> int:
-	level_state.coins = level_state.coins + coins
+	level_state.coins = maxi(0, level_state.coins + coins)
 	return level_state.coins
 
 func _on_level_time_up() -> void:

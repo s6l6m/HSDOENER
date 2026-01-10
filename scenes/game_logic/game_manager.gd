@@ -14,7 +14,9 @@ extends Node
 @onready var current_level: Level = $".."
 
 func _ready() -> void:
-	_update_time_left()
+	_init_widgets()
+	
+	# Connect signals
 	time_manager.play_time_changed.connect(_update_time_left)
 	order_manager.order_completed.connect(_on_order_completed)
 	score_manager.order_evaluated.connect(_on_order_evaluated)
@@ -27,16 +29,18 @@ func _process(_delta):
 	if Input.is_action_just_pressed("spawn_customer"):
 		customer_manager.spawn_customer(current_level.difficulty)
 
-func _update_time_left(play_time: int = 0):
+func _init_widgets() -> void:
+	_update_time_left()
+	coin_widget.update_coins(0)
+	coin_widget.update_coins_goal(current_level.target_coins)
+	
+func _update_time_left(play_time: int = 0) -> void:
 	var time_left: int = current_level.round_time - play_time
 	if time_left <= 0:
 		# Stoppe automatisches Spawning wenn Zeit abgelaufen
 		customer_manager.stop_auto_spawning()
 		current_level._on_level_time_up()
 	timer_widget._on_play_time_changed(time_left)
-
-func _update_coins(coins: int):
-	coin_widget.update_coins(coins)
 
 func _on_order_completed(order: Order):
 	print("[GameManager] order_completed erhalten:", order)
@@ -46,6 +50,6 @@ func _on_order_evaluated(_order: Order, coin_delta: int):
 	AudioPlayerManager.play(AudioPlayerManager.AudioID.COIN_UP if coin_delta > 0 else AudioPlayerManager.AudioID.COIN_DOWN)
 	var new_coin_count := current_level.add_coins(coin_delta)
 	print("[GameManager] order_evaluated coin_delta=", coin_delta, " coins_total=", new_coin_count)
-	_update_coins(new_coin_count)
+	coin_widget.update_coins(new_coin_count, coin_widget.PulseMode.GREEN if coin_delta > 0 else coin_widget.PulseMode.RED)
 	if current_level._target_coins_reached():
 		current_level._on_level_won()
