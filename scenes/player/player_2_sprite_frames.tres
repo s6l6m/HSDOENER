@@ -1,10 +1,15 @@
-[gd_resource type="SpriteFrames" load_steps=35 format=3 uid="uid://c8lap2xvmq7n4"]
+[gd_resource type="SpriteFrames" load_steps=37 format=3 uid="uid://c8lap2xvmq7n4"]
 
-[ext_resource type="Texture2D" uid="uid://dmegt58bq1x5f" path="res://assets/sprites/player2idle.png" id="1_ovg7r"]
-[ext_resource type="Texture2D" uid="uid://cdu3bgmyku3h1" path="res://assets/sprites/player 2.png" id="2_ovg7r"]
+[ext_resource type="Texture2D" uid="uid://bsfu173ek5etk" path="res://assets/sprites/player2idle.png" id="1_ovg7r"]
+[ext_resource type="Texture2D" uid="uid://co4eesjnd53r" path="res://assets/sprites/idleBackViewplayer2.png" id="2_71jfk"]
+[ext_resource type="Texture2D" uid="uid://d3nf6p8i73jim" path="res://assets/sprites/player 2.png" id="2_ovg7r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_71jfk"]
 atlas = ExtResource("1_ovg7r")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc1yo"]
+atlas = ExtResource("2_71jfk")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_es25r"]
@@ -139,6 +144,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc1yo")
+}],
+"loop": true,
+"name": &"idleBackView",
 "speed": 5.0
 }, {
 "frames": [{

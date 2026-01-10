@@ -196,7 +196,14 @@ func _update_current_station() -> void:
 # Animation
 # =====================================================
 func _update_animation(direction: Vector2) -> void:
-	var anim := "idle" if direction == Vector2.ZERO else _get_run_animation(direction)
+	var anim: String
+	if direction == Vector2.ZERO:
+		# Idle: wähle basierend auf letzter Bewegungsrichtung
+		anim = "idleBackView" if facing_dir.y < 0 else "idle"
+	else:
+		# Bewegung: normale Run-Animation
+		anim = _get_run_animation(direction)
+
 	if sprite.animation != anim:
 		sprite.play(anim)
 
