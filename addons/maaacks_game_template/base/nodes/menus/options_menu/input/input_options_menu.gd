@@ -1,9 +1,9 @@
 @tool
 extends Control
 
-const ALREADY_ASSIGNED_TEXT : String = "{key} already assigned to {action}."
-const ONE_INPUT_MINIMUM_TEXT : String = "%s must have at least one key or button assigned."
-const KEY_DELETION_TEXT : String = "Are you sure you want to remove {key} from {action}?"
+const ALREADY_ASSIGNED_TEXT : String = "{key} ist bereits hinzugefügt für {action}."
+const ONE_INPUT_MINIMUM_TEXT : String = "%s muss mindestens einmal zugewiesen werden."
+const KEY_DELETION_TEXT : String = "{key} für {action} löschen?"
 
 @export_enum("List", "Tree") var remapping_mode : int = 0 :
 	set(value):

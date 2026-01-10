@@ -14,6 +14,9 @@ func _on_exit_button_pressed():
 func _on_main_menu_button_pressed():
 	%MainMenuConfirmation.show()
 
+func _handle_cancel_input() -> void:
+	pass
+
 func _on_close_button_pressed():
 	continue_pressed.emit()
 	close()

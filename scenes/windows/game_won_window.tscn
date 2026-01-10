@@ -25,10 +25,9 @@ vertical = false
 
 [node name="ExitButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Exit"
+text = "Spiel schließen"
 
 [node name="MainMenuButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1"]
 unique_name_in_owner = true
@@ -44,7 +43,6 @@ text = "Weiter"
 [node name="MainMenuConfirmation" parent="." index="1" instance=ExtResource("3_ga0ue")]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 text = "Zurück zum Hauptmenü?"
 title = "Confirm Exit"
@@ -55,6 +53,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Spiel schließen?"
+close_button_text = "Abbrechen"
 title = "Confirm Exit"
 title_visible = false
 

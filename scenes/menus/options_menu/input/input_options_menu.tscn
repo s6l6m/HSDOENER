@@ -4,14 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://ctoohxdkxasro" path="res://scenes/menus/options_menu/input/input_icon_mapper.tscn" id="2_hyv0n"]
 
 [node name="Controls" instance=ExtResource("1_i27v5")]
+remapping_mode = 1
 
 [node name="Label" parent="VBoxContainer/InputMappingContainer" index="0"]
 text = "Steuerung"
 
 [node name="InputActionsList" parent="VBoxContainer/InputMappingContainer" index="1" node_paths=PackedStringArray("input_icon_mapper")]
+visible = false
 input_icon_mapper = NodePath("../../../InputIconMapper")
 
 [node name="InputActionsTree" parent="VBoxContainer/InputMappingContainer" index="2" node_paths=PackedStringArray("input_icon_mapper")]
+visible = true
 input_icon_mapper = NodePath("../../../InputIconMapper")
 
 [node name="ResetButton" parent="VBoxContainer/InputMappingContainer/HBoxContainer" index="0"]
@@ -34,9 +37,6 @@ title = "Bereits hinzugefügt"
 
 [node name="KeyAssignmentWindow" parent="." index="5"]
 title = "Menü"
-
-[node name="TitleLabel" parent="KeyAssignmentWindow/ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
-text = "Menü"
 
 [node name="InputIconMapper" parent="." index="6" instance=ExtResource("2_hyv0n")]
 
