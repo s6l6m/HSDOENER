@@ -11,7 +11,10 @@ var stored_ingredient: IngredientEntity
 @onready var food: Sprite2D = $Rotatable/Food
 @onready var progress_bar := $ProgressBar
 
-func _process(delta):
+func _process(delta: float) -> void:
+	_update_cutting(delta)
+
+func _update_cutting(delta: float) -> void:
 	# Schneidefortschritt zurücksetzen, wenn kein Ingredient zum Schneiden
 	if not stored_ingredient:
 		cutting_progress = 0.0

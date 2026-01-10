@@ -144,6 +144,10 @@ func _handle_interactions() -> void:
 	if Input.is_action_just_pressed(interact_b):
 		current_station.interact_b(self)
 
+	if Input.is_action_just_released(interact_a):
+		if current_station is DonerStation:
+			current_station.stop_cut(self)
+
 	if Input.is_action_just_released(interact_b):
 		if current_station is CuttingStation:
 			current_station.stop_cut(self)
