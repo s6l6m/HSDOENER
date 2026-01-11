@@ -100,10 +100,16 @@ func _process(_delta: float) -> void:
 	pass
 
 func _load_sprite_frames() -> void:
-	"""Load player-specific sprite frames based on player_number."""
+	if has_node("/root/CharacterSelectionManager"):
+		var char_manager = get_node("/root/CharacterSelectionManager")
+		var sprite_frames_resource = char_manager.get_sprite_frames_for_player(player_number)
+
+		if sprite_frames_resource:
+			sprite.sprite_frames = sprite_frames_resource
+			return
+
 	if player_number in SPRITE_FRAMES:
 		sprite.sprite_frames = SPRITE_FRAMES[player_number]
-		print_debug("Player %s: Loaded sprite frames" % PlayerNumber.keys()[player_number])
 	else:
 		push_warning("Player: Unknown player_number %s, using default sprite frames" % player_number)
 

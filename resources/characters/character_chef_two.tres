@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3 uid="uid://bv3rl5x0qh6ah"]
+
+[ext_resource type="Script" uid="uid://5g70l7pjxgg3" path="res://scripts/resources/character_data.gd" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://c8lap2xvmq7n4" path="res://scenes/player/player_2_sprite_frames.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://clpyetn42w7ja" path="res://resources/characters/portraits/chef_two_portrait.png" id="3"]
+
+[resource]
+script = ExtResource("1")
+character_id = &"chef_two"
+display_name = "Bella"
+portrait = ExtResource("3")
+sprite_frames = ExtResource("2")
+description = "Der zweite Koch-Charakter"

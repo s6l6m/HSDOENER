@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3 uid="uid://w3y2lx2v20hk"]
+
+[ext_resource type="Script" uid="uid://5g70l7pjxgg3" path="res://scripts/resources/character_data.gd" id="1_r2ump"]
+[ext_resource type="Texture2D" uid="uid://cxnslf16g23r1" path="res://resources/characters/portraits/chef_five_portrait.png" id="1_wvcon"]
+[ext_resource type="SpriteFrames" uid="uid://sawku72ltc5e" path="res://scenes/player/player_5_sprite_frames.tres" id="3_jvtac"]
+
+[resource]
+script = ExtResource("1_r2ump")
+character_id = &"chef_five"
+display_name = "Chef-Bot 2025"
+portrait = ExtResource("1_wvcon")
+sprite_frames = ExtResource("3_jvtac")
+metadata/_custom_type_script = "uid://5g70l7pjxgg3"
