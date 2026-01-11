@@ -2,9 +2,15 @@
 extends WorkStation
 class_name BreadStation
 
+# =====================================================
+# Resources
+# =====================================================
 var bread_resource = load("res://scenes/ingredients/brot.tres")
 var ingredient_entity_scene := preload("res://scenes/items/ingredient_entity.tscn")
 
+# =====================================================
+# Interaction
+# =====================================================
 func interact(player: Player):
 	var entity := ingredient_entity_scene.instantiate() as IngredientEntity
 	entity.ingredient = bread_resource
