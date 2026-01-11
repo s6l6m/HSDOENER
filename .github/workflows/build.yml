@@ -1,4 +1,4 @@
-name: Build Project for releases
+name: Build Project for releases with artifacts
 
 on:
   push:
@@ -10,8 +10,8 @@ env:
   EXPORT_NAME: HSDOENER
 
 jobs:
-  export-windows:
-    name: Windows Export
+  export-builds:
+    name: Export Builds
     runs-on: ubuntu-24.04
     container:
       image: barichello/godot-ci:4.5.1
