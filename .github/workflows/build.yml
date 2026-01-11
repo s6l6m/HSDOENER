@@ -1,4 +1,4 @@
-name: Build Godot Project
+name: Build Project for releases
 
 on:
   push:
@@ -39,3 +39,25 @@ jobs:
         with:
           name: windows
           path: build/windows
+      - name: Linux Build
+        run: |
+          mkdir -v -p build/linux
+          EXPORT_DIR="$(readlink -f build)"
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "Linux/X11" "$EXPORT_DIR/linux/$EXPORT_NAME.x86_64"
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: linux
+          path: build/linux
+      - name: Mac Build
+        run: |
+          mkdir -v -p build/mac
+          EXPORT_DIR="$(readlink -f build)"
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "macOS" "$EXPORT_DIR/mac/$EXPORT_NAME.zip"
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: mac
+          path: build/mac
