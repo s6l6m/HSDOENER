@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="CharacterDatabase" load_steps=8 format=3 uid="uid://dj8kk4ymxy5ru"]
+[gd_resource type="Resource" script_class="CharacterDatabase" load_steps=9 format=3 uid="uid://bp6wmfpl2v4vi"]
 
-[ext_resource type="Script" uid="uid://cscv0aqb1fpqa" path="res://scripts/resources/character_database.gd" id="1"]
-[ext_resource type="Script" uid="uid://5g70l7pjxgg3" path="res://scripts/resources/character_data.gd" id="1_ypkqg"]
-[ext_resource type="Resource" uid="uid://cqc5qnw2yj8xb" path="res://resources/characters/character_chef_one.tres" id="2"]
-[ext_resource type="Resource" uid="uid://bv3rl5x0qh6ah" path="res://resources/characters/character_chef_two.tres" id="3"]
-[ext_resource type="Resource" uid="uid://fhyl5a3l6vxx" path="res://resources/characters/character_chef_three.tres" id="4_876vo"]
-[ext_resource type="Resource" uid="uid://dni12uqvuv7hn" path="res://resources/characters/character_chef_four.tres" id="5_876vo"]
-[ext_resource type="Resource" uid="uid://w3y2lx2v20hk" path="res://resources/characters/character_chef_five.tres" id="6_cffuc"]
+[ext_resource type="Script" path="res://scripts/resources/character_database.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/character_data.gd" id="1_ypkqg"]
+[ext_resource type="Resource" path="res://resources/characters/character_chef_one.tres" id="2"]
+[ext_resource type="Resource" path="res://resources/characters/character_chef_two.tres" id="3"]
+[ext_resource type="Resource" path="res://resources/characters/character_chef_three.tres" id="4_876vo"]
+[ext_resource type="Resource" path="res://resources/characters/character_chef_four.tres" id="5_876vo"]
+[ext_resource type="Resource" path="res://resources/characters/character_chef_five.tres" id="6_cffuc"]
+[ext_resource type="Resource" uid="uid://dffj7u56djn4t" path="res://resources/characters/character_chef_six.tres" id="7_58jin"]
 
 [resource]
 script = ExtResource("1")
-characters = Array[ExtResource("1_ypkqg")]([ExtResource("2"), ExtResource("3"), ExtResource("4_876vo"), ExtResource("5_876vo"), ExtResource("6_cffuc")])
+characters = Array[ExtResource("1_ypkqg")]([ExtResource("2"), ExtResource("3"), ExtResource("4_876vo"), ExtResource("5_876vo"), ExtResource("6_cffuc"), ExtResource("7_58jin")])
