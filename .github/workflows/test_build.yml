@@ -1,17 +1,15 @@
-name: Build Project for releases with artifacts
+name: Build Project for testing PRs without artifacts
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
 
 env:
   GODOT_VERSION: 4.5.1
   EXPORT_NAME: HSDOENER
 
 jobs:
-  export-windows:
-    name: Windows Export
+  test-build-windows:
+    name: Test Build Windows
     runs-on: ubuntu-24.04
     container:
       image: barichello/godot-ci:4.5.1
@@ -31,20 +29,15 @@ jobs:
           mkdir -v -p build/windows
           EXPORT_DIR="$(readlink -f build)"
           godot --headless --verbose --export-release "Windows Desktop" "$EXPORT_DIR/windows/$EXPORT_NAME.exe"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v5
-        with:
-          name: windows
-          path: build/windows
 
-  export-linux:
-    name: Linux Export
+  test-build-linux:
+    name: Test Build Linux
     runs-on: ubuntu-24.04
     container:
       image: barichello/godot-ci:4.5.1
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
         with:
           lfs: true
       - name: Setup
@@ -58,20 +51,15 @@ jobs:
           mkdir -v -p build/linux
           EXPORT_DIR="$(readlink -f build)"
           godot --headless --verbose --export-release "Linux/X11" "$EXPORT_DIR/linux/$EXPORT_NAME.x86_64"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v5
-        with:
-          name: linux
-          path: build/linux
 
-  export-mac:
-    name: Mac Export
+  test-build-mac:
+    name: Test Build Mac
     runs-on: ubuntu-24.04
     container:
       image: barichello/godot-ci:4.5.1
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
         with:
           lfs: true
       - name: Setup
@@ -85,8 +73,3 @@ jobs:
           mkdir -v -p build/mac
           EXPORT_DIR="$(readlink -f build)"
           godot --headless --verbose --export-release "macOS" "$EXPORT_DIR/mac/$EXPORT_NAME.zip"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v5
-        with:
-          name: mac
-          path: build/mac
