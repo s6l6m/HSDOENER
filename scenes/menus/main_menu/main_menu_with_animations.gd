@@ -10,6 +10,10 @@ extends MainMenu
 
 var animation_state_machine : AnimationNodeStateMachinePlayback
 
+## Character selection menu scene
+const CHARACTER_SELECT_MENU_SCENE = preload("res://scenes/menus/character_select_menu/character_select_menu.tscn")
+var character_select_menu = null
+
 @onready var level_select_button = %LevelSelectButton
 
 func load_game_scene() -> void:
@@ -18,6 +22,19 @@ func load_game_scene() -> void:
 
 func new_game() -> void:
 	GameState.reset()
+	_open_character_select()
+
+func _open_character_select() -> void:
+	character_select_menu = _open_sub_menu(CHARACTER_SELECT_MENU_SCENE)
+
+	if character_select_menu:
+		character_select_menu.show_menu()
+		character_select_menu.selection_complete.connect(_on_character_selection_complete, CONNECT_ONE_SHOT)
+	else:
+		push_error("Character select menu is null!")
+
+func _on_character_selection_complete() -> void:
+	_close_sub_menu()
 	load_game_scene()
 
 func intro_done() -> void:
@@ -58,7 +75,7 @@ func _ready() -> void:
 
 func _on_continue_game_button_pressed() -> void:
 	GameState.continue_game()
-	load_game_scene()
+	_open_character_select()
 
 func _on_level_select_button_pressed() -> void:
 	var level_select_scene := _open_sub_menu(level_select_packed_scene)
