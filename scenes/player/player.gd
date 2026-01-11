@@ -36,6 +36,11 @@ var current_state: State = State.FREE
 var facing_dir := Vector2.DOWN
 var held_item_entity: ItemEntity
 
+# Bobbing animation
+var bobbing_tween: Tween
+var base_held_item_offset: Vector2 = Vector2.ZERO
+var is_bobbing: bool = false
+
 # Stations
 var current_station: Node2D
 var stations_in_range: Array[Node2D] = []
@@ -49,6 +54,7 @@ var walk_audio_player: AudioStreamPlayer
 @onready var interaction_icon: TextureRect = %InteractIcon
 @onready var cut_icon: TextureRect = %CutIcon
 @onready var held_item_anchor: Node2D = $HeldItem
+@onready var item_background: Panel = $HeldItem/ItemBackground
 
 # =====================================================
 # Input Mapping (ENUM → ACTION STRING)
@@ -86,6 +92,10 @@ func _ready() -> void:
 	_connect_stations()
 	set_state(State.FREE)
 
+	# Store the base position of held_item_anchor from the scene
+	if held_item_anchor:
+		base_held_item_offset = held_item_anchor.position
+
 func _process(_delta: float) -> void:
 	pass
 
@@ -106,6 +116,7 @@ func _physics_process(delta: float) -> void:
 
 	_move(direction, delta)
 	_update_animation(direction)
+	_update_held_item_bobbing(direction)
 
 	if not walk_audio_player and direction != Vector2.ZERO:
 		walk_audio_player = AudioPlayerManager.play(AudioPlayerManager.AudioID.PLAYER_MOVE)
@@ -233,6 +244,68 @@ func _get_run_animation(dir: Vector2) -> String:
 		return "run_up_right"
 	return "run_up_right"
 
+func _update_held_item_bobbing(direction: Vector2) -> void:
+	"""Updates the bobbing animation for held items when the player is moving."""
+	if not held_item_entity or not held_item_anchor:
+		return
+
+	var should_bob := direction != Vector2.ZERO and velocity.length() > 10.0
+
+	if should_bob and not is_bobbing:
+		_start_bobbing()
+	elif not should_bob and is_bobbing:
+		_stop_bobbing()
+
+func _start_bobbing() -> void:
+	"""Starts the continuous bobbing animation."""
+	is_bobbing = true
+
+	# Kill any existing tween
+	if bobbing_tween and bobbing_tween.is_valid():
+		bobbing_tween.kill()
+
+	# Create looping tween
+	bobbing_tween = create_tween().set_loops()
+
+	# Bob parameters (tuned for Zelda-style feel)
+	var bob_amplitude := 2.0  # Pixels to move up/down
+	var bob_duration := 0.25  # Seconds per bob cycle (0.25s = 4 bobs per second)
+
+	var up_position := base_held_item_offset + Vector2(0, -bob_amplitude)
+	var down_position := base_held_item_offset + Vector2(0, bob_amplitude)
+
+	# Smooth sine wave bobbing
+	bobbing_tween.tween_property(
+		held_item_anchor,
+		"position",
+		up_position,
+		bob_duration / 2
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	bobbing_tween.tween_property(
+		held_item_anchor,
+		"position",
+		down_position,
+		bob_duration / 2
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func _stop_bobbing() -> void:
+	"""Stops the bobbing and smoothly returns to base position."""
+	is_bobbing = false
+
+	# Kill the looping tween
+	if bobbing_tween and bobbing_tween.is_valid():
+		bobbing_tween.kill()
+
+	# Smooth return to base position
+	var return_tween := create_tween()
+	return_tween.tween_property(
+		held_item_anchor,
+		"position",
+		base_held_item_offset,
+		0.15
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
 # =====================================================
 # State Machine
 # =====================================================
@@ -275,6 +348,7 @@ func pick_up_item(item: ItemEntity) -> bool:
 			held_item_entity = doner
 			doner.attach_to(held_item_anchor)
 			doner.visible = true
+			item_background.visible = true
 			return true
 		return false
 
@@ -282,6 +356,7 @@ func pick_up_item(item: ItemEntity) -> bool:
 		held_item_entity = item
 		item.attach_to(held_item_anchor)
 		item.visible = true
+		item_background.visible = true
 		item_picked_up.emit(item)
 		set_state(State.CARRYING)
 		return true
@@ -293,6 +368,7 @@ func drop_item() -> ItemEntity:
 		return null
 	var item := held_item_entity
 	held_item_entity = null
+	item_background.visible = false
 	item_dropped.emit(item)
 	set_state(State.FREE)
 	return item
