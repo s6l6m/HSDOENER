@@ -100,13 +100,12 @@ func _process(_delta: float) -> void:
 	pass
 
 func _load_sprite_frames() -> void:
-	if has_node("/root/CharacterSelectionManager"):
-		var char_manager = get_node("/root/CharacterSelectionManager")
-		var sprite_frames_resource = char_manager.get_sprite_frames_for_player(player_number)
+	var gamestate := GameState.get_or_create_state()
+	var sprite_frames_resource = CharacterSelectionManager.get_sprite_frames_for_player(gamestate, player_number)
 
-		if sprite_frames_resource:
-			sprite.sprite_frames = sprite_frames_resource
-			return
+	if sprite_frames_resource:
+		sprite.sprite_frames = sprite_frames_resource
+		return
 
 	if player_number in SPRITE_FRAMES:
 		sprite.sprite_frames = SPRITE_FRAMES[player_number]
