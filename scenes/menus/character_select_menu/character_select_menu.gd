@@ -3,165 +3,155 @@ extends Control
 
 signal selection_complete
 
-@onready var p1_grid := %P1CharacterGrid
-@onready var p2_grid := %P2CharacterGrid
-@onready var p1_ready_label := %P1ReadyLabel
-@onready var p2_ready_label := %P2ReadyLabel
-@onready var start_button := %StartButton
-@onready var p1_portrait := %P1Portrait
-@onready var p2_portrait := %P2Portrait
-@onready var p1_name_label := %P1NameLabel
-@onready var p2_name_label := %P2NameLabel
-@onready var _char_manager := get_node("/root/CharacterSelectionManager")
+# UI references
+@onready var p1_grid: GridContainer = %P1CharacterGrid
+@onready var p2_grid: GridContainer = %P2CharacterGrid
+@onready var p1_ready_label: Label = %P1ReadyLabel
+@onready var p2_ready_label: Label = %P2ReadyLabel
+@onready var start_button: Button = %StartButton
+@onready var p1_portrait: TextureRect = %P1Portrait
+@onready var p2_portrait: TextureRect = %P2Portrait
+@onready var p1_name_label: Label = %P1NameLabel
+@onready var p2_name_label: Label = %P2NameLabel
+@onready var selection_manager: CharacterSelectionManager = %CharacterSelectionManager
 
-const CHARACTER_BUTTON_SCENE = preload("res://scenes/menus/character_select_menu/character_button.tscn")
+@export var character_button: PackedScene
 
-var ready_state := {0: false, 1: false}
-var _grids_populated := false
+# State
+var players_ready = { Player.PlayerNumber.ONE: false, Player.PlayerNumber.TWO: false }
+var grids_initialized := false
 
-var p1_buttons: Array[TextureButton] = []
-var p2_buttons: Array[TextureButton] = []
-var p1_focus_index := 0
-var p2_focus_index := 0
-const FOCUS_SCALE := 1.15
+var buttons := {
+	Player.PlayerNumber.ONE: [] as Array[CharacterButton],
+	Player.PlayerNumber.TWO: [] as Array[CharacterButton]
+}
+
+var focus_index := { Player.PlayerNumber.ONE: 0, Player.PlayerNumber.TWO: 0 }
+
 
 func _ready() -> void:
 	start_button.pressed.connect(_on_start_pressed)
 	hide()
 
 func show_menu() -> void:
-	if not _grids_populated:
-		_populate_character_grids()
-		_grids_populated = true
+	if not grids_initialized:
+		_create_character_grids()
+		grids_initialized = true
 
-	ready_state = {0: false, 1: false}
+	players_ready = { Player.PlayerNumber.ONE: false, Player.PlayerNumber.TWO: false }
+	focus_index = { Player.PlayerNumber.ONE: 0, Player.PlayerNumber.TWO: 0 }
+
+	_update_focus(Player.PlayerNumber.ONE)
+	_update_focus(Player.PlayerNumber.TWO)
 	_update_ui()
 	show()
 
-func _populate_character_grids() -> void:
-	if not _char_manager:
-		push_error("CharacterSelectionManager not found!")
-		return
+func _create_character_grids() -> void:
+	assert(selection_manager)
+	assert(selection_manager.character_database)
 
-	if not _char_manager.character_database:
-		push_error("Character database is null!")
-		return
+	var characters = selection_manager.character_database.get_all_characters()
 
-	var characters = _char_manager.character_database.get_all_characters()
-
-	p1_buttons.clear()
-	p2_buttons.clear()
+	for player in Player.PlayerNumber.values():
+		buttons[player].clear()
 
 	for character in characters:
-		var btn_p1 = CHARACTER_BUTTON_SCENE.instantiate()
-		btn_p1.setup(character)
-		btn_p1.pressed.connect(_on_character_selected.bind(0, character.character_id))
-		p1_grid.add_child(btn_p1)
-		p1_buttons.append(btn_p1)
+		_add_character_button(Player.PlayerNumber.ONE, p1_grid, character)
+		_add_character_button(Player.PlayerNumber.TWO, p2_grid, character)
 
-		var btn_p2 = CHARACTER_BUTTON_SCENE.instantiate()
-		btn_p2.setup(character)
-		btn_p2.pressed.connect(_on_character_selected.bind(1, character.character_id))
-		p2_grid.add_child(btn_p2)
-		p2_buttons.append(btn_p2)
+func _add_character_button(player: Player.PlayerNumber, grid: GridContainer, character) -> void:
+	var btn: CharacterButton = character_button.instantiate()
+	btn.setup(character)
+	btn.focus_mode = Control.FOCUS_ALL
+	btn.pressed.connect(_on_character_selected.bind(player, character.character_id))
+	grid.add_child(btn)
+	buttons[player].append(btn)
 
-	_update_focus_visuals()
-
-func _on_character_selected(player_number: int, character_id: StringName) -> void:
-	if not _char_manager:
-		return
-
-	_char_manager.select_character(player_number, character_id)
-	ready_state[player_number] = true
+func _on_character_selected(player: Player.PlayerNumber, character_id: StringName) -> void:
+	selection_manager.select_character(player, character_id)
+	players_ready[player] = true
 	_update_ui()
 
 func _update_ui() -> void:
-	if not _char_manager:
+	_update_player_ui(Player.PlayerNumber.ONE)
+	_update_player_ui(Player.PlayerNumber.TWO)
+
+	var both_ready: bool = players_ready[Player.PlayerNumber.ONE] and players_ready[Player.PlayerNumber.TWO]
+	start_button.disabled = not both_ready
+	start_button.text = "SPIEL STARTEN" if both_ready else "Warte auf " + _waiting_players()
+
+func _update_player_ui(player: Player.PlayerNumber) -> void:
+	var game_state := GameState.get_or_create_state()
+	var character = CharacterSelectionManager.get_character_for_player(game_state, player)
+	if not character:
 		return
 
-	var p1_char = _char_manager.get_character_for_player(0)
-	if p1_char:
-		p1_portrait.texture = p1_char.portrait
-		p1_name_label.text = p1_char.display_name
-	p1_ready_label.visible = ready_state[0]
-
-	var p2_char = _char_manager.get_character_for_player(1)
-	if p2_char:
-		p2_portrait.texture = p2_char.portrait
-		p2_name_label.text = p2_char.display_name
-	p2_ready_label.visible = ready_state[1]
-
-	var both_ready = ready_state[0] and ready_state[1]
-	start_button.disabled = not both_ready
-
-	if both_ready:
-		start_button.text = "SPIEL STARTEN"
+	if player == Player.PlayerNumber.ONE:
+		p1_portrait.texture = character.portrait
+		p1_name_label.text = character.display_name
+		p1_ready_label.visible = players_ready[player]
 	else:
-		var waiting_for = []
-		if not ready_state[0]:
-			waiting_for.append("P1")
-		if not ready_state[1]:
-			waiting_for.append("P2")
-		start_button.text = "Warte auf " + " & ".join(waiting_for)
+		p2_portrait.texture = character.portrait
+		p2_name_label.text = character.display_name
+		p2_ready_label.visible = players_ready[player]
 
-func _on_start_pressed() -> void:
-	selection_complete.emit()
-	hide()
+func _waiting_players() -> String:
+	var list := []
+	if not players_ready[Player.PlayerNumber.ONE]: list.append("P1")
+	if not players_ready[Player.PlayerNumber.TWO]: list.append("P2")
+	return " & ".join(list)
 
-func _input(event: InputEvent) -> void:
+# ---------------------------------------------------------
+# INPUT / NAVIGATION
+# ---------------------------------------------------------
+
+func _unhandled_input(event: InputEvent) -> void:
 	if not visible:
 		return
 
 	if event.is_action_pressed("move_left_p1"):
-		_navigate_player(0, -1)
-		get_viewport().set_input_as_handled()
+		_navigate(Player.PlayerNumber.ONE, -1)
 	elif event.is_action_pressed("move_right_p1"):
-		_navigate_player(0, 1)
-		get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("interact_a_p1") or (event is InputEventKey and event.pressed and event.physical_keycode == KEY_E):
-		_confirm_selection(0)
-		get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("move_left_p2"):
-		_navigate_player(1, -1)
-		get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("move_right_p2"):
-		_navigate_player(1, 1)
-		get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("interact_a_p2"):
-		_confirm_selection(1)
-		get_viewport().set_input_as_handled()
-	elif event is InputEventKey and event.pressed and event.physical_keycode == KEY_SPACE:
-		if ready_state[0] and ready_state[1]:
-			get_viewport().set_input_as_handled()
-			_on_start_pressed()
+		_navigate(Player.PlayerNumber.ONE, +1)
+	elif event.is_action_pressed("interact_a_p1"):
+		_confirm(Player.PlayerNumber.ONE)
 
-func _navigate_player(player_number: int, direction: int) -> void:
-	var buttons = p1_buttons if player_number == 0 else p2_buttons
-	if buttons.is_empty():
+	elif event.is_action_pressed("move_left_p2"):
+		_navigate(Player.PlayerNumber.TWO, -1)
+	elif event.is_action_pressed("move_right_p2"):
+		_navigate(Player.PlayerNumber.TWO, +1)
+	elif event.is_action_pressed("interact_a_p2"):
+		_confirm(Player.PlayerNumber.TWO)
+
+	elif event.is_action_pressed("ui_accept") and players_ready[Player.PlayerNumber.ONE] and players_ready[Player.PlayerNumber.TWO]:
+		_on_start_pressed()
+
+	var viewport = get_viewport()
+	if viewport: viewport.set_input_as_handled()
+
+func _navigate(player: Player.PlayerNumber, direction: int) -> void:
+	if buttons[player].is_empty():
 		return
 
-	if player_number == 0:
-		p1_focus_index = wrapi(p1_focus_index + direction, 0, buttons.size())
-	else:
-		p2_focus_index = wrapi(p2_focus_index + direction, 0, buttons.size())
+	focus_index[player] = wrapi(
+		focus_index[player] + direction,
+		0,
+		buttons[player].size()
+	)
 
-	_update_focus_visuals()
+	_update_focus(player)
 
-func _confirm_selection(player_number: int) -> void:
-	var buttons = p1_buttons if player_number == 0 else p2_buttons
-	var focus_index = p1_focus_index if player_number == 0 else p2_focus_index
+func _update_focus(player: Player.PlayerNumber) -> void:
+	for btn in buttons[player]:
+		btn.set_player_focus(player, false)
 
-	if focus_index < buttons.size():
-		buttons[focus_index].emit_signal("pressed")
+	var focused_btn: CharacterButton = buttons[player][focus_index[player]]
+	focused_btn.set_player_focus(player, true)
 
-func _update_focus_visuals() -> void:
-	for btn in p1_buttons:
-		btn.scale = Vector2.ONE
-	for btn in p2_buttons:
-		btn.scale = Vector2.ONE
+func _confirm(player: Player.PlayerNumber) -> void:
+	var btn: CharacterButton = buttons[player][focus_index[player]]
+	btn.pressed.emit()
 
-	if p1_focus_index < p1_buttons.size():
-		p1_buttons[p1_focus_index].scale = Vector2.ONE * FOCUS_SCALE
-
-	if p2_focus_index < p2_buttons.size():
-		p2_buttons[p2_focus_index].scale = Vector2.ONE * FOCUS_SCALE
+func _on_start_pressed() -> void:
+	selection_complete.emit()
+	hide()
