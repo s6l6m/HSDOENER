@@ -8,26 +8,32 @@
 radius = 10.965
 height = 21.93
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_white"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.47058824)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.2, 0.2, 1)
+border_blend = true
+corner_radius_top_left = 999
+corner_radius_top_right = 999
+corner_radius_bottom_right = 999
+corner_radius_bottom_left = 999
+corner_detail = 20
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpg5x"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_white"]
-bg_color = Color(1, 1, 1, 0.95)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.2, 0.2, 0.2, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_size = 4
-shadow_color = Color(0, 0, 0, 0.3)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -43,12 +49,12 @@ shape = SubResource("CapsuleShape2D_gfjak")
 position = Vector2(0, -1)
 scale = Vector2(0.6, 0.6)
 sprite_frames = ExtResource("2_4kuee")
-animation = &"idleBackView"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="HeldItem" type="Node2D" parent="."]
-position = Vector2(0, -58)
 z_index = 2
+position = Vector2(0, -58)
 
 [node name="ItemBackground" type="Panel" parent="HeldItem"]
 visible = false
