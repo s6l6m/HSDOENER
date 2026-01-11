@@ -5,14 +5,9 @@ extends MainMenu
 
 ## Optional scene to open when the player clicks a 'Level Select' button.
 @export var level_select_packed_scene: PackedScene
-## If true, have the player confirm before starting a new game if a game is in progress.
-@export var confirm_new_game : bool = true
+@export var character_select_menu_scene: PackedScene
 
 var animation_state_machine : AnimationNodeStateMachinePlayback
-
-## Character selection menu scene
-const CHARACTER_SELECT_MENU_SCENE = preload("res://scenes/menus/character_select_menu/character_select_menu.tscn")
-var character_select_menu = null
 
 @onready var level_select_button = %LevelSelectButton
 
@@ -22,16 +17,15 @@ func load_game_scene() -> void:
 
 func new_game() -> void:
 	GameState.reset()
-	_open_character_select()
+	if character_select_menu_scene:
+		_open_character_select()
+	else:
+		load_game_scene()
 
 func _open_character_select() -> void:
-	character_select_menu = _open_sub_menu(CHARACTER_SELECT_MENU_SCENE)
-
-	if character_select_menu:
-		character_select_menu.show_menu()
-		character_select_menu.selection_complete.connect(_on_character_selection_complete, CONNECT_ONE_SHOT)
-	else:
-		push_error("Character select menu is null!")
+	var character_select_menu = _open_sub_menu(character_select_menu_scene)
+	character_select_menu.show_menu()
+	character_select_menu.selection_complete.connect(_on_character_selection_complete, CONNECT_ONE_SHOT)
 
 func _on_character_selection_complete() -> void:
 	_close_sub_menu()

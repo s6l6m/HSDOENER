@@ -4,29 +4,23 @@
 [ext_resource type="SpriteFrames" uid="uid://db85xtrmsb3e5" path="res://scenes/player/player_1_sprite_frames.tres" id="2_4kuee"]
 [ext_resource type="PackedScene" uid="uid://ctoohxdkxasro" path="res://scenes/menus/options_menu/input/input_icon_mapper.tscn" id="4_524rm"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gfjak"]
-radius = 10.965
-height = 21.93
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kuee"]
+size = Vector2(32, 32)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_white"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.47058824)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kuee"]
+bg_color = Color(0.4713618, 0.4713618, 0.4713618, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.2, 0.2, 0.2, 1)
+border_color = Color(0.28485027, 0.2848503, 0.28485012, 1)
 border_blend = true
-corner_radius_top_left = 999
-corner_radius_top_right = 999
-corner_radius_bottom_right = 999
-corner_radius_bottom_left = 999
-corner_detail = 20
-shadow_color = Color(0, 0, 0, 0.3)
-shadow_size = 4
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.09803922)
+shadow_size = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpg5x"]
 bg_color = Color(0, 0, 0, 1)
@@ -34,20 +28,6 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_white"]
-bg_color = Color(1, 1, 1, 0.95)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.2, 0.2, 0.2, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_size = 4
-shadow_color = Color(0, 0, 0, 0.3)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -57,7 +37,7 @@ script = ExtResource("1_wr5hl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0, 16)
-shape = SubResource("CapsuleShape2D_gfjak")
+shape = SubResource("RectangleShape2D_4kuee")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
@@ -72,11 +52,13 @@ position = Vector2(0, -58)
 
 [node name="ItemBackground" type="Panel" parent="HeldItem"]
 visible = false
-offset_left = -18.0
-offset_top = -18.0
-offset_right = 18.0
-offset_bottom = 18.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_white")
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kuee")
 
 [node name="Icons" type="Control" parent="."]
 layout_mode = 3
@@ -90,47 +72,39 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Icons"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 20.0
-offset_top = -18.0
-offset_right = 60.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="CutIconBackgrouind" type="Panel" parent="Icons/HBoxContainer"]
+[node name="InteractIconBackground" type="Panel" parent="Icons"]
 visible = false
 custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
+layout_mode = 0
+offset_left = 32.0
+offset_top = -16.0
+offset_right = 48.0
+theme_type_variation = &"ButtonPanel"
 theme_override_styles/panel = SubResource("StyleBoxFlat_tpg5x")
 
-[node name="CutIcon" type="TextureRect" parent="Icons/HBoxContainer/CutIconBackgrouind"]
+[node name="InteractIcon" type="TextureRect" parent="Icons/InteractIconBackground"]
 unique_name_in_owner = true
+texture_filter = 2
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
 expand_mode = 2
 stretch_mode = 5
 
-[node name="InteractIconBackground" type="Panel" parent="Icons/HBoxContainer"]
+[node name="CutIconBackground" type="Panel" parent="Icons"]
 visible = false
 custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
+layout_mode = 0
+offset_left = -49.0
+offset_top = -16.0
+offset_right = -33.0
+theme_type_variation = &"ButtonPanel"
 theme_override_styles/panel = SubResource("StyleBoxFlat_tpg5x")
 
-[node name="InteractIcon" type="TextureRect" parent="Icons/HBoxContainer/InteractIconBackground"]
+[node name="CutIcon" type="TextureRect" parent="Icons/CutIconBackground"]
 unique_name_in_owner = true
+texture_filter = 2
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 0
 offset_right = 16.0

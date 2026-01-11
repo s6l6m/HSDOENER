@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://cwk8r8hp26uae"]
+[gd_scene load_steps=27 format=3 uid="uid://cwk8r8hp26uae"]
 
 [ext_resource type="Script" uid="uid://bgudewayvmljn" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_ixa71"]
 [ext_resource type="PackedScene" uid="uid://bt6q1fcu5f1ov" path="res://scenes/windows/main_menu_options_window.tscn" id="3_2k5l7"]
+[ext_resource type="PackedScene" uid="uid://c38fu5hfynhmg" path="res://scenes/menus/character_select_menu/character_select_menu.tscn" id="3_672y5"]
 [ext_resource type="PackedScene" uid="uid://d2f3ohhuwhuox" path="res://scenes/menus/level_select_menu/level_select_menu.tscn" id="3_ixa71"]
 [ext_resource type="PackedScene" uid="uid://b4wb07bqbnqke" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_vsp5b"]
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_game_template/base/nodes/autoloads/ui_sound_controller/ui_sound_controller.gd" id="5_672y5"]
@@ -10,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://bfq3ljd7vdg6x" path="res://resources/sounds/main_menu.mp3" id="6_vsp5b"]
 [ext_resource type="PackedScene" uid="uid://bn4a828drg1dp" path="res://scenes/ui/sprites/coin.tscn" id="8_6xh1d"]
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/nodes/labels/config_name_label.gd" id="9_gwise"]
-[ext_resource type="Texture2D" uid="uid://dtognchcy1vpq" path="res://assets/branding/logo/hsdoener_menu_logo.png" id="9_x5bcm"]
+[ext_resource type="Texture2D" uid="uid://cqac3g776n000" path="res://assets/branding/logo/hsdoener_menu_logo.png" id="9_x5bcm"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="12_r8ef7"]
 
 [sub_resource type="Animation" id="1"]
@@ -402,6 +403,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_ixa71")
 level_select_packed_scene = ExtResource("3_ixa71")
+character_select_menu_scene = ExtResource("3_672y5")
 game_scene_path = "uid://brs70jgc4xlem"
 options_packed_scene = ExtResource("3_2k5l7")
 credits_packed_scene = ExtResource("4_vsp5b")
@@ -513,7 +515,6 @@ grow_vertical = 2
 scale = Vector2(1.614253, 1.614253)
 
 [node name="Book" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control" instance=ExtResource("6_2k5l7")]
-modulate = Color(1, 1, 1, 0.35761023)
 scale = Vector2(3.5, 3.5)
 animation = &"closed"
 frame = 0

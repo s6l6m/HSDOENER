@@ -44,7 +44,22 @@ func show_menu() -> void:
 	_update_focus(Player.PlayerNumber.ONE)
 	_update_focus(Player.PlayerNumber.TWO)
 	_update_ui()
+	_update_buttons_texture()
+	
 	show()
+
+func _update_buttons_texture() -> void:
+	var game_state := GameState.get_or_create_state()
+	
+	%P1NavigationHintButtonLeft.texture = $InputIconMapper.get_icon($InputIconMapper.get_event_for_device(Player.INPUT_MAP[Player.PlayerNumber.ONE][Player.InputAction.MOVE].left, game_state.last_device_used[Player.PlayerNumber.ONE]))
+	%P1NavigationHintButtonRight.texture = $InputIconMapper.get_icon($InputIconMapper.get_event_for_device(Player.INPUT_MAP[Player.PlayerNumber.ONE][Player.InputAction.MOVE].right, game_state.last_device_used[Player.PlayerNumber.ONE]))
+	%P1SelectionHintButton.texture = $InputIconMapper.get_icon($InputIconMapper.get_event_for_device(Player.INPUT_MAP[Player.PlayerNumber.ONE][Player.InputAction.INTERACT_A], game_state.last_device_used[Player.PlayerNumber.ONE]))
+
+	%P2NavigationHintButtonLeft.texture = $InputIconMapper.get_icon($InputIconMapper.get_event_for_device(Player.INPUT_MAP[Player.PlayerNumber.TWO][Player.InputAction.MOVE].left, game_state.last_device_used[Player.PlayerNumber.TWO]))
+	%P2NavigationHintButtonRight.texture = $InputIconMapper.get_icon($InputIconMapper.get_event_for_device(Player.INPUT_MAP[Player.PlayerNumber.TWO][Player.InputAction.MOVE].right, game_state.last_device_used[Player.PlayerNumber.TWO]))
+	%P2SelectionHintButton.texture = $InputIconMapper.get_icon($InputIconMapper.get_event_for_device(Player.INPUT_MAP[Player.PlayerNumber.TWO][Player.InputAction.INTERACT_A], game_state.last_device_used[Player.PlayerNumber.TWO]))
+
+	%StartHintButton.texture = $InputIconMapper.get_icon($InputIconMapper.get_event_for_device("start_game", $InputIconMapper.last_joypad_device))
 
 func _create_character_grids() -> void:
 	assert(selection_manager)
@@ -82,7 +97,7 @@ func _update_ui() -> void:
 
 func _update_player_ui(player: Player.PlayerNumber) -> void:
 	var game_state := GameState.get_or_create_state()
-	var character = CharacterSelectionManager.get_character_for_player(game_state, player)
+	var character = %CharacterSelectionManager.get_character_for_player(game_state, player)
 	if not character:
 		return
 
@@ -101,13 +116,17 @@ func _waiting_players() -> String:
 	if not players_ready[Player.PlayerNumber.TWO]: list.append("P2")
 	return " & ".join(list)
 
-# ---------------------------------------------------------
-# INPUT / NAVIGATION
-# ---------------------------------------------------------
-
 func _unhandled_input(event: InputEvent) -> void:
 	if not visible:
 		return
+	
+	var game_state := GameState.get_or_create_state()
+	var device_name = InputEventHelper.get_device_name(event)
+	for player in Player.PlayerNumber.values():
+		if device_name != game_state.last_device_used[player] and Player._input_is_from_player(event) == player:
+			game_state.last_device_used[player] = device_name
+			GlobalState.save()
+			_update_buttons_texture()
 
 	if event.is_action_pressed("move_left_p1"):
 		_navigate(Player.PlayerNumber.ONE, -1)
@@ -123,7 +142,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("interact_a_p2"):
 		_confirm(Player.PlayerNumber.TWO)
 
-	elif event.is_action_pressed("ui_accept") and players_ready[Player.PlayerNumber.ONE] and players_ready[Player.PlayerNumber.TWO]:
+	elif event.is_action_pressed("start_game") and players_ready[Player.PlayerNumber.ONE] and players_ready[Player.PlayerNumber.TWO]:
 		_on_start_pressed()
 
 	var viewport = get_viewport()

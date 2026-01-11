@@ -88,7 +88,7 @@ const INPUT_MAP := {
 func _ready() -> void:
 	add_to_group("players")
 	_load_sprite_frames()
-	_setup_interaction_icon()
+	_update_interaction_buttons()
 	_connect_stations()
 	set_state(State.FREE)
 
@@ -132,6 +132,34 @@ func _physics_process(delta: float) -> void:
 # =====================================================
 # Input Handling
 # =====================================================
+
+static func _event_matches_action(event: InputEvent, action_name: String) -> bool:
+	print(event, action_name)
+	return event.is_action(action_name)
+
+static func _input_is_from_player(event: InputEvent):
+	for player in INPUT_MAP.keys():
+		var player_map = INPUT_MAP[player]
+		for action in player_map.values():
+			# MOVE is a dictionary of directions
+			if action is Dictionary:
+				for action_name in action.values():
+					if _event_matches_action(event, action_name):
+						return player
+			# INTERACT_A / INTERACT_B are strings
+			elif action is String:
+				if _event_matches_action(event, action):
+					return player
+	return null
+
+func _input(event: InputEvent) -> void:
+	var game_state := GameState.get_or_create_state()
+	var device_name = InputEventHelper.get_device_name(event)
+	if device_name != game_state.last_device_used[player_number] and _input_is_from_player(event) == player_number:
+		game_state.last_device_used[player_number] = device_name
+		GlobalState.save()
+		_update_interaction_buttons()
+
 func _get_move_direction() -> Vector2:
 	if not can_move():
 		return Vector2.ZERO
@@ -385,16 +413,15 @@ func get_held_item() -> ItemEntity:
 # =====================================================
 # Helpers
 # =====================================================
-func _setup_interaction_icon() -> void:
+func _update_interaction_buttons() -> void:
+	var gamestate := GameState.get_or_create_state()
 	var action = INPUT_MAP[player_number][InputAction.INTERACT_A]
-	var events := InputMap.action_get_events(action)
-	if events.size() > 0:
-		interaction_icon.texture = $InputIconMapper.get_icon(events[0])
-
+	var event = $InputIconMapper.get_event_for_device(action, gamestate.last_device_used[player_number])
+	interaction_icon.texture = $InputIconMapper.get_icon(event)
+	
 	var action_b = INPUT_MAP[player_number][InputAction.INTERACT_B]
-	var events_b := InputMap.action_get_events(action_b)
-	if events_b.size() > 0:
-		cut_icon.texture = $InputIconMapper.get_icon(events_b[0])
+	var event_b = $InputIconMapper.get_event_for_device(action_b, gamestate.last_device_used[player_number])
+	cut_icon.texture = $InputIconMapper.get_icon(event_b)
 
 func _update_interaction_icons() -> void:
 	var show_a := current_station != null

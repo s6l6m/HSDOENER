@@ -114,8 +114,22 @@ func _match_icons_to_inputs() -> void:
 	for file in files:
 		_match_icon_to_file(file)
 
-func get_icon(input_event : InputEvent) -> Texture:
-	var specific_text = InputEventHelper.get_device_specific_text(input_event, last_joypad_device)
+func get_event_for_device(action_name: String, device_name: String) -> InputEvent:
+	var events = InputMap.action_get_events(action_name)
+	for ev in events:
+		# Controller events have a device name, keyboard events are generic
+		if device_name == InputEventHelper.DEVICE_GENERIC and ev is InputEventKey:
+			return ev
+		elif device_name != InputEventHelper.DEVICE_GENERIC and ev is InputEventJoypadButton:
+			return ev
+	
+	return events[0] if events.size() > 0 else null
+
+func get_icon(input_event: InputEvent, device_name: String = "") -> Texture:
+	if device_name == "":
+		device_name = last_joypad_device
+
+	var specific_text = InputEventHelper.get_device_specific_text(input_event, device_name)
 	if specific_text in matching_icons:
 		return matching_icons[specific_text]
 	return null
@@ -126,9 +140,9 @@ func _assign_joypad_0_to_last() -> void:
 	if connected_joypads.is_empty(): return
 	last_joypad_device = InputEventHelper.get_device_name_by_id(connected_joypads[0])
 
-func _input(event : InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	var device_name = InputEventHelper.get_device_name(event)
-	if device_name != InputEventHelper.DEVICE_GENERIC and device_name != last_joypad_device:
+	if device_name != last_joypad_device:
 		last_joypad_device = device_name
 		joypad_device_changed.emit()
 

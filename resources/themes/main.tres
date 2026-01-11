@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=67 format=3 uid="uid://2p6glpubmhup"]
+[gd_resource type="Theme" load_steps=68 format=3 uid="uid://2p6glpubmhup"]
 
 [ext_resource type="Texture2D" uid="uid://cdt88hgf4i1ej" path="res://resources/ui/UI_Button_Normal.png" id="1_whpug"]
 [ext_resource type="Texture2D" uid="uid://bmkudww6jhq84" path="res://resources/ui/UI_Button_Focus.png" id="2_nis3q"]
@@ -74,6 +74,19 @@ texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 modulate_color = Color(0.4817897, 0.4817894, 0.48178947, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kddb"]
+bg_color = Color(0.2520276, 0.25202766, 0.25202754, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lgi76"]
 atlas = ExtResource("4_mgmgi")
@@ -379,6 +392,8 @@ Button/styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_yn3xj")
 Button/styles/normal = SubResource("StyleBoxTexture_yn3xj")
 Button/styles/normal_mirrored = SubResource("StyleBoxTexture_yn3xj")
 Button/styles/pressed = SubResource("StyleBoxTexture_nis3q")
+ButtonPanel/base_type = &"Panel"
+ButtonPanel/styles/panel = SubResource("StyleBoxFlat_7kddb")
 CheckBox/icons/checked = SubResource("AtlasTexture_odufd")
 CheckBox/icons/checked_disabled = null
 CheckBox/icons/unchecked = SubResource("AtlasTexture_qg8ib")

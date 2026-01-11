@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dmohcb2xkr2vu" path="res://scenes/menus/character_select_menu/character_select_menu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://b55rlia3q7vls" path="res://scenes/menus/character_select_menu/character_button.tscn" id="2_6gdik"]
 [ext_resource type="Script" uid="uid://1n8hqq4d6m83" path="res://scenes/menus/character_select_menu/character_selection_manager.gd" id="2_6yis4"]
-[ext_resource type="Resource" uid="uid://dj8kk4ymxy5ru" path="res://resources/characters/character_database.tres" id="3_1x8t5"]
+[ext_resource type="Resource" uid="uid://bp6wmfpl2v4vi" path="res://resources/characters/character_database.tres" id="3_1x8t5"]
 [ext_resource type="PackedScene" uid="uid://ctoohxdkxasro" path="res://scenes/menus/options_menu/input/input_icon_mapper.tscn" id="5_ld5hd"]
 
 [node name="CharacterSelectMenu" type="Control"]
@@ -36,7 +36,6 @@ theme_override_constants/margin_bottom = 24
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 24
 
 [node name="TitleLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -69,7 +68,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
-columns = 3
+columns = 6
 
 [node name="P1SelectedInfo" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player1Panel/P1VBox"]
 layout_mode = 2
@@ -100,11 +99,85 @@ theme_override_font_sizes/font_size = 28
 text = "BEREIT"
 horizontal_alignment = 1
 
-[node name="P1ControlsLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player1Panel/P1VBox/P1SelectedInfo"]
+[node name="SelectionContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player1Panel/P1VBox/P1SelectedInfo"]
+layout_mode = 2
+theme_override_constants/separation = 29
+alignment = 1
+
+[node name="NavigationHint" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player1Panel/P1VBox/P1SelectedInfo/SelectionContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="ButtonPanel" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player1Panel/P1VBox/P1SelectedInfo/SelectionContainer/NavigationHint"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_type_variation = &"ButtonPanel"
+
+[node name="P1NavigationHintButtonLeft" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player1Panel/P1VBox/P1SelectedInfo/SelectionContainer/NavigationHint/ButtonPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ButtonPanel2" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player1Panel/P1VBox/P1SelectedInfo/SelectionContainer/NavigationHint"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_type_variation = &"ButtonPanel"
+
+[node name="P1NavigationHintButtonRight" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player1Panel/P1VBox/P1SelectedInfo/SelectionContainer/NavigationHint/ButtonPanel2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NavigationHintLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player1Panel/P1VBox/P1SelectedInfo/SelectionContainer/NavigationHint"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
 theme_override_font_sizes/font_size = 18
-text = "[A/D] Navigieren  [E] Auswählen"
+text = "Navigieren"
+horizontal_alignment = 1
+
+[node name="SelectionHint" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player1Panel/P1VBox/P1SelectedInfo/SelectionContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="ButtonPanel" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player1Panel/P1VBox/P1SelectedInfo/SelectionContainer/SelectionHint"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_type_variation = &"ButtonPanel"
+
+[node name="P1SelectionHintButton" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player1Panel/P1VBox/P1SelectedInfo/SelectionContainer/SelectionHint/ButtonPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SelectionHintLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player1Panel/P1VBox/P1SelectedInfo/SelectionContainer/SelectionHint"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 18
+text = "Auswählen"
 horizontal_alignment = 1
 
 [node name="Player2Panel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer"]
@@ -127,7 +200,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
-columns = 3
+columns = 6
 
 [node name="P2SelectedInfo" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player2Panel/P2VBox"]
 layout_mode = 2
@@ -160,13 +233,47 @@ horizontal_alignment = 1
 
 [node name="SelectionContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player2Panel/P2VBox/P2SelectedInfo"]
 layout_mode = 2
+theme_override_constants/separation = 29
 alignment = 1
 
 [node name="NavigationHint" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player2Panel/P2VBox/P2SelectedInfo/SelectionContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.0
+theme_override_constants/separation = 4
 alignment = 1
+
+[node name="ButtonPanel" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player2Panel/P2VBox/P2SelectedInfo/SelectionContainer/NavigationHint"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_type_variation = &"ButtonPanel"
+
+[node name="P2NavigationHintButtonLeft" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player2Panel/P2VBox/P2SelectedInfo/SelectionContainer/NavigationHint/ButtonPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ButtonPanel2" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player2Panel/P2VBox/P2SelectedInfo/SelectionContainer/NavigationHint"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_type_variation = &"ButtonPanel"
+
+[node name="P2NavigationHintButtonRight" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player2Panel/P2VBox/P2SelectedInfo/SelectionContainer/NavigationHint/ButtonPanel2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
 
 [node name="NavigationHintLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player2Panel/P2VBox/P2SelectedInfo/SelectionContainer/NavigationHint"]
 layout_mode = 2
@@ -179,9 +286,26 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.0
+theme_override_constants/separation = 4
 alignment = 1
 
-[node name="P2ControlsLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player2Panel/P2VBox/P2SelectedInfo/SelectionContainer/SelectionHint"]
+[node name="ButtonPanel" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player2Panel/P2VBox/P2SelectedInfo/SelectionContainer/SelectionHint"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_type_variation = &"ButtonPanel"
+
+[node name="P2SelectionHintButton" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player2Panel/P2VBox/P2SelectedInfo/SelectionContainer/SelectionHint/ButtonPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SelectionHintLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/SelectionContainer/Player2Panel/P2VBox/P2SelectedInfo/SelectionContainer/SelectionHint"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
 theme_override_font_sizes/font_size = 18
@@ -196,11 +320,36 @@ theme_override_font_sizes/font_size = 28
 disabled = true
 text = "Spiel Starten"
 
-[node name="SpaceHintLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="StartHint" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+size_flags_stretch_ratio = 8.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="ButtonPanel" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/StartHint"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ButtonPanel"
+
+[node name="StartHintButton" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/StartHint/ButtonPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StartHintLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/StartHint"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
 theme_override_font_sizes/font_size = 18
-text = "[Leertaste] zum Starten"
+text = "zum Starten"
 horizontal_alignment = 1
 
 [node name="CharacterSelectionManager" type="Node" parent="."]
