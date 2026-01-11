@@ -2,8 +2,14 @@
 extends WorkStation
 class_name PlateStation
 
+# =====================================================
+# Resources
+# =====================================================
 var doner_entity_scene := preload("res://scenes/items/doner_entity.tscn")
 
+# =====================================================
+# Interaction
+# =====================================================
 func interact(player: Player):
 	var doner := doner_entity_scene.instantiate() as DonerEntity
 	doner.show_plate_visual = true

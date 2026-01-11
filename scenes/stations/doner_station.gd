@@ -2,23 +2,37 @@
 extends WorkStation
 class_name DonerStation
 
+# =====================================================
+# Config
+# =====================================================
 @export var burn_time := 10.0
+var cutting_duration: float = 2.0
+
+# =====================================================
+# State
+# =====================================================
 var burn_timer := burn_time
 var burn_level := 0
 var timer_running := true
-
 var cutting: bool = false
 var cutting_progress: float = 0.0
-var cutting_duration: float = 2.0
 var _player_cutting: Player = null
 
+# =====================================================
+# Resources
+# =====================================================
 var ingredient_entity_scene := preload("res://scenes/items/ingredient_entity.tscn")
 var meat_resource := preload("res://scenes/ingredients/fleisch.tres")
 var burnt_meat_resource := preload("res://scenes/ingredients/fleisch-angebrannt.tres")
 
+# =====================================================
+# Nodes
+# =====================================================
 @onready var progress_bar := $ProgressBar
 
-
+# =====================================================
+# Lifecycle
+# =====================================================
 func _ready() -> void:
 	super._ready()
 
@@ -29,7 +43,6 @@ func _ready() -> void:
 		AudioPlayerManager.AudioID.STATION_FIRE_ON
 	)
 
-
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
@@ -37,20 +50,27 @@ func _process(delta: float) -> void:
 	_update_burn(delta)
 	_update_cutting(delta)
 
-func _update_burn(delta: float) -> void:
-	if not timer_running:
+func _exit_tree() -> void:
+	# Clean up looping audio when node is removed
+	if audio_player != null:
+		AudioPlayerManager.stop(audio_player)
+		audio_player = null
+
+# =====================================================
+# Interaction
+# =====================================================
+func interact(_player: Player):
+	if Engine.is_editor_hint():
 		return
 
-	if burn_timer <= 0:
-		burn_level = 1
-		update_texture()
-		timer_running = false
-		AudioPlayerManager.play(AudioPlayerManager.AudioID.STATION_FIRE_BURN)
-	else:
-		burn_timer -= delta
+	burn_level = 0
+	update_texture()
+	burn_timer = burn_time
 
+	if not timer_running:
+		timer_running = true
 
-func interact(player: Player):
+func interact_b(player: Player):
 	if Engine.is_editor_hint():
 		return
 
@@ -68,18 +88,23 @@ func interact(player: Player):
 	_player_cutting = player
 	player.set_state(Player.State.CUTTING)
 
+func supports_interact_b() -> bool:
+	return true
 
-func interact_b(_player: Player):
-	if Engine.is_editor_hint():
+# =====================================================
+# Burn Logic
+# =====================================================
+func _update_burn(delta: float) -> void:
+	if not timer_running:
 		return
 
-	burn_level = 0
-	update_texture()
-	burn_timer = burn_time
-
-	if not timer_running:
-		timer_running = true
-
+	if burn_timer <= 0:
+		burn_level = 1
+		update_texture()
+		timer_running = false
+		AudioPlayerManager.play(AudioPlayerManager.AudioID.STATION_FIRE_BURN)
+	else:
+		burn_timer -= delta
 
 func update_texture():
 	var textures = [
@@ -88,6 +113,9 @@ func update_texture():
 	]
 	content.texture = textures[burn_level]
 
+# =====================================================
+# Cutting Logic
+# =====================================================
 func stop_cut(player: Player) -> void:
 	if player == null:
 		return
@@ -133,10 +161,3 @@ func _give_meat(player: Player) -> void:
 		entity.free()
 	else:
 		AudioPlayerManager.play(AudioPlayerManager.AudioID.PLAYER_GRAB)
-
-
-func _exit_tree() -> void:
-	# Clean up looping audio when node is removed
-	if audio_player != null:
-		AudioPlayerManager.stop(audio_player)
-		audio_player = null

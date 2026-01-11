@@ -2,6 +2,9 @@
 extends WorkStation
 class_name SauceStation
 
+# =====================================================
+# Interaction
+# =====================================================
 func interact(player: Player):
 	var sauce_resource := preload("res://scenes/ingredients/sosse.tres")
 	var ingredient_entity_scene := preload("res://scenes/items/ingredient_entity.tscn")
@@ -12,6 +15,3 @@ func interact(player: Player):
 		entity.free()
 	else:
 		AudioPlayerManager.play(AudioPlayerManager.AudioID.SAUCE)
-
-func interact_b(player: Player):
-	interact(player)

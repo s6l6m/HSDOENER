@@ -158,16 +158,15 @@ func _handle_interactions() -> void:
 	if Input.is_action_just_pressed(interact_a):
 		current_station.interact(self)
 
-	if Input.is_action_just_pressed(interact_b):
+	if Input.is_action_just_pressed(interact_b) and _station_supports_interact_b(current_station):
 		current_station.interact_b(self)
 
-	if Input.is_action_just_released(interact_a):
-		if current_station is DonerStation:
-			current_station.stop_cut(self)
-
 	if Input.is_action_just_released(interact_b):
-		if current_station is CuttingStation:
+		if current_station is CuttingStation or current_station is DonerStation:
 			current_station.stop_cut(self)
+	
+	_update_interaction_icons()
+
 
 # =====================================================
 # Movement
@@ -201,7 +200,6 @@ func _on_player_entered_station(player, station) -> void:
 		return
 	stations_in_range.append(station)
 	_update_current_station()
-	interaction_icon.get_parent().show()
 
 func _on_player_exited_station(player, station) -> void:
 	if player != self:
@@ -211,7 +209,7 @@ func _on_player_exited_station(player, station) -> void:
 
 func _update_current_station() -> void:
 	current_station = stations_in_range.back() if stations_in_range else null
-	interaction_icon.get_parent().visible = current_station != null
+	_update_interaction_icons()
 
 # =====================================================
 # Animation
@@ -390,5 +388,24 @@ func get_held_item() -> ItemEntity:
 # =====================================================
 func _setup_interaction_icon() -> void:
 	var action = INPUT_MAP[player_number][InputAction.INTERACT_A]
-	var event := InputMap.action_get_events(action)[0]
-	interaction_icon.texture = $InputIconMapper.get_icon(event)
+	var events := InputMap.action_get_events(action)
+	if events.size() > 0:
+		interaction_icon.texture = $InputIconMapper.get_icon(events[0])
+
+	var action_b = INPUT_MAP[player_number][InputAction.INTERACT_B]
+	var events_b := InputMap.action_get_events(action_b)
+	if events_b.size() > 0:
+		cut_icon.texture = $InputIconMapper.get_icon(events_b[0])
+
+func _update_interaction_icons() -> void:
+	var show_a := current_station != null
+	var show_b := show_a and _station_supports_interact_b(current_station)
+	interaction_icon.get_parent().visible = show_a
+	cut_icon.get_parent().visible = show_b
+
+func _station_supports_interact_b(station: Node) -> bool:
+	if station == null:
+		return false
+	if station.has_method("supports_interact_b"):
+		return station.supports_interact_b()
+	return false

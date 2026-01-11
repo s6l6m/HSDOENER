@@ -74,6 +74,12 @@ func interact_b(_player: Player) -> void:
 
 	update_visual()
 
+
+func supports_interact_b() -> bool:
+	if active_customer and stored_doner and not stored_doner.ingredients.is_empty():
+		return true
+	return false
+
 # =====================================================
 # Visuals
 # =====================================================
