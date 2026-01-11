@@ -51,11 +51,12 @@ jobs:
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+      - name: Install dependencies
+        run: apt-get update && apt-get install -y libfontconfig1
       - name: Linux Build
         run: |
           mkdir -v -p build/linux
           EXPORT_DIR="$(readlink -f build)"
-          cd $PROJECT_PATH
           godot --headless --verbose --export-release "Linux/X11" "$EXPORT_DIR/linux/$EXPORT_NAME.x86_64"
       - name: Upload Artifact
         uses: actions/upload-artifact@v5
@@ -77,11 +78,12 @@ jobs:
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+      - name: Install dependencies
+        run: apt-get update && apt-get install -y libfontconfig1
       - name: Mac Build
         run: |
           mkdir -v -p build/mac
           EXPORT_DIR="$(readlink -f build)"
-          cd $PROJECT_PATH
           godot --headless --verbose --export-release "macOS" "$EXPORT_DIR/mac/$EXPORT_NAME.zip"
       - name: Upload Artifact
         uses: actions/upload-artifact@v5
