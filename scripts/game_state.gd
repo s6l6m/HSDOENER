@@ -11,6 +11,8 @@ const FILE_PATH = "res://scripts/game_state.gd"
 @export var play_time: int
 @export var total_time: int
 @export var total_coins: int
+@export var character_selections: Dictionary = {}
+@export var character_database: CharacterDatabase
 
 static func get_level_state(level_state_key : String) -> LevelState:
 	if not has_game_state(): 
@@ -73,4 +75,6 @@ static func reset() -> void:
 	game_state.play_time = 0
 	game_state.total_time = 0
 	game_state.total_coins = 0
+	game_state.character_selections = {Player.PlayerNumber.ONE: &"chef_one", Player.PlayerNumber.TWO: &"chef_two"}
+	game_state.character_database = load("res://resources/characters/character_database.tres")
 	GlobalState.save()
