@@ -24,6 +24,14 @@ func _generate_random_rgb_color() -> Color:
 		randf(), # BLUE
 	)
 
+func set_skin_frames(frames: SpriteFrames):
+	# Wir tauschen das komplette "Gehirn" des AnimatedSprite aus
+	$AnimatedSprite2D.sprite_frames = frames
+	
+	# Jetzt kannst du ganz normal play("idle") aufrufen, 
+	# weil in jedem Paket die Animation gleich heißt!
+	$AnimatedSprite2D.play("idle")
+
 func move_to(pos: Vector2):
 	target_position = pos
 	is_moving = true
@@ -76,13 +84,13 @@ func _update_animation(direction: Vector2) -> void:
 	
 	var animation_name: String
 	if degrees >= -45.0 and degrees < 45.0:
-		animation_name = "run_right"
+		animation_name = "right"
 	elif degrees >= 45.0 and degrees < 135.0:
-		animation_name = "run_down"
+		animation_name = "down"
 	elif degrees >= 135.0 or degrees < -135.0:
-		animation_name = "run_left"
+		animation_name = "left"
 	else:  # degrees >= -135.0 and degrees < -45.0
-		animation_name = "run_up"
+		animation_name = "up"
 	
 	if animated_sprite.animation != animation_name:
 		animated_sprite.play(animation_name)

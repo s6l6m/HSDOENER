@@ -1,8 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dunmeos6sxqjh"]
+[gd_scene load_steps=13 format=3 uid="uid://dunmeos6sxqjh"]
 
 [ext_resource type="Script" uid="uid://dulae26p4p11a" path="res://scenes/customers/Customer_manager.gd" id="1_veeto"]
 [ext_resource type="PackedScene" uid="uid://cm11dxs1blcs" path="res://scenes/customers/Customer.tscn" id="2_jqlbh"]
+[ext_resource type="SpriteFrames" uid="uid://ci0qmshgid57m" path="res://scenes/customers/sprites/Customer_Skin_1.tres" id="3_u7ceb"]
+[ext_resource type="SpriteFrames" uid="uid://w10myefhewt5" path="res://scenes/customers/sprites/Customer_Skin_2.tres" id="4_l14tm"]
+[ext_resource type="SpriteFrames" uid="uid://b74rk4h3iignr" path="res://scenes/customers/sprites/Customer_Skin_3.tres" id="5_1d6l0"]
+[ext_resource type="SpriteFrames" uid="uid://bw7iyxnxf47jy" path="res://scenes/customers/sprites/Customer_Skin_4.tres" id="6_ya05y"]
+[ext_resource type="SpriteFrames" uid="uid://bcxjx242coqa0" path="res://scenes/customers/sprites/Customer_Skin_5.tres" id="7_7xo4f"]
+[ext_resource type="SpriteFrames" uid="uid://dh43vtkn20qaf" path="res://scenes/customers/sprites/Customer_Skin_6.tres" id="8_ya05y"]
+[ext_resource type="SpriteFrames" uid="uid://dq6l7xjsbqrev" path="res://scenes/customers/sprites/Customer_Skin_7.tres" id="9_7xo4f"]
+[ext_resource type="SpriteFrames" uid="uid://df4uq6bc7i7ky" path="res://scenes/customers/sprites/Customer_Skin_8.tres" id="10_xo2v2"]
+[ext_resource type="SpriteFrames" uid="uid://cbi5l1ryqwd2p" path="res://scenes/customers/sprites/Customer_Skin_9.tres" id="11_2mfdy"]
+[ext_resource type="SpriteFrames" uid="uid://bq1jcwhf0q55a" path="res://scenes/customers/sprites/Customer_Skin_10.tres" id="12_qbui1"]
 
 [node name="CustomerManager" type="Node"]
 script = ExtResource("1_veeto")
 customer_scene = ExtResource("2_jqlbh")
+customer_skins = Array[SpriteFrames]([ExtResource("3_u7ceb"), ExtResource("4_l14tm"), ExtResource("5_1d6l0"), ExtResource("6_ya05y"), ExtResource("7_7xo4f"), ExtResource("8_ya05y"), ExtResource("9_7xo4f"), ExtResource("10_xo2v2"), ExtResource("11_2mfdy"), ExtResource("12_qbui1")])
