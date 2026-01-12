@@ -9,6 +9,5 @@ script = ExtResource("2_kmekc")
 station_type = 3
 
 [node name="Content" parent="Rotatable" index="1"]
-position = Vector2(0, -42.000004)
 scale = Vector2(0.7265625, 0.6875)
 texture = ExtResource("2_o6dfe")

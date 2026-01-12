@@ -14,6 +14,7 @@ size = Vector2(55, 53.5)
 size = Vector2(128, 128)
 
 [node name="ServingSlot" type="Node2D"]
+z_index = 0
 script = ExtResource("1_7nvyl")
 
 [node name="CounterTexture" type="Sprite2D" parent="."]

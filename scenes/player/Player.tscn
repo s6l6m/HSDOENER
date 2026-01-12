@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ctoohxdkxasro" path="res://scenes/menus/options_menu/input/input_icon_mapper.tscn" id="4_524rm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kuee"]
-size = Vector2(32, 32)
+size = Vector2(32, 35)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kuee"]
 bg_color = Color(0.4713618, 0.4713618, 0.4713618, 1)
@@ -36,7 +36,8 @@ script = ExtResource("1_wr5hl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(0, 16)
+z_index = 10
+position = Vector2(0, 17.5)
 shape = SubResource("RectangleShape2D_4kuee")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

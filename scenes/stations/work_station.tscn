@@ -13,6 +13,7 @@ size = Vector2(128, 43.68)
 size = Vector2(80, 90.5)
 
 [node name="WorkStation" type="Node2D"]
+z_index = 0
 script = ExtResource("1_6nqr1")
 
 [node name="Rotatable" type="Node2D" parent="."]
