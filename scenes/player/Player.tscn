@@ -44,7 +44,7 @@ shape = SubResource("RectangleShape2D_4kuee")
 position = Vector2(0, -1)
 scale = Vector2(0.6, 0.6)
 sprite_frames = ExtResource("2_4kuee")
-animation = &"idle"
+animation = &"run_up"
 autoplay = "idle"
 
 [node name="HeldItem" type="Node2D" parent="."]

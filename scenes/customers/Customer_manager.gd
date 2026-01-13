@@ -16,6 +16,10 @@ class_name CustomerManager
 
 @export var camera: MultiTargetCamera
 
+@export var customer_skins: Array[SpriteFrames] 
+
+var current_skin_index = 0
+
 # Referenz zum aktuellen Level (wird von GameManager gesetzt)
 var current_level: Level
 
@@ -64,39 +68,57 @@ func get_weighted_order_difficulty(current_game_diff: Level.Difficulty) -> Level
 	
 ## Kunde spawnen und Bestellung zuweisen
 func spawn_customer(game_difficulty: Level.Difficulty):
+	# 1. Prüfen, ob noch Platz in der Schlange ist
 	if customers.size() >= queue_points.size():
 		return
 
+	# 2. Instanziieren
 	var new_customer: Customer = customer_scene.instantiate()
+	
+	# 3. Skin-Logik (Rotation)
+	# Sicherheitscheck, falls du vergessen hast, Skins im Inspektor zuzuweisen
+	if customer_skins.size() > 0:
+		var skin_to_use = customer_skins[current_skin_index]
+		
+		# Ruft die Methode im Customer.gd auf, um SpriteFrames zu tauschen
+		if new_customer.has_method("set_skin_frames"):
+			new_customer.set_skin_frames(skin_to_use)
+		
+		# Index erhöhen und per Modulo (%) zurücksetzen, wenn Ende erreicht
+		current_skin_index = (current_skin_index + 1) % customer_skins.size()
+	
+	# 4. Positionierung (Spawn Punkt)
 	var spawn_pos = get_node(spawn_point).global_position
 	new_customer.global_position = spawn_pos
+	
+	# 5. Zur Szene hinzufügen (WICHTIG: Nur EINMAL aufrufen)
 	add_child(new_customer)
 
+	# 6. Bewegung zur Warteschlange
+	# customers.size() ist hier der Index für den nächsten freien Slot (0, 1, 2...)
 	var target_pos = get_node(queue_points[customers.size()]).global_position
 	new_customer.move_to(target_pos)
-	customers.append(new_customer)
 	
+	# 7. In lokale Liste aufnehmen und Sound abspielen
+	customers.append(new_customer)
 	AudioPlayerManager.play(AudioPlayerManager.AudioID.CUSTOMER_ENTER)
 
-	# --- NEUE LOGIK: Gewichtete Bestellung ---
-	# Wir bestimmen erst, wie schwer die Bestellung sein soll
+	# 8. --- Bestellung generieren (Gewichtet) ---
 	var calculated_order_diff = get_weighted_order_difficulty(game_difficulty)
-	
-	# Wir geben die berechnete Schwierigkeit an den OrderManager weiter, 
-	# nicht die allgemeine Spielschwierigkeit.
 	new_customer.order = order_manager.create_doner_order(new_customer, calculated_order_diff)
 
-	# Umwandlung des Enum-Wertes in einen lesbaren String (z.B. "MEDIUM")
+	# 9. Debugging Output
 	var diff_name = Level.Difficulty.keys()[calculated_order_diff]
-
-	print("[CustomerManager]: Customer gespawnt | Diff: %s | Start: %s | Limit: %s" % [
+	print("[CustomerManager]: Customer gespawnt | Skin: %d | Diff: %s | Start: %s | Limit: %s" % [
+			current_skin_index, # Zeigt an, welcher Skin (Index) genutzt wurde (bevor er erhöht wurde -1 rechnen oder einfach so lassen als debug info)
 			diff_name,
 			str(new_customer.order.creation_time), 
 			str(new_customer.order.time_limit)
 		])
+	
+	# 10. Signale verbinden
 	new_customer.customer_left.connect(_on_customer_left)
 	new_customer.customer_arrived_exit.connect(_remove_customer_from_scene)
-
 
 
 # Kunde verlässt Warteschlange
