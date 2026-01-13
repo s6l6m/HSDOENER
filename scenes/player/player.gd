@@ -244,7 +244,7 @@ func _update_current_station() -> void:
 				current_station = station
 
 		# Fallback to the last station in range
-		if current_station == null or current_station.stored_doner == null or self.get_held_item() == null:
+		if current_station == null or current_station.stored_doner == null and self.get_held_item() == null:
 			current_station = stations_in_range.back()
 
 	_update_interaction_icons()
