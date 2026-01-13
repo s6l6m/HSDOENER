@@ -11,7 +11,6 @@ var animation_state_machine : AnimationNodeStateMachinePlayback
 
 func _ready() -> void:
 	super._ready()
-	# Ensure the path to AnimationTree is correct for your scene tree
 	if has_node("MenuAnimationTree"):
 		animation_state_machine = $MenuAnimationTree.get("parameters/playback")
 	else:
@@ -34,7 +33,6 @@ func _on_finish_select_scene(_level_data = null) -> void:
 
 	_open_character_select()
 
-
 func _open_character_select() -> void:
 	character_select_menu_scene = _open_sub_menu(character_select_menu_packed_scene)
 
@@ -47,7 +45,6 @@ func _open_character_select() -> void:
 		push_error("Character Select scene loaded but 'selection_complete' signal is missing!")
 
 func _on_character_selection_complete() -> void:
-	print("Character selection complete. Loading game...")
 	load_game_scene()
 
 func load_game_scene() -> void:

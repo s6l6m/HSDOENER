@@ -28,10 +28,10 @@ func _process(_delta):
 	# Test-Input: Kunde per Tastendruck spawnen
 	if Input.is_action_just_pressed("spawn_customer"):
 		customer_manager.spawn_customer(current_level.difficulty)
-
+ 
 func _init_widgets() -> void:
 	_update_time_left()
-	coin_widget.update_coins(0)
+	coin_widget.update_coins(current_level.level_state.coins if current_level.level_state else 0)
 	coin_widget.update_coins_goal(current_level.target_coins)
 	
 func _update_time_left(play_time: int = 0) -> void:
