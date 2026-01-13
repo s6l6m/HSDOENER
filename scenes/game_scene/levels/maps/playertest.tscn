@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=4 uid="uid://bv420bevae7fi"]
 
 [ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/Player.tscn" id="1_eg31v"]
-[ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/level.tscn" id="1_f618n"]
+[ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/common/level.tscn" id="1_f618n"]
 [ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_p2qo3"]
 [ext_resource type="Script" uid="uid://dlcvfvsgolj8k" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
 [ext_resource type="PackedScene" uid="uid://dqe5dy0v501xx" path="res://scenes/stations/cucumber_station.tscn" id="6_e3sbb"]

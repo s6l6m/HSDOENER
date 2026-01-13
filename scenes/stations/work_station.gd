@@ -80,11 +80,13 @@ func interact(player: Player):
 		# Combine ingredient into doner (either direction).
 		if stored_item is DonerEntity and held is IngredientEntity:
 			if (stored_item as DonerEntity).add_ingredient(held as IngredientEntity):
+				AudioPlayerManager.play(AudioPlayerManager.AudioID.PLAYER_PUT)
 				player.drop_item()
 				update_visual()
 			return
 		if held is DonerEntity and stored_item is IngredientEntity:
 			if (held as DonerEntity).add_ingredient(stored_item as IngredientEntity):
+				AudioPlayerManager.play(AudioPlayerManager.AudioID.PLAYER_PUT)
 				stored_item = null
 				update_visual()
 			return

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://jk25xxv6oo5m"]
+[gd_scene load_steps=35 format=3 uid="uid://jk25xxv6oo5m"]
 
 [ext_resource type="Script" uid="uid://c0tdmtlc2bf0h" path="res://scripts/audio/audio_player_manager.gd" id="1_yrgsg"]
 [ext_resource type="Script" uid="uid://7g4jw1uqoc8i" path="res://scripts/audio/AudioCue.gd" id="2_tveoc"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cj8ndweh331iw" path="res://resources/sounds/fire_burn.mp3" id="15_xemao"]
 [ext_resource type="AudioStream" uid="uid://rqewxa0bqnoy" path="res://resources/sounds/level_lost.mp3" id="16_dwfyr"]
 [ext_resource type="AudioStream" uid="uid://fus35vtv6iqb" path="res://resources/sounds/level_won.mp3" id="17_usfbq"]
+[ext_resource type="AudioStream" uid="uid://cn3kddfpwvjis" path="res://resources/sounds/doner_cut.mp3" id="18_tw1i2"]
 
 [sub_resource type="Resource" id="Resource_6tvmh"]
 script = ExtResource("2_tveoc")
@@ -123,6 +124,14 @@ stream = ExtResource("17_usfbq")
 unpausable = true
 metadata/_custom_type_script = "uid://7g4jw1uqoc8i"
 
+[sub_resource type="Resource" id="Resource_nghn8"]
+script = ExtResource("2_tveoc")
+id = 19
+stream = ExtResource("18_tw1i2")
+volume_scale = 0.2
+loop = true
+metadata/_custom_type_script = "uid://7g4jw1uqoc8i"
+
 [node name="AudioPlayerManager" type="Node"]
 script = ExtResource("1_yrgsg")
-audio_cues = Array[ExtResource("2_tveoc")]([SubResource("Resource_6tvmh"), SubResource("Resource_eeb5m"), SubResource("Resource_3gv34"), SubResource("Resource_q7opq"), SubResource("Resource_rfmnw"), SubResource("Resource_wx8x5"), SubResource("Resource_8lhu5"), SubResource("Resource_be8rr"), SubResource("Resource_8bfq5"), SubResource("Resource_jctrj"), SubResource("Resource_0sqe2"), SubResource("Resource_xemao"), SubResource("Resource_dwfyr"), SubResource("Resource_usfbq"), SubResource("Resource_tw1i2")])
+audio_cues = Array[ExtResource("2_tveoc")]([SubResource("Resource_6tvmh"), SubResource("Resource_eeb5m"), SubResource("Resource_3gv34"), SubResource("Resource_q7opq"), SubResource("Resource_rfmnw"), SubResource("Resource_wx8x5"), SubResource("Resource_8lhu5"), SubResource("Resource_be8rr"), SubResource("Resource_8bfq5"), SubResource("Resource_jctrj"), SubResource("Resource_0sqe2"), SubResource("Resource_xemao"), SubResource("Resource_dwfyr"), SubResource("Resource_usfbq"), SubResource("Resource_tw1i2"), SubResource("Resource_nghn8")])

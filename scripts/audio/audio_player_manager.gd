@@ -40,6 +40,9 @@ enum AudioID {
 	# Level
 	LEVEL_LOST,
 	LEVEL_WON,
+	
+	# Doner
+	DONER_CUT,
 }
 
 # -------------------------------------------------

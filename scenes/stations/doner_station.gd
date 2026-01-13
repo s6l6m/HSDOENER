@@ -28,7 +28,7 @@ var burnt_meat_resource := preload("res://scenes/ingredients/fleisch-angebrannt.
 # =====================================================
 # Nodes
 # =====================================================
-@onready var progress_bar := $ProgressBar
+@onready var progress_bar := %ProgressBar
 
 # =====================================================
 # Lifecycle
@@ -62,7 +62,7 @@ func _exit_tree() -> void:
 func interact(_player: Player):
 	if Engine.is_editor_hint():
 		return
-
+	AudioPlayerManager.play(AudioPlayerManager.AudioID.PLAYER_PUT)
 	burn_level = 0
 	update_texture()
 	burn_timer = burn_time
@@ -81,12 +81,13 @@ func interact_b(player: Player):
 		return
 
 	var held := player.get_held_item()
-	if held != null and not (held is DonerEntity):
+	if held != null and not (held is DonerEntity and held._has_bread()):
 		return
 
 	cutting = true
 	_player_cutting = player
 	player.set_state(Player.State.CUTTING)
+	audio_player = AudioPlayerManager.play(AudioPlayerManager.AudioID.DONER_CUT)
 
 func supports_interact_b() -> bool:
 	return true
@@ -123,6 +124,7 @@ func stop_cut(player: Player) -> void:
 		_player_cutting = null
 		cutting = false
 		player.set_state(Player.State.FREE)
+		AudioPlayerManager.stop(audio_player)
 
 func _update_cutting(delta: float) -> void:
 	if progress_bar == null:
@@ -148,6 +150,7 @@ func _finish_cut() -> void:
 	cutting_progress = 0.0
 
 	var player := _player_cutting
+	AudioPlayerManager.play(AudioPlayerManager.AudioID.PLAYER_PUT)
 	stop_cut(player)
 	_give_meat(player)
 

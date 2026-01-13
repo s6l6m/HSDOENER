@@ -18,8 +18,8 @@ var stored_ingredient: IngredientEntity
 # =====================================================
 # Nodes
 # =====================================================
-@onready var food: Sprite2D = $Rotatable/Food
-@onready var progress_bar := $ProgressBar
+@onready var food: Sprite2D = %Food
+@onready var progress_bar := %ProgressBar
 
 # =====================================================
 # Lifecycle
