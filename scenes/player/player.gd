@@ -235,7 +235,18 @@ func _on_player_exited_station(player, station) -> void:
 	_update_current_station()
 
 func _update_current_station() -> void:
-	current_station = stations_in_range.back() if stations_in_range else null
+	current_station = null
+
+	if not stations_in_range.is_empty():
+		# Pick the LAST CounterSlot in range, if any
+		for station in stations_in_range:
+			if station is CounterSlot:
+				current_station = station
+
+		# Fallback to the last station in range
+		if current_station == null or current_station.stored_doner == null and self.get_held_item() == null:
+			current_station = stations_in_range.back()
+
 	_update_interaction_icons()
 
 # =====================================================

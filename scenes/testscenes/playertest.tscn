@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/Player.tscn" id="1_eg31v"]
 [ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/level.tscn" id="1_f618n"]
 [ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_p2qo3"]
-[ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
+[ext_resource type="Script" uid="uid://dlcvfvsgolj8k" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
 [ext_resource type="PackedScene" uid="uid://dqe5dy0v501xx" path="res://scenes/stations/cucumber_station.tscn" id="6_e3sbb"]
 [ext_resource type="PackedScene" uid="uid://524ejq66alxp" path="res://scenes/stations/doner_station.tscn" id="7_aea8e"]
 [ext_resource type="PackedScene" uid="uid://dy1cqc54o30wq" path="res://scenes/stations/onion_station.tscn" id="8_ptllb"]
@@ -66,121 +66,122 @@ position = Vector2(930, 715)
 [node name="Exit" type="Marker2D" parent="Map/CustomersMarkers" index="6"]
 position = Vector2(1369, 728)
 
-[node name="YSort" type="Node2D" parent="Map" index="4"]
-y_sort_enabled = true
+[node name="Stations" type="Node2D" parent="Map" index="4"]
 metadata/_edit_lock_ = true
 
-[node name="CucumberStation" parent="Map/YSort" index="0" instance=ExtResource("6_e3sbb")]
+[node name="CucumberStation" parent="Map/Stations" index="0" instance=ExtResource("6_e3sbb")]
 position = Vector2(64, 161)
 
-[node name="CucumberStation2" parent="Map/YSort" index="1" instance=ExtResource("6_e3sbb")]
+[node name="CucumberStation2" parent="Map/Stations" index="1" instance=ExtResource("6_e3sbb")]
 position = Vector2(320, 704)
 direction = 0
 
-[node name="DonerStation" parent="Map/YSort" index="2" instance=ExtResource("7_aea8e")]
+[node name="DonerStation" parent="Map/Stations" index="2" instance=ExtResource("7_aea8e")]
 position = Vector2(448, 161)
 
-[node name="OnionStation" parent="Map/YSort" index="3" instance=ExtResource("8_ptllb")]
-y_sort_enabled = true
+[node name="OnionStation" parent="Map/Stations" index="3" instance=ExtResource("8_ptllb")]
 position = Vector2(576, 161)
 station_type = 3
 
-[node name="TomatoStation" parent="Map/YSort" index="4" instance=ExtResource("9_7xdsu")]
+[node name="TomatoStation" parent="Map/Stations" index="4" instance=ExtResource("9_7xdsu")]
 position = Vector2(320, 161)
 station_type = 3
 
-[node name="TomatoStation2" parent="Map/YSort" index="5" instance=ExtResource("9_7xdsu")]
+[node name="TomatoStation2" parent="Map/Stations" index="5" instance=ExtResource("9_7xdsu")]
 position = Vector2(448, 704)
 direction = 0
 station_type = 3
 
-[node name="BreadStation" parent="Map/YSort" index="6" instance=ExtResource("11_vb107")]
+[node name="BreadStation" parent="Map/Stations" index="6" instance=ExtResource("11_vb107")]
 position = Vector2(576, 368)
 direction = 0
 station_type = 0
 
-[node name="CuttingStation" parent="Map/YSort" index="7" instance=ExtResource("10_7xdsu")]
+[node name="CuttingStation" parent="Map/Stations" index="7" instance=ExtResource("10_7xdsu")]
 position = Vector2(320, 368)
 direction = 0
 station_type = 0
 
-[node name="CuttingStation2" parent="Map/YSort" index="8" instance=ExtResource("10_7xdsu")]
+[node name="CuttingStation2" parent="Map/Stations" index="8" instance=ExtResource("10_7xdsu")]
 position = Vector2(448, 496)
 station_type = 0
 
-[node name="CuttingStation3" parent="Map/YSort" index="9" instance=ExtResource("10_7xdsu")]
+[node name="CuttingStation3" parent="Map/Stations" index="9" instance=ExtResource("10_7xdsu")]
 position = Vector2(64, 704)
 direction = 0
 
-[node name="CuttingStation4" parent="Map/YSort" index="10" instance=ExtResource("10_7xdsu")]
+[node name="CuttingStation4" parent="Map/Stations" index="10" instance=ExtResource("10_7xdsu")]
 position = Vector2(192, 704)
 direction = 0
 
-[node name="WorkStation" parent="Map/YSort" index="11" instance=ExtResource("10_f618n")]
+[node name="WorkStation" parent="Map/Stations" index="11" instance=ExtResource("10_f618n")]
 position = Vector2(192, 368)
 direction = 0
 
-[node name="WorkStation2" parent="Map/YSort" index="12" instance=ExtResource("10_f618n")]
+[node name="WorkStation2" parent="Map/Stations" index="12" instance=ExtResource("10_f618n")]
 position = Vector2(192, 496)
 
-[node name="WorkStation3" parent="Map/YSort" index="13" instance=ExtResource("10_f618n")]
+[node name="WorkStation3" parent="Map/Stations" index="13" instance=ExtResource("10_f618n")]
 position = Vector2(448, 368)
 direction = 0
 
-[node name="WorkStation4" parent="Map/YSort" index="14" instance=ExtResource("10_f618n")]
+[node name="WorkStation4" parent="Map/Stations" index="14" instance=ExtResource("10_f618n")]
 position = Vector2(320, 496)
 
-[node name="SaladStation" parent="Map/YSort" index="15" instance=ExtResource("11_27w7k")]
+[node name="SaladStation" parent="Map/Stations" index="15" instance=ExtResource("11_27w7k")]
 position = Vector2(192, 161)
 
-[node name="SaladStation2" parent="Map/YSort" index="16" instance=ExtResource("11_27w7k")]
+[node name="SaladStation2" parent="Map/Stations" index="16" instance=ExtResource("11_27w7k")]
 position = Vector2(576, 704)
 direction = 0
 
-[node name="SauceStation" parent="Map/YSort" index="17" instance=ExtResource("13_f618n")]
+[node name="SauceStation" parent="Map/Stations" index="17" instance=ExtResource("13_f618n")]
 position = Vector2(576, 496)
 station_type = 0
 
-[node name="TrashStation" parent="Map/YSort" index="18" instance=ExtResource("13_27w7k")]
+[node name="TrashStation" parent="Map/Stations" index="18" instance=ExtResource("13_27w7k")]
 position = Vector2(656, 436)
 
-[node name="TrashStation2" parent="Map/YSort" index="19" instance=ExtResource("13_27w7k")]
+[node name="TrashStation2" parent="Map/Stations" index="19" instance=ExtResource("13_27w7k")]
 position = Vector2(113, 436)
 
-[node name="PlateStation" parent="Map/YSort" index="20" instance=ExtResource("15_oot12")]
+[node name="PlateStation" parent="Map/Stations" index="20" instance=ExtResource("15_oot12")]
 position = Vector2(704, 161)
 
-[node name="PlateStation2" parent="Map/YSort" index="21" instance=ExtResource("15_oot12")]
+[node name="PlateStation2" parent="Map/Stations" index="21" instance=ExtResource("15_oot12")]
 position = Vector2(704, 704)
 direction = 0
 
-[node name="ServingSlot" parent="Map/YSort" index="22" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+[node name="ServingSlot" parent="Map/Stations" index="22" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
 position = Vector2(832, 192)
 order_manager = NodePath("../../../OrderManager")
 
-[node name="ServingSlot2" parent="Map/YSort" index="23" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+[node name="ServingSlot2" parent="Map/Stations" index="23" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
 position = Vector2(832, 320)
 order_manager = NodePath("../../../OrderManager")
 
-[node name="ServingSlot3" parent="Map/YSort" index="24" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+[node name="ServingSlot3" parent="Map/Stations" index="24" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
 position = Vector2(832, 448)
 order_manager = NodePath("../../../OrderManager")
 
-[node name="ServingSlot4" parent="Map/YSort" index="25" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+[node name="ServingSlot4" parent="Map/Stations" index="25" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
 position = Vector2(832, 576)
 order_manager = NodePath("../../../OrderManager")
 
-[node name="ServingSlot5" parent="Map/YSort" index="26" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+[node name="ServingSlot5" parent="Map/Stations" index="26" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
 position = Vector2(832, 704)
 order_manager = NodePath("../../../OrderManager")
 
-[node name="Player1" parent="Map/YSort" index="27" instance=ExtResource("1_eg31v")]
+[node name="Players" type="Node2D" parent="Map" index="5"]
+y_sort_enabled = true
+
+[node name="Player1" parent="Map/Players" index="0" instance=ExtResource("1_eg31v")]
 position = Vector2(178.00002, 327)
 platform_floor_layers = 4294967041
 platform_wall_layers = 1
 speed = 200.0
 
-[node name="Player2" parent="Map/YSort" index="28" instance=ExtResource("1_eg31v")]
+[node name="Player2" parent="Map/Players" index="1" instance=ExtResource("1_eg31v")]
 position = Vector2(659, 550)
 speed = 200.0
 player_number = 1
@@ -201,7 +202,7 @@ drag_right_margin = 0.0
 drag_bottom_margin = 0.0
 editor_draw_limits = true
 script = ExtResource("3_7ty7q")
-targets = [NodePath("../Map/YSort/Player1"), NodePath("../Map/YSort/Player2")]
+targets = [NodePath("../Map/Players/Player1"), NodePath("../Map/Players/Player2")]
 
 [node name="TutorialManager" parent="." index="8"]
 tutorial_scenes = Array[PackedScene]([ExtResource("15_lbva2")])
