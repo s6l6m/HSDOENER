@@ -45,7 +45,7 @@ func show_menu() -> void:
 	_update_focus(Player.PlayerNumber.TWO)
 	_update_ui()
 	_update_buttons_texture()
-	
+	$InputIconMapper.joypad_device_changed.connect(_update_buttons_texture)
 	show()
 
 func _update_buttons_texture() -> void:
@@ -123,7 +123,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	var game_state := GameState.get_or_create_state()
 	var device_name = InputEventHelper.get_device_name(event)
 	for player in Player.PlayerNumber.values():
-		if device_name != game_state.last_device_used[player] and Player._input_is_from_player(event) == player:
+		if device_name != game_state.last_device_used[player] and Player._input_is_from_player(event) == player and not event is InputEventAction:
 			game_state.last_device_used[player] = device_name
 			GlobalState.save()
 			_update_buttons_texture()

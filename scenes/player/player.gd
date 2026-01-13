@@ -134,7 +134,6 @@ func _physics_process(delta: float) -> void:
 # =====================================================
 
 static func _event_matches_action(event: InputEvent, action_name: String) -> bool:
-	print(event, action_name)
 	return event.is_action(action_name)
 
 static func _input_is_from_player(event: InputEvent):
