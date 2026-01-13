@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/Player.tscn" id="1_eg31v"]
 [ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/level.tscn" id="1_f618n"]
 [ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_p2qo3"]
-[ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
+[ext_resource type="Script" uid="uid://dlcvfvsgolj8k" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
 [ext_resource type="PackedScene" uid="uid://dqe5dy0v501xx" path="res://scenes/stations/cucumber_station.tscn" id="6_e3sbb"]
 [ext_resource type="PackedScene" uid="uid://524ejq66alxp" path="res://scenes/stations/doner_station.tscn" id="7_aea8e"]
 [ext_resource type="PackedScene" uid="uid://dy1cqc54o30wq" path="res://scenes/stations/onion_station.tscn" id="8_ptllb"]

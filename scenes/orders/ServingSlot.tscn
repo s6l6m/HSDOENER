@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dbxdf7ln0drne" path="res://assets/workstations/tresen.png" id="2_8wtiy"]
 [ext_resource type="Texture2D" uid="uid://cv8sb861wu7oc" path="res://assets/sprites/counter-color.png" id="3_8wtiy"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_a4qep"]
-radius = 64.00781
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m886f"]
+size = Vector2(46, 89)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4qep"]
 size = Vector2(55, 53.5)
@@ -14,7 +14,6 @@ size = Vector2(55, 53.5)
 size = Vector2(128, 128)
 
 [node name="ServingSlot" type="Node2D"]
-z_index = 0
 script = ExtResource("1_7nvyl")
 
 [node name="CounterTexture" type="Sprite2D" parent="."]
@@ -27,14 +26,13 @@ scale = Vector2(1.96875, 1.9687499)
 texture = ExtResource("3_8wtiy")
 
 [node name="InteractionArea" type="Area2D" parent="."]
-visible = false
 position = Vector2(-34, 0)
 collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-30, 0)
-shape = SubResource("CircleShape2D_a4qep")
+position = Vector2(-40, 0)
+shape = SubResource("RectangleShape2D_m886f")
 
 [node name="Content" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
