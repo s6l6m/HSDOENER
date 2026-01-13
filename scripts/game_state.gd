@@ -14,6 +14,7 @@ const FILE_PATH = "res://scripts/game_state.gd"
 @export var character_selections: Dictionary = {}
 @export var character_database: CharacterDatabase
 @export var last_device_used: Dictionary = {}
+@export var difficulty: Level.Difficulty = Level.Difficulty.EASY
 
 static func get_level_state(level_state_key : String) -> LevelState:
 	if not has_game_state(): 
@@ -58,6 +59,11 @@ static func set_current_level(level_path : String) -> void:
 	game_state.current_level_path = level_path
 	GlobalState.save()
 
+static func set_game_difficulty(level_difficulty) -> void:
+	var game_state := get_or_create_state()
+	game_state.difficulty = level_difficulty
+	GlobalState.save()
+
 static func start_game() -> void:
 	var game_state := get_or_create_state()
 	game_state.total_games_played += 1
@@ -82,4 +88,5 @@ static func reset() -> void:
 		Player.PlayerNumber.ONE: InputEventHelper.DEVICE_GENERIC,
 		Player.PlayerNumber.TWO: InputEventHelper.DEVICE_GENERIC,
 	}
+	game_state.difficulty = Level.Difficulty.EASY
 	GlobalState.save()

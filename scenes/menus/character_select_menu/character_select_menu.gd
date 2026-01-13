@@ -31,9 +31,6 @@ var focus_index := { Player.PlayerNumber.ONE: 0, Player.PlayerNumber.TWO: 0 }
 
 func _ready() -> void:
 	start_button.pressed.connect(_on_start_pressed)
-	hide()
-
-func show_menu() -> void:
 	if not grids_initialized:
 		_create_character_grids()
 		grids_initialized = true
@@ -46,8 +43,7 @@ func show_menu() -> void:
 	_update_ui()
 	_update_buttons_texture()
 	$InputIconMapper.joypad_device_changed.connect(_update_buttons_texture)
-	show()
-
+ 
 func _update_buttons_texture() -> void:
 	var game_state := GameState.get_or_create_state()
 	
@@ -170,7 +166,6 @@ func _update_focus(player: Player.PlayerNumber) -> void:
 func _confirm(player: Player.PlayerNumber) -> void:
 	var btn: CharacterButton = buttons[player][focus_index[player]]
 	btn.pressed.emit()
-
+ 
 func _on_start_pressed() -> void:
 	selection_complete.emit()
-	hide()

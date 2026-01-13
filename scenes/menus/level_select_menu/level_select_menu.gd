@@ -9,17 +9,23 @@ signal level_selected
 
 @onready var level_buttons_container: ItemList = %LevelButtonsContainer
 @onready var scene_lister: SceneLister = $SceneLister
+@onready var difficulty_buttons_container: ItemList = %DifficultyButtonsContainer
+
 var level_paths : Array[String]
+var difficulty_values: Array[int] = []
+var selected_level_index := -1
+var selected_difficulty_index := -1
 
 func _ready() -> void:
 	add_levels_to_container()
-	
+	add_difficulty_to_container()
+
 ## A fresh level list is propgated into the ItemList, and the file names are cleaned
 func add_levels_to_container() -> void:
 	level_buttons_container.clear()
 	level_paths.clear()
-	var game_state := GameState.get_or_create_state()
-	for file_path in game_state.level_states.keys():
+	assert(scene_lister.files)
+	for file_path in scene_lister.files:
 		var file_name : String = file_path.get_file()  # e.g., "level_1.tscn"
 		file_name = file_name.trim_suffix(".tscn")  # Remove the ".tscn" extension
 		file_name = file_name.replace("_", " ")  # Replace underscores with spaces
@@ -28,6 +34,30 @@ func add_levels_to_container() -> void:
 		level_buttons_container.add_item(button_name)
 		level_paths.append(file_path)
 
+func add_difficulty_to_container() -> void:
+	difficulty_buttons_container.clear()
+	difficulty_values.clear()
+
+	for key in Level.Difficulty.keys():
+		var value = Level.Difficulty[key]
+		difficulty_values.append(value)
+		difficulty_buttons_container.add_item(key.capitalize())
+		
 func _on_level_buttons_container_item_activated(index: int) -> void:
+	selected_level_index = index
 	GameState.set_current_level(level_paths[index])
+	_update_start_button_state()
+
+func _on_difficulty_buttons_container_item_activated(index: int) -> void:
+	selected_difficulty_index = index
+	GameState.set_game_difficulty(difficulty_values[index])
+	_update_start_button_state()
+
+func _update_start_button_state() -> void:
+	%StartButton.disabled = not _is_ready_to_start()
+
+func _is_ready_to_start() -> bool:
+	return selected_level_index >= 0 and selected_difficulty_index >= 0
+
+func _on_start_button_pressed() -> void:
 	level_selected.emit()

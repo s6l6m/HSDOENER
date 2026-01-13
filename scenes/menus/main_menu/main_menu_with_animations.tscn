@@ -403,7 +403,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_ixa71")
 level_select_packed_scene = ExtResource("3_ixa71")
-character_select_menu_scene = ExtResource("3_672y5")
+character_select_menu_packed_scene = ExtResource("3_672y5")
 game_scene_path = "uid://brs70jgc4xlem"
 options_packed_scene = ExtResource("3_2k5l7")
 credits_packed_scene = ExtResource("4_vsp5b")
@@ -566,12 +566,6 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Spiel starten"
 
-[node name="LevelSelectButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-text = "Level auswählen"
-
 [node name="OptionsButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -598,7 +592,6 @@ mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/MenuButtonsBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

@@ -19,8 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://chn64x1htog3j" path="res://scenes/orders/ServingSlot.tscn" id="17_oot12"]
 
 [node name="Level" instance=ExtResource("1_f618n")]
-target_coins = 50
-difficulty = 1
 
 [node name="Map" type="Node2D" parent="." index="0"]
 position = Vector2(23, 149)

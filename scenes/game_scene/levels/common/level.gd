@@ -11,9 +11,9 @@ signal level_won_and_changed(level_path : String)
 enum Difficulty { EASY, MEDIUM, HARD }
 
 @export_category("Level Settings")
-@export var round_time: int = 300
-@export var target_coins: int = 150
-@export var difficulty: Difficulty
+var round_time: int = 300
+var target_coins: int = 150
+var difficulty: Difficulty
 
 @onready var tutorial_manager: TutorialManager = %TutorialManager
 
@@ -25,10 +25,24 @@ func open_tutorials() -> void:
 	GlobalState.save()
 
 func _ready() -> void:
+	var game_state = GameState.get_or_create_state()
+	difficulty = game_state.difficulty
+	match difficulty:
+		Difficulty.EASY:
+			target_coins = 30
+			round_time = 300
+		Difficulty.MEDIUM:
+			target_coins = 50
+			round_time = 300
+		Difficulty.HARD:
+			target_coins = 100
+			round_time = 300
+
 	level_state = GameState.get_level_state(scene_file_path)
 	level_state.reset_level()
 	if not level_state.tutorial_read:
 		open_tutorials()
+
 
 func _on_tutorial_button_pressed() -> void:
 	open_tutorials()
