@@ -14,6 +14,9 @@ var _show_plate_visual: bool = true
 ## Collected ingredient data resources (not IDs). Matching is done via each ingredient's `item_id`.
 var ingredients: Array[Ingredient] = []
 
+## Collected freshness data for ingredients
+var ingredient_freshness_data: Array[Dictionary] = []
+
 @export var plate_texture: Texture2D
 
 @onready var plate_sprite: Sprite2D = $Plate
@@ -54,6 +57,12 @@ func add_ingredient(ingredient_entity: IngredientEntity) -> bool:
 		if _has_bread():
 			return false
 		ingredients.append(ingredient_entity.ingredient)
+		ingredient_freshness_data.append({
+			"ingredient": ingredient_entity.ingredient,
+			"creation_time": ingredient_entity.creation_time,
+			"is_vegetable": ingredient_entity.is_vegetable()
+		})
+		print("[DonerEntity] Brot hinzugefügt: Brot")
 		_apply_doner_layers()
 		ingredient_entity.queue_free()
 		return true
@@ -62,6 +71,12 @@ func add_ingredient(ingredient_entity: IngredientEntity) -> bool:
 		return false
 
 	ingredients.append(ingredient_entity.ingredient)
+	ingredient_freshness_data.append({
+		"ingredient": ingredient_entity.ingredient,
+		"creation_time": ingredient_entity.creation_time,
+		"is_vegetable": ingredient_entity.is_vegetable()
+	})
+	print("[DonerEntity] Zutat hinzugefügt: ", ingredient_entity.ingredient.name)
 	_apply_doner_layers()
 	ingredient_entity.queue_free()
 	return true

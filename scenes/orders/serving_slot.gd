@@ -67,6 +67,8 @@ func interact_b(_player: Player) -> void:
 		return
 
 	active_customer.order.fulfilled_ingredients = stored_doner.ingredients.duplicate()
+	active_customer.order.fulfilled_freshness_data = stored_doner.ingredient_freshness_data.duplicate()
+	print("[ServingSlot] Döner abgegeben: ", stored_doner.ingredients.size(), " Zutaten, ", stored_doner.ingredient_freshness_data.size(), " Freshness-Daten")
 	order_manager.complete_order(active_customer.order)
 	stored_doner.show_plate_visual = false
 	stored_doner.queue_free()

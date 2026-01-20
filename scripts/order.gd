@@ -3,6 +3,7 @@ extends Resource
 
 @export var required_ingredients: Array[Ingredient] = []
 var fulfilled_ingredients: Array[Ingredient] = []
+var fulfilled_freshness_data: Array[Dictionary] = []
 @export var creation_time: int = 0
 @export var price: int = 0
 @export var time_limit: int = 0
@@ -53,8 +54,29 @@ func evaluate_ingredients_fulfilled() -> float:
 
 	
 func evaluate_freshness() -> float:
-	#TODO
-	return 1
+	if fulfilled_freshness_data.is_empty():
+		print("[Order] Keine Freshness-Daten, Frische: 1.0")
+		return 1.0
+	
+	var total_freshness := 0.0
+	var vegetable_count := 0
+	
+	for data in fulfilled_freshness_data:
+		print("[Order] Prüfe Data: ingredient: ", data.ingredient.name if data.ingredient else "null", " is_vegetable: ", data.is_vegetable)
+		if data.is_vegetable:
+			var elapsed_sec: float = (Time.get_ticks_msec() - data.creation_time) / 1000.0
+			var freshness: float = clamp(1.0 - (elapsed_sec / 60.0), 0.0, 1.0)  # freshness_duration = 60.0
+			print("[Order] Gemüse Frische berechnet: elapsed=", elapsed_sec, "s, freshness=", freshness)
+			total_freshness += freshness
+			vegetable_count += 1
+	
+	if vegetable_count == 0:
+		print("[Order] Keine Gemüse, Frische: 1.0")
+		return 1.0  # Wenn keine Gemüse, volle Frische
+	
+	var avg_freshness := total_freshness / vegetable_count
+	print("[Order] Frische evaluiert: ", vegetable_count, " Gemüse, Durchschnitt: ", avg_freshness)
+	return avg_freshness
 	
 	
 func _evaluate_time_left(current_time: int) -> float:
