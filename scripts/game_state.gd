@@ -13,7 +13,10 @@ const FILE_PATH = "res://scripts/game_state.gd"
 @export var total_coins: int
 @export var character_selections: Dictionary = {}
 @export var character_database: CharacterDatabase
-@export var last_device_used: Dictionary = {}
+@export var last_device_used: Dictionary = {
+	Player.PlayerNumber.ONE: InputEventHelper.DEVICE_GENERIC,
+	Player.PlayerNumber.TWO: InputEventHelper.DEVICE_GENERIC,
+}
 @export var difficulty: Level.Difficulty = Level.Difficulty.EASY
 
 static func get_level_state(level_state_key : String) -> LevelState:
