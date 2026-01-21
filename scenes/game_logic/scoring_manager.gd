@@ -1,8 +1,11 @@
+## Manager für Bewertung der einzelnen Bestellungen
 extends Node
 class_name ScoreManager
 
+## Signal, wenn eine Order bewertet wurde (mit Münzen-Delta)
 signal order_evaluated(order: Order, score_delta: int)
 
+## Bewertet eine Order und berechnet Münzen-Delta basierend auf Zutaten, Frische und Zeit
 func evaluate_order(order: Order, current_time: int):
 	# Teilbewertungen aus der Order holen
 	var ingredients_score := order.evaluate_ingredients_fulfilled()   # [-1..1]

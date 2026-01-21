@@ -1,21 +1,21 @@
 extends ItemEntity
 class_name IngredientEntity
 
-## IngredientEntity is the world instance; `ingredient` is the shared Ingredient data resource.
-## Runtime state like "prepared/cut" is stored here (not inside the Ingredient resource).
 @export var ingredient: Ingredient
 @export var is_prepared: bool = false
 
 @onready var sprite: Sprite2D = $Sprite2D
 
-# Freshness variables
-var creation_time: int = 0  # Zeit in Millisekunden, wenn genommen
-@export var freshness_duration: float = 120.0  # Sekunden, bis verdorben (für Gemüse)
+## Zeitpunkt, wann die Zutat genommen wurde (für Frische-Berechnung)
+var creation_time: int = 0
+## Dauer in Sekunden, bis die Zutat verdorben ist (nur für Gemüse, also nicht für Brot / Fleisch)
+@export var freshness_duration: float = 120.0  
 
 func _ready() -> void:
 	if ingredient and not data:
 		data = ingredient
 	is_prepared = _resolve_start_prepared()
+	## Speichere Entstehungszeit für Frische-Berechnung
 	creation_time = Time.get_ticks_msec()  # Speichere Entstehungszeit
 	print("[IngredientEntity] Erstellt: ", ingredient.name if ingredient else "Unbekannt", " at time: ", creation_time)
 	_update_visual()
@@ -28,7 +28,6 @@ func _resolve_start_prepared() -> bool:
 	return false
 
 func requires_preparation() -> bool:
-	## If an ingredient has a cut_icon and is not marked prepared in its data, it requires preparation.
 	if ingredient == null:
 		return false
 	return ingredient.cut_icon != null and not ingredient.is_prepared
@@ -48,7 +47,8 @@ func _update_visual() -> void:
 	else:
 		sprite.texture = ingredient.icon
 
-# Gibt die Frische zurück (0 = verdorben, 1 = frisch). Nur für Gemüse.
+## Gibt die Frische zurück (0 = verdorben, 1 = frisch)
+## Berechnet Frische basierend auf verstrichener Zeit seit Entstehung
 func get_freshness() -> float:
 	if not is_vegetable():
 		print("[IngredientEntity] ", ingredient.name if ingredient else "Unbekannt", " ist kein Gemüse, Frische: 1.0")

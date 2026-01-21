@@ -1,24 +1,33 @@
 extends Node
 class_name OrderManager
 
+## Signal, wenn eine neue Order hinzugefügt wird (mit Callback für Zeitablauf)
 signal order_added(order: Order, callback_time_finished: Callable)
+## Signal, wenn eine Order abgeschlossen ist
 signal order_completed(order: Order)
 
+## Referenz zum Döner-Generator für Zutaten-Erstellung
 @onready var doener_generator: DonerGenerator = %DoenerGenerator
+## Referenz zum Orders-Container für UI-Verwaltung
 @onready var orders_container: OrdersContainer = %OrdersContainer
+## Referenz zum Time-Manager für Zeit-Tracking
 @onready var time_manager: TimeManager = %TimeManager
 
+## Array aller aktiven Orders
 var orders: Array[Order] = []
 
+## Initialisiert Verbindungen für Signale
 func _ready() -> void:
 	order_added.connect(orders_container.on_add_order)
 	order_completed.connect(orders_container.on_remove_order)
 
+## Schließt eine Order ab und entfernt sie aus der Liste
 func complete_order(order: Order) -> void:
 	if order in orders:
 		order.customer.leave_queue()
 		orders.erase(order)
 
+## Erstellt eine neue Döner-Order basierend auf Schwierigkeit und Kunde
 func create_doner_order(customer: Customer, difficulty: Level.Difficulty) -> Order:
 	var ingredients : Array[Ingredient]
 	var price: int

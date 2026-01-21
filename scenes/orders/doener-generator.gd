@@ -9,7 +9,7 @@ extends Node
 @export var sosse: Ingredient
 @export var zwiebel: Ingredient
 
-
+## Erstelle Döner mit 2 bis 12 Zutaten
 func generate_doner() -> Array[Ingredient]:
 	var ingredients: Array[Ingredient] = []
 
@@ -48,7 +48,8 @@ func generate_doner() -> Array[Ingredient]:
 
 	print("Order created:", ingredients.map(func(i): return i.name))
 	return ingredients
-	
+
+## Erstelle Döner mit 2 bis 7 Zutaten (klein)
 func generate_small_doner() -> Array[Ingredient]:
 	var ingredients: Array[Ingredient] = []
 
@@ -86,6 +87,7 @@ func generate_small_doner() -> Array[Ingredient]:
 	print("[DoenerGenerator] Order created:", ingredients.map(func(i): return i.name))
 	return ingredients
 
+## Erstelle Döner mit 2 bis 12 Zutaten (mittel)
 func generate_mid_doner() -> Array[Ingredient]:
 	var ingredients: Array[Ingredient] = []
 
@@ -124,7 +126,8 @@ func generate_mid_doner() -> Array[Ingredient]:
 
 	print("Order created:", ingredients.map(func(i): return i.name))
 	return ingredients
-	
+
+## Erstelle Döner mit 5 bis 14 Zutaten (gross)
 func generate_big_doner() -> Array[Ingredient]:
 	var ingredients: Array[Ingredient] = []
 

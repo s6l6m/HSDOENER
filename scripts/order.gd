@@ -3,6 +3,7 @@ extends Resource
 
 @export var required_ingredients: Array[Ingredient] = []
 var fulfilled_ingredients: Array[Ingredient] = []
+## Gespeicherte Frische-Daten der erfüllten Zutaten (Dictionary-Array)
 var fulfilled_freshness_data: Array[Dictionary] = []
 @export var creation_time: int = 0
 @export var price: int = 0
@@ -63,6 +64,7 @@ func evaluate_freshness() -> float:
 	
 	for data in fulfilled_freshness_data:
 		print("[Order] Prüfe Data: ingredient: ", data.ingredient.name if data.ingredient else "null", " is_vegetable: ", data.is_vegetable)
+		## Berechne Frische nur für Gemüse basierend auf gespeicherten Daten
 		if data.is_vegetable:
 			var elapsed_sec: float = (Time.get_ticks_msec() - data.creation_time) / 1000.0
 			var freshness: float = clamp(1.0 - (elapsed_sec / 60.0), 0.0, 1.0)  # freshness_duration = 60.0
