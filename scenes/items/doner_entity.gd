@@ -1,9 +1,10 @@
+## definiert die DonerEntity-Klasse, die einen zusammengesetzten Döner im Spiel repräsentiert
+## ein Döner besteht aus mehreren Schichten von Sprites die an- oder ausgeschaltet werden, jenachdem ob die Zutat im Döner enthalten ist
 extends ItemEntity
 class_name DonerEntity
 
-## A Döner is a composite item: it stores a list of Ingredient data resources and updates visuals on change.
-## It can optionally render a plate backdrop (kitchen vs. customer).
 var _show_plate_visual: bool = true
+## Bool, ob der Teller visuell angezeigt wird (true für Küche, false für Kunden)
 @export var show_plate_visual: bool:
 	get:
 		return _show_plate_visual
@@ -14,19 +15,33 @@ var _show_plate_visual: bool = true
 ## Collected ingredient data resources (not IDs). Matching is done via each ingredient's `item_id`.
 var ingredients: Array[Ingredient] = []
 
+## Gespeicherte Frische-Daten für Zutaten (Dictionary mit ingredient, creation_time, is_vegetable)
+var ingredient_freshness_data: Array[Dictionary] = []
+
 @export var plate_texture: Texture2D
 
+## Sprite für den Teller
 @onready var plate_sprite: Sprite2D = $Plate
+## Basis-Sprite des Döners
 @onready var base_sprite: Sprite2D = $Base
+## Root-Node für Zutaten-Sprites
 @onready var ingredients_root: Node2D = $Ingredients
 
+## Sprite für unteres Brot
 var _brot_unten: Sprite2D
+## Sprite für oberes Brot
 var _brot_oben: Sprite2D
+## Sprite für Soße
 var _sosse: Sprite2D
+## Array von Sprites für Fleisch-Schichten
 var _fleisch_layers: Array[Sprite2D] = []
+## Array von Sprites für Tomate-Schichten
 var _tomate_layers: Array[Sprite2D] = []
+## Array von Sprites für Salat-Schichten
 var _salat_layers: Array[Sprite2D] = []
+## Array von Sprites für Zwiebel-Schichten
 var _zwiebel_layers: Array[Sprite2D] = []
+## Array von Sprites für Gurke-Schichten
 var _gurke_layers: Array[Sprite2D] = []
 
 func _ready() -> void:
@@ -38,6 +53,7 @@ func _ready() -> void:
 	_apply_doner_layers()
 	_update_plate_visual()
 
+## Fügt eine Zutat zum Döner hinzu, speichert Daten und Frische, visualisiert
 func add_ingredient(ingredient_entity: IngredientEntity) -> bool:
 	## Adds an ingredient into the döner. On success, the ingredient entity is consumed (queue_free).
 	if ingredient_entity == null or ingredient_entity.ingredient == null:
@@ -54,6 +70,13 @@ func add_ingredient(ingredient_entity: IngredientEntity) -> bool:
 		if _has_bread():
 			return false
 		ingredients.append(ingredient_entity.ingredient)
+		## Speichere Frische-Daten der Zutat für spätere Bewertung
+		ingredient_freshness_data.append({
+			"ingredient": ingredient_entity.ingredient,
+			"creation_time": ingredient_entity.creation_time,
+			"is_vegetable": ingredient_entity.is_vegetable()
+		})
+		print("[DonerEntity] Brot hinzugefügt: Brot")
 		_apply_doner_layers()
 		ingredient_entity.queue_free()
 		return true
@@ -62,16 +85,25 @@ func add_ingredient(ingredient_entity: IngredientEntity) -> bool:
 		return false
 
 	ingredients.append(ingredient_entity.ingredient)
+	## Speichere Frische-Daten der Zutat für spätere Bewertung
+	ingredient_freshness_data.append({
+		"ingredient": ingredient_entity.ingredient,
+		"creation_time": ingredient_entity.creation_time,
+		"is_vegetable": ingredient_entity.is_vegetable()
+	})
+	print("[DonerEntity] Zutat hinzugefügt: ", ingredient_entity.ingredient.name)
 	_apply_doner_layers()
 	ingredient_entity.queue_free()
 	return true
 
+## Prüft, ob Brot bereits im Döner vorhanden ist (Basis für andere Zutaten)
 func _has_bread() -> bool:
 	for ing in ingredients:
 		if ing != null and ing.item_id == &"brot":
 			return true
 	return false
 
+## Aktualisiert die Sichtbarkeit und Textur des Tellers
 func _update_plate_visual() -> void:
 	if plate_sprite == null:
 		return
@@ -79,6 +111,7 @@ func _update_plate_visual() -> void:
 	if plate_texture:
 		plate_sprite.texture = plate_texture
 
+## Baut die visuellen Layer für den Döner basierend auf Assets auf
 func _build_doner_layers() -> void:
 	## Builds visual layers based on `assets/food/doener/*` so we don't depend on a separate icon scene/script.
 	if ingredients_root == null:
@@ -116,6 +149,7 @@ func _build_doner_layers() -> void:
 	_brot_oben = _create_layer_sprite("brot_oben_1", preload("res://assets/food/doener/brot-oben.png"))
 	_sosse = _create_layer_sprite("sosse_1", preload("res://assets/food/doener/sosse.png"))
 
+## Erstellt ein Sprite für eine Döner-Schicht
 func _create_layer_sprite(node_name: String, texture: Texture2D) -> Sprite2D:
 	var s := Sprite2D.new()
 	s.name = node_name
@@ -128,6 +162,7 @@ func _create_layer_sprite(node_name: String, texture: Texture2D) -> Sprite2D:
 	s.scale = Vector2.ONE
 	return s
 
+## Versteckt alle visuellen Layer des Döners
 func _hide_all_layers() -> void:
 	if _brot_unten != null:
 		_brot_unten.visible = false
@@ -146,6 +181,7 @@ func _hide_all_layers() -> void:
 	if _sosse != null:
 		_sosse.visible = false
 
+## Wendet die visuellen Layer basierend auf den hinzugefügten Zutaten an
 func _apply_doner_layers() -> void:
 	if ingredients_root == null:
 		return
@@ -177,11 +213,13 @@ func _apply_doner_layers() -> void:
 	if int(counts.get("sosse", 0)) > 0 and _sosse != null:
 		_sosse.visible = true
 
+## Setzt die Sichtbarkeit der Layer basierend auf der Anzahl
 func _set_layers_visible(layers: Array[Sprite2D], amount: int) -> void:
 	var limit: int = mini(amount, layers.size())
 	for i in range(limit):
 		layers[i].visible = true
 
+## Gibt den Render-Schlüssel für eine item_id zurück (für Visualisierung)
 func _render_key_for_item_id(id: StringName) -> StringName:
 	match id:
 		&"brot":

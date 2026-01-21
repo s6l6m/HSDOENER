@@ -1,3 +1,4 @@
+## Verwaltung der Kunden
 extends Node
 class_name CustomerManager
 
@@ -150,10 +151,6 @@ func new_customer_move_to_exit(customer: Customer):
 # Kunde ist am Ausgang angekommen, kann gelöscht werden
 func _remove_customer_from_scene(customer: Customer):
 	customer.queue_free()
-
-# =====================================================
-# Automatisches Spawning mit schwierigkeitsgrad-spezifischen Parametern
-# =====================================================
 
 ## Gibt die Spawn-Parameter basierend auf dem Schwierigkeitsgrad zurück
 func get_spawn_params_for_difficulty(difficulty: Level.Difficulty) -> Dictionary:

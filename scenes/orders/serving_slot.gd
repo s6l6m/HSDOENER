@@ -1,43 +1,31 @@
 extends Node2D
 class_name CounterSlot
 
-# =====================================================
 # Signals
-# =====================================================
 signal player_entered_slot(player: Player, slot: CounterSlot)
 signal player_exited_slot(player: Player, slot: CounterSlot)
 
-# =====================================================
 # Nodes
-# =====================================================
 @onready var interaction_area: Area2D = $InteractionArea
 @onready var interaction_area_customer: Area2D = $InteractionAreaCustomer
 @onready var content: Sprite2D = $Content
 @onready var order_color: Sprite2D = $OrderColor
 
-# =====================================================
 # Config
-# =====================================================
 @export var order_manager: OrderManager
 
-# =====================================================
 # State
-# =====================================================
 var stored_doner: DonerEntity
 var active_customer: Customer
 var customers_in_area: Array[Customer] = []
 
-# =====================================================
 # Lifecycle
-# =====================================================
 func _ready() -> void:
 	add_to_group("counterslots")
 	update_visual()
 
-# =====================================================
-# Interaction (A)
-# Pick up / place plate
-# =====================================================
+# Interaktion mit (A)
+# Teller aufheben
 func interact(player: Player) -> void:
 	# Take plate from counter
 	if stored_doner:
@@ -57,16 +45,17 @@ func interact(player: Player) -> void:
 			stored_doner.show_plate_visual = true
 		update_visual()
 
-# =====================================================
-# Interaktion mit C
-# Serve customer
-# =====================================================
+# Interaktion mit (C)
+# Kunde bedienen
 func interact_b(_player: Player) -> void:
 	## Serve: copy the döner's ingredient list into the order, evaluate, then complete the order.
 	if not active_customer or not stored_doner or stored_doner.ingredients.is_empty():
 		return
 
 	active_customer.order.fulfilled_ingredients = stored_doner.ingredients.duplicate()
+	## Kopiere Frische-Daten in die Order für Bewertung
+	active_customer.order.fulfilled_freshness_data = stored_doner.ingredient_freshness_data.duplicate()
+	print("[ServingSlot] Döner abgegeben: ", stored_doner.ingredients.size(), " Zutaten, ", stored_doner.ingredient_freshness_data.size(), " Freshness-Daten")
 	order_manager.complete_order(active_customer.order)
 	stored_doner.show_plate_visual = false
 	stored_doner.queue_free()
@@ -80,9 +69,7 @@ func supports_interact_b() -> bool:
 		return true
 	return false
 
-# =====================================================
 # Visuals
-# =====================================================
 func update_visual() -> void:
 	content.visible = stored_doner != null
 	content.texture = null
@@ -91,9 +78,7 @@ func update_visual() -> void:
 	if active_customer:
 		order_color.self_modulate = active_customer.color
 
-# =====================================================
 # Player Detection
-# =====================================================
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		player_entered_slot.emit(body, self)
@@ -102,9 +87,7 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body is Player:
 		player_exited_slot.emit(body, self)
 
-# =====================================================
-# Customer Detection
-# =====================================================
+# Prüfen ob Kunde vor der Station steht
 func _on_interaction_area_customer_body_entered(body: Node2D) -> void:
 	if body is not Customer:
 		return
