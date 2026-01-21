@@ -1,7 +1,7 @@
 extends HBoxContainer
 
-const RESET_STRING := "Reset Game:"
-const CONFIRM_STRING := "Confirm Reset:"
+const RESET_STRING := "Spiel zurücksetzen:"
+const CONFIRM_STRING := "Spiel zurücksetzen:"
 
 signal reset_confirmed
 

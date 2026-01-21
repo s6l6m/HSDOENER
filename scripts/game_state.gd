@@ -5,12 +5,18 @@ const STATE_NAME : String = "GameState"
 const FILE_PATH = "res://scripts/game_state.gd"
 
 @export var level_states: Dictionary = {}
+
 @export var current_level_path: String
 @export var continue_level_path: String
+
 @export var total_games_played: int
+@export var total_games_lost: int
+@export var total_games_won: int
+
 @export var play_time: int
 @export var total_time: int
 @export var total_coins: int
+
 @export var character_selections: Dictionary = {}
 @export var character_database: CharacterDatabase
 @export var last_device_used: Dictionary = {
@@ -18,6 +24,8 @@ const FILE_PATH = "res://scripts/game_state.gd"
 	Player.PlayerNumber.TWO: InputEventHelper.DEVICE_GENERIC,
 }
 @export var difficulty: Level.Difficulty = Level.Difficulty.EASY
+
+signal game_reset
 
 static func get_level_state(level_state_key : String) -> LevelState:
 	if not has_game_state(): 
@@ -77,6 +85,21 @@ static func continue_game() -> void:
 	game_state.current_level_path = game_state.continue_level_path
 	GlobalState.save()
 
+static func increase_games_lost() -> void:
+	var game_state := get_or_create_state()
+	game_state.total_games_lost += 1
+	GlobalState.save()
+
+static func increase_games_won() -> void:
+	var game_state := get_or_create_state()
+	game_state.total_games_won += 1
+	GlobalState.save()
+
+static func add_coins(coins: int) -> void:
+	var game_state := get_or_create_state()
+	game_state.total_coins += coins
+	GlobalState.save()
+
 static func reset() -> void:
 	var game_state := get_or_create_state()
 	game_state.level_states = {}
@@ -85,11 +108,13 @@ static func reset() -> void:
 	game_state.play_time = 0
 	game_state.total_time = 0
 	game_state.total_coins = 0
-	game_state.character_selections = {}
-	game_state.character_database = null
+	game_state.total_games_played = 0
+	game_state.total_games_lost = 0
+	game_state.total_games_won = 0
 	game_state.last_device_used = {
 		Player.PlayerNumber.ONE: InputEventHelper.DEVICE_GENERIC,
 		Player.PlayerNumber.TWO: InputEventHelper.DEVICE_GENERIC,
 	}
 	game_state.difficulty = Level.Difficulty.EASY
 	GlobalState.save()
+	game_state.game_reset.emit()

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3 uid="uid://dni12uqvuv7hn"]
 
 [ext_resource type="Script" uid="uid://5g70l7pjxgg3" path="res://scripts/resources/character_data.gd" id="1_c1hhf"]
-[ext_resource type="Texture2D" uid="uid://ehs18kawncrr" path="res://resources/characters/portraits/chef_four_portrait.png" id="1_ncbql"]
-[ext_resource type="SpriteFrames" uid="uid://uchoqsdy3cfs" path="res://scenes/player/player_4_sprite_frames.tres" id="3_qh53w"]
+[ext_resource type="Texture2D" uid="uid://pugnv1q2oi3y" path="res://resources/characters/portraits/chef_four_portrait.png" id="1_ncbql"]
+[ext_resource type="SpriteFrames" uid="uid://d3p4ofj63713y" path="res://scenes/player/player_4_sprite_frames.tres" id="3_qh53w"]
 
 [resource]
 script = ExtResource("1_c1hhf")

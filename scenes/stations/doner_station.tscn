@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://524ejq66alxp"]
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_6m066"]
-[ext_resource type="Script" uid="uid://crj6kmkhfvypv" path="res://scenes/stations/doner_station.gd" id="2_tydxm"]
+[ext_resource type="Script" uid="uid://cykmlpk02o4mb" path="res://scenes/stations/doner_station.gd" id="2_tydxm"]
 [ext_resource type="Texture2D" uid="uid://csshwveoyn628" path="res://assets/workstations/content/Doner_default.png" id="3_tydxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysy51"]

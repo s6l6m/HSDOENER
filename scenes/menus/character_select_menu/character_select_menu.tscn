@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c38fu5hfynhmg"]
 
-[ext_resource type="Script" uid="uid://dmohcb2xkr2vu" path="res://scenes/menus/character_select_menu/character_select_menu.gd" id="1"]
+[ext_resource type="Script" uid="uid://b03uxu6sweyrt" path="res://scenes/menus/character_select_menu/character_select_menu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://b55rlia3q7vls" path="res://scenes/menus/character_select_menu/character_button.tscn" id="2_6gdik"]
-[ext_resource type="Script" uid="uid://1n8hqq4d6m83" path="res://scenes/menus/character_select_menu/character_selection_manager.gd" id="2_6yis4"]
+[ext_resource type="Script" uid="uid://r3601ib0051e" path="res://scenes/menus/character_select_menu/character_selection_manager.gd" id="2_6yis4"]
 [ext_resource type="Resource" uid="uid://bp6wmfpl2v4vi" path="res://resources/characters/character_database.tres" id="3_1x8t5"]
 [ext_resource type="PackedScene" uid="uid://ctoohxdkxasro" path="res://scenes/menus/options_menu/input/input_icon_mapper.tscn" id="5_ld5hd"]
 

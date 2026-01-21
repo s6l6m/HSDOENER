@@ -66,5 +66,3 @@ func _on_order_evaluated(_order: Order, coin_delta: int):
 	var new_coin_count := current_level.add_coins(coin_delta)
 	print("[GameManager] order_evaluated coin_delta=", coin_delta, " coins_total=", new_coin_count)
 	coin_widget.update_coins(new_coin_count, coin_widget.PulseMode.GREEN if coin_delta > 0 else coin_widget.PulseMode.RED)
-	if current_level._target_coins_reached():
-		current_level._on_level_won()

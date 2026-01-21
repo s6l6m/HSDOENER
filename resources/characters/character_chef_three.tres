@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5g70l7pjxgg3" path="res://scripts/resources/character_data.gd" id="1_aj51g"]
 [ext_resource type="Texture2D" uid="uid://cnd7kl5b4ufxa" path="res://resources/characters/portraits/chef_three_portrait.png" id="1_j7pxh"]
-[ext_resource type="SpriteFrames" uid="uid://do6oomthri2va" path="res://scenes/player/player_3_sprite_frames.tres" id="3_r6e1d"]
+[ext_resource type="SpriteFrames" uid="uid://ci3k1b1rumjqw" path="res://scenes/player/player_3_sprite_frames.tres" id="3_r6e1d"]
 
 [resource]
 script = ExtResource("1_aj51g")

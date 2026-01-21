@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cuudswvlhc7jf"]
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_s5h3g"]
-[ext_resource type="Script" uid="uid://dpgy0nh0e7tjo" path="res://scenes/stations/cutting_station.gd" id="2_fwyh5"]
-[ext_resource type="Texture2D" uid="uid://vialtvv2v2yd" path="res://assets/workstations/content/Schneidebrett.png" id="2_s7yq8"]
+[ext_resource type="Script" uid="uid://b8c1ttqa1wksk" path="res://scenes/stations/cutting_station.gd" id="2_fwyh5"]
+[ext_resource type="Texture2D" uid="uid://cayndjshlejg5" path="res://assets/workstations/content/Schneidebrett.png" id="2_s7yq8"]
 
 [node name="CuttingStation" instance=ExtResource("1_s5h3g")]
 script = ExtResource("2_fwyh5")
