@@ -38,6 +38,9 @@ title = "Bereits hinzugefügt"
 [node name="KeyAssignmentWindow" parent="." index="5"]
 title = "Menü"
 
+[node name="TitleLabel" parent="KeyAssignmentWindow/ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
+text = "Menü"
+
 [node name="InputIconMapper" parent="." index="6" instance=ExtResource("2_hyv0n")]
 
 [editable path="KeyAssignmentWindow"]

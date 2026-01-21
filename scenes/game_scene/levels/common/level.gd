@@ -43,23 +43,29 @@ func _ready() -> void:
 	if not level_state.tutorial_read:
 		open_tutorials()
 
-
 func _on_tutorial_button_pressed() -> void:
 	open_tutorials()
 
 func _on_level_lost() -> void:
+	GameState.increase_games_lost()
+	GameState.add_coins(level_state.coins)
 	AudioPlayerManager.play(AudioPlayerManager.AudioID.LEVEL_LOST)
 	level_lost.emit()
-	
+
 func _on_level_won() -> void:
+	GameState.increase_games_won()
+	GameState.add_coins(level_state.coins)
 	AudioPlayerManager.play(AudioPlayerManager.AudioID.LEVEL_WON)
 	if next_level_path:
 		level_won_and_changed.emit(next_level_path)
 	else:
 		level_won.emit()
-		
+
 func add_coins(coins: int) -> int:
 	level_state.coins = maxi(0, level_state.coins + coins)
+	GlobalState.save()
+	if _target_coins_reached():
+		_on_level_won()
 	return level_state.coins
 
 func _on_level_time_up() -> void:

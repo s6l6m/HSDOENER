@@ -9,14 +9,11 @@ confirm_button_text = "Confirm"
 update_content = true
 close_button_text = "Cancel"
 
-[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
-text = "Menü"
-
 [node name="MenuButtons" parent="ContentContainer/BoxContainer/MenuButtonsMargin" index="0"]
 vertical = false
 
 [node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
-text = "Abbrechen"
+text = "Cancel"
 
 [node name="ConfirmButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1"]
 unique_name_in_owner = true

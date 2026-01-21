@@ -82,7 +82,7 @@ text = "Weiter"
 [node name="SceneLister" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_le4jx")
-files = Array[String](["res://scenes/game_scene/levels/maps//playertest.tscn"])
+files = Array[String](["res://scenes/game_scene/levels/maps//hsd_mensa.tscn"])
 directory = "res://scenes/game_scene/levels/maps/"
 
 [connection signal="item_activated" from="Control/VBoxContainer/PanelContainer/VBoxContainer/LevelButtonsContainer" to="." method="_on_level_buttons_container_item_activated"]

@@ -1,41 +1,41 @@
 [gd_scene load_steps=18 format=4 uid="uid://bv420bevae7fi"]
 
-[ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/Player.tscn" id="1_eg31v"]
-[ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/common/level.tscn" id="1_f618n"]
-[ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_p2qo3"]
-[ext_resource type="Script" uid="uid://dlcvfvsgolj8k" path="res://scripts/camera_movement.gd" id="3_7ty7q"]
-[ext_resource type="PackedScene" uid="uid://dqe5dy0v501xx" path="res://scenes/stations/cucumber_station.tscn" id="6_e3sbb"]
-[ext_resource type="PackedScene" uid="uid://524ejq66alxp" path="res://scenes/stations/doner_station.tscn" id="7_aea8e"]
-[ext_resource type="PackedScene" uid="uid://dy1cqc54o30wq" path="res://scenes/stations/onion_station.tscn" id="8_ptllb"]
-[ext_resource type="PackedScene" uid="uid://dlddl304vd3xa" path="res://scenes/stations/tomato_station.tscn" id="9_7xdsu"]
-[ext_resource type="PackedScene" uid="uid://cuudswvlhc7jf" path="res://scenes/stations/cutting_station.tscn" id="10_7xdsu"]
-[ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="10_f618n"]
-[ext_resource type="PackedScene" uid="uid://dfrnrliqs1ac2" path="res://scenes/stations/salad_station.tscn" id="11_27w7k"]
-[ext_resource type="PackedScene" uid="uid://tp3mfdvbfyo0" path="res://scenes/stations/bread_station.tscn" id="11_vb107"]
-[ext_resource type="PackedScene" uid="uid://bjfq145sa10oq" path="res://scenes/stations/trash_station.tscn" id="13_27w7k"]
-[ext_resource type="PackedScene" uid="uid://dx04h3616abi3" path="res://scenes/stations/sauce_station.tscn" id="13_f618n"]
-[ext_resource type="PackedScene" uid="uid://bjyqpv0xaejip" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="15_lbva2"]
-[ext_resource type="PackedScene" uid="uid://b7wvjtcdfwo8k" path="res://scenes/stations/plate_station.tscn" id="15_oot12"]
-[ext_resource type="PackedScene" uid="uid://chn64x1htog3j" path="res://scenes/orders/ServingSlot.tscn" id="17_oot12"]
+[ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/common/level.tscn" id="1_uhqyg"]
+[ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_nbv64"]
+[ext_resource type="PackedScene" uid="uid://dqe5dy0v501xx" path="res://scenes/stations/cucumber_station.tscn" id="3_wbc2a"]
+[ext_resource type="PackedScene" uid="uid://524ejq66alxp" path="res://scenes/stations/doner_station.tscn" id="4_gplij"]
+[ext_resource type="PackedScene" uid="uid://dy1cqc54o30wq" path="res://scenes/stations/onion_station.tscn" id="5_6acy7"]
+[ext_resource type="PackedScene" uid="uid://dlddl304vd3xa" path="res://scenes/stations/tomato_station.tscn" id="6_6rj2v"]
+[ext_resource type="PackedScene" uid="uid://tp3mfdvbfyo0" path="res://scenes/stations/bread_station.tscn" id="7_1ysd7"]
+[ext_resource type="PackedScene" uid="uid://cuudswvlhc7jf" path="res://scenes/stations/cutting_station.tscn" id="8_1kvpu"]
+[ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="9_pttuf"]
+[ext_resource type="PackedScene" uid="uid://dfrnrliqs1ac2" path="res://scenes/stations/salad_station.tscn" id="10_fgm4m"]
+[ext_resource type="PackedScene" uid="uid://dx04h3616abi3" path="res://scenes/stations/sauce_station.tscn" id="11_dmxlf"]
+[ext_resource type="PackedScene" uid="uid://bjfq145sa10oq" path="res://scenes/stations/trash_station.tscn" id="12_e1mjn"]
+[ext_resource type="PackedScene" uid="uid://b7wvjtcdfwo8k" path="res://scenes/stations/plate_station.tscn" id="13_vnhad"]
+[ext_resource type="PackedScene" uid="uid://chn64x1htog3j" path="res://scenes/orders/ServingSlot.tscn" id="14_58exa"]
+[ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/Player.tscn" id="15_c4d3p"]
+[ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="16_2l1kd"]
+[ext_resource type="PackedScene" uid="uid://bjyqpv0xaejip" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="17_4g7da"]
 
-[node name="Level" instance=ExtResource("1_f618n")]
+[node name="Level" instance=ExtResource("1_uhqyg")]
 
 [node name="Map" type="Node2D" parent="." index="0"]
 position = Vector2(23, 149)
 
 [node name="Floor" type="TileMapLayer" parent="Map" index="0"]
 tile_map_data = PackedByteArray("AAAHAAAAAAABAAMAAAAHAAEAAAABAAMAAAAHAAIAAAABAAMAAAAHAAMAAAABAAMAAAAHAAQAAAABAAMAAAAIAAAAAAABAAMAAAAIAAEAAAABAAMAAAAIAAIAAAABAAMAAAAIAAMAAAABAAMAAAAIAAQAAAABAAMAAAAJAAAAAAABAAMAAAAJAAEAAAABAAMAAAAJAAIAAAABAAMAAAAJAAMAAAABAAMAAAAJAAQAAAABAAMAAAABAAEAAAAAAAMAAAABAAIAAAAAAAMAAAABAAMAAAAAAAMAAAABAAQAAAAAAAMAAAACAAEAAAAAAAMAAAACAAIAAAAAAAMAAAACAAMAAAAAAAMAAAACAAQAAAAAAAMAAAADAAEAAAAAAAMAAAADAAIAAAAAAAMAAAADAAMAAAAAAAMAAAADAAQAAAAAAAMAAAAEAAEAAAAAAAMAAAAEAAIAAAAAAAMAAAAEAAMAAAAAAAMAAAAEAAQAAAAAAAMAAAAFAAEAAAAAAAMAAAAFAAIAAAAAAAMAAAAFAAMAAAAAAAMAAAAFAAQAAAAAAAMAAAAGAAEAAAAAAAMAAAAGAAIAAAAAAAMAAAAGAAMAAAAAAAMAAAAGAAQAAAAAAAMAAAAHAP//AAABAAMAAAAIAP//AAABAAMAAAAJAP//AAABAAMAAAABAAUAAAAAAAMAAAACAAUAAAAAAAMAAAADAAUAAAAAAAMAAAAEAAUAAAAAAAMAAAAFAAUAAAAAAAMAAAAGAAUAAAAAAAMAAAAAAAEAAAAAAAMAAAAAAAIAAAAAAAMAAAAAAAMAAAAAAAMAAAAAAAQAAAAAAAMAAAAAAAUAAAAAAAMAAAAHAAUAAAABAAMAAAAIAAUAAAABAAMAAAAJAAUAAAABAAMAAAA=")
-tile_set = ExtResource("2_p2qo3")
+tile_set = ExtResource("2_nbv64")
 metadata/_edit_lock_ = true
 
 [node name="WallsWithCollision" type="TileMapLayer" parent="Map" index="1"]
 tile_map_data = PackedByteArray("AAAGAAAAAAACAAMAAAABAAAAAAACAAMAAAACAAAAAAACAAMAAAADAAAAAAACAAMAAAAEAAAAAAACAAMAAAAFAAAAAAACAAMAAAAGAP//AAAFAAMAAAABAP//AAAEAAMAAAACAP//AAAEAAMAAAADAP//AAAEAAMAAAAEAP//AAAEAAMAAAAFAP//AAAEAAMAAAAAAAAAAAACAAMAAAAAAP//AAAEAAMAAAD//wAAAAADAAEAAAD//wEAAAADAAEAAAD//wIAAAADAAEAAAD//wMAAAADAAEAAAD//wQAAAADAAEAAAD//wUAAAADAAEAAAD/////AAADAAAAAAAGAP7/AAADAAAAAAD//wYAAAADAAIAAAAGAAYAAAADAAMAAAAFAAYAAAADAAMAAAAEAAYAAAADAAMAAAADAAYAAAADAAMAAAACAAYAAAADAAMAAAABAAYAAAADAAMAAAAAAAYAAAADAAMAAAA=")
-tile_set = ExtResource("2_p2qo3")
+tile_set = ExtResource("2_nbv64")
 metadata/_edit_lock_ = true
 
 [node name="WallsWithoutCollision" type="TileMapLayer" parent="Map" index="2"]
 tile_map_data = PackedByteArray("AAD/////AAADAAAAAAAGAP7/AAADAAAAAAAKAP7/AAAEAAAAAAAKAAAAAAAEAAEAAAAKAAEAAAAEAAEAAAAKAAIAAAAEAAEAAAAKAAMAAAAEAAEAAAAKAAQAAAAEAAEAAAAKAAUAAAAEAAEAAAAJAAYAAAAEAAEAAFAHAAYAAAAEAAEAAFAIAAYAAAAEAAEAAFAKAP//AAAEAAEAAAAHAP7/AAAEAAEAAGAIAP7/AAAEAAEAAGAJAP7/AAAEAAEAAGAKAAYAAAAEAAIAAAA=")
-tile_set = ExtResource("2_p2qo3")
+tile_set = ExtResource("2_nbv64")
 collision_enabled = false
 metadata/_edit_lock_ = true
 
@@ -67,119 +67,119 @@ position = Vector2(1369, 728)
 [node name="Stations" type="Node2D" parent="Map" index="4"]
 metadata/_edit_lock_ = true
 
-[node name="CucumberStation" parent="Map/Stations" index="0" instance=ExtResource("6_e3sbb")]
+[node name="CucumberStation" parent="Map/Stations" index="0" instance=ExtResource("3_wbc2a")]
 position = Vector2(64, 161)
 
-[node name="CucumberStation2" parent="Map/Stations" index="1" instance=ExtResource("6_e3sbb")]
+[node name="CucumberStation2" parent="Map/Stations" index="1" instance=ExtResource("3_wbc2a")]
 position = Vector2(320, 704)
 direction = 0
 
-[node name="DonerStation" parent="Map/Stations" index="2" instance=ExtResource("7_aea8e")]
+[node name="DonerStation" parent="Map/Stations" index="2" instance=ExtResource("4_gplij")]
 position = Vector2(448, 161)
 
-[node name="OnionStation" parent="Map/Stations" index="3" instance=ExtResource("8_ptllb")]
+[node name="OnionStation" parent="Map/Stations" index="3" instance=ExtResource("5_6acy7")]
 position = Vector2(576, 161)
 station_type = 3
 
-[node name="TomatoStation" parent="Map/Stations" index="4" instance=ExtResource("9_7xdsu")]
+[node name="TomatoStation" parent="Map/Stations" index="4" instance=ExtResource("6_6rj2v")]
 position = Vector2(320, 161)
 station_type = 3
 
-[node name="TomatoStation2" parent="Map/Stations" index="5" instance=ExtResource("9_7xdsu")]
+[node name="TomatoStation2" parent="Map/Stations" index="5" instance=ExtResource("6_6rj2v")]
 position = Vector2(448, 704)
 direction = 0
 station_type = 3
 
-[node name="BreadStation" parent="Map/Stations" index="6" instance=ExtResource("11_vb107")]
+[node name="BreadStation" parent="Map/Stations" index="6" instance=ExtResource("7_1ysd7")]
 position = Vector2(576, 368)
 direction = 0
 station_type = 0
 
-[node name="CuttingStation" parent="Map/Stations" index="7" instance=ExtResource("10_7xdsu")]
+[node name="CuttingStation" parent="Map/Stations" index="7" instance=ExtResource("8_1kvpu")]
 position = Vector2(320, 368)
 direction = 0
 station_type = 0
 
-[node name="CuttingStation2" parent="Map/Stations" index="8" instance=ExtResource("10_7xdsu")]
+[node name="CuttingStation2" parent="Map/Stations" index="8" instance=ExtResource("8_1kvpu")]
 position = Vector2(448, 496)
 station_type = 0
 
-[node name="CuttingStation3" parent="Map/Stations" index="9" instance=ExtResource("10_7xdsu")]
+[node name="CuttingStation3" parent="Map/Stations" index="9" instance=ExtResource("8_1kvpu")]
 position = Vector2(64, 704)
 direction = 0
 
-[node name="CuttingStation4" parent="Map/Stations" index="10" instance=ExtResource("10_7xdsu")]
+[node name="CuttingStation4" parent="Map/Stations" index="10" instance=ExtResource("8_1kvpu")]
 position = Vector2(192, 704)
 direction = 0
 
-[node name="WorkStation" parent="Map/Stations" index="11" instance=ExtResource("10_f618n")]
+[node name="WorkStation" parent="Map/Stations" index="11" instance=ExtResource("9_pttuf")]
 position = Vector2(192, 368)
 direction = 0
 
-[node name="WorkStation2" parent="Map/Stations" index="12" instance=ExtResource("10_f618n")]
+[node name="WorkStation2" parent="Map/Stations" index="12" instance=ExtResource("9_pttuf")]
 position = Vector2(192, 496)
 
-[node name="WorkStation3" parent="Map/Stations" index="13" instance=ExtResource("10_f618n")]
+[node name="WorkStation3" parent="Map/Stations" index="13" instance=ExtResource("9_pttuf")]
 position = Vector2(448, 368)
 direction = 0
 
-[node name="WorkStation4" parent="Map/Stations" index="14" instance=ExtResource("10_f618n")]
+[node name="WorkStation4" parent="Map/Stations" index="14" instance=ExtResource("9_pttuf")]
 position = Vector2(320, 496)
 
-[node name="SaladStation" parent="Map/Stations" index="15" instance=ExtResource("11_27w7k")]
+[node name="SaladStation" parent="Map/Stations" index="15" instance=ExtResource("10_fgm4m")]
 position = Vector2(192, 161)
 
-[node name="SaladStation2" parent="Map/Stations" index="16" instance=ExtResource("11_27w7k")]
+[node name="SaladStation2" parent="Map/Stations" index="16" instance=ExtResource("10_fgm4m")]
 position = Vector2(576, 704)
 direction = 0
 
-[node name="SauceStation" parent="Map/Stations" index="17" instance=ExtResource("13_f618n")]
+[node name="SauceStation" parent="Map/Stations" index="17" instance=ExtResource("11_dmxlf")]
 position = Vector2(576, 496)
 station_type = 0
 
-[node name="TrashStation" parent="Map/Stations" index="18" instance=ExtResource("13_27w7k")]
+[node name="TrashStation" parent="Map/Stations" index="18" instance=ExtResource("12_e1mjn")]
 position = Vector2(656, 436)
 
-[node name="TrashStation2" parent="Map/Stations" index="19" instance=ExtResource("13_27w7k")]
+[node name="TrashStation2" parent="Map/Stations" index="19" instance=ExtResource("12_e1mjn")]
 position = Vector2(113, 436)
 
-[node name="PlateStation" parent="Map/Stations" index="20" instance=ExtResource("15_oot12")]
+[node name="PlateStation" parent="Map/Stations" index="20" instance=ExtResource("13_vnhad")]
 position = Vector2(704, 161)
 
-[node name="PlateStation2" parent="Map/Stations" index="21" instance=ExtResource("15_oot12")]
+[node name="PlateStation2" parent="Map/Stations" index="21" instance=ExtResource("13_vnhad")]
 position = Vector2(704, 704)
 direction = 0
 
-[node name="ServingSlot" parent="Map/Stations" index="22" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+[node name="ServingSlot" parent="Map/Stations" index="22" node_paths=PackedStringArray("order_manager") instance=ExtResource("14_58exa")]
 position = Vector2(832, 192)
 order_manager = NodePath("../../../OrderManager")
 
-[node name="ServingSlot2" parent="Map/Stations" index="23" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+[node name="ServingSlot2" parent="Map/Stations" index="23" node_paths=PackedStringArray("order_manager") instance=ExtResource("14_58exa")]
 position = Vector2(832, 320)
 order_manager = NodePath("../../../OrderManager")
 
-[node name="ServingSlot3" parent="Map/Stations" index="24" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+[node name="ServingSlot3" parent="Map/Stations" index="24" node_paths=PackedStringArray("order_manager") instance=ExtResource("14_58exa")]
 position = Vector2(832, 448)
 order_manager = NodePath("../../../OrderManager")
 
-[node name="ServingSlot4" parent="Map/Stations" index="25" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+[node name="ServingSlot4" parent="Map/Stations" index="25" node_paths=PackedStringArray("order_manager") instance=ExtResource("14_58exa")]
 position = Vector2(832, 576)
 order_manager = NodePath("../../../OrderManager")
 
-[node name="ServingSlot5" parent="Map/Stations" index="26" node_paths=PackedStringArray("order_manager") instance=ExtResource("17_oot12")]
+[node name="ServingSlot5" parent="Map/Stations" index="26" node_paths=PackedStringArray("order_manager") instance=ExtResource("14_58exa")]
 position = Vector2(832, 704)
 order_manager = NodePath("../../../OrderManager")
 
 [node name="Players" type="Node2D" parent="Map" index="5"]
 y_sort_enabled = true
 
-[node name="Player1" parent="Map/Players" index="0" instance=ExtResource("1_eg31v")]
+[node name="Player1" parent="Map/Players" index="0" instance=ExtResource("15_c4d3p")]
 position = Vector2(178.00002, 327)
 platform_floor_layers = 4294967041
 platform_wall_layers = 1
 speed = 200.0
 
-[node name="Player2" parent="Map/Players" index="1" instance=ExtResource("1_eg31v")]
+[node name="Player2" parent="Map/Players" index="1" instance=ExtResource("15_c4d3p")]
 position = Vector2(659, 550)
 speed = 200.0
 player_number = 1
@@ -199,11 +199,11 @@ drag_top_margin = 0.0
 drag_right_margin = 0.0
 drag_bottom_margin = 0.0
 editor_draw_limits = true
-script = ExtResource("3_7ty7q")
+script = ExtResource("16_2l1kd")
 targets = [NodePath("../Map/Players/Player1"), NodePath("../Map/Players/Player2")]
 
 [node name="TutorialManager" parent="." index="8"]
-tutorial_scenes = Array[PackedScene]([ExtResource("15_lbva2")])
+tutorial_scenes = Array[PackedScene]([ExtResource("17_4g7da")])
 
 [node name="CustomerManager" parent="." index="9" node_paths=PackedStringArray("camera")]
 queue_points = Array[NodePath]([NodePath("../Map/CustomersMarkers/5"), NodePath("../Map/CustomersMarkers/4"), NodePath("../Map/CustomersMarkers/3"), NodePath("../Map/CustomersMarkers/2"), NodePath("../Map/CustomersMarkers/1")])

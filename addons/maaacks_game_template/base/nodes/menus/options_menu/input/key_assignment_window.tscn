@@ -13,6 +13,9 @@ script = ExtResource("2_oif0q")
 input_confirmation = 0
 close_button_text = "Close"
 
+[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
+text = "Menu"
+
 [node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" index="0"]
 visible = false
 

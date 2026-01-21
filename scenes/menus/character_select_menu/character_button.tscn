@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b55rlia3q7vls"]
 
-[ext_resource type="Script" uid="uid://dvqr2v4sqfmnk" path="res://scenes/menus/character_select_menu/character_button.gd" id="1"]
+[ext_resource type="Script" uid="uid://d0q7ttp5emf3m" path="res://scenes/menus/character_select_menu/character_button.gd" id="1"]
 
 [node name="CharacterButton" type="TextureButton"]
 custom_minimum_size = Vector2(128, 128)

@@ -11,6 +11,7 @@ signal level_selected
 @onready var scene_lister: SceneLister = $SceneLister
 @onready var difficulty_buttons_container: ItemList = %DifficultyButtonsContainer
 
+
 var level_paths : Array[String]
 var difficulty_values: Array[int] = []
 var selected_level_index := -1
@@ -37,12 +38,16 @@ func add_levels_to_container() -> void:
 func add_difficulty_to_container() -> void:
 	difficulty_buttons_container.clear()
 	difficulty_values.clear()
-
-	for key in Level.Difficulty.keys():
-		var value = Level.Difficulty[key]
+	const DIFFICULTY_LABELS := {
+		Level.Difficulty.EASY: "Einfach",
+		Level.Difficulty.MEDIUM: "Mittel",
+		Level.Difficulty.HARD: "Schwer"
+	}
+	
+	for value in Level.Difficulty.values():
 		difficulty_values.append(value)
-		difficulty_buttons_container.add_item(key.capitalize())
-		
+		difficulty_buttons_container.add_item(DIFFICULTY_LABELS[value])
+
 func _on_level_buttons_container_item_activated(index: int) -> void:
 	selected_level_index = index
 	GameState.set_current_level(level_paths[index])

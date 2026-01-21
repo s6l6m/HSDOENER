@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://1w46kse8u11v"]
 
 [ext_resource type="PackedScene" uid="uid://bn4a828drg1dp" path="res://scenes/ui/sprites/coin.tscn" id="1_4h2y2"]
-[ext_resource type="Script" uid="uid://bc81ji2ayhafl" path="res://scenes/ui/widgets/coin_widget.gd" id="1_jbdy0"]
+[ext_resource type="Script" uid="uid://oqr3hgxpggyd" path="res://scenes/ui/widgets/coin_widget.gd" id="1_jbdy0"]
 
 [node name="CoinWidget" type="Control"]
 layout_mode = 3
