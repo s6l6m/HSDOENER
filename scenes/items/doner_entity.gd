@@ -45,7 +45,7 @@ var _zwiebel_layers: Array[Sprite2D] = []
 var _gurke_layers: Array[Sprite2D] = []
 
 func _ready() -> void:
-	z_index = 1
+	z_index = 60
 	if plate_texture == null:
 		plate_texture = preload("res://assets/food/items/teller-sprite.png")
 	_build_doner_layers()
