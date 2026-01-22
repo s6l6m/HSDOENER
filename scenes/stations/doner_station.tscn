@@ -28,7 +28,7 @@ position = Vector2(0, -59)
 
 [node name="DonerSprite" type="AnimatedSprite2D" parent="Rotatable" index="2"]
 unique_name_in_owner = true
-z_index = 100
+z_index = 2
 position = Vector2(0, 1)
 sprite_frames = ExtResource("3_sprites")
 animation = &"rotate_normal"
@@ -37,7 +37,7 @@ offset = Vector2(0, -92)
 
 [node name="SteamParticles" type="CPUParticles2D" parent="Rotatable" index="3"]
 unique_name_in_owner = true
-z_index = 101
+z_index = 1
 position = Vector2(1, -33)
 scale = Vector2(2, 2)
 emitting = false
@@ -57,7 +57,7 @@ color_ramp = SubResource("Gradient_steam")
 
 [node name="FireParticles" type="CPUParticles2D" parent="Rotatable" index="4"]
 unique_name_in_owner = true
-z_index = 99
+z_index = 0
 position = Vector2(0, -30)
 amount = 25
 lifetime = 0.5
@@ -78,7 +78,7 @@ visible = false
 [node name="ProgressBar" type="ProgressBar" parent="Rotatable" index="7"]
 unique_name_in_owner = true
 visible = false
-z_index = 1010
+z_index = 10
 z_as_relative = false
 offset_left = -21.0
 offset_top = -89.0
