@@ -47,18 +47,6 @@ func _update_visual() -> void:
 	else:
 		sprite.texture = ingredient.icon
 
-## Gibt die Frische zurück (0 = verdorben, 1 = frisch)
-## Berechnet Frische basierend auf verstrichener Zeit seit Entstehung
-func get_freshness() -> float:
-	if not is_vegetable():
-		print("[IngredientEntity] ", ingredient.name if ingredient else "Unbekannt", " ist kein Gemüse, Frische: 1.0")
-		return 1.0  # Brot und Fleisch haben immer volle Frische
-	
-	var elapsed_sec := (Time.get_ticks_msec() - creation_time) / 1000.0
-	var freshness: float = clamp(1.0 - (elapsed_sec / freshness_duration), 0.0, 1.0)
-	print("[IngredientEntity] ", ingredient.name, " Frische berechnet: elapsed=", elapsed_sec, "s, freshness=", freshness)
-	return freshness
-
 # Prüft, ob es sich um Gemüse handelt
 func is_vegetable() -> bool:
 	if not ingredient:
