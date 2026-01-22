@@ -76,6 +76,8 @@ direction = 0
 
 [node name="DonerStation" parent="Map/Stations" index="2" instance=ExtResource("4_gplij")]
 position = Vector2(448, 161)
+cook_time = 5.0
+ready_time = 5.0
 
 [node name="OnionStation" parent="Map/Stations" index="3" instance=ExtResource("5_6acy7")]
 position = Vector2(576, 161)
@@ -191,7 +193,6 @@ limit_left = -214
 limit_top = -130
 limit_right = 1540
 limit_bottom = 946
-position_smoothing_enabled = true
 position_smoothing_speed = 128.0
 drag_vertical_offset = -0.5
 drag_left_margin = 0.0
