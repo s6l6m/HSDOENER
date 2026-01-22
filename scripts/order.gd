@@ -67,7 +67,7 @@ func evaluate_freshness() -> float:
 		## Berechne Frische nur für Gemüse basierend auf gespeicherten Daten
 		if data.is_vegetable:
 			var elapsed_sec: float = (Time.get_ticks_msec() - data.creation_time) / 1000.0
-			var freshness: float = clamp(1.0 - (elapsed_sec / 60.0), 0.0, 1.0)  # freshness_duration = 60.0
+			var freshness: float = clamp(1.0 - (elapsed_sec / 120.0), 0.0, 1.0)  # freshness_duration = 60.0
 			print("[Order] Gemüse Frische berechnet: elapsed=", elapsed_sec, "s, freshness=", freshness)
 			total_freshness += freshness
 			vegetable_count += 1
