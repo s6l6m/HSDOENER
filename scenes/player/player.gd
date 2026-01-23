@@ -41,9 +41,6 @@ var bobbing_tween: Tween
 var base_held_item_offset: Vector2 = Vector2.ZERO
 var is_bobbing: bool = false
 
-# Cutting animation
-var cutting_tween: Tween
-
 # Stations
 var current_station: Node2D
 var stations_in_range: Array[Node2D] = []
@@ -95,6 +92,7 @@ func _ready() -> void:
 	_connect_stations()
 	set_state(State.FREE)
 
+	# Store the base position of held_item_anchor from the scene
 	if held_item_anchor:
 		base_held_item_offset = held_item_anchor.position
 
@@ -293,63 +291,54 @@ func _update_held_item_bobbing(direction: Vector2) -> void:
 		_stop_bobbing()
 
 func _start_bobbing() -> void:
+	"""Starts the continuous bobbing animation."""
 	is_bobbing = true
-	_kill_tween(bobbing_tween)
+
+	# Kill any existing tween
+	if bobbing_tween and bobbing_tween.is_valid():
+		bobbing_tween.kill()
+
+	# Create looping tween
 	bobbing_tween = create_tween().set_loops()
 
-	const BOB_AMPLITUDE := 2.0
-	const BOB_DURATION := 0.25
-	var up_pos := base_held_item_offset + Vector2(0, -BOB_AMPLITUDE)
-	var down_pos := base_held_item_offset + Vector2(0, BOB_AMPLITUDE)
+	# Bob parameters (tuned for Zelda-style feel)
+	var bob_amplitude := 2.0  # Pixels to move up/down
+	var bob_duration := 0.25  # Seconds per bob cycle (0.25s = 4 bobs per second)
 
-	bobbing_tween.tween_property(held_item_anchor, "position", up_pos, BOB_DURATION / 2) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	bobbing_tween.tween_property(held_item_anchor, "position", down_pos, BOB_DURATION / 2) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	var up_position := base_held_item_offset + Vector2(0, -bob_amplitude)
+	var down_position := base_held_item_offset + Vector2(0, bob_amplitude)
+
+	# Smooth sine wave bobbing
+	bobbing_tween.tween_property(
+		held_item_anchor,
+		"position",
+		up_position,
+		bob_duration / 2
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	bobbing_tween.tween_property(
+		held_item_anchor,
+		"position",
+		down_position,
+		bob_duration / 2
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _stop_bobbing() -> void:
+	"""Stops the bobbing and smoothly returns to base position."""
 	is_bobbing = false
-	_kill_tween(bobbing_tween)
 
+	# Kill the looping tween
+	if bobbing_tween and bobbing_tween.is_valid():
+		bobbing_tween.kill()
+
+	# Smooth return to base position
 	var return_tween := create_tween()
-	return_tween.tween_property(held_item_anchor, "position", base_held_item_offset, 0.15) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-
-# =====================================================
-# Cutting Animation
-# =====================================================
-func _start_cutting_animation() -> void:
-	_kill_tween(cutting_tween)
-	cutting_tween = create_tween().set_loops()
-	var base_pos := sprite.position
-
-	# Wind-up (move up)
-	cutting_tween.tween_property(sprite, "position:y", base_pos.y - 1.5, 0.12) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-
-	# Chop down
-	cutting_tween.tween_property(sprite, "position:y", base_pos.y + 2.0, 0.08) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-
-	# Subtle horizontal shake
-	cutting_tween.tween_property(sprite, "position:x", base_pos.x + 0.8, 0.03) \
-		.set_trans(Tween.TRANS_SINE)
-	cutting_tween.tween_property(sprite, "position:x", base_pos.x - 0.8, 0.03) \
-		.set_trans(Tween.TRANS_SINE)
-	cutting_tween.tween_property(sprite, "position:x", base_pos.x, 0.03) \
-		.set_trans(Tween.TRANS_SINE)
-
-	# Return to base
-	cutting_tween.tween_property(sprite, "position:y", base_pos.y, 0.14) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-
-func _stop_cutting_animation() -> void:
-	_kill_tween(cutting_tween)
-	cutting_tween = null
-
-func _kill_tween(tween: Tween) -> void:
-	if tween and tween.is_valid():
-		tween.kill()
+	return_tween.tween_property(
+		held_item_anchor,
+		"position",
+		base_held_item_offset,
+		0.15
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 # =====================================================
 # State Machine
@@ -359,13 +348,6 @@ func set_state(new_state: State) -> void:
 		return
 	var old := current_state
 	current_state = new_state
-
-	# Cutting Animation starten/stoppen
-	if new_state == State.CUTTING:
-		_start_cutting_animation()
-	elif old == State.CUTTING:
-		_stop_cutting_animation()
-
 	state_changed.emit(old, new_state)
 
 func can_move() -> bool:

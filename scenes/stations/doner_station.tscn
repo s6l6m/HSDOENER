@@ -61,12 +61,12 @@ color_ramp = SubResource("Gradient_fire")
 
 [node name="DonerSprite" type="AnimatedSprite2D" parent="Rotatable/Content" index="2"]
 unique_name_in_owner = true
-modulate = Color(1, 0.89832354, 0.75355047, 1)
+modulate = Color(1, 0.9195011, 0.798931, 1)
 z_as_relative = false
 scale = Vector2(0.55, 0.55)
 sprite_frames = ExtResource("3_sprites")
 animation = &"rotate_normal"
-frame_progress = 0.22418605
+frame_progress = 0.27799982
 offset = Vector2(0, -38)
 
 [node name="CollisionShape2D" parent="Rotatable/CollisionSmall" index="0"]
@@ -78,9 +78,9 @@ unique_name_in_owner = true
 visible = false
 z_index = 10
 offset_left = -21.0
-offset_top = -57.0
+offset_top = -104.0
 offset_right = 21.0
-offset_bottom = -50.0
+offset_bottom = -97.0
 show_percentage = false
 
 [node name="BurnProgressBar" type="ProgressBar" parent="Rotatable" index="5"]

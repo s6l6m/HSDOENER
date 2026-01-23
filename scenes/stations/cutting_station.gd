@@ -21,7 +21,7 @@ var _ingredient_shake_tween: Tween
 # =====================================================
 # Nodes
 # =====================================================
-@onready var food: Sprite2D = %Food
+@onready var food: Node2D = %Food
 @onready var progress_bar: ProgressBar = %ProgressBar
 @onready var steam_particles: CPUParticles2D = %SteamParticles
 
@@ -152,5 +152,4 @@ func update_visual() -> void:
 		food.visible = false
 		return
 
-	food.texture = null
 	food.visible = true
