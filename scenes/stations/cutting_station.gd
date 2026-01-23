@@ -29,6 +29,9 @@ var _ingredient_shake_tween: Tween
 # Lifecycle
 # =====================================================
 func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+
 	_update_cutting(delta)
 
 # =====================================================

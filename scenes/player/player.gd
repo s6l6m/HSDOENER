@@ -174,7 +174,7 @@ func _get_move_direction() -> Vector2:
 	return dir
 
 func _handle_interactions() -> void:
-	if not current_station:
+	if not current_station or not can_move():
 		return
 
 	var interact_a = INPUT_MAP[player_number][InputAction.INTERACT_A]
@@ -186,10 +186,6 @@ func _handle_interactions() -> void:
 	if Input.is_action_just_pressed(interact_b) and _station_supports_interact_b(current_station):
 		current_station.interact_b(self)
 
-	if Input.is_action_just_released(interact_b):
-		if current_station is CuttingStation or current_station is DonerStation:
-			current_station.stop_cut(self)
-	
 	_update_interaction_icons()
 
 
