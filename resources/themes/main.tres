@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=68 format=3 uid="uid://2p6glpubmhup"]
+[gd_resource type="Theme" load_steps=70 format=3 uid="uid://2p6glpubmhup"]
 
 [ext_resource type="Texture2D" uid="uid://cdt88hgf4i1ej" path="res://resources/ui/UI_Button_Normal.png" id="1_whpug"]
 [ext_resource type="Texture2D" uid="uid://bmkudww6jhq84" path="res://resources/ui/UI_Button_Focus.png" id="2_nis3q"]
@@ -12,12 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://sisicp06ax7a" path="res://resources/ui/UI_Tab_Hover.png" id="6_lgi76"]
 [ext_resource type="Texture2D" uid="uid://33gmg1rl8sn4" path="res://resources/ui/UI_Tab_Normal.png" id="6_nndxm"]
 [ext_resource type="Texture2D" uid="uid://dw8ef7i5swas4" path="res://resources/ui/UI_Down.png" id="6_qg8ib"]
-[ext_resource type="Texture2D" uid="uid://dpr25c2a41ldb" path="res://resources/ui/UI_Sprite_2.png" id="7_7kddb"]
+[ext_resource type="Texture2D" uid="uid://u7562fvs48h1" path="res://resources/ui/UI_Sprite_2.png" id="7_7kddb"]
 [ext_resource type="Texture2D" uid="uid://bd827650mmj54" path="res://resources/ui/UI_Up.png" id="7_dxuv0"]
 [ext_resource type="Texture2D" uid="uid://daxkx4gvm0py8" path="res://resources/ui/UI_Right.png" id="7_evec2"]
 [ext_resource type="Texture2D" uid="uid://bkrlk5ruo088f" path="res://resources/ui/UI_Menu_Panel.png" id="7_tqdkm"]
-[ext_resource type="Texture2D" uid="uid://r88dbulxqw8m" path="res://resources/ui/UI_Panel_Background.png" id="9_12cyy"]
-[ext_resource type="Texture2D" uid="uid://dxkab4mquxlkc" path="res://resources/ui/UI_Panel_Widget.png" id="16_yhwj1"]
+[ext_resource type="Texture2D" uid="uid://b146wcmtn6bd2" path="res://resources/ui/UI_Panel_Background.png" id="9_12cyy"]
+[ext_resource type="Texture2D" uid="uid://7g3fkfdhi25y" path="res://resources/ui/UI_Panel_Widget.png" id="16_yhwj1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12cyy"]
 bg_color = Color(0, 0, 0, 0.6901961)
@@ -275,8 +275,28 @@ texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 modulate_color = Color(0.14901961, 0.47843137, 0.9137255, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgmgi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g8w0"]
+atlas = ExtResource("4_mgmgi")
+region = Rect2(873, 165, 32, 5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6yyed"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+texture = SubResource("AtlasTexture_5g8w0")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3u1er"]
 bg_color = Color(0.14901961, 0.47843137, 0.9137255, 1)
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aliwb"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -445,7 +465,8 @@ PopupMenu/styles/hover = SubResource("StyleBoxTexture_whpug")
 PopupMenu/styles/panel = SubResource("StyleBoxTexture_mgmgi")
 ProgressBar/colors/font_color = Color(1, 1, 1, 1)
 ProgressBar/constants/outline_size = 4
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_mgmgi")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_6yyed")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_3u1er")
 RichTextLabel/constants/outline_size = 4
 RightStaminaBar/base_type = &"ProgressBar"
 RightStaminaBar/styles/background = SubResource("StyleBoxFlat_aliwb")

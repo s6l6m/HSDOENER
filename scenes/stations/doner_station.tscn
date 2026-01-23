@@ -1,35 +1,98 @@
-[gd_scene load_steps=5 format=3 uid="uid://524ejq66alxp"]
+[gd_scene load_steps=9 format=3 uid="uid://524ejq66alxp"]
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_6m066"]
-[ext_resource type="Script" uid="uid://cykmlpk02o4mb" path="res://scenes/stations/doner_station.gd" id="2_tydxm"]
-[ext_resource type="Texture2D" uid="uid://csshwveoyn628" path="res://assets/workstations/content/Doner_default.png" id="3_tydxm"]
+[ext_resource type="Script" uid="uid://03ho7giprpxk" path="res://scenes/stations/doner_station.gd" id="2_tydxm"]
+[ext_resource type="SpriteFrames" uid="uid://cvnyp8tfw8vkk" path="res://scenes/stations/doner_sprite_frames.tres" id="3_sprites"]
+[ext_resource type="Texture2D" uid="uid://cqmbdgx3rrhi8" path="res://assets/effects/steam_particle.png" id="4_o6xuo"]
+
+[sub_resource type="Gradient" id="Gradient_steam"]
+colors = PackedColorArray(1, 1, 1, 0.4, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_fire"]
+offsets = PackedFloat32Array(0, 0.4, 1)
+colors = PackedColorArray(1, 1, 0.3, 1, 1, 0.4, 0, 0.9, 0.8, 0.1, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqqjy"]
+bg_color = Color(0.88654816, 0.1808725, 0, 1)
+anti_aliasing = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysy51"]
 size = Vector2(64, 65.5)
 
 [node name="DonerStation" instance=ExtResource("1_6m066")]
 script = ExtResource("2_tydxm")
-burn_time = 10.0
+burn_time = 20.0
+cutting_duration = 2.0
+resetting_duration = 2.0
 station_type = 2
 
-[node name="Content" parent="Rotatable" index="1"]
-position = Vector2(0, -59)
-scale = Vector2(1.5362405, 1.5362405)
-texture = ExtResource("3_tydxm")
+[node name="SteamParticles" type="CPUParticles2D" parent="Rotatable/Content" index="0"]
+unique_name_in_owner = true
+z_index = 1
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("4_o6xuo")
+lifetime = 1.2
+explosiveness = 0.1
+direction = Vector2(0, -1)
+spread = 25.0
+gravity = Vector2(0, -30)
+initial_velocity_min = 15.0
+initial_velocity_max = 25.0
+scale_amount_min = 0.5
+scale_amount_max = 0.6
+color = Color(1, 1, 1, 0.35)
+color_ramp = SubResource("Gradient_steam")
+
+[node name="FireParticles" type="CPUParticles2D" parent="Rotatable/Content" index="1"]
+unique_name_in_owner = true
+scale = Vector2(0.65, 0.65)
+amount = 24
+lifetime = 0.65
+explosiveness = 0.1
+direction = Vector2(0, -1)
+spread = 100.0
+gravity = Vector2(0, -120)
+initial_velocity_min = 40.0
+initial_velocity_max = 70.0
+scale_amount_min = 10.0
+scale_amount_max = 10.0
+color = Color(1, 0.6, 0.1, 0.85)
+color_ramp = SubResource("Gradient_fire")
+
+[node name="DonerSprite" type="AnimatedSprite2D" parent="Rotatable/Content" index="2"]
+unique_name_in_owner = true
+modulate = Color(1, 0.89832354, 0.75355047, 1)
+z_as_relative = false
+scale = Vector2(0.55, 0.55)
+sprite_frames = ExtResource("3_sprites")
+animation = &"rotate_normal"
+frame_progress = 0.22418605
+offset = Vector2(0, -38)
 
 [node name="CollisionShape2D" parent="Rotatable/CollisionSmall" index="0"]
 visible = false
+position = Vector2(15, -57)
+
+[node name="ProgressBar" type="ProgressBar" parent="Rotatable" index="4"]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+offset_left = -21.0
+offset_top = -57.0
+offset_right = 21.0
+offset_bottom = -50.0
+show_percentage = false
+
+[node name="BurnProgressBar" type="ProgressBar" parent="Rotatable" index="5"]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+offset_left = -21.0
+offset_top = -94.0
+offset_right = 21.0
+offset_bottom = -87.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_cqqjy")
+show_percentage = false
 
 [node name="CollisionShape2D" parent="Rotatable/InteractionArea" index="0"]
 shape = SubResource("RectangleShape2D_ysy51")
-
-[node name="ProgressBar" type="ProgressBar" parent="Rotatable" index="5"]
-unique_name_in_owner = true
-visible = false
-z_index = 1010
-z_as_relative = false
-offset_left = -21.0
-offset_top = -89.0
-offset_right = 21.0
-offset_bottom = -82.0
-show_percentage = false

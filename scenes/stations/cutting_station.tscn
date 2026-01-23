@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cuudswvlhc7jf"]
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_s5h3g"]
-[ext_resource type="Script" uid="uid://b8c1ttqa1wksk" path="res://scenes/stations/cutting_station.gd" id="2_fwyh5"]
-[ext_resource type="Texture2D" uid="uid://cayndjshlejg5" path="res://assets/workstations/content/Schneidebrett.png" id="2_s7yq8"]
+[ext_resource type="Script" uid="uid://clossmuuaemyv" path="res://scenes/stations/cutting_station.gd" id="2_fwyh5"]
+[ext_resource type="Texture2D" uid="uid://vialtvv2v2yd" path="res://assets/workstations/content/Schneidebrett.png" id="2_s7yq8"]
 
 [node name="CuttingStation" instance=ExtResource("1_s5h3g")]
 script = ExtResource("2_fwyh5")
@@ -22,17 +22,16 @@ position = Vector2(0, -40)
 [node name="ProgressBar" type="ProgressBar" parent="Rotatable" index="6"]
 unique_name_in_owner = true
 visible = false
-z_index = 1010
-z_as_relative = false
+z_index = 20
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -21.0
-offset_top = -56.0
+offset_top = -60.0
 offset_right = 21.0
-offset_bottom = -49.0
+offset_bottom = -53.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4

@@ -25,6 +25,9 @@ var stored_ingredient: IngredientEntity
 # Lifecycle
 # =====================================================
 func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+
 	_update_cutting(delta)
 
 # =====================================================

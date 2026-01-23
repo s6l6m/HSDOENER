@@ -85,7 +85,7 @@ func _build_lookup() -> void:
 # One-shot sounds (coins, UI, short SFX)
 static func play(id: AudioID) -> AudioStreamPlayer:
 	if _instance == null:
-		push_error("AudioPlayerManager not ready")
+		push_error("AudioPlayerManager not ready | ID: ", AudioID.find_key(id))
 		return
 	return _instance._play(id)
 
