@@ -96,9 +96,6 @@ func _ready() -> void:
 	if held_item_anchor:
 		base_held_item_offset = held_item_anchor.position
 
-func _process(_delta: float) -> void:
-	pass
-
 func _load_sprite_frames() -> void:
 	var gamestate := GameState.get_or_create_state()
 	var sprite_frames_resource = CharacterSelectionManager.get_sprite_frames_for_player(gamestate, player_number)

@@ -35,6 +35,7 @@ position = Vector2(-40, 0)
 shape = SubResource("RectangleShape2D_m886f")
 
 [node name="Content" type="Sprite2D" parent="."]
+z_index = 50
 scale = Vector2(1.5, 1.5)
 
 [node name="InteractionAreaCustomer" type="Area2D" parent="."]
