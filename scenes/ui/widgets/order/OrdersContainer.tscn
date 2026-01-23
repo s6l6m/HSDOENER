@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cx33a7apawsty"]
 
-[ext_resource type="Script" uid="uid://dlyk6ibj2isvi" path="res://scenes/ui/widgets/order/orders_container.gd" id="1_k0tt7"]
+[ext_resource type="Script" uid="uid://daluwwurih8mv" path="res://scenes/ui/widgets/order/orders_container.gd" id="1_k0tt7"]
 [ext_resource type="PackedScene" uid="uid://gdxhyp5mg2l4" path="res://scenes/ui/widgets/order/order_widget.tscn" id="2_smva6"]
 
 [node name="OrdersContainer" type="HBoxContainer"]

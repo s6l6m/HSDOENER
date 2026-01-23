@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://b5gf2i04f2toe"]
 
-[ext_resource type="Script" uid="uid://cifydixhr2lix" path="res://scenes/ingredients/ingredient-data.gd" id="1_jslii"]
+[ext_resource type="Script" uid="uid://cd3kteej8yuu5" path="res://scenes/ingredients/ingredient-data.gd" id="1_jslii"]
 [ext_resource type="Texture2D" uid="uid://bnavmr0bdehgh" path="res://assets/food/items/fleisch-normal-item.png" id="1_m52je"]
 
 [resource]

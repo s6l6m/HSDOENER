@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b7wvjtcdfwo8k" path="res://scenes/stations/plate_station.tscn" id="13_vnhad"]
 [ext_resource type="PackedScene" uid="uid://chn64x1htog3j" path="res://scenes/orders/ServingSlot.tscn" id="14_58exa"]
 [ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/Player.tscn" id="15_c4d3p"]
-[ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="16_2l1kd"]
+[ext_resource type="Script" uid="uid://pd7kvu4xmkqe" path="res://scripts/camera_movement.gd" id="16_2l1kd"]
 [ext_resource type="PackedScene" uid="uid://bjyqpv0xaejip" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="17_4g7da"]
 
 [node name="Level" instance=ExtResource("1_uhqyg")]
@@ -67,17 +67,16 @@ position = Vector2(1369, 728)
 [node name="Stations" type="Node2D" parent="Map" index="4"]
 metadata/_edit_lock_ = true
 
-[node name="CucumberStation" parent="Map/Stations" index="0" instance=ExtResource("3_wbc2a")]
+[node name="DonerStation" parent="Map/Stations" index="0" instance=ExtResource("4_gplij")]
+position = Vector2(448, 161)
+resetting_duration = 1.5
+
+[node name="CucumberStation" parent="Map/Stations" index="1" instance=ExtResource("3_wbc2a")]
 position = Vector2(64, 161)
 
-[node name="CucumberStation2" parent="Map/Stations" index="1" instance=ExtResource("3_wbc2a")]
+[node name="CucumberStation2" parent="Map/Stations" index="2" instance=ExtResource("3_wbc2a")]
 position = Vector2(320, 704)
 direction = 0
-
-[node name="DonerStation" parent="Map/Stations" index="2" instance=ExtResource("4_gplij")]
-position = Vector2(448, 161)
-cook_time = 5.0
-ready_time = 5.0
 
 [node name="OnionStation" parent="Map/Stations" index="3" instance=ExtResource("5_6acy7")]
 position = Vector2(576, 161)
@@ -193,7 +192,7 @@ limit_left = -214
 limit_top = -130
 limit_right = 1540
 limit_bottom = 946
-position_smoothing_speed = 128.0
+position_smoothing_speed = 0.0
 drag_vertical_offset = -0.5
 drag_left_margin = 0.0
 drag_top_margin = 0.0
