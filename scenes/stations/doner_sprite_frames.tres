@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://cvnyp8tfw8vkk"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://cvnyp8tfw8vkk"]
 
 [ext_resource type="Texture2D" uid="uid://cqyuwffp4lhs7" path="res://assets/workstations/content/doner/rotation/doenerspiessnormal.png" id="1_normal"]
 [ext_resource type="Texture2D" uid="uid://d22w73wys8l7i" path="res://assets/workstations/content/doner/rotation/doenerspiessburnt.png" id="2_burnt"]

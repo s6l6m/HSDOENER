@@ -9,18 +9,16 @@ class_name TutorialManager
 ## Delay before opening the tutorials when the scene becomes ready.
 @export var auto_open_delay : float = 0.25
 
+@onready var scene_root := get_tree().current_scene
+
 func open_tutorials() -> void:
-	var _initial_focus_control : Control = get_viewport().gui_get_focus_owner()
-	print(tutorial_scenes)
+	var initial_focus : Control = get_viewport().gui_get_focus_owner()
 	for tutorial_scene in tutorial_scenes:
-		var tutorial_menu : Control = tutorial_scene.instantiate()
-		if tutorial_menu == null:
-			push_warning("tutorial failed to open %s" % tutorial_scene)
-			return
-		get_tree().current_scene.call_deferred("add_child", tutorial_menu)
-		await tutorial_menu.tree_exited
-		if is_inside_tree() and _initial_focus_control:
-			_initial_focus_control.grab_focus()
+		var tutorial_menu: OverlaidWindow = tutorial_scene.instantiate()
+		scene_root.add_child.call_deferred(tutorial_menu)
+		await tutorial_menu.closed
+		if is_inside_tree() and initial_focus:
+			initial_focus.grab_focus()
 
 func _ready() -> void:
 	if auto_open:
