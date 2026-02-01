@@ -54,8 +54,10 @@ var sprite_right: Texture2D = load("res://assets/workstations/workstation_right.
 # =====================================================
 @onready var rotatable: Node2D = $Rotatable
 @onready var table_sprite: Sprite2D = $Rotatable/Sprite2D
-@onready var collisionBoxLarge := get_node_or_null(^"Rotatable/Collision/CollisionShape2D") as CollisionShape2D
-@onready var collisionBoxSmall := get_node_or_null(^"Rotatable/CollisionSmall/CollisionShape2D") as CollisionShape2D
+@onready var collisionBoxUp := get_node_or_null(^"Rotatable/CollisionUp/CollisionShape2D") as CollisionShape2D
+@onready var collisionBoxDown := get_node_or_null(^"Rotatable/CollisionDown/CollisionShape2D") as CollisionShape2D
+@onready var collisionBoxRight := get_node_or_null(^"Rotatable/CollisionRight/CollisionShape2D") as CollisionShape2D
+@onready var collisionBoxLeft := get_node_or_null(^"Rotatable/CollisionLeft/CollisionShape2D") as CollisionShape2D
 @onready var interactionArea := get_node_or_null(^"Rotatable/InteractionArea/CollisionShape2D") as CollisionShape2D
 @onready var content: Sprite2D = $Rotatable/Content
 
@@ -133,15 +135,19 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 # Helpers
 # =====================================================
 func update_direction() -> void:
-	if collisionBoxLarge != null:
-		collisionBoxLarge.disabled = true
-	if collisionBoxSmall != null:
-		collisionBoxSmall.disabled = true
+	if collisionBoxUp != null:
+		collisionBoxUp.disabled = true
+	if collisionBoxDown != null:
+		collisionBoxDown.disabled = true
+	if collisionBoxRight != null:
+		collisionBoxRight.disabled = true
+	if collisionBoxLeft != null:
+		collisionBoxLeft.disabled = true
 
 	match direction:
 		Direction.UP:
-			if collisionBoxLarge != null:
-				collisionBoxLarge.disabled = false
+			if collisionBoxUp != null:
+				collisionBoxUp.disabled = false
 			content.position = Vector2(0, -40)
 			content.rotation_degrees = 0
 			rotatable.rotation_degrees = 0
@@ -149,31 +155,31 @@ func update_direction() -> void:
 			interactionArea.position = Vector2(0, -6)
 
 		Direction.RIGHT:
-			if collisionBoxSmall != null:
-				collisionBoxSmall.disabled = false
+			if collisionBoxRight != null:
+				collisionBoxRight.disabled = false
 			content.position = Vector2(-14, -55)
 			content.rotation_degrees = 0
 			rotatable.rotation_degrees = 90
 			table_sprite.texture = sprite_right
-			collisionBoxSmall.position = Vector2(15, -57)
+			collisionBoxRight.position = Vector2(0, -57)
 			interactionArea.position = Vector2(-15, -21)
 
 		Direction.DOWN:
-			if collisionBoxSmall != null:
-				collisionBoxSmall.disabled = false
+			if collisionBoxDown != null:
+				collisionBoxDown.disabled = false
 			content.position = Vector2(0, -40)
 			content.rotation_degrees = 0
 			rotatable.rotation_degrees = 180
 			table_sprite.texture = sprite_down
-			collisionBoxSmall.position = Vector2(0, -42)
+			collisionBoxDown.position = Vector2(0, -42)
 			interactionArea.position = Vector2(0, -6)
 
 		Direction.LEFT:
-			if collisionBoxSmall != null:
-				collisionBoxSmall.disabled = false
+			if collisionBoxLeft != null:
+				collisionBoxLeft.disabled = false
 			content.position = Vector2(14, -55)
 			content.rotation_degrees = 0
 			rotatable.rotation_degrees = 270
 			table_sprite.texture = sprite_left
-			collisionBoxSmall.position = Vector2(-15, -57)
+			collisionBoxLeft.position = Vector2(0, -57)
 			interactionArea.position = Vector2(15, -21)

@@ -171,6 +171,8 @@ func _on_level_loader_level_ready() -> void:
 func _auto_load() -> void:
 	if auto_load:
 		_load_checkpoint_level()
+	else:
+		load_level(GameState.get_current_level_path())
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return

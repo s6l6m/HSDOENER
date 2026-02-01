@@ -15,10 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://b7wvjtcdfwo8k" path="res://scenes/stations/plate_station.tscn" id="13_vnhad"]
 [ext_resource type="PackedScene" uid="uid://chn64x1htog3j" path="res://scenes/orders/ServingSlot.tscn" id="14_58exa"]
 [ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/Player.tscn" id="15_c4d3p"]
-[ext_resource type="Script" uid="uid://pd7kvu4xmkqe" path="res://scripts/camera_movement.gd" id="16_2l1kd"]
+[ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="16_2l1kd"]
 [ext_resource type="PackedScene" uid="uid://bjyqpv0xaejip" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="17_4g7da"]
 
-[node name="Level" instance=ExtResource("1_uhqyg")]
+[node name="Level2" instance=ExtResource("1_uhqyg")]
+next_level_path = "uid://dbdq4tvi671rd"
 
 [node name="Map" type="Node2D" parent="." index="0"]
 position = Vector2(23, 149)
