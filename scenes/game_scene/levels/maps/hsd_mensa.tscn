@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bv420bevae7fi"]
+[gd_scene load_steps=17 format=4 uid="uid://bv420bevae7fi"]
 
 [ext_resource type="PackedScene" uid="uid://b2xymsk6rlk2o" path="res://scenes/game_scene/levels/common/level.tscn" id="1_uhqyg"]
 [ext_resource type="TileSet" uid="uid://ccmxw31mqfgsf" path="res://assets/tilesets/tile_set.tres" id="2_nbv64"]
@@ -15,8 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b7wvjtcdfwo8k" path="res://scenes/stations/plate_station.tscn" id="13_vnhad"]
 [ext_resource type="PackedScene" uid="uid://chn64x1htog3j" path="res://scenes/orders/ServingSlot.tscn" id="14_58exa"]
 [ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/Player.tscn" id="15_c4d3p"]
-[ext_resource type="Script" uid="uid://pd7kvu4xmkqe" path="res://scripts/camera_movement.gd" id="16_2l1kd"]
-[ext_resource type="PackedScene" uid="uid://bjyqpv0xaejip" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="17_4g7da"]
+[ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="16_2l1kd"]
 
 [node name="Level" instance=ExtResource("1_uhqyg")]
 
@@ -201,9 +200,6 @@ drag_bottom_margin = 0.0
 editor_draw_limits = true
 script = ExtResource("16_2l1kd")
 targets = [NodePath("../Map/Players/Player1"), NodePath("../Map/Players/Player2")]
-
-[node name="TutorialManager" parent="." index="8"]
-tutorial_scenes = Array[PackedScene]([ExtResource("17_4g7da")])
 
 [node name="CustomerManager" parent="." index="9" node_paths=PackedStringArray("camera")]
 queue_points = Array[NodePath]([NodePath("../Map/CustomersMarkers/5"), NodePath("../Map/CustomersMarkers/4"), NodePath("../Map/CustomersMarkers/3"), NodePath("../Map/CustomersMarkers/2"), NodePath("../Map/CustomersMarkers/1")])
