@@ -103,8 +103,6 @@ static func add_coins(coins: int) -> void:
 static func reset() -> void:
 	var game_state := get_or_create_state()
 	game_state.level_states = {}
-	game_state.current_level_path = ""
-	game_state.continue_level_path = ""
 	game_state.play_time = 0
 	game_state.total_time = 0
 	game_state.total_coins = 0

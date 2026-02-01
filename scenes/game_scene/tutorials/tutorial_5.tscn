@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bkq8acq8q0scu"]
+
+[ext_resource type="PackedScene" uid="uid://6gdbfi0172ji" path="res://addons/maaacks_game_template/base/nodes/windows/overlaid_window.tscn" id="1_ccijb"]
+
+[node name="OverlaidWindow" unique_id=567943486 instance=ExtResource("1_ccijb")]
+process_mode = 3
+visibility_layer = 524289
+custom_minimum_size = Vector2(420, 200)
+offset_left = -319.0
+offset_top = -163.0
+offset_right = 319.0
+offset_bottom = 163.0
+pauses_game = true
+update_content = true
+text = "Für jede abgeschlossene Bestellung erhältst du die Anzahl an Coins, die unten auf der Bestellkarte angegeben ist. Die volle Belohnung gibt es jedoch nur, wenn alle Zutaten korrekt sind, das Gemüse frisch ist und die Lieferung rechtzeitig erfolgt.
+Zeit: Der Zeit-Score verringert sich jede Sekunde.
+Frische: Die Frische des Gemüses sinkt, sobald du es von der Station aufgenommen hast."
+close_button_text = "Spiel Starten"
+title = "Score"
+title_font_size = 20
+
+[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
+theme_override_font_sizes/font_size = 20
+text = "Score"
+
+[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" index="0"]
+text = "Für jede abgeschlossene Bestellung erhältst du die Anzahl an Coins, die unten auf der Bestellkarte angegeben ist. Die volle Belohnung gibt es jedoch nur, wenn alle Zutaten korrekt sind, das Gemüse frisch ist und die Lieferung rechtzeitig erfolgt.
+Zeit: Der Zeit-Score verringert sich jede Sekunde.
+Frische: Die Frische des Gemüses sinkt, sobald du es von der Station aufgenommen hast."
+
+[node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
+text = "Spiel Starten"
