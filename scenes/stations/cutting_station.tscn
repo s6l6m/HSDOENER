@@ -14,9 +14,6 @@ station_type = 1
 [node name="Content" parent="Rotatable" index="1"]
 texture = ExtResource("2_s7yq8")
 
-[node name="CollisionShape2D" parent="Rotatable/CollisionSmall" index="0"]
-position = Vector2(-16, -20)
-
 [node name="Food" type="Node2D" parent="Rotatable" index="5"]
 unique_name_in_owner = true
 position = Vector2(0, -40)
