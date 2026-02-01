@@ -8,7 +8,8 @@ visibility_layer = 524289
 custom_minimum_size = Vector2(420, 200)
 pauses_game = true
 update_content = true
-text = "Hallo"
+text = "Deine Aufgabe ist es, so viele Kunden wie möglich glücklich zu machen, indem du ihnen schnellstmöglich frische Döner nach ihren Wünschen zubereitest. Die Kunden betreten nacheinander den Laden, geben ihre Bestellung auf und reihen sich in die Warteschlange ein.
+"
 close_button_text = "Weiter"
 title = "Ziel des Spiels"
 title_font_size = 20
@@ -18,7 +19,8 @@ theme_override_font_sizes/font_size = 20
 text = "Ziel des Spiels"
 
 [node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" index="0"]
-text = "Hallo"
+text = "Deine Aufgabe ist es, so viele Kunden wie möglich glücklich zu machen, indem du ihnen schnellstmöglich frische Döner nach ihren Wünschen zubereitest. Die Kunden betreten nacheinander den Laden, geben ihre Bestellung auf und reihen sich in die Warteschlange ein.
+"
 
 [node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
 text = "Weiter"

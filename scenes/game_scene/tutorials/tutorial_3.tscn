@@ -2,23 +2,31 @@
 
 [ext_resource type="PackedScene" uid="uid://6gdbfi0172ji" path="res://addons/maaacks_game_template/base/nodes/windows/overlaid_window.tscn" id="1_hy5iy"]
 
-[node name="OverlaidWindow" instance=ExtResource("1_hy5iy")]
+[node name="OverlaidWindow" unique_id=567943486 instance=ExtResource("1_hy5iy")]
 process_mode = 3
 visibility_layer = 524289
 custom_minimum_size = Vector2(420, 200)
+offset_left = -319.0
+offset_top = -163.0
+offset_right = 319.0
+offset_bottom = 163.0
 pauses_game = true
 update_content = true
-text = "Hallo123123"
+text = "Es gibt separate Stationen für Teller und jede Zutat sowie spezielle Schneidestationen.
+Gemüse: Dieses muss an der Schneidestation zerkleinert werden, bevor es verwendet werden kann.
+Fleisch: Das Fleisch schneidest du mit der Interaktionstaste B direkt vom Spieß ab. Achte dabei auf die Progress Bar über dem Spieß: Sie zeigt an, wie knusprig das Fleisch ist. Läuft die Zeit ab, brennt das Fleisch an. In diesem Fall musst du zuerst die Interaktionstaste A drücken, um das verbrannte Fleisch abzuschaben, bevor du erneut schneiden kannst."
 close_button_text = "Weiter"
-title = "Ziel des Spiels"
+title = "Stationen"
 title_font_size = 20
 
 [node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
 theme_override_font_sizes/font_size = 20
-text = "Ziel des Spiels"
+text = "Stationen"
 
 [node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" index="0"]
-text = "Hallo123123"
+text = "Es gibt separate Stationen für Teller und jede Zutat sowie spezielle Schneidestationen.
+Gemüse: Dieses muss an der Schneidestation zerkleinert werden, bevor es verwendet werden kann.
+Fleisch: Das Fleisch schneidest du mit der Interaktionstaste B direkt vom Spieß ab. Achte dabei auf die Progress Bar über dem Spieß: Sie zeigt an, wie knusprig das Fleisch ist. Läuft die Zeit ab, brennt das Fleisch an. In diesem Fall musst du zuerst die Interaktionstaste A drücken, um das verbrannte Fleisch abzuschaben, bevor du erneut schneiden kannst."
 
 [node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
 text = "Weiter"
