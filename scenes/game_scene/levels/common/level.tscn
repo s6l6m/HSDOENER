@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2xymsk6rlk2o"]
+[gd_scene format=3 uid="uid://b2xymsk6rlk2o"]
 
-[ext_resource type="Script" uid="uid://cxkvbdrjgbygm" path="res://scenes/game_scene/levels/common/level.gd" id="1_nv0pp"]
+[ext_resource type="Script" uid="uid://jdklo48o1vav" path="res://scenes/game_scene/levels/common/level.gd" id="1_nv0pp"]
 [ext_resource type="PackedScene" uid="uid://uu7kvkdnj1tf" path="res://scenes/game_logic/GameManager.tscn" id="2_l1wr4"]
 [ext_resource type="PackedScene" uid="uid://jk25xxv6oo5m" path="res://scripts/audio/audio_player_manager.tscn" id="2_qywm2"]
 [ext_resource type="PackedScene" uid="uid://dpd0yp5gwm45i" path="res://scenes/orders/OrderManager.tscn" id="3_6i7vj"]
@@ -12,12 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://b7txlhqh20os1" path="res://scenes/game_logic/TutorialManager.tscn" id="7_qywm2"]
 [ext_resource type="PackedScene" uid="uid://cx33a7apawsty" path="res://scenes/ui/widgets/order/OrdersContainer.tscn" id="8_6tvmh"]
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" unique_id=163177466]
 script = ExtResource("1_nv0pp")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1185146859]
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=688777210]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,13 +29,13 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 metadata/_edit_lock_ = true
 
-[node name="UIContainer" type="Control" parent="CanvasLayer/MarginContainer"]
+[node name="UIContainer" type="Control" parent="CanvasLayer/MarginContainer" unique_id=1524897480]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 metadata/_edit_lock_ = true
 
-[node name="TimerWidget" parent="CanvasLayer/MarginContainer/UIContainer" instance=ExtResource("5_qywm2")]
+[node name="TimerWidget" parent="CanvasLayer/MarginContainer/UIContainer" unique_id=818258172 instance=ExtResource("5_qywm2")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -49,7 +49,7 @@ scale = Vector2(2.2799976, 2.2799976)
 size_flags_horizontal = 4
 metadata/_edit_lock_ = true
 
-[node name="CoinWidget" parent="CanvasLayer/MarginContainer/UIContainer" instance=ExtResource("6_xknmv")]
+[node name="CoinWidget" parent="CanvasLayer/MarginContainer/UIContainer" unique_id=595514280 instance=ExtResource("6_xknmv")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -65,14 +65,14 @@ grow_vertical = 0
 scale = Vector2(2.1599998, 2.1599998)
 metadata/_edit_lock_ = true
 
-[node name="OrdersContainer" parent="CanvasLayer/MarginContainer/UIContainer" instance=ExtResource("8_6tvmh")]
+[node name="OrdersContainer" parent="CanvasLayer/MarginContainer/UIContainer" unique_id=781532515 instance=ExtResource("8_6tvmh")]
 unique_name_in_owner = true
 layout_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="AudioPlayerManager" parent="." instance=ExtResource("2_qywm2")]
+[node name="AudioPlayerManager" parent="." unique_id=2025007044 instance=ExtResource("2_qywm2")]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("time_manager", "order_manager", "customer_manager", "score_manager", "timer_widget", "coin_widget") instance=ExtResource("2_l1wr4")]
+[node name="GameManager" parent="." unique_id=1639264271 node_paths=PackedStringArray("time_manager", "order_manager", "customer_manager", "score_manager", "timer_widget", "coin_widget") instance=ExtResource("2_l1wr4")]
 unique_name_in_owner = true
 time_manager = NodePath("../TimeManager")
 order_manager = NodePath("../OrderManager")
@@ -81,18 +81,18 @@ score_manager = NodePath("../ScoringManager")
 timer_widget = NodePath("../CanvasLayer/MarginContainer/UIContainer/TimerWidget")
 coin_widget = NodePath("../CanvasLayer/MarginContainer/UIContainer/CoinWidget")
 
-[node name="TimeManager" parent="." instance=ExtResource("3_qywm2")]
+[node name="TimeManager" parent="." unique_id=600519962 instance=ExtResource("3_qywm2")]
 unique_name_in_owner = true
 
-[node name="OrderManager" parent="." instance=ExtResource("3_6i7vj")]
+[node name="OrderManager" parent="." unique_id=1974497992 instance=ExtResource("3_6i7vj")]
 unique_name_in_owner = true
 
-[node name="ScoringManager" parent="." instance=ExtResource("6_ipu0p")]
+[node name="ScoringManager" parent="." unique_id=1192913942 instance=ExtResource("6_ipu0p")]
 unique_name_in_owner = true
 
-[node name="TutorialManager" parent="." instance=ExtResource("7_qywm2")]
+[node name="TutorialManager" parent="." unique_id=1687018954 instance=ExtResource("7_qywm2")]
 unique_name_in_owner = true
 
-[node name="CustomerManager" parent="." node_paths=PackedStringArray("order_manager") instance=ExtResource("5_6i7vj")]
+[node name="CustomerManager" parent="." unique_id=462718122 node_paths=PackedStringArray("order_manager") instance=ExtResource("5_6i7vj")]
 unique_name_in_owner = true
 order_manager = NodePath("../OrderManager")

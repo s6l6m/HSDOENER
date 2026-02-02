@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cm11dxs1blcs"]
+[gd_scene format=3 uid="uid://cm11dxs1blcs"]
 
 [ext_resource type="Script" uid="uid://g65umntlpdo2" path="res://scenes/customers/Customer.gd" id="1_of1yg"]
 [ext_resource type="Texture2D" uid="uid://dx0m4fjno2m54" path="res://scenes/customers/sprites/customer-animation-1.png" id="2_of1yg"]
@@ -258,18 +258,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Customer" type="CharacterBody2D"]
+[node name="Customer" type="CharacterBody2D" unique_id=2017661358]
 visibility_layer = 32769
 collision_layer = 2
 collision_mask = 4
 input_pickable = true
 script = ExtResource("1_of1yg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=246151340]
 position = Vector2(-0.5, 9.500004)
 shape = SubResource("RectangleShape2D_kdaui")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=786848564]
 position = Vector2(0, -14.999992)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_f8wsd")

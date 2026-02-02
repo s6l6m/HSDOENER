@@ -1,46 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://iorjexhj4aqm"]
+[gd_scene format=3 uid="uid://iorjexhj4aqm"]
 
 [ext_resource type="PackedScene" uid="uid://dp3rgqaehb3xu" path="res://addons/maaacks_game_template/base/nodes/menus/options_menu/input/input_options_menu.tscn" id="1_i27v5"]
 [ext_resource type="PackedScene" uid="uid://ctoohxdkxasro" path="res://scenes/menus/options_menu/input/input_icon_mapper.tscn" id="2_hyv0n"]
 
-[node name="Controls" instance=ExtResource("1_i27v5")]
+[node name="Controls" unique_id=1950821856 instance=ExtResource("1_i27v5")]
 remapping_mode = 1
 
-[node name="Label" parent="VBoxContainer/InputMappingContainer" index="0"]
+[node name="Label" parent="VBoxContainer/InputMappingContainer" parent_id_path=PackedInt32Array(2000435692) index="0" unique_id=720431008]
 text = "Steuerung"
 
-[node name="InputActionsList" parent="VBoxContainer/InputMappingContainer" index="1" node_paths=PackedStringArray("input_icon_mapper")]
+[node name="InputActionsList" parent="VBoxContainer/InputMappingContainer" parent_id_path=PackedInt32Array(2000435692) index="1" unique_id=658775019 node_paths=PackedStringArray("input_icon_mapper")]
 visible = false
 input_icon_mapper = NodePath("../../../InputIconMapper")
 
-[node name="InputActionsTree" parent="VBoxContainer/InputMappingContainer" index="2" node_paths=PackedStringArray("input_icon_mapper")]
+[node name="InputActionsTree" parent="VBoxContainer/InputMappingContainer" parent_id_path=PackedInt32Array(2000435692) index="2" unique_id=1853962503 node_paths=PackedStringArray("input_icon_mapper")]
 visible = true
 input_icon_mapper = NodePath("../../../InputIconMapper")
 
-[node name="ResetButton" parent="VBoxContainer/InputMappingContainer/HBoxContainer" index="0"]
+[node name="ResetButton" parent="VBoxContainer/InputMappingContainer/HBoxContainer" parent_id_path=PackedInt32Array(1774958627) index="0" unique_id=1595547761]
 text = "Zurücksetzen"
 
-[node name="KeyDeletionConfirmation" parent="." index="1"]
+[node name="KeyDeletionConfirmation" parent="." index="1" unique_id=1099334309]
 text = "Taste löschen?"
 title = ""
 title_visible = false
 
-[node name="ResetConfirmation" parent="." index="2"]
+[node name="ResetConfirmation" parent="." index="2" unique_id=1099375965]
 text = "Steuerngen zurücksetzen?"
 title_visible = false
 
-[node name="OneInputMinimumMessage" parent="." index="3"]
+[node name="OneInputMinimumMessage" parent="." index="3" unique_id=1120921494]
 title = "Eine Eingabe hinzufügen"
 
-[node name="AlreadyAssignedMessage" parent="." index="4"]
+[node name="AlreadyAssignedMessage" parent="." index="4" unique_id=844370971]
 title = "Bereits hinzugefügt"
 
-[node name="KeyAssignmentWindow" parent="." index="5"]
+[node name="KeyAssignmentWindow" parent="." index="5" unique_id=1998528605]
 title = "Menü"
 
-[node name="TitleLabel" parent="KeyAssignmentWindow/ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
+[node name="TitleLabel" parent="KeyAssignmentWindow/ContentContainer/BoxContainer/TitleMargin/BoxContainer" parent_id_path=PackedInt32Array(1998528605, 668911968) index="0" unique_id=1687762749]
 text = "Menü"
 
-[node name="InputIconMapper" parent="." index="6" instance=ExtResource("2_hyv0n")]
+[node name="InputIconMapper" parent="." index="6" unique_id=1661726723 instance=ExtResource("2_hyv0n")]
 
 [editable path="KeyAssignmentWindow"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bn4a828drg1dp"]
+[gd_scene format=3 uid="uid://bn4a828drg1dp"]
 
 [ext_resource type="Texture2D" uid="uid://caw2df38hwqd5" path="res://resources/ui/UI_Coin.png" id="1_501vx"]
 
@@ -52,6 +52,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Coin" type="AnimatedSprite2D"]
+[node name="Coin" type="AnimatedSprite2D" unique_id=2061278273]
 sprite_frames = SubResource("SpriteFrames_6hf7y")
 frame_progress = 0.6980713

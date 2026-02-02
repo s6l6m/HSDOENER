@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3 uid="uid://fhyl5a3l6vxx"]
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://fhyl5a3l6vxx"]
 
 [ext_resource type="Script" uid="uid://5g70l7pjxgg3" path="res://scripts/resources/character_data.gd" id="1_aj51g"]
 [ext_resource type="Texture2D" uid="uid://cnd7kl5b4ufxa" path="res://resources/characters/portraits/chef_three_portrait.png" id="1_j7pxh"]

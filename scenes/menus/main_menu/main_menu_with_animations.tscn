@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cwk8r8hp26uae"]
+[gd_scene format=3 uid="uid://cwk8r8hp26uae"]
 
 [ext_resource type="Script" uid="uid://bgudewayvmljn" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_ixa71"]
 [ext_resource type="PackedScene" uid="uid://bt6q1fcu5f1ov" path="res://scenes/windows/main_menu_options_window.tscn" id="3_2k5l7"]
@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://b4wb07bqbnqke" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_vsp5b"]
 [ext_resource type="PackedScene" uid="uid://cjfaitjwcf23h" path="res://scenes/ui/sprites/book.tscn" id="6_2k5l7"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="6_8dhfv"]
-[ext_resource type="AudioStream" uid="uid://bfq3ljd7vdg6x" path="res://resources/sounds/main_menu.mp3" id="6_vsp5b"]
+[ext_resource type="AudioStream" uid="uid://d1o4gp12l1dt1" path="res://resources/sounds/main_menu.mp3" id="6_vsp5b"]
 [ext_resource type="PackedScene" uid="uid://bn4a828drg1dp" path="res://scenes/ui/sprites/coin.tscn" id="8_6xh1d"]
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/nodes/labels/config_name_label.gd" id="9_gwise"]
 [ext_resource type="Texture2D" uid="uid://dtognchcy1vpq" path="res://assets/branding/logo/hsdoener_menu_logo.png" id="9_x5bcm"]
-[ext_resource type="Script" uid="uid://g6klv5617mhd" path="res://scenes/menus/main_menu/menu_statistics_container.gd" id="11_672y5"]
+[ext_resource type="Script" uid="uid://duuxj5qk3tagw" path="res://scenes/menus/main_menu/menu_statistics_container.gd" id="11_672y5"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="12_r8ef7"]
 
 [sub_resource type="Animation" id="1"]
@@ -394,7 +394,7 @@ states/Start/position = Vector2(82, 123)
 transitions = ["Intro", "OpenMainMenu", SubResource("11"), "OpenMainMenu", "OpenSubMenu", SubResource("14"), "Start", "Intro", SubResource("AnimationNodeStateMachineTransition_j0orr"), "OpenSubMenu", "OpenMainMenu", SubResource("AnimationNodeStateMachineTransition_63dxc")]
 graph_offset = Vector2(-180.277, 49)
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=168672976]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -408,22 +408,20 @@ game_scene_path = "uid://brs70jgc4xlem"
 options_packed_scene = ExtResource("3_2k5l7")
 credits_packed_scene = ExtResource("4_vsp5b")
 
-[node name="MenuAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_2kqig")
-}
+[node name="MenuAnimationPlayer" type="AnimationPlayer" parent="." unique_id=374139535]
+libraries/ = SubResource("AnimationLibrary_2kqig")
 
-[node name="MenuAnimationTree" type="AnimationTree" parent="."]
+[node name="MenuAnimationTree" type="AnimationTree" parent="." unique_id=1296873317]
 tree_root = SubResource("AnimationNodeStateMachine_vikuh")
 anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = true
 
-[node name="BackgroundMusicPlayer" parent="." instance=ExtResource("6_8dhfv")]
+[node name="BackgroundMusicPlayer" parent="." unique_id=854384613 instance=ExtResource("6_8dhfv")]
 stream = ExtResource("6_vsp5b")
 volume_db = -15.0
 parameters/looping = true
 
-[node name="BackgroundTextureRect" type="TextureRect" parent="."]
+[node name="BackgroundTextureRect" type="TextureRect" parent="." unique_id=90650767]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -433,7 +431,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1625865022]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -442,20 +440,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"MenuPanel"
 
-[node name="MenuContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MenuContainer" type="MarginContainer" parent="PanelContainer" unique_id=1585824333]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="TitleMargin" type="MarginContainer" parent="PanelContainer/MenuContainer"]
+[node name="TitleMargin" type="MarginContainer" parent="PanelContainer/MenuContainer" unique_id=1023461470]
 layout_mode = 2
 theme_override_constants/margin_top = 24
 
-[node name="TitleContainer" type="Control" parent="PanelContainer/MenuContainer/TitleMargin"]
+[node name="TitleContainer" type="Control" parent="PanelContainer/MenuContainer/TitleMargin" unique_id=158061389]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="TitleLabel" type="Label" parent="PanelContainer/MenuContainer/TitleMargin/TitleContainer"]
+[node name="TitleLabel" type="Label" parent="PanelContainer/MenuContainer/TitleMargin/TitleContainer" unique_id=1240509330]
 visible = false
 layout_mode = 1
 anchors_preset = 10
@@ -468,7 +466,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_gwise")
 
-[node name="SubTitleLabel" type="Label" parent="PanelContainer/MenuContainer/TitleMargin/TitleContainer"]
+[node name="SubTitleLabel" type="Label" parent="PanelContainer/MenuContainer/TitleMargin/TitleContainer" unique_id=2065173632]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -480,27 +478,27 @@ text = "Einführung in GODOT-Engine"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LogoTexture" type="TextureRect" parent="PanelContainer/MenuContainer/TitleMargin/TitleContainer"]
+[node name="LogoTexture" type="TextureRect" parent="PanelContainer/MenuContainer/TitleMargin/TitleContainer" unique_id=1890654426]
 layout_mode = 1
 offset_right = 1280.0
 offset_bottom = 1280.0
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("9_x5bcm")
 
-[node name="MenuButtonsMargin" type="MarginContainer" parent="PanelContainer/MenuContainer"]
+[node name="MenuButtonsMargin" type="MarginContainer" parent="PanelContainer/MenuContainer" unique_id=2083103769]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 136
 theme_override_constants/margin_bottom = 8
 
-[node name="MenuButtonsContainer" type="Control" parent="PanelContainer/MenuContainer/MenuButtonsMargin"]
+[node name="MenuButtonsContainer" type="Control" parent="PanelContainer/MenuContainer/MenuButtonsMargin" unique_id=1503474891]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="Control" type="Control" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer"]
+[node name="Control" type="Control" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer" unique_id=2077270476]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -511,7 +509,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.625, 1.625)
 
-[node name="Book" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control" instance=ExtResource("6_2k5l7")]
+[node name="Book" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control" unique_id=366131781 instance=ExtResource("6_2k5l7")]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(53.538513, 0)
 scale = Vector2(3.5000007, 3.5000007)
@@ -519,7 +517,7 @@ animation = &"closed"
 frame = 0
 frame_progress = 0.0
 
-[node name="BookContainer" type="BoxContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control"]
+[node name="BookContainer" type="BoxContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control" unique_id=1092771582]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -534,102 +532,102 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="LeftSideContainer" type="MarginContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer"]
+[node name="LeftSideContainer" type="MarginContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer" unique_id=1171969040]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_right = 24
 
-[node name="MenuStatisticsContainer" type="GridContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer"]
+[node name="MenuStatisticsContainer" type="GridContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer" unique_id=295951388]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 columns = 2
 script = ExtResource("11_672y5")
 
-[node name="CoinsLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer"]
+[node name="CoinsLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer" unique_id=443136576]
 layout_mode = 2
 text = "Coins"
 
-[node name="CoinsValue" type="HBoxContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer"]
+[node name="CoinsValue" type="HBoxContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer" unique_id=956284981]
 layout_mode = 2
 theme_override_constants/separation = 8
 metadata/_edit_lock_ = true
 
-[node name="CoinsValueLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer/CoinsValue"]
+[node name="CoinsValueLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer/CoinsValue" unique_id=1789514906]
 unique_name_in_owner = true
 layout_mode = 2
 text = "000"
 
-[node name="CoinSpriteWrapper" type="Control" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer/CoinsValue"]
+[node name="CoinSpriteWrapper" type="Control" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer/CoinsValue" unique_id=1629465658]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Coin" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer/CoinsValue/CoinSpriteWrapper" instance=ExtResource("8_6xh1d")]
+[node name="Coin" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer/CoinsValue/CoinSpriteWrapper" unique_id=235179029 instance=ExtResource("8_6xh1d")]
 position = Vector2(2.458529, 6.461542)
 scale = Vector2(0.92601347, 0.92601347)
 autoplay = "default"
 frame_progress = 0.24424426
 
-[node name="PlaytimeLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer"]
+[node name="PlaytimeLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer" unique_id=1956459252]
 layout_mode = 2
 text = "Spielzeit"
 
-[node name="PlaytimeValueLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer"]
+[node name="PlaytimeValueLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer" unique_id=1362367953]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00:00"
 
-[node name="GamesPlayedLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer"]
+[node name="GamesPlayedLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer" unique_id=1881107706]
 layout_mode = 2
 text = "Runden"
 
-[node name="GamesPlayedValueLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer"]
+[node name="GamesPlayedValueLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer" unique_id=794599551]
 unique_name_in_owner = true
 layout_mode = 2
 text = "000"
 
-[node name="RoundsWonLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer"]
+[node name="RoundsWonLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer" unique_id=326152532]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "   > gewonnen"
 
-[node name="RoundsWonValueLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer"]
+[node name="RoundsWonValueLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer" unique_id=611708405]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "000"
 
-[node name="RoundsNotCompletedLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer"]
+[node name="RoundsNotCompletedLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer" unique_id=580176298]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "   > ausgeschieden"
 
-[node name="RoundsNotCompletedValueLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer"]
+[node name="RoundsNotCompletedValueLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer" unique_id=887250650]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "000"
 
-[node name="RoundsLostLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer"]
+[node name="RoundsLostLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer" unique_id=189231244]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "   > verloren"
 
-[node name="RoundsLostValueLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer"]
+[node name="RoundsLostValueLabel" type="Label" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/LeftSideContainer/MenuStatisticsContainer" unique_id=870595853]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "000"
 
-[node name="RightSideContainer" type="MarginContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer"]
+[node name="RightSideContainer" type="MarginContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer" unique_id=88008746]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_right = 24
 
-[node name="MenuButtonsBoxContainer" type="BoxContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/RightSideContainer"]
+[node name="MenuButtonsBoxContainer" type="BoxContainer" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/RightSideContainer" unique_id=336873596]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 16
@@ -638,27 +636,27 @@ vertical = true
 script = ExtResource("12_r8ef7")
 lock = true
 
-[node name="NewGameButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/RightSideContainer/MenuButtonsBoxContainer"]
+[node name="NewGameButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/RightSideContainer/MenuButtonsBoxContainer" unique_id=1006914236]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Spiel starten"
 
-[node name="OptionsButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/RightSideContainer/MenuButtonsBoxContainer"]
+[node name="OptionsButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/RightSideContainer/MenuButtonsBoxContainer" unique_id=307112344]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Einstellungen"
 
-[node name="CreditsButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/RightSideContainer/MenuButtonsBoxContainer"]
+[node name="CreditsButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/RightSideContainer/MenuButtonsBoxContainer" unique_id=1882346966]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Credits"
 
-[node name="ExitButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/RightSideContainer/MenuButtonsBoxContainer"]
+[node name="ExitButton" type="Button" parent="PanelContainer/MenuContainer/MenuButtonsMargin/MenuButtonsContainer/Control/BookContainer/RightSideContainer/MenuButtonsBoxContainer" unique_id=1507118463]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Beenden"
 
-[node name="MouseFilter" type="Control" parent="."]
+[node name="MouseFilter" type="Control" parent="." unique_id=866424861]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

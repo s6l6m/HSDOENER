@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://k4h5vb3ph15x"]
+[gd_scene format=3 uid="uid://k4h5vb3ph15x"]
 
 [ext_resource type="Texture2D" uid="uid://fr7q5o01lseq" path="res://resources/ui/Clock/1.png" id="1_0j3pu"]
 [ext_resource type="Texture2D" uid="uid://cwwqug6pdg2p6" path="res://resources/ui/Clock/2.png" id="2_ch0dw"]
@@ -49,7 +49,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Clock" type="AnimatedSprite2D"]
+[node name="Clock" type="AnimatedSprite2D" unique_id=1919744680]
 sprite_frames = SubResource("SpriteFrames_6hf7y")
 autoplay = "default"
 frame_progress = 0.10251127

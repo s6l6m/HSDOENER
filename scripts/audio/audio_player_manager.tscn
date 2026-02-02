@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://jk25xxv6oo5m"]
+[gd_scene format=3 uid="uid://jk25xxv6oo5m"]
 
 [ext_resource type="Script" uid="uid://6l704qsv3aws" path="res://scripts/audio/audio_player_manager.gd" id="1_yrgsg"]
 [ext_resource type="Script" uid="uid://dm3bo54poqaxm" path="res://scripts/audio/AudioCue.gd" id="2_tveoc"]
@@ -132,6 +132,6 @@ volume_scale = 0.2
 loop = true
 metadata/_custom_type_script = "uid://7g4jw1uqoc8i"
 
-[node name="AudioPlayerManager" type="Node"]
+[node name="AudioPlayerManager" type="Node" unique_id=739801140]
 script = ExtResource("1_yrgsg")
 audio_cues = Array[ExtResource("2_tveoc")]([SubResource("Resource_6tvmh"), SubResource("Resource_eeb5m"), SubResource("Resource_3gv34"), SubResource("Resource_q7opq"), SubResource("Resource_rfmnw"), SubResource("Resource_wx8x5"), SubResource("Resource_8lhu5"), SubResource("Resource_be8rr"), SubResource("Resource_8bfq5"), SubResource("Resource_jctrj"), SubResource("Resource_0sqe2"), SubResource("Resource_xemao"), SubResource("Resource_dwfyr"), SubResource("Resource_usfbq"), SubResource("Resource_tw1i2"), SubResource("Resource_nghn8")])

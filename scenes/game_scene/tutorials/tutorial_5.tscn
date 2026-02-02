@@ -19,14 +19,14 @@ close_button_text = "Spiel Starten"
 title = "Score"
 title_font_size = 20
 
-[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
+[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" parent_id_path=PackedInt32Array(668911968) index="0" unique_id=1687762749]
 theme_override_font_sizes/font_size = 20
 text = "Score"
 
-[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" index="0"]
+[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" parent_id_path=PackedInt32Array(1346235617) index="0" unique_id=956013185]
 text = "Für jede abgeschlossene Bestellung erhältst du die Anzahl an Coins, die unten auf der Bestellkarte angegeben ist. Die volle Belohnung gibt es jedoch nur, wenn alle Zutaten korrekt sind, das Gemüse frisch ist und die Lieferung rechtzeitig erfolgt.
 Zeit: Der Zeit-Score verringert sich jede Sekunde.
 Frische: Die Frische des Gemüses sinkt, sobald du es von der Station aufgenommen hast."
 
-[node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
+[node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" parent_id_path=PackedInt32Array(753816283) index="0" unique_id=1006642582]
 text = "Spiel Starten"

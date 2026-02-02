@@ -1,19 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7wvjtcdfwo8k"]
+[gd_scene format=3 uid="uid://b7wvjtcdfwo8k"]
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_apxx5"]
-[ext_resource type="Script" uid="uid://c7t66t8w32i2m" path="res://scenes/stations/plate_station.gd" id="2_apxx5"]
+[ext_resource type="Script" uid="uid://ubc21wmettly" path="res://scenes/stations/plate_station.gd" id="2_apxx5"]
 [ext_resource type="Texture2D" uid="uid://bdpfj5nmmfg7h" path="res://assets/food/items/teller-sprite.png" id="3_apxx5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysy51"]
 size = Vector2(64, 71.25)
 
-[node name="PlateStation" instance=ExtResource("1_apxx5")]
+[node name="PlateStation" unique_id=1920572839 instance=ExtResource("1_apxx5")]
 script = ExtResource("2_apxx5")
 station_type = 5
 
-[node name="Content" parent="Rotatable" index="1"]
+[node name="Content" parent="Rotatable" parent_id_path=PackedInt32Array(574561697) index="1" unique_id=766917746]
 scale = Vector2(0.9894103, 0.9894103)
 texture = ExtResource("3_apxx5")
 
-[node name="CollisionShape2D" parent="Rotatable/InteractionArea" index="0"]
+[node name="CollisionShape2D" parent="Rotatable/InteractionArea" parent_id_path=PackedInt32Array(1875955752) index="0" unique_id=1328220428]
 shape = SubResource("RectangleShape2D_ysy51")

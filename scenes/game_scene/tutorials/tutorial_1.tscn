@@ -14,13 +14,13 @@ close_button_text = "Weiter"
 title = "Ziel des Spiels"
 title_font_size = 20
 
-[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
+[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" parent_id_path=PackedInt32Array(668911968) index="0" unique_id=1687762749]
 theme_override_font_sizes/font_size = 20
 text = "Ziel des Spiels"
 
-[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" index="0"]
+[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" parent_id_path=PackedInt32Array(1346235617) index="0" unique_id=956013185]
 text = "Deine Aufgabe ist es, so viele Kunden wie möglich glücklich zu machen, indem du ihnen schnellstmöglich frische Döner nach ihren Wünschen zubereitest. Die Kunden betreten nacheinander den Laden, geben ihre Bestellung auf und reihen sich in die Warteschlange ein.
 "
 
-[node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
+[node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" parent_id_path=PackedInt32Array(753816283) index="0" unique_id=1006642582]
 text = "Weiter"

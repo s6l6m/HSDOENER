@@ -1,17 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlddl304vd3xa"]
+[gd_scene format=3 uid="uid://dlddl304vd3xa"]
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_4jijf"]
-[ext_resource type="Texture2D" uid="uid://drkfhv8if0e3q" path="res://assets/workstations/content/Tomate.png" id="2_5hfri"]
-[ext_resource type="Script" uid="uid://bl7b2clcbvpa5" path="res://scenes/stations/tomato_station.gd" id="2_87a3p"]
+[ext_resource type="Texture2D" uid="uid://dov1ynbhdfbld" path="res://assets/workstations/content/Tomate.png" id="2_5hfri"]
+[ext_resource type="Script" uid="uid://bfy8tq0v5xu06" path="res://scenes/stations/tomato_station.gd" id="2_87a3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysy51"]
 size = Vector2(64, 79)
 
-[node name="TomatoStation" instance=ExtResource("1_4jijf")]
+[node name="TomatoStation" unique_id=993451771 instance=ExtResource("1_4jijf")]
 script = ExtResource("2_87a3p")
 
-[node name="Content" parent="Rotatable" index="1"]
+[node name="Content" parent="Rotatable" parent_id_path=PackedInt32Array(574561697) index="1" unique_id=766917746]
 texture = ExtResource("2_5hfri")
 
-[node name="CollisionShape2D" parent="Rotatable/InteractionArea" index="0"]
+[node name="CollisionShape2D" parent="Rotatable/InteractionArea" parent_id_path=PackedInt32Array(1875955752) index="0" unique_id=1328220428]
 shape = SubResource("RectangleShape2D_ysy51")

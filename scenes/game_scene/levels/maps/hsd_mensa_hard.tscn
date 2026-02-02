@@ -187,7 +187,7 @@ editor_draw_limits = true
 script = ExtResource("16_2l1kd")
 targets = [NodePath("../Map/Players/Player1"), NodePath("../Map/Players/Player2")]
 
-[node name="CustomerManager" parent="." index="9" node_paths=PackedStringArray("camera")]
+[node name="CustomerManager" parent="." index="9" unique_id=462718122 node_paths=PackedStringArray("camera")]
 queue_points = Array[NodePath]([NodePath("../Map/CustomersMarkers/5"), NodePath("../Map/CustomersMarkers/4"), NodePath("../Map/CustomersMarkers/3"), NodePath("../Map/CustomersMarkers/2"), NodePath("../Map/CustomersMarkers/1")])
 exit_point = NodePath("../Map/CustomersMarkers/Exit")
 spawn_point = NodePath("../Map/CustomersMarkers/Spawn")

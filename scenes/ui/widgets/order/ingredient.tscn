@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkiegbw6yaom8"]
+[gd_scene format=3 uid="uid://bkiegbw6yaom8"]
 
-[ext_resource type="Script" uid="uid://cfoatl1prc2nn" path="res://scenes/ui/widgets/order/ingredient.gd" id="1_dt06c"]
+[ext_resource type="Script" uid="uid://jj1mjg5yedtt" path="res://scenes/ui/widgets/order/ingredient.gd" id="1_dt06c"]
 
-[node name="IngredientPanelContainer" type="PanelContainer"]
+[node name="IngredientPanelContainer" type="PanelContainer" unique_id=1650472110]
 offset_right = 25.0
 offset_bottom = 25.0
 size_flags_horizontal = 4
@@ -10,7 +10,7 @@ size_flags_vertical = 4
 theme_type_variation = &"IngredientContainer"
 script = ExtResource("1_dt06c")
 
-[node name="IngredientIcon" type="TextureRect" parent="."]
+[node name="IngredientIcon" type="TextureRect" parent="." unique_id=1413132610]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2

@@ -1,15 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://csg2f5qv5p7q4"]
+[gd_scene format=3 uid="uid://csg2f5qv5p7q4"]
 
-[ext_resource type="Script" uid="uid://d0e8it4a78pfg" path="res://scenes/items/doner_entity.gd" id="1_2m4j1"]
+[ext_resource type="Script" uid="uid://bomeyd0ccv73q" path="res://scenes/items/doner_entity.gd" id="1_2m4j1"]
 
-[node name="DonerEntity" type="Node2D"]
+[node name="DonerEntity" type="Node2D" unique_id=832411706]
 z_index = 60
 script = ExtResource("1_2m4j1")
 
-[node name="Plate" type="Sprite2D" parent="."]
+[node name="Plate" type="Sprite2D" parent="." unique_id=958836520]
 
-[node name="Base" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="." unique_id=398719085]
 scale = Vector2(0.666, 0.666)
 
-[node name="Ingredients" type="Node2D" parent="."]
+[node name="Ingredients" type="Node2D" parent="." unique_id=1713526252]
 scale = Vector2(0.666, 0.666)

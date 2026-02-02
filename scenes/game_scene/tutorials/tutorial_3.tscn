@@ -19,14 +19,14 @@ close_button_text = "Weiter"
 title = "Stationen"
 title_font_size = 20
 
-[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
+[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" parent_id_path=PackedInt32Array(668911968) index="0" unique_id=1687762749]
 theme_override_font_sizes/font_size = 20
 text = "Stationen"
 
-[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" index="0"]
+[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" parent_id_path=PackedInt32Array(1346235617) index="0" unique_id=956013185]
 text = "Es gibt separate Stationen für Teller und jede Zutat sowie spezielle Schneidestationen.
 Gemüse: Dieses muss an der Schneidestation zerkleinert werden, bevor es verwendet werden kann.
 Fleisch: Das Fleisch schneidest du mit der Interaktionstaste B direkt vom Spieß ab. Achte dabei auf die Progress Bar über dem Spieß: Sie zeigt an, wie knusprig das Fleisch ist. Läuft die Zeit ab, brennt das Fleisch an. In diesem Fall musst du zuerst die Interaktionstaste A drücken, um das verbrannte Fleisch abzuschaben, bevor du erneut schneiden kannst."
 
-[node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
+[node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" parent_id_path=PackedInt32Array(753816283) index="0" unique_id=1006642582]
 text = "Weiter"

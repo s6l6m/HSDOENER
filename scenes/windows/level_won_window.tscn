@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbb3wc2jaxyou"]
+[gd_scene format=3 uid="uid://dbb3wc2jaxyou"]
 
 [ext_resource type="PackedScene" uid="uid://6gdbfi0172ji" path="res://addons/maaacks_game_template/base/nodes/windows/overlaid_window.tscn" id="1_218i2"]
 [ext_resource type="Script" uid="uid://cxng1hipl6ikw" path="res://scenes/windows/level_won_window.gd" id="2_2bpb8"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="3_ss43f"]
 
-[node name="LevelWonWindow" instance=ExtResource("1_218i2")]
+[node name="LevelWonWindow" unique_id=873834785 instance=ExtResource("1_218i2")]
 process_mode = 3
 custom_minimum_size = Vector2(432, 240)
 script = ExtResource("2_2bpb8")
@@ -14,39 +14,39 @@ text = "Level bestanden"
 close_button_text = "Weiter"
 title_visible = false
 
-[node name="TitleMargin" parent="ContentContainer/BoxContainer" index="0"]
+[node name="TitleMargin" parent="ContentContainer/BoxContainer" parent_id_path=PackedInt32Array(35196875) index="0" unique_id=1871809794]
 visible = false
 
-[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" index="0"]
+[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" parent_id_path=PackedInt32Array(1346235617) index="0" unique_id=956013185]
 text = "LEVEL GEWONNEN!"
 
-[node name="MenuButtons" parent="ContentContainer/BoxContainer/MenuButtonsMargin" index="0"]
+[node name="MenuButtons" parent="ContentContainer/BoxContainer/MenuButtonsMargin" parent_id_path=PackedInt32Array(1975742765) index="0" unique_id=753816283]
 vertical = false
 
-[node name="ExitButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
+[node name="ExitButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0" unique_id=1506116761]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Exit"
 
-[node name="MainMenuButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1"]
+[node name="MainMenuButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1" unique_id=1083226485]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Hauptmenü"
 
-[node name="RestartButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2"]
+[node name="RestartButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2" unique_id=314488300]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Neustarten"
 
-[node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="3"]
+[node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="3" unique_id=1006642582]
 size_flags_horizontal = 3
 text = "Weiter"
 
-[node name="MainMenuConfirmation" parent="." index="1" instance=ExtResource("3_ss43f")]
+[node name="MainMenuConfirmation" parent="." index="1" unique_id=30548334 instance=ExtResource("3_ss43f")]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 0)
@@ -55,7 +55,7 @@ text = "Zurück zum Hauptmenü?"
 title = "Confirm Exit"
 title_visible = false
 
-[node name="ExitConfirmation" parent="." index="2" instance=ExtResource("3_ss43f")]
+[node name="ExitConfirmation" parent="." index="2" unique_id=890227910 instance=ExtResource("3_ss43f")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2

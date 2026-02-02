@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgso5mcugyxoi"]
+[gd_scene format=3 uid="uid://dgso5mcugyxoi"]
 
 [ext_resource type="Script" uid="uid://cgqv2whk3u55o" path="res://scenes/credits/scrolling_credits.gd" id="1_hgjqm"]
 [ext_resource type="PackedScene" uid="uid://de06iweerj751" path="res://scenes/credits/credits_label.tscn" id="2_cxj1u"]
 
-[node name="ScrollingCredits" type="Control"]
+[node name="ScrollingCredits" type="Control" unique_id=777002329]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hgjqm")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2111289244]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
@@ -21,21 +21,21 @@ scroll_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=261938872]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HeaderSpace" type="Control" parent="ScrollContainer/VBoxContainer"]
+[node name="HeaderSpace" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=1577897334]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 1080)
 layout_mode = 2
 
-[node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" instance=ExtResource("2_cxj1u")]
+[node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" unique_id=11573917 instance=ExtResource("2_cxj1u")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1920, 0)
 layout_mode = 2
 
-[node name="FooterSpace" type="Control" parent="ScrollContainer/VBoxContainer"]
+[node name="FooterSpace" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=1739322178]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 1080)
 layout_mode = 2

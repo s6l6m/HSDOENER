@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://1w46kse8u11v"]
+[gd_scene format=3 uid="uid://1w46kse8u11v"]
 
 [ext_resource type="PackedScene" uid="uid://bn4a828drg1dp" path="res://scenes/ui/sprites/coin.tscn" id="1_4h2y2"]
-[ext_resource type="Script" uid="uid://8fi7qpwcfunn" path="res://scenes/ui/widgets/coin_widget.gd" id="1_jbdy0"]
+[ext_resource type="Script" uid="uid://oqr3hgxpggyd" path="res://scenes/ui/widgets/coin_widget.gd" id="1_jbdy0"]
 
-[node name="CoinWidget" type="Control"]
+[node name="CoinWidget" type="Control" unique_id=1637881985]
 layout_mode = 3
 anchors_preset = 0
 size_flags_vertical = 4
 script = ExtResource("1_jbdy0")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=298366606]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -21,18 +21,18 @@ offset_top = -46.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1830807027]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_type_variation = &"WidgetPanel"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer" unique_id=875784874]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
-[node name="CoinLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="CoinLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer" unique_id=1522546345]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
@@ -41,23 +41,23 @@ text = "000"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Control" type="Control" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/PanelContainer/HBoxContainer" unique_id=1606623322]
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Coin" parent="VBoxContainer/PanelContainer/HBoxContainer/Control" instance=ExtResource("1_4h2y2")]
+[node name="Coin" parent="VBoxContainer/PanelContainer/HBoxContainer/Control" unique_id=1222769121 instance=ExtResource("1_4h2y2")]
 position = Vector2(18.000002, 9)
 scale = Vector2(1.9375, 1.9375)
 autoplay = "default"
 frame_progress = 0.29248422
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=298304154]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 3
 
-[node name="GoalCoinLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="GoalCoinLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1275530943]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 0.6
@@ -66,7 +66,7 @@ text = "Ziel:"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="GoalCoinCountLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="GoalCoinCountLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=696055271]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2

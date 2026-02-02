@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjfq145sa10oq"]
+[gd_scene format=3 uid="uid://bjfq145sa10oq"]
 
-[ext_resource type="Script" uid="uid://oqyopkpqdgoc" path="res://scenes/stations/trash_station.gd" id="1_4ws13"]
-[ext_resource type="Texture2D" uid="uid://cx447sxbomafu" path="res://assets/workstations/trash_can.png" id="3_isa1o"]
+[ext_resource type="Script" uid="uid://cv6w8cbc0djxd" path="res://scenes/stations/trash_station.gd" id="1_4ws13"]
+[ext_resource type="Texture2D" uid="uid://bj5ek3d4coglu" path="res://assets/workstations/trash_can.png" id="3_isa1o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fm0ul"]
 size = Vector2(32, 40)
@@ -12,44 +12,44 @@ size = Vector2(17, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysy51"]
 size = Vector2(53, 58)
 
-[node name="TrashStation" type="Node2D"]
+[node name="TrashStation" type="Node2D" unique_id=150639461]
 script = ExtResource("1_4ws13")
 
-[node name="Rotatable" type="Node2D" parent="."]
+[node name="Rotatable" type="Node2D" parent="." unique_id=918584385]
 
-[node name="Sprite2D" type="Sprite2D" parent="Rotatable"]
+[node name="Sprite2D" type="Sprite2D" parent="Rotatable" unique_id=1646794377]
 position = Vector2(0, -1)
 texture = ExtResource("3_isa1o")
 
-[node name="Content" type="Sprite2D" parent="Rotatable"]
+[node name="Content" type="Sprite2D" parent="Rotatable" unique_id=1640338816]
 visible = false
 position = Vector2(0, -20)
 
-[node name="Collision" type="StaticBody2D" parent="Rotatable"]
+[node name="Collision" type="StaticBody2D" parent="Rotatable" unique_id=307121563]
 visible = false
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotatable/Collision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotatable/Collision" unique_id=1441917449]
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_fm0ul")
 
-[node name="CollisionSmall" type="StaticBody2D" parent="Rotatable"]
+[node name="CollisionSmall" type="StaticBody2D" parent="Rotatable" unique_id=422859715]
 visible = false
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotatable/CollisionSmall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotatable/CollisionSmall" unique_id=1641475994]
 position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_jeb1n")
 disabled = true
 
-[node name="InteractionArea" type="Area2D" parent="Rotatable"]
+[node name="InteractionArea" type="Area2D" parent="Rotatable" unique_id=2093181371]
 visible = false
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotatable/InteractionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotatable/InteractionArea" unique_id=1344662179]
 position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_ysy51")
 

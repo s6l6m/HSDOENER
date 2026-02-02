@@ -1,4 +1,4 @@
-[gd_scene load_steps=419 format=3 uid="uid://ctoohxdkxasro"]
+[gd_scene format=3 uid="uid://ctoohxdkxasro"]
 
 [ext_resource type="PackedScene" uid="uid://qoexj4ptqt8a" path="res://addons/maaacks_game_template/base/nodes/menus/options_menu/input/input_icon_mapper.tscn" id="1_7vieq"]
 [ext_resource type="Texture2D" uid="uid://1r7fk6kk1q5" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_0.png" id="2_wgqyq"]
@@ -419,7 +419,7 @@
 [ext_resource type="Texture2D" uid="uid://7ojpkq1uct72" path="res://assets/kenney_input-prompts/Steam Deck/Default/steamdeck_trackpad_up.png" id="417_pr6p3"]
 [ext_resource type="Texture2D" uid="uid://d2k0kvtbbqnhv" path="res://assets/kenney_input-prompts/Steam Deck/Default/steamdeck_trackpad_vertical.png" id="418_euhn1"]
 
-[node name="InputIconMapper" instance=ExtResource("1_7vieq")]
+[node name="InputIconMapper" unique_id=1163553372 instance=ExtResource("1_7vieq")]
 replace_strings = {
 "Capslock": "Caps Lock",
 "Generic Stick": "Generic Left Stick",

@@ -17,12 +17,12 @@ close_button_text = "Weiter"
 title = "Kunden bedienen"
 title_font_size = 20
 
-[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
+[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" parent_id_path=PackedInt32Array(668911968) index="0" unique_id=1687762749]
 theme_override_font_sizes/font_size = 20
 text = "Kunden bedienen"
 
-[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" index="0"]
+[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" parent_id_path=PackedInt32Array(1346235617) index="0" unique_id=956013185]
 text = "Sobald der Döner auf dem Teller fertig ist, prüfst du die Farbe der zugehörigen Bestellkarte. Laufe zu dem Bereich des Tresens, der in dieser Farbe markiert ist. Stelle den Teller mit der Interaktionstaste A ab und schließe die Bedienung mit der Interaktionstaste B ab."
 
-[node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
+[node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" parent_id_path=PackedInt32Array(753816283) index="0" unique_id=1006642582]
 text = "Weiter"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqqi6ra8io5hk"]
+[gd_scene format=3 uid="uid://cqqi6ra8io5hk"]
 
 [ext_resource type="Script" uid="uid://bnu2hlsy8gfbf" path="res://scenes/player/player.gd" id="1_wr5hl"]
 [ext_resource type="SpriteFrames" uid="uid://db85xtrmsb3e5" path="res://scenes/player/player_1_sprite_frames.tres" id="2_4kuee"]
@@ -29,27 +29,27 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1744007345]
 collision_layer = 2
 collision_mask = 254
 script = ExtResource("1_wr5hl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1461851812]
 visible = false
 position = Vector2(0, 17.375)
 shape = SubResource("RectangleShape2D_4kuee")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1136456211]
 position = Vector2(0, -1)
 scale = Vector2(0.6, 0.6)
 sprite_frames = ExtResource("2_4kuee")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="HeldItem" type="Node2D" parent="."]
+[node name="HeldItem" type="Node2D" parent="." unique_id=1028065953]
 position = Vector2(0, -58)
 
-[node name="ItemBackground" type="Panel" parent="HeldItem"]
+[node name="ItemBackground" type="Panel" parent="HeldItem" unique_id=1973374023]
 visible = false
 offset_left = -20.0
 offset_top = -20.0
@@ -59,7 +59,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_4kuee")
 
-[node name="Icons" type="Control" parent="."]
+[node name="Icons" type="Control" parent="." unique_id=147566723]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -71,7 +71,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="InteractIconBackground" type="Panel" parent="Icons"]
+[node name="InteractIconBackground" type="Panel" parent="Icons" unique_id=343499797]
 visible = false
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 0
@@ -81,7 +81,7 @@ offset_right = 48.0
 theme_type_variation = &"ButtonPanel"
 theme_override_styles/panel = SubResource("StyleBoxFlat_tpg5x")
 
-[node name="InteractIcon" type="TextureRect" parent="Icons/InteractIconBackground"]
+[node name="InteractIcon" type="TextureRect" parent="Icons/InteractIconBackground" unique_id=1071053428]
 unique_name_in_owner = true
 texture_filter = 2
 custom_minimum_size = Vector2(16, 16)
@@ -91,7 +91,7 @@ offset_bottom = 16.0
 expand_mode = 2
 stretch_mode = 5
 
-[node name="CutIconBackground" type="Panel" parent="Icons"]
+[node name="CutIconBackground" type="Panel" parent="Icons" unique_id=421024441]
 visible = false
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 0
@@ -101,7 +101,7 @@ offset_right = -33.0
 theme_type_variation = &"ButtonPanel"
 theme_override_styles/panel = SubResource("StyleBoxFlat_tpg5x")
 
-[node name="CutIcon" type="TextureRect" parent="Icons/CutIconBackground"]
+[node name="CutIcon" type="TextureRect" parent="Icons/CutIconBackground" unique_id=1156608482]
 unique_name_in_owner = true
 texture_filter = 2
 custom_minimum_size = Vector2(16, 16)
@@ -111,4 +111,4 @@ offset_bottom = 16.0
 expand_mode = 2
 stretch_mode = 5
 
-[node name="InputIconMapper" parent="." instance=ExtResource("4_524rm")]
+[node name="InputIconMapper" parent="." unique_id=1215517300 instance=ExtResource("4_524rm")]

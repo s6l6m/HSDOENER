@@ -17,8 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cqqi6ra8io5hk" path="res://scenes/player/Player.tscn" id="15_c4d3p"]
 [ext_resource type="Script" uid="uid://sv3a4lk24ihx" path="res://scripts/camera_movement.gd" id="16_2l1kd"]
 
-[node name="Level2" unique_id=937214773 instance=ExtResource("1_uhqyg")]
-next_level_path = "uid://dbdq4tvi671rd"
+[node name="Level" unique_id=937214773 instance=ExtResource("1_uhqyg")]
 
 [node name="Map" type="Node2D" parent="." index="0" unique_id=965778908]
 position = Vector2(23, 149)
@@ -202,7 +201,7 @@ editor_draw_limits = true
 script = ExtResource("16_2l1kd")
 targets = [NodePath("../Map/Players/Player1"), NodePath("../Map/Players/Player2")]
 
-[node name="CustomerManager" parent="." index="9" node_paths=PackedStringArray("camera")]
+[node name="CustomerManager" parent="." index="9" unique_id=462718122 node_paths=PackedStringArray("camera")]
 queue_points = Array[NodePath]([NodePath("../Map/CustomersMarkers/5"), NodePath("../Map/CustomersMarkers/4"), NodePath("../Map/CustomersMarkers/3"), NodePath("../Map/CustomersMarkers/2"), NodePath("../Map/CustomersMarkers/1")])
 exit_point = NodePath("../Map/CustomersMarkers/Exit")
 spawn_point = NodePath("../Map/CustomersMarkers/Spawn")

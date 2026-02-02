@@ -1,24 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuudswvlhc7jf"]
+[gd_scene format=3 uid="uid://cuudswvlhc7jf"]
 
 [ext_resource type="PackedScene" uid="uid://lrv2l1ulexqm" path="res://scenes/stations/work_station.tscn" id="1_s5h3g"]
-[ext_resource type="Script" uid="uid://clossmuuaemyv" path="res://scenes/stations/cutting_station.gd" id="2_fwyh5"]
-[ext_resource type="Texture2D" uid="uid://vialtvv2v2yd" path="res://assets/workstations/content/Schneidebrett.png" id="2_s7yq8"]
+[ext_resource type="Script" uid="uid://b8c1ttqa1wksk" path="res://scenes/stations/cutting_station.gd" id="2_fwyh5"]
+[ext_resource type="Texture2D" uid="uid://cayndjshlejg5" path="res://assets/workstations/content/Schneidebrett.png" id="2_s7yq8"]
 
 [sub_resource type="Gradient" id="Gradient_steam"]
 colors = PackedColorArray(1, 1, 1, 0.9, 1, 1, 1, 0)
 
-[node name="CuttingStation" instance=ExtResource("1_s5h3g")]
+[node name="CuttingStation" unique_id=1895128619 instance=ExtResource("1_s5h3g")]
 script = ExtResource("2_fwyh5")
 station_type = 1
 
-[node name="Content" parent="Rotatable" index="1"]
+[node name="Content" parent="Rotatable" parent_id_path=PackedInt32Array(574561697) index="1" unique_id=766917746]
 texture = ExtResource("2_s7yq8")
 
-[node name="Food" type="Node2D" parent="Rotatable" index="5"]
+[node name="Food" type="Node2D" parent="Rotatable" parent_id_path=PackedInt32Array(574561697) index="5" unique_id=1985250417]
 unique_name_in_owner = true
 position = Vector2(0, -40)
 
-[node name="SteamParticles" type="CPUParticles2D" parent="Rotatable" index="6"]
+[node name="SteamParticles" type="CPUParticles2D" parent="Rotatable" parent_id_path=PackedInt32Array(574561697) index="6" unique_id=170550323]
 unique_name_in_owner = true
 position = Vector2(0, -40)
 emitting = false
@@ -32,7 +32,7 @@ scale_amount_min = 20.0
 scale_amount_max = 30.0
 color_ramp = SubResource("Gradient_steam")
 
-[node name="ProgressBar" type="ProgressBar" parent="Rotatable" index="7"]
+[node name="ProgressBar" type="ProgressBar" parent="Rotatable" parent_id_path=PackedInt32Array(574561697) index="7" unique_id=1629943879]
 unique_name_in_owner = true
 visible = false
 z_index = 20

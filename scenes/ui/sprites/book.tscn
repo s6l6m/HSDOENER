@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cjfaitjwcf23h"]
+[gd_scene format=3 uid="uid://cjfaitjwcf23h"]
 
 [ext_resource type="Texture2D" uid="uid://dsxqakk1vwkpu" path="res://resources/ui/UI_Menu_Book.png" id="1_4aqf1"]
 
@@ -192,7 +192,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Book" type="AnimatedSprite2D"]
+[node name="Book" type="AnimatedSprite2D" unique_id=764103777]
 sprite_frames = SubResource("SpriteFrames_sk4uk")
 animation = &"previous"
 autoplay = "default"

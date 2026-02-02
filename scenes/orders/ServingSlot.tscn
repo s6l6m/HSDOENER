@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://chn64x1htog3j"]
+[gd_scene format=3 uid="uid://chn64x1htog3j"]
 
-[ext_resource type="Script" uid="uid://dws8g1i54gbin" path="res://scenes/orders/serving_slot.gd" id="1_7nvyl"]
+[ext_resource type="Script" uid="uid://b6t6gtf7onxbe" path="res://scenes/orders/serving_slot.gd" id="1_7nvyl"]
 [ext_resource type="Texture2D" uid="uid://dbxdf7ln0drne" path="res://assets/workstations/tresen.png" id="2_8wtiy"]
 [ext_resource type="Texture2D" uid="uid://cv8sb861wu7oc" path="res://assets/sprites/counter-color.png" id="3_8wtiy"]
 
@@ -13,47 +13,47 @@ size = Vector2(55, 53.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wtiy"]
 size = Vector2(128, 128)
 
-[node name="ServingSlot" type="Node2D"]
+[node name="ServingSlot" type="Node2D" unique_id=1037232674]
 script = ExtResource("1_7nvyl")
 
-[node name="CounterTexture" type="Sprite2D" parent="."]
+[node name="CounterTexture" type="Sprite2D" parent="." unique_id=1151008272]
 texture = ExtResource("2_8wtiy")
 
-[node name="OrderColor" type="Sprite2D" parent="."]
+[node name="OrderColor" type="Sprite2D" parent="." unique_id=904523068]
 visible = false
 position = Vector2(8.34465e-07, -8.940697e-08)
 scale = Vector2(1.96875, 1.9687499)
 texture = ExtResource("3_8wtiy")
 
-[node name="InteractionArea" type="Area2D" parent="."]
+[node name="InteractionArea" type="Area2D" parent="." unique_id=544657916]
 position = Vector2(-34, 0)
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=700362092]
 position = Vector2(-40, 0)
 shape = SubResource("RectangleShape2D_m886f")
 
-[node name="Content" type="Sprite2D" parent="."]
+[node name="Content" type="Sprite2D" parent="." unique_id=1193245566]
 z_index = 50
 scale = Vector2(1.5, 1.5)
 
-[node name="InteractionAreaCustomer" type="Area2D" parent="."]
+[node name="InteractionAreaCustomer" type="Area2D" parent="." unique_id=1419358080]
 visible = false
 position = Vector2(143, 0)
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionAreaCustomer"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionAreaCustomer" unique_id=1649878531]
 position = Vector2(-51, 0)
 shape = SubResource("RectangleShape2D_a4qep")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1998199916]
 visible = false
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1218773268]
 shape = SubResource("RectangleShape2D_8wtiy")
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
