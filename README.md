@@ -13,7 +13,7 @@
 
 ## Installation
 
-1. Über [Godot Engine](https://godotengine.org/) v4.5.1 installieren 
+1. Über [Godot Engine](https://godotengine.org/) v4.6 installieren 
 2. Repository klonen
 3. Projekt in Godot öffnen und starten
 
